@@ -2,20 +2,24 @@ import axios from "axios";
 import { useState } from "react";
 
 const Register = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [message, setMessage] = useState();
+  const [firstName, setfirstname] = useState("");
+  const [lastName, setlastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const register = () => {
     axios
-      .post("http://localhost:5000/register", { name, email, password })
+      .post("http://localhost:5000/register", {
+        firstName,
+        lastName,
+        email,
+        password,
+      })
       .then((result) => {
-        console.log(result.data.massage);
         setMessage(result.data.massage);
       })
       .catch((err) => {
-        console.log(err.response.data.massage);
         setMessage(err.response.data.massage);
       });
   };
@@ -23,14 +27,22 @@ const Register = () => {
   return (
     <div>
       <input
-        placeholder="Enter Your Name"
+        placeholder="Enter First Name"
         onChange={(e) => {
-          setName(e.target.value);
+          setfirstname(e.target.value);
         }}
       />
+
+      <input
+        placeholder="Enter Last Name"
+        onChange={(e) => {
+          setlastname(e.target.value);
+        }}
+      />
+
       <input
         placeholder="Enter Your email"
-        onClick={(e) => {
+        onChange={(e) => {
           setEmail(e.target.value);
         }}
       />

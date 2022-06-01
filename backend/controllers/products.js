@@ -1,6 +1,7 @@
 const connection =require("../models/db")
+
 const CreateProduct = () => {
-    const { title, image, price, catgry_id, description, subcatgry_id } = req.body;
+    const { title,description, image, price, catgry_id,  subcatgry_id } = req.body;
 
     const query = `INSERT INTO Products (title, image, price,catgry_id,description,subcatgry_id) VALUES (?,?,?,?,?,?,?);`;
     const data = [title, description, price, image, catgry_id, subcatgry_id];

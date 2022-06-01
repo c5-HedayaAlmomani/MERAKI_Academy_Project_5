@@ -98,11 +98,61 @@ const deleteProductById = (req, res) => {
 };
 
 
+const updateProductById = (req, res) => {
+    const { title, img, price, catgry_id, description, subcatgry_id } = req.body;
+    const id = req.params.id;
+
+    const query = `SELECT * FROM Product WHERE id=?;`;
+    const data = [id];
+
+    connection.query(query, data, (err, result) => {
+        if (err) {
+            return res.status(404).json({
+                success: false,
+                massage: `Server error`,
+                err: err,
+            });
+        }
+        if (!result) {
+            res.status(404).json({
+                success: false,
+                massage: `The Product: ${id} is not found`,
+                err: err,
+            });
+        } // result are the data returned by mysql server
+        else {
+            const query = `UPDATE Product SET title=?, img=?,price=?,catgry_id=?,description=?subcatgry_id=? WHERE id=?;`;
+
+
+            //title, img, price, catgry_id, description, subcatgry_id
+            const data = [
+
+                title || result[0].title,
+                img || result[0].img,
+                price || result[0].price,
+                catgry_id || result[0].catgry_id,
+                description || result[0].description,
+                subcatgry_id || result[0].subcatgry_id,
+                id,
+            ];
+
+            connection.query(query, data, (err, result) => {
+                if (result.affectedRows != 0)
+                    res.status(201).json({
+                        success: true,
+                        massage: `Product updated`,
+                        result: result,
+                    });
+            });
+        }
+    });
+};
+
+
 module.exports = {
     CreateProduct,
     getAllProduct,
     getProductById,
-    deleteProductById
-
- 
+    deleteProductById,
+    updateProductById,
 }

@@ -40,11 +40,41 @@ const getAllProduct = (req, res) => {
     });
 };
 
+const getProductById = (req, res) => {
+    const id = req.params.id;
+    const query = `SELECT * FROM Products  WHERE id = ?  `;
+    const data = [id];
+
+    connection.query(query, data, (err, result) => {
+        if (err) {
+            res.status(500).json({
+                success: false,
+                massage: "Server Error",
+                err: err,
+            });
+        }
+        if (!result.length) {
+            res.status(404).json({
+                success: false,
+                massage: "The Product is Not Found",
+            });
+        }
+        res.status(200).json({
+            success: true,
+            massage: `The Product ${id}`,
+            result: result,
+        });
+    });
+};
+
+
 
 
 module.exports = {
     CreateProduct,
     getAllProduct,
+    getProductById,
     
+
  
 }

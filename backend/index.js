@@ -8,7 +8,7 @@ const permissionRouter = require("./routes/permission");
 const registerRouter=require("./routes/register")
 const loginRouter=require("./routes/login")
 const productsRouter=require("./routes/products")
-
+const CategoryRouter =require ("./routes/category")
 
 
 //routers
@@ -24,6 +24,7 @@ app.use("/permission", permissionRouter);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 app.use("/products",productsRouter)
+app.use("/category",CategoryRouter)
 
 
 const PORT = process.env.PORT || 5000;

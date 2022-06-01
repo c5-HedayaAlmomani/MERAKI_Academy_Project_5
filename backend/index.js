@@ -5,6 +5,9 @@ require("./models/db");
 
 const roleRouter = require("./routes/role");
 const permissionRouter = require("./routes/permission");
+const registerRouter=require("./routes/register")
+const loginRouter=require("./routes/login")
+
 
 //routers
 const app = express();
@@ -16,6 +19,9 @@ app.use(cors());
 // router middleware
 app.use("/roles", roleRouter);
 app.use("/permission", permissionRouter);
+app.use("/register", registerRouter);
+app.use("/login", loginRouter);
+
 
 const PORT = process.env.PORT || 5000;
 

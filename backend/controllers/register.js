@@ -2,7 +2,7 @@ const connection = require("../models/db");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-const register = (req, res) => {
+const register = async (req, res) => {
 const {firstName,lastName,email,password}=req.body
 const role=1
 const encryptedPassword = await bcrypt.hash(password, saltRounds);

@@ -2,5 +2,5 @@
 const express = require("express");
 const permissionRouter = express.Router();
 const createPermission = require("../controllers/permission")
-permissionRouter.post("/" ,createPermission )
+permissionRouter.post("/:id" ,createPermission )
 module.exports = permissionRouter

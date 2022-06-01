@@ -11,7 +11,7 @@ const { CreateProduct,
     updateProductById, } = require("../controllers/products")
 
 
-productsRouter.post("/create", CreateProduct)
+productsRouter.post("/", CreateProduct)
 productsRouter.get("/", getAllProduct)
 productsRouter.get("/:id", getProductById)
 productsRouter.delete("/:id", deleteProductById)

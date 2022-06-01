@@ -1,6 +1,6 @@
 const connection = require("../models/db")
 
-const Createcategory = () => {
+const Createcategory = (req, res) => {
     const { category } = req.body;
 
     const query = `INSERT INTO category (category) VALUES (?);`;

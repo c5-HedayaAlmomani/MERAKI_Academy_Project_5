@@ -1,4 +1,6 @@
 const express = require("express");
+const authorization=require("../middlewares/authorization")
+const authentication =require("../middlewares/authentication")
 
 const productsRouter = express.Router();
 
@@ -15,6 +17,6 @@ productsRouter.post("/", CreateProduct)
 productsRouter.get("/", getAllProduct)
 productsRouter.get("/:id", getProductById)
 productsRouter.delete("/:id", deleteProductById)
-productsRouter.put("/:id", updateProductById)
+productsRouter.put("/:id", authentication,authorization("UPDATE_PRODUCT"),updateProductById)
 
 module.exports = productsRouter

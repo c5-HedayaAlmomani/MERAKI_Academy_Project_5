@@ -1,3 +1,4 @@
+const connection =require("../models/db")
 const CreateProduct = () => {
     const { title, image, price, catgry_id, description, subcatgry_id } = req.body;
 

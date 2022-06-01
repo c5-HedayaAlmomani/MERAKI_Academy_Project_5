@@ -37,6 +37,22 @@ CREATE TABLE role_permission (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE category (
+    id INT NOT NULL AUTO_INCREMENT NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+
+);
+
+CREATE TABLE sub_category (
+    id INT NOT NULL AUTO_INCREMENT NOT NULL,
+    sub_category VARCHAR(255) NOT NULL,
+    category_id INT ,
+    FOREIGN KEY (category_id) REFERENCES category (id),
+    PRIMARY KEY (id)
+);
+
+
 CREATE TABLE products    (
     id INT AUTO_INCREMENT NOT NULL,
     title VARCHAR(255),
@@ -45,10 +61,21 @@ CREATE TABLE products    (
     image VARCHAR(255),
     sold  INT DEFAULT 0,
     category_id INT,
-    sub_category_id INT
+    sub_category_id INT,
    FOREIGN KEY (category_id ) REFERENCES category(id),
-   FOREIGN KEY (category_id ) REFERENCES sub_category(id),
+   FOREIGN KEY (sub_category_id ) REFERENCES sub_category(id),
    is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE cart (
+    id INT NOT NULL AUTO_INCREMENT NOT NULL,
+    product_id INT,
+    user_id INT,
+    FOREIGN KEY (product_id) REFERENCES products (id),
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    PRIMARY KEY (id)
+);
+
+
 

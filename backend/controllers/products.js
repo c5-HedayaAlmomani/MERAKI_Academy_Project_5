@@ -101,10 +101,10 @@ const deleteProductById = (req, res) => {
 
 
 const updateProductById = (req, res) => {
-    const { title, description, price, image, catgry_id, subcatgry_id } = req.body;
+    const { title, description, price, image, category_id, sub_category_id } = req.body;
     const id = req.params.id;
 
-    const query = `SELECT * FROM Product WHERE id=?;`;
+    const query = `SELECT * FROM Products WHERE id=?;`;
     const data = [id];
 
     connection.query(query, data, (err, result) => {
@@ -123,7 +123,7 @@ const updateProductById = (req, res) => {
             });
         } // result are the data returned by mysql server
         else {
-            const query = `UPDATE Product SET title=?,description=?, price=?,image=?,catgry_id=?,subcatgry_id=? WHERE id=?;`;
+            const query = `UPDATE Products SET title=?,description=?, price=?,image=?,category_id=?,sub_category_id=? WHERE id=?;`;
 
 
             //title, image, price, catgry_id, description, subcatgry_id
@@ -133,8 +133,8 @@ const updateProductById = (req, res) => {
                 description || result[0].description,
                 price || result[0].price,
                 image || result[0].image,
-                catgry_id || result[0].catgry_id,
-                subcatgry_id || result[0].subcatgry_id,
+                category_id || result[0].category_id,
+                sub_category_id || result[0].sub_category_id,
                 id,
             ];
 

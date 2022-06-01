@@ -1,8 +1,8 @@
 const CreateProduct = () => {
-    const { title, img, price, catgry_id, description, subcatgry_id } = req.body;
+    const { title, image, price, catgry_id, description, subcatgry_id } = req.body;
 
-    const query = `INSERT INTO Products (title, img, price,catgry_id,description,subcatgry_id) VALUES (?,?,?,?,?,?,?);`;
-    const data = [title, img, price, catgry_id, description, subcatgry_id];
+    const query = `INSERT INTO Products (title, image, price,catgry_id,description,subcatgry_id) VALUES (?,?,?,?,?,?,?);`;
+    const data = [title, description, price, image, catgry_id, subcatgry_id];
 
     connection.query(query, data, (err, result) => {
         console.log(result);
@@ -99,7 +99,7 @@ const deleteProductById = (req, res) => {
 
 
 const updateProductById = (req, res) => {
-    const { title, img, price, catgry_id, description, subcatgry_id } = req.body;
+    const { title, description, price, image, catgry_id, subcatgry_id } = req.body;
     const id = req.params.id;
 
     const query = `SELECT * FROM Product WHERE id=?;`;
@@ -121,17 +121,17 @@ const updateProductById = (req, res) => {
             });
         } // result are the data returned by mysql server
         else {
-            const query = `UPDATE Product SET title=?, img=?,price=?,catgry_id=?,description=?subcatgry_id=? WHERE id=?;`;
+            const query = `UPDATE Product SET title=?,description=?, price=?,image=?,catgry_id=?,subcatgry_id=? WHERE id=?;`;
 
 
-            //title, img, price, catgry_id, description, subcatgry_id
+            //title, image, price, catgry_id, description, subcatgry_id
             const data = [
 
                 title || result[0].title,
-                img || result[0].img,
-                price || result[0].price,
-                catgry_id || result[0].catgry_id,
                 description || result[0].description,
+                price || result[0].price,
+                image || result[0].image,
+                catgry_id || result[0].catgry_id,
                 subcatgry_id || result[0].subcatgry_id,
                 id,
             ];

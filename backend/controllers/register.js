@@ -4,7 +4,7 @@ const saltRounds = 10;
 
 const register = async (req, res) => {
 const {firstName,lastName,email,password}=req.body
-const role=2
+const role=1
 const encryptedPassword = await bcrypt.hash(password, saltRounds);
 const data=[firstName,lastName,email,encryptedPassword,role]
 

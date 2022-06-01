@@ -41,7 +41,6 @@ CREATE TABLE category (
     id INT NOT NULL AUTO_INCREMENT NOT NULL,
     category VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
-
 );
 
 CREATE TABLE sub_category (

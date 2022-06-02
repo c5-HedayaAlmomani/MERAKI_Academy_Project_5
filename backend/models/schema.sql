@@ -77,7 +77,7 @@ CREATE TABLE products (
 
 CREATE TABLE cart (
     id INT NOT NULL AUTO_INCREMENT NOT NULL,
-    product_id INT UNIQUE ,
+    product_id INT ,
     user_id INT,
     sub_total INT DEFAULT 0,
     quantity INT DEFAULT 1 ,

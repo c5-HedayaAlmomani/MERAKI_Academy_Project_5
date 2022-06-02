@@ -2,8 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/reducers/auth";
-
+import {  useNavigate } from "react-router-dom";
+import ("./style.css")
 const Login = () => {
+  const navigate = useNavigate();
   //!redux===============
   const dispatch = useDispatch();
   const state = useSelector((state) => {
@@ -23,6 +25,7 @@ const Login = () => {
       .then((result) => {
         setMessage("Login Successfuly");
         dispatch(loginAction(result.data.token));
+        navigate("/")
       })
       .catch((err) => {
         console.log(err);
@@ -33,14 +36,14 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <input
+    <div className="login">
+      <input className="input"
         placeholder="Enter Your email"
         onChange={(e) => {
           setEmail(e.target.value);
         }}
       />
-      <input
+      <input className="input"
         placeholder="Enter Your Password"
         onChange={(e) => {
           setPassword(e.target.value);

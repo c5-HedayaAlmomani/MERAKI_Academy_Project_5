@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import ("./style.css")
 
 const Register = () => {
   const [firstName, setfirstname] = useState("");
@@ -25,7 +26,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="register">
       <input
         placeholder="Enter First Name"
         onChange={(e) => {

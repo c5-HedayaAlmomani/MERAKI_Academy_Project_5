@@ -15,7 +15,7 @@ const CreateProduct = (req, res) => {
                 err: err,
             });
         }
-        res.status(200).json({
+        res.status(201).json({
             success: true,
             massage: "Product created",
             result: result,

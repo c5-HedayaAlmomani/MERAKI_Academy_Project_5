@@ -1,26 +1,59 @@
 const connection = require("../models/db");
 
 const addToCart = (req, res) => {
-  const { productId } = req.body;
+  const { productId, quantity } = req.body;
   const userId = req.token.userId;
 
-  const query = `INSERT INTO cart (product_id,user_id) VALUES (?,?)`;
+  const query = `SELECT * FROM cart WHERE user_id=? AND product_id=? `;
   const data = [productId, userId];
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         massage: "Server error",
         err: err,
       });
     }
 
-    res.status(200).json({
-      success: true,
-      massage: "cart created",
-      result: result,
-    });
+    if (!result.length) {
+      const query = `INSERT INTO cart (product_id,user_id) VALUES (?,?)`;
+      const data = [productId, userId];
+
+      connection.query(query, data, (err, result) => {
+        if (err) {
+          return res.status(500).json({
+            success: false,
+            massage: "Server error",
+            err: err,
+          });
+        }
+
+        return res.status(200).json({
+          success: true,
+          massage: "cart created",
+          result: result,
+        });
+      });
+    } else {
+      const newQuantity = result[0].quantity + quantity;
+      const query = `UPDATE cart SET quantity=? WHERE user_id=? AND product_id=?`;
+      const data = [newQuantity, userId, productId];
+      connection.query(query, data, (err, result) => {
+        if (err) {
+          return res.status(500).json({
+            success: false,
+            massage: "Server error",
+            err: err,
+          });
+        }
+        return res.status(201).json({
+          success: true,
+          massage: "cart updated",
+          result: result,
+        });
+      });
+    }
   });
 };
 
@@ -55,7 +88,7 @@ const emptyCart = (req, res) => {
 
 const deleteFromCart = (req, res) => {
   const userId = req.token.userId;
-  const  productId= req.params.id;
+  const productId = req.params.id;
 
   const query = `UPDATE cart SET is_deleted=1 WHERE user_id=? AND product_id=? `;
 
@@ -89,7 +122,6 @@ const getCartItem = (req, res) => {
 
   const query = `SELECT * FROM cart INNER JOIN products ON cart.product_id=products.id WHERE cart.user_id=? AND cart.is_deleted=0`;
 
-  
   const data = [userId];
 
   connection.query(query, data, (err, result) => {

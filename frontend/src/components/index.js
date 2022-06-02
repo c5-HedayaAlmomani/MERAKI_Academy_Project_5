@@ -1,8 +1,10 @@
 import Register from "./register";
 import Login from "./login";
+import Product from "./product.js/style";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutAction } from "../redux/reducers/auth";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -31,12 +33,14 @@ const Dashboard = () => {
         <>
           <Link to="/login">Login</Link>
           <Link to="/register">Sign up</Link>
+          
         </>
       )}
-
+<Link to="product">All Product</Link>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+<Route path="/product" element={<Product/>}></Route>
       </Routes>
     </div>
   );

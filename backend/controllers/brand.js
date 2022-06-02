@@ -99,6 +99,5 @@ const deleteBrandById = (req,res)=>{
 
 
 
-
 module.exports={addBrand,
     getAllBrand,getBrandById,deleteBrandById}

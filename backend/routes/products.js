@@ -17,4 +17,8 @@ productsRouter.get("/:id", getProductById)
 productsRouter.delete("/:id", deleteProductById)
 productsRouter.put("/:id", updateProductById)
 
+
+const getAllProductPagination = require("../controllers/paginationProduct")
+productsRouter.get('/pagination/:page', getAllProductPagination);
+
 module.exports = productsRouter

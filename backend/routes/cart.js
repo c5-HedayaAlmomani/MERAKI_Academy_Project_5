@@ -53,13 +53,40 @@ const emptyCart = (req, res) => {
   });
 };
 
-const Cart = (req, res) => {
-  const getCartItem = () => {};
+const deleteFromCart = (req, res) => {
+  const userId = req.token.userId;
+  const { productId } = req.body;
 
-  const deleteFromCart = () => {};
+  const query = `UPDATE cart SET is_deleted=1 WHERE user_id=? AND product_id=? `;
+
+  const data = [userId, productId];
+
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    }
+    if (!result.changedRows) {
+      return res.status(404).json({
+        success: false,
+        massage: `The product with productId: ${productId} with UserId: ${userId} is not found`,
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      massage: `Succeeded to delete Product with productId: ${productId} from cart with UserId: ${userId}`,
+      result: result,
+    });
+  });
 };
 
 module.exports = {
   addToCart,
   emptyCart,
+  deleteFromCart,
+  getCartItem,
 };

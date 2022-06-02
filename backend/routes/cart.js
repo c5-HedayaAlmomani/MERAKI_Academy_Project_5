@@ -84,6 +84,29 @@ const deleteFromCart = (req, res) => {
   });
 };
 
+const getCartItem = (req, res) => {
+  const userId = req.token.userId;
+
+  const query = `SELECT * FROM cart INNER JOIN products ON cart.product_id=products.id WHERE user_id=? AND is_deleted=0`;
+
+  const data = [userId];
+
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      res.status(409).json({
+        success: false,
+        Message: "Server error",
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      Message: "All Products from cart",
+      result: result,
+    });
+  });
+};
+
 module.exports = {
   addToCart,
   emptyCart,

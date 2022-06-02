@@ -26,9 +26,7 @@ CREATE TABLE permissions (
     id INT AUTO_INCREMENT NOT NULL,
     permission VARCHAR(255) NOT NULL,
     is_deleted TINYINT DEFAULT 0,
-
     PRIMARY KEY (id)
-    
 );
 
 CREATE TABLE role_permission (
@@ -38,7 +36,6 @@ CREATE TABLE role_permission (
     FOREIGN KEY (role_id) REFERENCES roles (id),
     FOREIGN KEY (permission_id) REFERENCES permissions (id),
     is_deleted TINYINT DEFAULT 0,
-
     PRIMARY KEY (id)
 );
 
@@ -46,7 +43,6 @@ CREATE TABLE category (
     id INT NOT NULL AUTO_INCREMENT NOT NULL,
     category VARCHAR(255) NOT NULL,
     is_deleted TINYINT DEFAULT 0,
-
     PRIMARY KEY (id)
 );
 
@@ -56,7 +52,14 @@ CREATE TABLE sub_category (
     category_id INT,
     FOREIGN KEY (category_id) REFERENCES category (id),
     is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);
 
+CREATE TABLE brands (
+    id INT NOT NULL AUTO_INCREMENT NOT NULL,
+    brand VARCHAR(225) UNIQUE,
+    image VARCHAR(225),
+    is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
 
@@ -69,6 +72,8 @@ CREATE TABLE products (
     sold INT DEFAULT 0,
     category_id INT,
     sub_category_id INT,
+    brand_id INT,
+    FOREIGN KEY (brand_id) REFERENCES brands(id),
     FOREIGN KEY (category_id) REFERENCES category(id),
     FOREIGN KEY (sub_category_id) REFERENCES sub_category(id),
     is_deleted TINYINT DEFAULT 0,
@@ -77,13 +82,12 @@ CREATE TABLE products (
 
 CREATE TABLE cart (
     id INT NOT NULL AUTO_INCREMENT NOT NULL,
-    product_id INT ,
+    product_id INT,
     user_id INT,
     sub_total INT DEFAULT 0,
-    quantity INT DEFAULT 1 ,
+    quantity INT DEFAULT 1,
     FOREIGN KEY (product_id) REFERENCES products (id),
     FOREIGN KEY (user_id) REFERENCES users (id),
     is_deleted TINYINT DEFAULT 0,
-
     PRIMARY KEY (id)
 );

@@ -11,7 +11,7 @@ const productsRouter=require("./routes/products")
 const CategoryRouter =require ("./routes/category")
 const cartRouter=require("./routes/cart")
 const BrandRouter=require("./routes/brand")
-
+const googleRouter = require("./routes/loginGoogle")
 //routers
 const app = express();
 
@@ -28,7 +28,7 @@ app.use("/products",productsRouter)
 app.use("/category",CategoryRouter)
 app.use("/cart",cartRouter)
 app.use("/brand",BrandRouter)
-
+app.use("/loginGoogle", googleRouter)
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
@@ -99,3 +99,4 @@ http://localhost:5000/login
 
 
 */
+

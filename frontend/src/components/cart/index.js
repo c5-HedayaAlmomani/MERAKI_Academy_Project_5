@@ -4,20 +4,26 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import {useNavigate} from ("react-router-dom")
 import { loginAction } from "../../redux/reducers/auth";
+import { getCartAction,addToCartAction,deleteFromCartAction,emptyCartAction } from "../../redux/reducers/cart";
+
 
 const Cart = () => {
   // const navigate=useNavigate()
   //! redux =========
   const dispatch = useDispatch();
-  const { token, isLoggedIn } = useSelector((state) => {
+  
+  const { token, isLoggedIn,cart } = useSelector((state) => {
+  // console.log(state);
+
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
+      cart : state.cart.cart
     };
   });
   //! redux =========
 
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
   const [total, SetTotal] = useState(0);
 
   useEffect(() => {
@@ -30,7 +36,8 @@ const Cart = () => {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
-        setCart(result.data.result);
+        dispatch(getCartAction(result.data.result))
+       console.log(cart);
         console.log(result.data.result);
       })
       .catch((error) => {
@@ -48,12 +55,15 @@ const Cart = () => {
       },
       { headers: { authorization: `Bearer ${token}` } }
     ).then((result)=>{
-      setCart(result.data.result);
+      // dispatch(addToCartAction(result.data.result))
+console.log(result.data.result);
+      // setCart(result.data.result);
       getCartItems()
     }).catch((error)=>{
       console.log(error);
     })
   };
+  
 
   return (
     <div className="cart_container">

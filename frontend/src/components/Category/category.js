@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import("./style.css");
 
 const Category = () => {
     const [allcat, setAllcat] = useState([]);
@@ -24,10 +24,12 @@ const Category = () => {
 
     useEffect(clickbrand, [])
 
-    return (<div>
+    return (<div className="categoryContenar">
         {allcat.length&&allcat.map((element,index)=>{
-            return <div key={index}>
+            return <div key={index} className= "categoryCont">
+                 <img src={element}></img>
                 <p>{element.category}</p>
+               
             </div>
         })
         }

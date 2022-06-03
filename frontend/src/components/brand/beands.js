@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import("./style.css");
 
 
 
@@ -43,9 +43,9 @@ const Brand = () => {
             {brand.length &&
                 brand.map((element, index) => {
                     return (
-                        <div key={index} >
+                        <div key={index} className="branddiv">
                             <img onClick={() => { navigate("/category") }} src={`${element.image}`} />
-                            <div >
+                            <div className="branddiv">
                                 <p>{"Drand  :" + element.brand}</p>
                             </div>
                         </div>

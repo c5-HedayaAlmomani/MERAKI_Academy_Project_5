@@ -6,7 +6,7 @@ const addToCart = (req, res) => {
 console.log("productId",productId);
 console.log("userId",userId);
 
-  const query = `SELECT * FROM cart WHERE user_id=? AND product_id=?`;
+  const query = `SELECT * FROM cart WHERE user_id=? AND product_id=? AND is_deleted=0`;
   const data = [userId,productId];
 
   connection.query(query, data, (err, result) => {
@@ -40,7 +40,7 @@ console.log("userId",userId);
       });
     } else {
       const newQuantity = result[0].quantity + quantity;
-      const query = `UPDATE cart SET quantity=? WHERE user_id=? AND product_id=?`;
+      const query = `UPDATE cart SET quantity=? WHERE user_id=? AND product_id=? is_deleted=0`;
       const data = [newQuantity, userId, productId];
       connection.query(query, data, (err, result1) => {
         if (err) {

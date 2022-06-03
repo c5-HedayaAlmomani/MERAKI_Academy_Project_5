@@ -63,12 +63,23 @@ console.log(result.data.result);
       console.log(error);
     })
   };
-  
+
+  const emptyCart=async()=>{
+    axios.delete('http://localhost:5000/cart/',
+
+    {
+      headers: { authorization: `Bearer ${token}` },
+    }).then((result)=>{
+      dispatch(emptyCartAction())
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }
 
   return (
     <div className="cart_container">
       {isLoggedIn ? (
-        !cart && !cart ? (
+        cart.length===0 ? (
           <h1>Your shopping cart is empty!</h1>
         ) : (
           cart.length &&
@@ -95,6 +106,9 @@ console.log(result.data.result);
                   </p>
                   <p className="product_details">{element.description}</p>
                 </div>
+                <div><button className="empty_cart" onClick={(e)=>{
+                  emptyCart()
+                }}>Empty Cart</button></div>
               </div>
             );
           })

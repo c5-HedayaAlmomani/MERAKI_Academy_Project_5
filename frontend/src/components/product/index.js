@@ -1,8 +1,25 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { loginAction } from "../../redux/reducers/auth";
+
 import "./style.css";
+
 const Product = () => {
+
+  //! redux =========
+  const dispatch = useDispatch();
+
+  const { token, isLoggedIn} = useSelector((state) => {
+    // console.log(state);
+
+    return {
+      token: state.auth.token,
+      isLoggedIn: state.auth.isLoggedIn,
+    };
+  });
+  //! redux =========
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
@@ -10,13 +27,29 @@ const Product = () => {
     axios
       .get(`http://localhost:5000/products/pagination/${page}`)
       .then((result) => {
-        console.log(result.data.result);
         setProducts(result.data.result);
       })
       .catch((err) => {
         console.log({ err });
       });
   };
+
+  const addToCart=async (id)=>{
+    if (!token) return alert("Please login to continue buying");
+    await axios.post(
+      `http://localhost:5000/cart`,
+      {
+        productId: id,
+        quantity: 1,
+      },
+      { headers: { authorization: `Bearer ${token}` } }
+    ).then((result)=>{
+      console.log(result);
+    }).catch((err)=>{
+      console.log(token);
+      console.log(err);
+    })
+  }
 
   useEffect(gitAllProduct, [page]);
 
@@ -39,7 +72,10 @@ const Product = () => {
                     {e.title}
                     {e.price}
                   </div>
-                  <button>Add to Cart</button>
+                  <button className="add_to_cart" onClick={()=>{
+                    console.log(e.id);
+                    addToCart(e.id)
+                  }}>Add to Cart</button>
                 </div>
               </div>
             );

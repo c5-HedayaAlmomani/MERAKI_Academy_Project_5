@@ -12,8 +12,9 @@ function App() {
   return (
     <div className="App">
       Welcome APP
+      <Dashboard />
       <Routes>
-        <Route path="/" element={<Dashboard />}></Route>
+        {/* <Route path="/" element={<Dashboard />}></Route> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product" element={<Product />}></Route>

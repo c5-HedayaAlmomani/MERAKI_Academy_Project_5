@@ -3,7 +3,7 @@ const connection = require("../models/db")
 const addBrand = (req, res) => {
 
     const { brand, image } = req.body;
-    const query = `INSERT INTO brands (brand,image) VALUES (?,?)`;
+    const query = `INSERT INTO brands (brand,image) VALUES (?,?);`;
     const data = [brand, image];
     connection.query(query, data, (err, result) => {
         if (err) {
@@ -23,7 +23,7 @@ const addBrand = (req, res) => {
 
 
 const getAllBrand = (req, res) => {
-    const query = `SELECT * FROM brand WHERE is_deleted=0 ;`;
+    const query = `SELECT * FROM brands WHERE is_deleted=0 ;`;
     connection.query(query, (err, result) => {
         if (err) {
             res.status(500).json({
@@ -42,7 +42,7 @@ const getAllBrand = (req, res) => {
 
 const getBrandById = (req, res) => {
     const id = req.params.id;
-    const query = `SELECT * FROM brand WHERE id = ? `;
+    const query = `SELECT * FROM brands WHERE id = ? `;
     const data = [id];
     connection.query(query, data, (err, result) => {
         if (err) {
@@ -69,7 +69,7 @@ const getBrandById = (req, res) => {
 
 const deleteBrandById = (req, res) => {
     const id = req.params.id;
-    const query = `UPDATE brand SET is_deleted=1 WHERE id=?;`;
+    const query = `UPDATE brands SET is_deleted=1 WHERE id=?;`;
     const data = [id];
     connection.query(query, data, (err, result) => {
         if (err) {
@@ -97,9 +97,10 @@ const deleteBrandById = (req, res) => {
 const updateBrandById = (req, res) => {
     const { brand, image } = req.body;
     const id = req.params.id;
-    const query = `SELECT * FROM brand WHERE id=?;`;
+    const query = `SELECT * FROM brands WHERE id=?;`;
     const data = [id];
     connection.query(query, data, (err, result) => {
+        // console.log(result+"oneeeee");
         if (err) {
             return res.status(404).json({
                 success: false,
@@ -107,7 +108,7 @@ const updateBrandById = (req, res) => {
                 err: err,
             });
         }
-        if (!result) {
+        if (!result.length) {
             res.status(404).json({
                 success: false,
                 massage: `The brand: ${id} is not found`,
@@ -115,13 +116,17 @@ const updateBrandById = (req, res) => {
             });
         }
         else {
-            const query = `UPDATE brand SET brand=?,image=?,  WHERE id=?;`;
+            const query = `UPDATE brands SET brand=?,image=? WHERE id=?;`;
+
             const data = [
-                brand || result[0].brand,
-                image || result[0].image,
+                brand || result[0].brand ,
+                image || result[0].image ,
                 id,
             ];
+
             connection.query(query, data, (err, result) => {
+                console.log(result);
+                // console.log("lkllllllllllll"+result);
                 if (result.affectedRows != 0)
                     res.status(201).json({
                         success: true,

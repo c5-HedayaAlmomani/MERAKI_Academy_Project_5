@@ -115,7 +115,7 @@ const updateProductById = (req, res) => {
                 err: err,
             });
         }
-        if (!result) {
+        if (!result.length) {
             res.status(404).json({
                 success: false,
                 massage: `The Product: ${id} is not found`,

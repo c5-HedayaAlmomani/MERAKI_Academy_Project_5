@@ -1,0 +1,23 @@
+.categoryContenar {
+  width: 92%;
+  height: 100%;
+  background-color: rgb(106, 177, 177);
+
+  display: grid;
+  grid-template-columns: 80%;
+
+  justify-content: center;
+  padding: 3%;
+ 
+  border-radius: 5%;
+  opacity: 0.9;
+}
+
+.categoryCont{
+    background-color: rgb(171, 137, 216);
+
+    display: grid;
+    grid-template-columns: 80%;
+  
+    justify-content: center;
+}

@@ -10,7 +10,7 @@ const loginRouter=require("./routes/login")
 const productsRouter=require("./routes/products")
 const CategoryRouter =require ("./routes/category")
 const cartRouter=require("./routes/cart")
-
+const BrandRouter=require("./routes/brand")
 
 //routers
 const app = express();
@@ -27,7 +27,7 @@ app.use("/login", loginRouter);
 app.use("/products",productsRouter)
 app.use("/category",CategoryRouter)
 app.use("/cart",cartRouter)
-
+app.use("/brand",BrandRouter)
 
 const PORT = process.env.PORT || 5000;
 

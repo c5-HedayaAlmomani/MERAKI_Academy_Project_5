@@ -12,6 +12,7 @@ console.log("userId",userId);
   connection.query(query, data, (err, result) => {
     console.log(result);
     if (err) {
+      console.log("err1",err);
       return res.status(500).json({
         success: false,
         massage: "Server error",
@@ -23,8 +24,12 @@ console.log("userId",userId);
       const query = `INSERT INTO cart (product_id,user_id) VALUES (?,?)`;
       const data = [productId, userId];
 
+      console.log("data---------",productId, userId);
+
       connection.query(query, data, (err, result) => {
+        console.log("result",result);
         if (err) {
+          console.log("err",err);
           return res.status(500).json({
             success: false,
             massage: "Server error",
@@ -39,11 +44,16 @@ console.log("userId",userId);
         });
       });
     } else {
+      
       const newQuantity = result[0].quantity + quantity;
-      const query = `UPDATE cart SET quantity=? WHERE user_id=? AND product_id=? is_deleted=0`;
+      console.log("err2");
+      console.log(newQuantity);
+      const query = `UPDATE cart SET quantity=? WHERE user_id=? AND product_id=? `;
       const data = [newQuantity, userId, productId];
+      console.log(newQuantity, userId, productId);
       connection.query(query, data, (err, result1) => {
         if (err) {
+          console.log(err);
           return res.status(500).json({
             success: false,
             massage: "Server error",

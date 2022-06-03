@@ -39,7 +39,8 @@ const Dashboard = () => {
       )}
 
       <Link to="product">All Product</Link>
-      <Link to="brand">All Brand</Link>
+      <Link to="/">All Brand</Link>
+      <Link to="category">All category</Link>
       
     </div>
   );

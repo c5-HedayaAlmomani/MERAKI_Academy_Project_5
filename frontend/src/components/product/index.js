@@ -7,11 +7,10 @@ import { loginAction } from "../../redux/reducers/auth";
 import "./style.css";
 
 const Product = () => {
-
   //! redux =========
   const dispatch = useDispatch();
 
-  const { token, isLoggedIn} = useSelector((state) => {
+  const { token, isLoggedIn } = useSelector((state) => {
     // console.log(state);
 
     return {
@@ -34,22 +33,25 @@ const Product = () => {
       });
   };
 
-  const addToCart=async (id)=>{
+  const addToCart = async (id) => {
     if (!token) return alert("Please login to continue buying");
-    await axios.post(
-      `http://localhost:5000/cart`,
-      {
-        productId: id,
-        quantity: 1,
-      },
-      { headers: { authorization: `Bearer ${token}` } }
-    ).then((result)=>{
-      console.log(result);
-    }).catch((err)=>{
-      console.log(token);
-      console.log(err);
-    })
-  }
+    await axios
+      .post(
+        `http://localhost:5000/cart`,
+        {
+          productId: id,
+          quantity: 1,
+        },
+        { headers: { authorization: `Bearer ${token}` } }
+      )
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(token);
+        console.log(err);
+      });
+  };
 
   useEffect(gitAllProduct, [page]);
 
@@ -72,10 +74,15 @@ const Product = () => {
                     {e.title}
                     {e.price}
                   </div>
-                  <button className="add_to_cart" onClick={()=>{
-                    console.log(e.id);
-                    addToCart(e.id)
-                  }}>Add to Cart</button>
+                  <button
+                    className="add_to_cart"
+                    onClick={() => {
+                      console.log(e.id);
+                      addToCart(e.id);
+                    }}
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             );

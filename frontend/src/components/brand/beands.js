@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 const Brand = () => {
-
+    const navigate = useNavigate()
     const [brand, setBrand] = useState([]);
     const dispatch = useDispatch();
     const { id } = useParams();
@@ -31,26 +33,18 @@ const Brand = () => {
         });
     };
 
+
+
+
+
     useEffect(brandD, []);
-
-    // const clickbrand = ()=>{
-
-    //     axios.get(`http://localhost:5000/brand/${id}`).then((result)=>{
-
-    //     }).catch((err)=>{
-    //         console.log(err);
-    //     })
-
-    // }
-
-
     return (
         <div>
             {brand.length &&
                 brand.map((element, index) => {
                     return (
                         <div key={index} >
-                            <img src={`${element.image}`} />
+                            <img onClick={() => { navigate("/category") }} src={`${element.image}`} />
                             <div >
                                 <p>{"Drand  :" + element.brand}</p>
                             </div>

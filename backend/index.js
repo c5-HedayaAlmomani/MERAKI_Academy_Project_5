@@ -25,7 +25,7 @@ app.use("/permission", permissionRouter);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 app.use("/products",productsRouter)
-app.use("/category",CategoryRouter)
+app.use("/category",CategoryRouter);
 app.use("/cart",cartRouter)
 app.use("/brand",BrandRouter);
 app.use("/loginGoogle", googleRouter)

@@ -165,14 +165,7 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-                <button
-                  className="empty_cart"
-                  onClick={(e) => {
-                    emptyCart();
-                  }}
-                >
-                  Empty Cart
-                </button>
+                
 
                 <h6 className="sub_total">{}</h6>
               </div>
@@ -182,6 +175,14 @@ const Cart = () => {
       ) : (
         <h1>Please Login First</h1>
       )}
+      <button
+                  className="empty_cart"
+                  onClick={(e) => {
+                    emptyCart();
+                  }}
+                >
+                  Empty Cart
+                </button>
     </div>
   );
 };

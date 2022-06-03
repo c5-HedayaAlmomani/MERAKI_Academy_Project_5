@@ -1,9 +1,11 @@
+import LogGoogle from "../../components/loginGoogle";
 import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/reducers/auth";
-import {  useNavigate } from "react-router-dom";
-import ("./style.css")
+import { useNavigate } from "react-router-dom";
+import("./style.css");
+
 const Login = () => {
   const navigate = useNavigate();
   //!redux===============
@@ -25,7 +27,7 @@ const Login = () => {
       .then((result) => {
         setMessage("Login Successfuly");
         dispatch(loginAction(result.data.token));
-        navigate("/")
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
@@ -37,13 +39,15 @@ const Login = () => {
 
   return (
     <div className="login">
-      <input className="input"
+      <input
+        className="input"
         placeholder="Enter Your email"
         onChange={(e) => {
           setEmail(e.target.value);
         }}
       />
-      <input className="input"
+      <input
+        className="input"
         placeholder="Enter Your Password"
         onChange={(e) => {
           setPassword(e.target.value);
@@ -51,6 +55,7 @@ const Login = () => {
       />
       <button onClick={login}>Log in</button>
       <h1>{message}</h1>
+      <LogGoogle />
     </div>
   );
 };

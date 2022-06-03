@@ -1,0 +1,21 @@
+.only_product {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.only_product img {
+  width: 400px;
+  height: 400px;
+}
+
+.detals {
+  display: flex;
+  flex-direction: column;
+  margin: 100px;
+}
+
+.detals p {
+  font-size: larger;
+  font-weight: 800;
+}

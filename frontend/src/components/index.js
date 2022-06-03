@@ -1,6 +1,6 @@
 import Register from "./register";
 import Login from "./login";
-import Product from "./product/style";
+import Product from "./product/uu";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutAction } from "../redux/reducers/auth";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ const Dashboard = () => {
     <div>
       {state.isLoggedIn ? (
         <>
-        <Link to="/cart">Cart</Link>
+          <Link to="/cart">Cart</Link>
           <button
             className="logout"
             onClick={() => {
@@ -35,7 +35,7 @@ const Dashboard = () => {
           <Link to="/register">Sign up</Link>
         </>
       )}
-      
+
       <Link to="product">All Product</Link>
     </div>
   );

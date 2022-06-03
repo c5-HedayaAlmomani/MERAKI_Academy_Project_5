@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./style.css";
 const Product = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const gitAllProduct = () => {
@@ -19,20 +22,33 @@ const Product = () => {
 
   return (
     <div>
-      {products.length &&
-        products.map((e, i) => {
-          return (
-            <div key={i}>
-              <img src={`${e.image}`} />
-
-              <h1>{e.title}</h1>
-            </div>
-          );
-        })}
-
+      <div className="products">
+        {products.length &&
+          products.map((e, i) => {
+            return (
+              <div key={i} className="one_product">
+                <img
+                  onClick={() => {
+                    navigate(`/product/${e.id}`);
+                  }}
+                  src={`${e.image}`}
+                />
+                <div className="information">
+                  <div>
+                    {" "}
+                    {e.title}
+                    {e.price}
+                  </div>
+                  <button>Add to Cart</button>
+                </div>
+              </div>
+            );
+          })}
+      </div>
       {page != 1 ? (
         <>
           <button
+            className="next"
             onClick={() => {
               setPage(page - 1);
               gitAllProduct();
@@ -48,6 +64,7 @@ const Product = () => {
       {page != 3 ? (
         <>
           <button
+            className="next"
             onClick={() => {
               setPage(page + 1);
               gitAllProduct();

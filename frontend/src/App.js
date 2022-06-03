@@ -4,6 +4,7 @@ import Register from "./components/register/index";
 import Login from "./components/login/index";
 import Product from "./components/product/index";
 import Cart from "./components/cart";
+import OneProduct from "./components/oneProduct";
 import { useSelector, useDispatch } from "react-redux";
 import { loginAction } from "./redux/reducers/auth";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
@@ -18,7 +19,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/product" element={<Product />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
-
+<Route path="/product/:id" element={<OneProduct />}></Route>
       </Routes>
     </div>
   );

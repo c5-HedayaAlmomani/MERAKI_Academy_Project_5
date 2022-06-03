@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import "./style.css";
 // import {useNavigate} from ("react-router-dom")
 import { loginAction } from "../../redux/reducers/auth";
 import {
@@ -120,7 +121,7 @@ const Cart = () => {
                     deleteItemsFromCart(element.id);
                   }}
                 >
-                  X
+                  ×
                 </p>
                 <div className="image_button">
                   <img
@@ -129,44 +130,51 @@ const Cart = () => {
                     alt="product image"
                   />
                   <br></br>
-                  <button
-                    className="decrees"
-                    id={element.id}
-                    onClick={(e) => {
-                      addToCart(element.id, -1);
-                    }}
-                  >
-                    -
-                  </button>
-                  <p className="product-quantity">{element.quantity}</p>
-                  <button
-                    className="increase"
-                    id={element.id}
-                    onClick={(e) => {
-                      addToCart(element.id, 1);
-                    }}
-                  >
-                    +
-                  </button>
+                  <div className="all_detals">
+                    <div className="information_cart">
+                      <button
+                        className="decrees"
+                        id={element.id}
+                        onClick={(e) => {
+                          addToCart(element.id, -1);
+                        }}
+                      >
+                        -
+                      </button>
+                      <p className="product-quantity">{element.quantity}</p>
+                      <button
+                        className="increase"
+                        id={element.id}
+                        onClick={(e) => {
+                          addToCart(element.id, 1);
+                        }}
+                      >
+                        +
+                      </button>
+                    </div>
+                    <div className="details">
+                      <p className="product_title">
+                        {"Title : " + element.title}
+                      </p>
+                      <p className="product_total">
+                        {"Total : " + element.price * element.quantity}JOD
+                      </p>
+                      <p className="product_details">
+                        {"Description : " + element.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="details">
-                  <p className="product_title">{element.title}</p>
-                  <p className="product_total">
-                    Total={element.price * element.quantity}JOD
-                  </p>
-                  <p className="product_details">{element.description}</p>
-                </div>
-                <div>
-                  <button
-                    className="empty_cart"
-                    onClick={(e) => {
-                      emptyCart();
-                    }}
-                  >
-                    Empty Cart
-                  </button>
-                  <h6 className="sub_total">{}</h6>
-                </div>
+                <button
+                  className="empty_cart"
+                  onClick={(e) => {
+                    emptyCart();
+                  }}
+                >
+                  Empty Cart
+                </button>
+
+                <h6 className="sub_total">{}</h6>
               </div>
             );
           })

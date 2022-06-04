@@ -27,7 +27,11 @@ const Login = () => {
       .then((result) => {
         setMessage("Login Successfuly");
         dispatch(loginAction(result.data.token));
-        navigate("/");
+        if ((result.data.token === 1)) {
+          navigate("/");
+        } else {
+          navigate("/admin");
+        }
       })
       .catch((err) => {
         console.log(err);

@@ -38,10 +38,18 @@ CREATE TABLE role_permission (
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
-
+CREATE TABLE brands (
+    id INT NOT NULL AUTO_INCREMENT NOT NULL,
+    brand VARCHAR(225) UNIQUE,
+    image VARCHAR(225),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);
 CREATE TABLE category (
     id INT NOT NULL AUTO_INCREMENT NOT NULL,
     category VARCHAR(255) NOT NULL,
+    brand_id INT,
+    FOREIGN KEY (brand_id) REFERENCES brands(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
@@ -55,13 +63,7 @@ CREATE TABLE sub_category (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE brands (
-    id INT NOT NULL AUTO_INCREMENT NOT NULL,
-    brand VARCHAR(225) UNIQUE,
-    image VARCHAR(225),
-    is_deleted TINYINT DEFAULT 0,
-    PRIMARY KEY (id)
-);
+
 
 CREATE TABLE products (
     id INT AUTO_INCREMENT NOT NULL,

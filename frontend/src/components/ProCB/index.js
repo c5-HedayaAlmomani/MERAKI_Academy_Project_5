@@ -24,8 +24,6 @@ const ProCB = () => {
 
   return (
     <div>
-      <p>{brand}</p>
-      <p>{category}</p>
       {allPCat.length &&
         allPCat.map((element, index) => {
           return (

@@ -12,6 +12,7 @@ const CategoryRouter =require ("./routes/category")
 const cartRouter=require("./routes/cart")
 const BrandRouter=require("./routes/brand")
 const googleRouter = require("./routes/loginGoogle")
+const UsersRouter=require("./routes/users")
 //routers
 const app = express();
 
@@ -29,6 +30,11 @@ app.use("/category",CategoryRouter);
 app.use("/cart",cartRouter)
 app.use("/brand",BrandRouter);
 app.use("/loginGoogle", googleRouter)
+app.use("/admin/users",UsersRouter);
+
+
+
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

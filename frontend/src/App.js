@@ -7,7 +7,10 @@ import Cart from "./components/cart";
 import OneProduct from "./components/oneProduct";
 import Brand from "./components/brand/beands";
 import Category from "./components/Category/category"
+import CategoryAdmin from "./components/categoryAdmin/index"
+
 import { Routes, Route } from "react-router-dom";
+
 
 function App() {
   return (
@@ -23,6 +26,7 @@ function App() {
         <Route path="/product/:id" element={<OneProduct />}></Route>
         <Route path="/" element={<Brand />}></Route>
         <Route path="/category" element={<Category />}></Route>
+        <Route path="/category/Admin" element={<CategoryAdmin />}></Route>
       </Routes>
     </div>
   );

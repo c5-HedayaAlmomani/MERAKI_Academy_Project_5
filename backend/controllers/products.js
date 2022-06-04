@@ -9,7 +9,7 @@ const CreateProduct = (req, res) => {
     connection.query(query, data, (err, result) => {
         console.log(result);
         if (err) {
-            res.status(500).json({
+            return res.status(500).json({
                 success: false,
                 massage: "Server error",
                 err: err,
@@ -28,7 +28,7 @@ const getAllProduct = (req, res) => {
     const query = `SELECT * FROM Products WHERE is_deleted=0 ;`;
     connection.query(query, (err, result) => {
         if (err) {
-            res.status(500).json({
+           return res.status(500).json({
                 success: false,
                 massage: "server error",
                 err: err,

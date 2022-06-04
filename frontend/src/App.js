@@ -7,8 +7,8 @@ import Cart from "./components/cart";
 import OneProduct from "./components/oneProduct";
 import Brand from "./components/brand/beands";
 
-// import Category from "./components/Category/category"
-import CategoryAdmin from "./components/categoryAdmin/index"
+import Category from "./components/Category/category"
+import CategoryAdmin from "./components/categoryAdmin"
 
 
 import { Routes, Route } from "react-router-dom";

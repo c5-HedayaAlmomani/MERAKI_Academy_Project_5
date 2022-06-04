@@ -20,7 +20,7 @@ const getAllUsers = (req, res) => {
 };
 
 const updateUser = (req, res) => {
-    const {userId}=req.body
+    const userId=req.params.id
     const query = `Update users SET role_id=2 WHERE id=? AND is_deleted=0`
     const data=[userId]
 
@@ -35,13 +35,13 @@ const updateUser = (req, res) => {
         if (!result.changedRows) {
             return res.status(404).json({
                 success: false,
-                massage: `The user: ${id} is not found`,
+                massage: `The user: ${userId} is not found`,
                 err: err,
             });
         }
         res.status(200).json({
             success: true,
-            massage: `Succeeded to update user with id: ${id}`,
+            massage: `Succeeded to update user with id: ${userId}`,
             result: result,
         });
     })

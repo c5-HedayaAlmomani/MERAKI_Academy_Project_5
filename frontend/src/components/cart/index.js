@@ -29,7 +29,7 @@ const Cart = () => {
   //! redux =========
 
   // const [cart, setCart] = useState([]);
-  const [total, SetTotal] = useState(0);
+  const [subtotal, SetSubTotal] = useState(0);
 
   useEffect(() => {
     getCartItems();
@@ -44,6 +44,10 @@ const Cart = () => {
         dispatch(getCartAction(result.data.result));
         console.log(cart);
         console.log(result.data.result);
+        let priceTotal=result.data.result.reduce((acc,element,index)=>{
+          return acc+(element.price*element.quantity)
+        },0)
+        SetSubTotal(priceTotal)
       })
       .catch((error) => {
         console.log(error);
@@ -62,8 +66,7 @@ const Cart = () => {
         { headers: { authorization: `Bearer ${token}` } }
       )
       .then((result) => {
-        // dispatch(addToCartAction(result.data.result))
-        console.log(result.data.result);
+        console.log(result.data);
         // setCart(result.data.result);
         getCartItems();
       })
@@ -110,8 +113,7 @@ const Cart = () => {
         ) : (
           cart.length &&
           cart.map((element, index) => {
-            // SetTotal(total+element.price)
-            // console.log(element);
+            
             return (
               <div className="product_details" key={index}>
                 <p
@@ -136,7 +138,11 @@ const Cart = () => {
                         className="decrees"
                         id={element.id}
                         onClick={(e) => {
-                          addToCart(element.id, -1);
+                          element.quantity > 1 ? (
+                            addToCart(element.id, -1)
+                          ) : (
+                            <></>
+                          );
                         }}
                       >
                         -
@@ -158,6 +164,7 @@ const Cart = () => {
                       </p>
                       <p className="product_total">
                         {"Total : " + element.price * element.quantity}JOD
+                        
                       </p>
                       <p className="product_details">
                         {"Description : " + element.description}
@@ -165,9 +172,8 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-                
 
-                <h6 className="sub_total">{}</h6>
+                
               </div>
             );
           })
@@ -175,14 +181,15 @@ const Cart = () => {
       ) : (
         <h1>Please Login First</h1>
       )}
+      <h4 className="sub_total">{subtotal} JOD</h4> 
       <button
-                  className="empty_cart"
-                  onClick={(e) => {
-                    emptyCart();
-                  }}
-                >
-                  Empty Cart
-                </button>
+        className="empty_cart"
+        onClick={(e) => {
+          emptyCart();
+        }}
+      >
+        Empty Cart
+      </button>
     </div>
   );
 };

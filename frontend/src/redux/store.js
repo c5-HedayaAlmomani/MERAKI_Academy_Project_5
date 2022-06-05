@@ -4,7 +4,7 @@ import cartReducer from "./reducers/cart";
 import categoryReducer from "./reducers/categoryAdmin";
 import productsReducer from "./reducers/products";
 import usersReducer from "./reducers/users";
-import sreachReducer from "./reducers/sreach";
+import searchReducer from "./reducers/sreach";
 
 
 export default configureStore({
@@ -14,7 +14,7 @@ export default configureStore({
     cart: cartReducer,
     category: categoryReducer,
     users:usersReducer,
-    search:sreachReducer
+    search:searchReducer
     
   },
 });

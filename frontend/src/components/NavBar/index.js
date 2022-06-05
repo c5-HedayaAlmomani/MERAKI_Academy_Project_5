@@ -13,31 +13,32 @@ const Dashboard = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [product, setProduct] = useState([]);
+  // const [product, setProduct] = useState([]);
   const [searchArray, setsearchArray] = useState([]);
 
-  const { isLoggedIn,search } = useSelector((state) => {
+  const { isLoggedIn, search, products } = useSelector((state) => {
     return {
       isLoggedIn: state.auth.isLoggedIn,
-      search:state.search.search
+      search: state.search.search,
+      products: state.products.products
     };
   });
 
   const searchFunction = (searchInput) => {
-    
+
     axios
       .get(`http://localhost:5000/products`)
       .then((result) => {
 
-        searchArray(result.data.result);
-        const search1 = searchArray.filter((element, index) => {
-          
-          return element.title.includes(search1)
-        })
-        console.log(search1);
-        console.log(searchArray);
+        console.log("result", result);
+        const search1 = result.data.result.filter((element, index) => {
 
-        // dispatch(getSearchAction(search1))
+          return element.title.includes(searchInput)
+        })
+        setsearchArray(search1);
+        console.log("search1", search1);
+
+
 
       })
       .catch((err) => {
@@ -73,10 +74,22 @@ const Dashboard = () => {
       <Link to="/">All Brand</Link>
       {/* <Link to="category">All category</Link> */}
 
-      <input onChange={(e)=>{searchFunction(e.target.value)}}/>
+      <input onChange={(e) => { searchFunction(e.target.value) }} />
+      <div>
+        {searchArray.length && searchArray.map((element, index) => {
+          return <div onClick={() => {
+            navigate(`/product/${element.id}`);
+          }}
+          >
+            <img className="Serch_title" src={element.image} alt="image product" />
+            <p className="Serch_title">{element.title}</p>
+          </div>
+        })}
+
+      </div>
 
     </div>
   );
-}
+};
 
 export default Dashboard;

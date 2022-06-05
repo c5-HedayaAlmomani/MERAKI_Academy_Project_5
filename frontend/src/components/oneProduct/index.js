@@ -4,7 +4,6 @@ import "./style.css";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { loginAction } from "../../redux/reducers/auth";
 
 const OneProduct = () => {
@@ -15,8 +14,6 @@ const OneProduct = () => {
   const dispatch = useDispatch();
 
   const { token, isLoggedIn } = useSelector((state) => {
-    // console.log(state);
-
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
@@ -54,6 +51,17 @@ const OneProduct = () => {
         console.log(err);
       });
   };
+//   const getFeedback = (product_id) => {
+
+// axios.get(`http://localhost:5000/feedback/${product_id}`).then((result)=>{
+//   console.log(result);
+// }).catch((err)=>{
+//   console.log(err);
+// })
+
+
+
+//   };
 
   useEffect(oneProduct, []);
 
@@ -68,11 +76,17 @@ const OneProduct = () => {
                 <p>{"Title  :" + e.title}</p>
                 <p>{"Description  : " + e.description}</p>
                 <p>{"Price : " + e.price}</p>
-                <button className="add_to_cart" onClick={()=>{
-                  console.log("e");
-                  addToCart(e.id)
-                }}>Add To Cart</button>
+                <button
+                  className="add_to_cart"
+                  onClick={() => {
+                    console.log("e");
+                    addToCart(e.id);
+                  }}
+                >
+                  Add To Cart
+                </button>
               </div>
+              
             </div>
           );
         })}

@@ -29,7 +29,7 @@ const Dashboard = () => {
       .get(`http://localhost:5000/products`)
       .then((result) => {
 
-        searchArray(result.data.result);
+        setsearchArray(result.data.result);
         const search1 = searchArray.filter((element, index) => {
           
           return element.title.includes(search1)
@@ -41,7 +41,7 @@ const Dashboard = () => {
 
       })
       .catch((err) => {
-        console.log({ err });
+        console.log(err);
         console.log("search1");
       });
 

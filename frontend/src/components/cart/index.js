@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./style.css";
 
-
 import Payment from "../payment";
 
 import {
@@ -13,7 +12,9 @@ import {
   emptyCartAction,
   setTotalPriceAction,
 } from "../../redux/reducers/cart";
+
 import StripeCheckout from "react-stripe-checkout";
+
 import { toast } from "react-toastify";
 
 const Cart = () => {
@@ -50,7 +51,6 @@ const Cart = () => {
         SetSubTotal(priceTotal);
 
         dispatch(setTotalPriceAction(priceTotal));
-
       })
       .catch((error) => {
         console.log(error);
@@ -181,8 +181,6 @@ const Cart = () => {
       ) : (
         <h1>Please Login First</h1>
       )}
-
-
 
       <h4 className="sub_total">{subtotal} JOD</h4>
 

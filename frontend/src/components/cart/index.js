@@ -4,24 +4,24 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./style.css";
 
-import { loginAction } from "../../redux/reducers/auth";
+
+=======
+import Payment from "../payment";
+
 import {
   getCartAction,
-  addToCartAction,
   deleteFromCartAction,
   emptyCartAction,
+  setTotalPriceAction,
 } from "../../redux/reducers/cart";
 import StripeCheckout from "react-stripe-checkout";
 import { toast } from "react-toastify";
 
 const Cart = () => {
-  // const navigate=useNavigate()
   //! redux =========
   const dispatch = useDispatch();
 
   const { token, isLoggedIn, cart } = useSelector((state) => {
-    // console.log(state);
-
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
@@ -30,7 +30,6 @@ const Cart = () => {
   });
   //! redux =========
 
-  // const [cart, setCart] = useState([]);
   const [subtotal, SetSubTotal] = useState(0);
 
   useEffect(() => {
@@ -50,6 +49,9 @@ const Cart = () => {
           return acc + element.price * element.quantity;
         }, 0);
         SetSubTotal(priceTotal);
+
+        dispatch(setTotalPriceAction(priceTotal));
+
       })
       .catch((error) => {
         console.log(error);
@@ -171,6 +173,7 @@ const Cart = () => {
                       </p>
                     </div>
                   </div>
+                  <Payment />
                 </div>
               </div>
             );
@@ -179,7 +182,11 @@ const Cart = () => {
       ) : (
         <h1>Please Login First</h1>
       )}
+
+
+
       <h4 className="sub_total">{subtotal} JOD</h4>
+
       <button
         className="empty_cart"
         onClick={(e) => {

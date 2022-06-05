@@ -5,14 +5,15 @@ require("./models/db");
 
 const roleRouter = require("./routes/role");
 const permissionRouter = require("./routes/permission");
-const registerRouter=require("./routes/register")
-const loginRouter=require("./routes/login")
-const productsRouter=require("./routes/products")
-const CategoryRouter =require ("./routes/category")
-const cartRouter=require("./routes/cart")
-const BrandRouter=require("./routes/brand")
-const googleRouter = require("./routes/loginGoogle")
-const UsersRouter=require("./routes/users")
+const registerRouter = require("./routes/register");
+const loginRouter = require("./routes/login");
+const productsRouter = require("./routes/products");
+const CategoryRouter = require("./routes/category");
+const cartRouter = require("./routes/cart");
+const BrandRouter = require("./routes/brand");
+const googleRouter = require("./routes/loginGoogle");
+const UsersRouter = require("./routes/users");
+const payment = require("./controllers/payment");
 //routers
 const app = express();
 
@@ -25,15 +26,12 @@ app.use("/roles", roleRouter);
 app.use("/permission", permissionRouter);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
-app.use("/products",productsRouter)
-app.use("/category",CategoryRouter);
-app.use("/cart",cartRouter)
-app.use("/brand",BrandRouter);
-app.use("/loginGoogle", googleRouter)
-app.use("/admin/users",UsersRouter);
-
-
-
+app.use("/products", productsRouter);
+app.use("/category", CategoryRouter);
+app.use("/cart", cartRouter);
+app.use("/brand", BrandRouter);
+app.use("/loginGoogle", googleRouter);
+app.use("/admin/users", UsersRouter);
 
 const PORT = process.env.PORT || 5000;
 
@@ -41,9 +39,8 @@ app.listen(PORT, () => {
   console.log(`server on ${PORT}`);
 });
 
-
-const filterRouter = require("./routes/filter")
-app.use("/filter" , filterRouter)
+const filterRouter = require("./routes/filter");
+app.use("/filter", filterRouter);
 //!------------------- test -------------------
 
 /*
@@ -107,5 +104,16 @@ http://localhost:5000/login
 "password":"1"}
 
 
-*/
+ */
 
+
+const bodyparser = require("body-parser");
+
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
+
+app.get("/", (req, res) => {
+  res.send("Add your Stripe Secret Key to the .require('stripe') statement!");
+});
+
+app.post("/checkout", payment);

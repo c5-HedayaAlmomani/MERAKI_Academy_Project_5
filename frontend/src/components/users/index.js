@@ -47,6 +47,7 @@ const UsersComponent = () => {
 
     }).catch((err)=>{
         console.log(err);
+        console.log("ss");
 
     })
 

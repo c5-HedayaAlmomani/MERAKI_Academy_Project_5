@@ -1,24 +1,55 @@
-import Register from "../register";
-import Login from "../login";
-// import Product from "./product/uu";
+import axios from "axios"
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutAction } from "../../redux/reducers/auth";
-import Brand from "../brand/beands";
+
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { getSearchAction } from "../../redux/reducers/sreach";
+
+
+
 
 const Dashboard = () => {
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [product, setProduct] = useState([]);
+  const [searchArray, setsearchArray] = useState([]);
 
-  const state = useSelector((state) => {
+  const { isLoggedIn,search } = useSelector((state) => {
     return {
       isLoggedIn: state.auth.isLoggedIn,
+      search:state.search.search
     };
   });
 
+  const searchFunction = (searchInput) => {
+    
+    axios
+      .get(`http://localhost:5000/products`)
+      .then((result) => {
+
+        searchArray(result.data.result);
+        const search1 = searchArray.filter((element, index) => {
+          
+          return element.title.includes(search1)
+        })
+        console.log(search1);
+        console.log(searchArray);
+
+        // dispatch(getSearchAction(search1))
+
+      })
+      .catch((err) => {
+        console.log({ err });
+        console.log("search1");
+      });
+
+  };
+
   return (
     <div>
-      {state.isLoggedIn ? (
+      {isLoggedIn ? (
         <>
           <Link to="/cart">Cart</Link>
           <button
@@ -41,9 +72,11 @@ const Dashboard = () => {
       <Link to="product">All Product</Link>
       <Link to="/">All Brand</Link>
       {/* <Link to="category">All category</Link> */}
-      
+
+      <input onChange={(e)=>{searchFunction(e.target.value)}}/>
+
     </div>
   );
-};
+}
 
 export default Dashboard;

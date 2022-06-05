@@ -24,10 +24,20 @@ export const users = createSlice({
         return element.id != action.payload;
       });
     },
+    // payload: role
+
+    updateProductAction: (state, action) => {
+      state.users = state.users.map((e) => {
+        if (e.id == action.payload.id) {
+          return action.payload.newUsers;
+        }
+        return e;
+      });
+    },
   },
 });
 
-export const { getUsersAction, addToUsersAction, deleteFromUsers } =
+export const { getUsersAction, addToUsersAction, deleteFromUsers,updateProductAction } =
 users.actions;
 
 export default users.reducer;

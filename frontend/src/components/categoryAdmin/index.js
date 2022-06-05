@@ -133,11 +133,7 @@ const CategoryAdmin = () => {
                 </>
               );
             })}
-          {/* <td style={{border:"1px solid black"}}>ID</td>
-            <td style={{border:"1px solid black"}}>Category Name</td>
-            <td style={{border:"1px solid black"}}>Edit</td>
-            <td style={{border:"1px solid black"}}>Delete</td> */}
-          {/* </tr> */}
+          
         </table>
       </div>
 

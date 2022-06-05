@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import "./style.css";
 
 
-=======
 import Payment from "../payment";
 
 import {

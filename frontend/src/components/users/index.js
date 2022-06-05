@@ -26,6 +26,7 @@ const UsersComponent = () => {
   useEffect(() => {
     getAllUsers();
   }, []);
+
   const getAllUsers = () => {
     axios
       .get(`http://localhost:5000/admin/users`, {
@@ -87,25 +88,33 @@ const UsersComponent = () => {
                     {element.firstName + " " + element.lastName}
                   </td>
                   <td style={{ border: "1px solid black" }}>{element.email}</td>
-                  <td style={{ border: "1px solid black" , cursor: "pointer" }} onClick={() => {
-                      updateUserAdmin(element.id);
-                    }}>Edit</td>
                   <td
-                    style={{ border: "1px solid black", cursor: "pointer" }}
-                    
+                    style={{ border: "1px solid black" }}
+                    onClick={() => {
+                      updateUserAdmin(element.id);
+                    }}
                   >
-                    <p
+                    <button
+                      style={{ border: "none", background: "none" ,cursor: "pointer"}}
+                      onClick={() => {
+                        updateUserAdmin(element.id);
+                      }}
+                    >
+                      Edit
+                    </button>
+                  </td>
+                  <td style={{ border: "1px solid black" }}>
+                    <button
+                      style={{ border: "none", background: "none" ,cursor: "pointer" }}
                       onClick={() => {
                         deleteUserAdmin(element.id);
                       }}
                     >
                       delete
-                    </p>
+                    </button>
                   </td>
                 </tr>
               </>
-
-            
             );
           })}
       </table>

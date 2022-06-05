@@ -6,13 +6,13 @@ const createRole = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.json({
+      return  res.json({
         success: false,
         message: "Server Error",
         err: err,
       });
     }
-    res.json({
+      res.json({
       success: true,
       massage: "Success role created",
       result: result,

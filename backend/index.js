@@ -41,8 +41,7 @@ app.listen(PORT, () => {
   console.log(`server on ${PORT}`);
 });
 
-const filterRouter = require("./routes/filter");
-app.use("/filter", filterRouter);
+
 //!------------------- test -------------------
 
 /*

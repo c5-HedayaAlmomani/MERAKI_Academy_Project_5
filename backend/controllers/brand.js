@@ -109,7 +109,7 @@ const updateBrandById = (req, res) => {
             });
         }
         if (!result.length) {
-            res.status(404).json({
+            return res.status(404).json({
                 success: false,
                 massage: `The brand: ${id} is not found`,
                 err: err,

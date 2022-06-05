@@ -12,6 +12,7 @@ import { Routes, Route } from "react-router-dom";
 import CatByBrand from "./components/CatByBrand";
 import ProCB from "./components/ProCB";
 import UsersComponent from "./components/users"; 
+import AdminDashbord from "./components/adminDashbord";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
             element={<ProCB />}
           ></Route>
           <Route path="/Admin/users" element={<UsersComponent />}></Route>
+          <Route path="/Admin" element={<AdminDashbord />}></Route>
         </Routes>
      
      

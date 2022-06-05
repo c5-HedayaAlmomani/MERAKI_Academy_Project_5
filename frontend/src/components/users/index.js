@@ -39,19 +39,31 @@ const UsersComponent = () => {
       });
   };
 
-  const deleteUserAdmin=(id)=>{
-    axios.delete(`http://localhost:5000/admin/users/${id}`,{
-        headers: { authorization: `Bearer ${token}` }
-    }).then((result)=>{
-        dispatch(deleteFromUsers(id))
-
-    }).catch((err)=>{
+  const deleteUserAdmin = (id) => {
+    axios
+      .delete(`http://localhost:5000/admin/users/${id}`, {
+        headers: { authorization: `Bearer ${token}` },
+      })
+      .then((result) => {
+        dispatch(deleteFromUsers(id));
+      })
+      .catch((err) => {
         console.log(err);
-        console.log("ss");
+      });
+  };
 
-    })
-
-  }
+  const updateUserAdmin = (id) => {
+    axios
+      .put(`http://localhost:5000/admin/users/${id}`, {
+        headers: { authorization: `Bearer ${token}` },
+      })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -62,49 +74,38 @@ const UsersComponent = () => {
           <th style={{ borderRight: "1px solid black" }}>Email</th>
           <th style={{ borderRight: "1px solid black" }}>Edit Permissions</th>
 
-          <th /* style={{borderRight:"1px solid black"}} */>
-            Delete User
-          </th>
+          <th /* style={{borderRight:"1px solid black"}} */>Delete User</th>
         </tr>
 
         {users.length &&
           users.map((element, index) => {
             return (
-                
-                <>
-                  <tr>
-                    <td style={{ border: "1px solid black" }}>{element.id}</td>
-                    <td style={{ border: "1px solid black" }}>
-                      {element.firstName+ " " + element.lastName}
-                    </td>
-                    <td style={{ border: "1px solid black" }}>
-                      {element.email}
-                    </td>
-                    <td style={{ border: "1px solid black" }}>
-                      Edit
-                    </td>
-                    <td style={{ border: "1px solid black" ,cursor:"pointer"}}><p onClick={()=>{deleteUserAdmin(element.id)}}>delete</p></td>
+              <>
+                <tr>
+                  <td style={{ border: "1px solid black" }}>{element.id}</td>
+                  <td style={{ border: "1px solid black" }}>
+                    {element.firstName + " " + element.lastName}
+                  </td>
+                  <td style={{ border: "1px solid black" }}>{element.email}</td>
+                  <td style={{ border: "1px solid black" , cursor: "pointer" }} onClick={() => {
+                      updateUserAdmin(element.id);
+                    }}>Edit</td>
+                  <td
+                    style={{ border: "1px solid black", cursor: "pointer" }}
+                    
+                  >
+                    <p
+                      onClick={() => {
+                        deleteUserAdmin(element.id);
+                      }}
+                    >
+                      delete
+                    </p>
+                  </td>
+                </tr>
+              </>
 
-                   
-                  </tr>
-                </>
-
-
-
-
-
-
-
-/*               <tr>
-                <td style={{ borderRight: "1px solid black" }}>{element.id}</td>
-                <td style={{ borderRight: "1px solid black" }}>
-                  {element.firstName + " " + element.lastName}
-                </td>
-                <td style={{ borderRight: "1px solid black" }}>
-                  {element.email}
-                </td>
-                <td style={{ borderRight: "1px solid black" }}>edit</td>
-              </tr> */
+            
             );
           })}
       </table>

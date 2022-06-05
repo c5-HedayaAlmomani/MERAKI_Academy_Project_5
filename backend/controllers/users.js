@@ -46,6 +46,7 @@ const updateUser = (req, res) => {
     });
   });
 };
+
 const deleteUser = (req, res) => {
   const userId = req.params.id;
   const query = `Update users SET is_deleted=1 WHERE id=?`;

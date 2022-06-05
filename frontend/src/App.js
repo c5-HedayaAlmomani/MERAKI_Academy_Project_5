@@ -1,5 +1,5 @@
 import "./App.css";
-import Dashboard from "./components";
+import Dashboard from "./components/NavBar";
 import Register from "./components/register/index";
 import Login from "./components/login/index";
 import Product from "./components/product/index";
@@ -11,6 +11,7 @@ import CategoryAdmin from "./components/categoryAdmin";
 import { Routes, Route } from "react-router-dom";
 import CatByBrand from "./components/CatByBrand";
 import ProCB from "./components/ProCB";
+import UsersComponent from "./components/users"; 
 
 
 function App() {
@@ -28,12 +29,13 @@ function App() {
           <Route path="/product/:id" element={<OneProduct />}></Route>
           <Route path="/" element={<Brand />}></Route>
           // <Route path="/category" element={<Category />}></Route>
-          <Route path="/category/Admin" element={<CategoryAdmin />}></Route>
+          <Route path="/Admin/category" element={<CategoryAdmin />}></Route>
           <Route path="/allCategory/:brand" element={<CatByBrand />}></Route>
           <Route
             path="/allCategory/:brand/PRO/:brand/:category"
             element={<ProCB />}
           ></Route>
+          <Route path="/Admin/users" element={<UsersComponent />}></Route>
         </Routes>
      
      

@@ -1,9 +1,9 @@
-import Register from "./register";
-import Login from "./login";
+import Register from "../register";
+import Login from "../login";
 // import Product from "./product/uu";
 import { useSelector, useDispatch } from "react-redux";
-import { logoutAction } from "../redux/reducers/auth";
-import Brand from "./brand/beands";
+import { logoutAction } from "../../redux/reducers/auth";
+import Brand from "../brand/beands";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {

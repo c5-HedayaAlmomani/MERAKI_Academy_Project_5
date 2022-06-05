@@ -18,6 +18,7 @@ export const cart = createSlice({
       //     console.log(element.id);
       //     console.log(element.id == action.payload[0].id);
 
+
       //     return element.id == action.payload[0].id;
       //   });
       //   console.log("isInsert", isInserted);
@@ -27,6 +28,7 @@ export const cart = createSlice({
       //   }else{
 
       //   }
+
       state.cart.push(action.payload);
     },
     // payload: id

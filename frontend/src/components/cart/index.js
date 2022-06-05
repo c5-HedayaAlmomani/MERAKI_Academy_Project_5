@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./style.css";
-// import {useNavigate} from ("react-router-dom")
+
 import { loginAction } from "../../redux/reducers/auth";
 import {
   getCartAction,
@@ -11,6 +11,8 @@ import {
   deleteFromCartAction,
   emptyCartAction,
 } from "../../redux/reducers/cart";
+import StripeCheckout from "react-stripe-checkout";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   // const navigate=useNavigate()
@@ -44,10 +46,10 @@ const Cart = () => {
         dispatch(getCartAction(result.data.result));
         console.log(cart);
         console.log(result.data.result);
-        let priceTotal=result.data.result.reduce((acc,element,index)=>{
-          return acc+(element.price*element.quantity)
-        },0)
-        SetSubTotal(priceTotal)
+        let priceTotal = result.data.result.reduce((acc, element, index) => {
+          return acc + element.price * element.quantity;
+        }, 0);
+        SetSubTotal(priceTotal);
       })
       .catch((error) => {
         console.log(error);
@@ -113,7 +115,6 @@ const Cart = () => {
         ) : (
           cart.length &&
           cart.map((element, index) => {
-            
             return (
               <div className="product_details" key={index}>
                 <p
@@ -164,7 +165,6 @@ const Cart = () => {
                       </p>
                       <p className="product_total">
                         {"Total : " + element.price * element.quantity}JOD
-                        
                       </p>
                       <p className="product_details">
                         {"Description : " + element.description}
@@ -172,8 +172,6 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-
-                
               </div>
             );
           })
@@ -181,7 +179,7 @@ const Cart = () => {
       ) : (
         <h1>Please Login First</h1>
       )}
-      <h4 className="sub_total">{subtotal} JOD</h4> 
+      <h4 className="sub_total">{subtotal} JOD</h4>
       <button
         className="empty_cart"
         onClick={(e) => {

@@ -1,6 +1,6 @@
 import Register from "./register";
 import Login from "./login";
-import Product from "./product/uu";
+// import Product from "./product/uu";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutAction } from "../redux/reducers/auth";
 import Brand from "./brand/beands";

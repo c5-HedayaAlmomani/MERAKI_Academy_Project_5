@@ -31,7 +31,7 @@ const Dashboard = () => {
       .then((result) => {
 
 
-        console.log("result", result);
+        // console.log("result", result);
         const search1 = result.data.result.filter((element, index) => {
 
           return element.title.includes(searchInput)

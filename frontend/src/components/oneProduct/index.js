@@ -17,6 +17,7 @@ const OneProduct = () => {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const { id } = useParams();
+  const [number, setNumber] = useState(3);
 
   //! redux =========
   const dispatch = useDispatch();
@@ -165,106 +166,117 @@ const OneProduct = () => {
   useEffect(getUserId, []);
   return (
     <div>
-      {product.length &&
-        product.map((e, i) => {
-          return (
-            <div key={i} className="only_product">
-              <img src={`${e.image}`} />
-              <div className="detals">
-                {/* //!=================Rate================= */}
-                <div>
-                  {stars.map((e, index) => {
-                    return (
-                      <FaStar
-                        key={index}
-                        size={24}
-                        onClick={() => handleClick(index + 1)}
-                        onMouseOver={() => handleMouseOver(index + 1)}
-                        onMouseLeave={handleMouseLeave}
-                        color={
-                          (hoverValue || currentValue) > index
-                            ? "#FFBA5A"
-                            : "#a9a9a9"
-                        }
-                        style={{
-                          marginRight: 10,
-                          cursor: "pointer",
-                        }}
-                      />
-                    );
-                  })}
-                </div>
-                {/* //!=================Rate================= */}
-
-                <p>{"Title  :" + e.title}</p>
-                <p>{"Description  : " + e.description}</p>
-                <p>{"Price : " + e.price}</p>
-                <button
-                  className="add_to_cart"
-                  onClick={() => {
-                    console.log("e");
-                    addToCart(e.id);
-                  }}
-                >
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-          );
-        })}
-
-      {/* //!=============================feedback============================= */}
       <div>
-        {feedback.length &&
-          feedback.map((element, index) => {
+        {product.length &&
+          product.map((e, i) => {
             return (
-              <div key={index}>
-                <p>{element.firstName + ": " + element.feedback} </p>
-
-                {user_id == element.user_id ? (
+              <div key={i} className="only_product">
+                <img src={`${e.image}`} />
+                <div className="detals">
+                  {/* //!=================Rate================= */}
                   <div>
-                    <input
-                      onChange={(e) => {
-                        setNewFeedback(e.target.value);
-                      }}
-                    />
-                    <button
-                      onClick={() => {
-                        updateFeedback(newFeedback, element.id);
-                      }}
-                    >
-                      Update
-                    </button>
+                    {stars.map((e, index) => {
+                      return (
+                        <FaStar
+                          key={index}
+                          size={24}
+                          onClick={() => handleClick(index + 1)}
+                          onMouseOver={() => handleMouseOver(index + 1)}
+                          onMouseLeave={handleMouseLeave}
+                          color={
+                            (hoverValue || currentValue) > index
+                              ? "#FFBA5A"
+                              : "#a9a9a9"
+                          }
+                          style={{
+                            marginRight: 10,
+                            cursor: "pointer",
+                          }}
+                        />
+                      );
+                    })}
                   </div>
-                ) : (
-                  <></>
-                )}
-                {user_id == element.user_id ? (
+                  {/* //!================= End Rate================= */}
+
+                  <p>{"Title  :" + e.title}</p>
+                  <p>{"Description  : " + e.description}</p>
+                  <p>{"Price : " + e.price}</p>
                   <button
+                    className="add_to_cart"
                     onClick={() => {
-                      deleteFeedback(element.id);
+                      console.log("e");
+                      addToCart(e.id);
                     }}
                   >
-                    Delete
+                    Add To Cart
                   </button>
-                ) : (
-                  <></>
-                )}
+                </div>
               </div>
             );
           })}
 
-        <input
-          onChange={(e) => {
-            setNewFeedback(e.target.value);
-          }}
-        />
+        {/* //!=============================feedback============================= */}
+        <div>
+          {feedback.length &&
+            feedback.slice(0, number).map((element, index) => {
+              return (
+                <div key={index}>
+                  <p>{element.firstName + ": " + element.feedback} </p>
+
+                  {user_id == element.user_id ? (
+                    <div>
+                      <input
+                        onChange={(e) => {
+                          setNewFeedback(e.target.value);
+                        }}
+                      />
+                      <button
+                        onClick={() => {
+                          updateFeedback(newFeedback, element.id);
+                        }}
+                      >
+                        Update
+                      </button>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {user_id == element.user_id ? (
+                    <button
+                      onClick={() => {
+                        deleteFeedback(element.id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              );
+            })}
+
+          <input
+            onChange={(e) => {
+              setNewFeedback(e.target.value);
+            }}
+          />
+        </div>
         <button
           onClick={() => {
             addFeedback(newFeedback);
           }}
         >
           Add Feedback
+        </button>
+      </div>
+      <div>
+        <button
+          onClick={() => {
+            setNumber(number + 3);
+          }}
+        >
+          See More
         </button>
       </div>
     </div>

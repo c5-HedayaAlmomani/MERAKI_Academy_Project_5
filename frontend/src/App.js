@@ -1,5 +1,5 @@
 import "./App.css";
-import Dashboard from "./components/NavBar";
+import NavBar from "./components/NavBar";
 import Register from "./components/register/index";
 import Login from "./components/login/index";
 import Product from "./components/product/index";
@@ -21,7 +21,7 @@ function App() {
     <div className="App">
   
         Welcome APP
-        <Dashboard />
+        <NavBar />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

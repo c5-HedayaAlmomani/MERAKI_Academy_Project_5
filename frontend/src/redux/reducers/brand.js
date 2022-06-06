@@ -8,15 +8,16 @@ export const brands = createSlice({
   reducers: {
     // payload :array of Brands [Brands]
     getBrandsAction: (state, action) => {
-      state.category = action.payload;
+      console.log(action.payload);
+      state.brands = action.payload;
     },
     // payload : Brand object {Brand}
     addToBrandAction: (state, action) => {
-      state.category.push(action.payload);
+      state.brands.push(action.payload);
     },
     // payload: id
     deleteFromBrand: (state, action) => {
-      state.category = state.category.filter((element) => {
+      state.brands = state.brands.filter((element) => {
         return element.id != action.payload;
       });
     },

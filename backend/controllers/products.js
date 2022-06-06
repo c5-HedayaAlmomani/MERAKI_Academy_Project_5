@@ -49,7 +49,7 @@ const getProductById = (req, res) => {
 
     connection.query(query, data, (err, result) => {
         if (err) {
-            res.status(500).json({
+            return res.status(500).json({
                 success: false,
                 massage: "Server Error",
                 err: err,

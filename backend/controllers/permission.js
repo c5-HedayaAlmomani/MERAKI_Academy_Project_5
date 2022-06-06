@@ -7,7 +7,7 @@ const createPermission = (req, res) => {
   const data = [permission];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.status(500).json({ err });
+      return res.status(500).json({ err });
     }
     if (result) {
       const query = `INSERT INTO role_permission (permission_id,role_id) VALUES (?,?); `;

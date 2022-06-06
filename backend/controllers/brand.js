@@ -126,9 +126,9 @@ const updateBrandById = (req, res) => {
 
             connection.query(query, data, (err, result) => {
                 console.log(result);
-                // console.log("lkllllllllllll"+result);
-                if (result.affectedRows != 0)
-                    res.status(201).json({
+                
+            if (result.affectedRows != 0)
+                  return  res.status(201).json({
                         success: true,
                         massage: `brand updated`,
                         result: result,

@@ -13,6 +13,8 @@ import CatByBrand from "./components/CatByBrand";
 import ProCB from "./components/ProCB";
 import UsersComponent from "./components/users"; 
 import AdminDashbord from "./components/adminDashbord";
+import ProductAdmin from "./components/product Admin";
+import UpdateProductAdmin from "./components/product Admin/UpdateProduct";
 import Upload from "./components/upload";
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
           ></Route>
           <Route path="/Admin/users" element={<UsersComponent />}></Route>
           <Route path="/Admin" element={<AdminDashbord />}></Route>
+          <Route path="/Admin/product" element={<ProductAdmin />}></Route>
+          <Route path="/Admin/product/edit/:id" element={<UpdateProductAdmin />}></Route>
         </Routes>
      
    

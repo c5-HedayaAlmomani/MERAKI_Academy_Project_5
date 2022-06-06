@@ -11,7 +11,7 @@ const getAllProductPagination = (req, res) => {
 
   connection.query(query, (err, result) => {
     if (err) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         massage: "server error",
         err: err,

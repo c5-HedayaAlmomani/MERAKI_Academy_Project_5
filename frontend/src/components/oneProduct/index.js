@@ -171,7 +171,6 @@ const OneProduct = () => {
             </div>
           );
         })}
-      <div>{product.length && product[0].id}</div>
 
       {/* //!=============================feedback============================= */}
       <div>
@@ -180,18 +179,6 @@ const OneProduct = () => {
             return (
               <div key={index}>
                 <p>{element.firstName + ": " + element.feedback} </p>
-
-                {user_id == element.user_id ? (
-                  <button
-                    onClick={() => {
-                      deleteFeedback(element.id);
-                    }}
-                  >
-                    Delete
-                  </button>
-                ) : (
-                  <></>
-                )}
 
                 {user_id == element.user_id ? (
                   <div>
@@ -208,6 +195,17 @@ const OneProduct = () => {
                       Update
                     </button>
                   </div>
+                ) : (
+                  <></>
+                )}
+                {user_id == element.user_id ? (
+                  <button
+                    onClick={() => {
+                      deleteFeedback(element.id);
+                    }}
+                  >
+                    Delete
+                  </button>
                 ) : (
                   <></>
                 )}

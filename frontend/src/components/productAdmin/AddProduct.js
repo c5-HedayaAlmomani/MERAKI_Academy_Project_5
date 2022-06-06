@@ -7,6 +7,8 @@ import products, {
     updateProductAction,
     deleteProductAction,
   } from "../../redux/reducers/products";
+  import Upload from "../upload";
+  import { getCloudinaryAction ,addToCloudinaryAction} from "../../redux/reducers/cloudinary";
 
   const AddProductAdmin=()=>{
     // const { id } = useParams();
@@ -21,11 +23,13 @@ import products, {
     //! redux =========
   const dispatch = useDispatch();
 
-  const { token, isLoggedIn, users, products } = useSelector((state) => {
+  const { token, isLoggedIn, users, products ,cloudinary} = useSelector((state) => {
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
       products: state.products.products,
+      cloudinary:state.cloudinary.cloudinary
+
     };
   });
 //   const navigate = useNavigate();
@@ -37,7 +41,7 @@ import products, {
         title:title,
         description:description,
         price:price,
-        image:image,
+        image:cloudinary,
         category_id:category_id,
         sub_category_id:sub_category_id,
         brand_id:brand_id,
@@ -58,6 +62,7 @@ import products, {
           <div className="UpdateProductAdmin">
       <div className="image_container">
         <h5>Picture</h5>
+      <Upload/>
         <input type="text"  className="title" onChange={(e)=>{setImage(e.target.value)}}/>
       </div>
       <div className="input_container">

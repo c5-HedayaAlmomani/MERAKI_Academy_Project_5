@@ -5,6 +5,7 @@ import categoryReducer from "./reducers/categoryAdmin";
 import productsReducer from "./reducers/products";
 import usersReducer from "./reducers/users";
 import searchReducer from "./reducers/sreach";
+import brandsReducer from "./reducers/brand"
 
 
 export default configureStore({
@@ -14,7 +15,8 @@ export default configureStore({
     cart: cartReducer,
     category: categoryReducer,
     users:usersReducer,
-    search:searchReducer
+    search:searchReducer,
+    brands:brandsReducer
     
   },
 });

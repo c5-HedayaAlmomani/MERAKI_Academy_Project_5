@@ -278,6 +278,13 @@ const OneProduct = () => {
         >
           See More
         </button>
+        <button
+          onClick={() => {
+            setNumber(3);
+          }}
+        >
+          See Less
+        </button>
       </div>
     </div>
   );

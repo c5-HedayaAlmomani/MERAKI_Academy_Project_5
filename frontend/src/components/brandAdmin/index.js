@@ -12,6 +12,7 @@ const BrandAdmin = () => {
   //! redux =========
   const dispatch = useDispatch();
   const [brandName, setBrandName] = useState("");
+  const [image, setImage] = useState("");
 
   const { token, isLoggedIn, category, brands } = useSelector((state) => {
     return {
@@ -50,19 +51,20 @@ const BrandAdmin = () => {
         console.log(err);
       });
   };
-  const addCategoryAdmin = (categoryName) => {
+  const addBrandAdmin = () => {
     axios
       .post(
         `http://localhost:5000/brand`,
-        { brand: categoryName },
+        { brand: brandName, image: image },
         { headers: { authorization: `Bearer ${token}` } }
       )
       .then((result) => {
         console.log(result);
         dispatch(
-          addToCategoryAction({
+          addToBrandAction({
             id: result.data.result.insertId,
-            category: categoryName,
+            brand: brandName,
+            image:image,
             is_deleted: 0,
           })
         );
@@ -137,7 +139,7 @@ const BrandAdmin = () => {
         className="brand_image"
         placeholder="brand_image"
         onChange={(e) => {
-          /* setCategoryName(e.target.value) */
+          setImage(e.target.value)
         }}
       />
       <input
@@ -145,13 +147,13 @@ const BrandAdmin = () => {
         className="brand_Name"
         placeholder="brand_Name"
         onChange={(e) => {
-          /* setCategoryName(e.target.value) */
+          setBrandName(e.target.value)
         }}
       />
       <button
-        className="add_category"
+        className="add_brand"
         onClick={() => {
-          /* addCategoryAdmin(categoryName); */
+          addBrandAdmin();
         }}
       >
         Add Brand{" "}

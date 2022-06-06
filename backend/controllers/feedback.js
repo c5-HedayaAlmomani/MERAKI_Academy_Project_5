@@ -27,7 +27,6 @@ const addFeedback = (req, res) => {
 const getFeedback = (req, res) => {
     const {product_id}= req.params
     
-  // const query = "SELECT * FROM feedback INNER JOIN users ON feedback.user_id=users.id WHERE feedback.is_deleted=0 AND feedback.product_id=?";
   const query = "SELECT  feedback.id , users.firstName ,feedback.feedback, feedback.user_id  FROM feedback INNER JOIN users ON feedback.user_id=users.id WHERE feedback.is_deleted=0 AND feedback.product_id=?";
 
   const data=[product_id]

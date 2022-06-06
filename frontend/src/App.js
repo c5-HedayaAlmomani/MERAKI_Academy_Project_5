@@ -40,7 +40,7 @@ function App() {
           <Route path="/Admin" element={<AdminDashbord />}></Route>
         </Routes>
      
-     
+   
    <Upload />
     </div>
   );

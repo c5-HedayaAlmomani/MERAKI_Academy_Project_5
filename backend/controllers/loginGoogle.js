@@ -8,7 +8,7 @@ const loginGoogle = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.json(err);
+      return res.json(err);
     }
 
     const payload = {

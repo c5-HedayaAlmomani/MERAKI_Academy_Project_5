@@ -18,6 +18,10 @@
   "homepage": "https://github.com/c5-HedayaAlmomani/MERAKI_Academy_Project_5#readme",
   "description": "",
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.8.2",
+    "@mui/x-data-grid": "^5.12.0",
     "stripe": "^9.6.0",
     "uuid": "^8.3.2"
   }

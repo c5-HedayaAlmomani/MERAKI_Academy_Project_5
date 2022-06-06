@@ -114,23 +114,20 @@ const CategoryAdmin = () => {
           </tr>
           {/* <tr> */}
           {category.length &&
-            category.map((element) => {
+            category.map((element,index) => {
               return (
-                <>
-                  <tr>
+                
+                  <tr key={index}>
                     <td style={{ border: "1px solid black" }}>{element.id}</td>
                     <td style={{ border: "1px solid black" }}>
                       {element.category}
-                    </td>
-                   
-                    {/* <td style={{ border: "1px solid black" }}> <input placeholder="Edit"/> <button>Edit</button></td> */}
-
+                    </td> 
                     <td style={{ border: "1px solid black" ,cursor:"pointer"}}><p onClick={()=>{deleteCategoryAdmin(element.id)}}>sub_category</p></td>
 
                     <td style={{ border: "1px solid black" ,cursor:"pointer"}}><p onClick={()=>{deleteCategoryAdmin(element.id)}}>Delete</p></td>
                     
                   </tr>
-                </>
+                
               );
             })}
           

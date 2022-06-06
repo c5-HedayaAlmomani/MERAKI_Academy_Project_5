@@ -18,8 +18,8 @@ productsRouter.get("/:id", getProductById);
 productsRouter.delete("/:id", deleteProductById);
 productsRouter.put(
   "/:id",
-  authentication,
-  authorization("UPDATE_PRODUCT"),
+  /* authentication,
+  authorization("UPDATE_PRODUCT"), */
   updateProductById
 );
 

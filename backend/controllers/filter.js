@@ -6,7 +6,7 @@ const getBrandCat = (req, res) => {
   const data = [brand];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         massage: "server error",
         err: err,

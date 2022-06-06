@@ -67,7 +67,7 @@ const UsersComponent = () => {
   };
 
   return (
-    <div>
+    <div className="UsersComponent">
       <table style={{ border: "1px solid black", display: "inline-block" }}>
         <tr>
           <th style={{ borderRight: "1px solid black" }}>ID</th>

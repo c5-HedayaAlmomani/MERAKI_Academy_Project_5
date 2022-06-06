@@ -6,7 +6,7 @@ import productsReducer from "./reducers/products";
 import usersReducer from "./reducers/users";
 import searchReducer from "./reducers/sreach";
 import brandsReducer from "./reducers/brand"
-
+import cloudinaryReducer from "./reducers/cloudinary"
 
 export default configureStore({
   reducer: {
@@ -16,7 +16,8 @@ export default configureStore({
     category: categoryReducer,
     users:usersReducer,
     search:searchReducer,
-    brands:brandsReducer
+    brands:brandsReducer,
+    cloudinary:cloudinaryReducer
     
   },
 });

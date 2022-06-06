@@ -36,7 +36,8 @@ const Dashboard = () => {
           return element.title.includes(searchInput)
         })
         setsearchArray(search1);
-        console.log("search1", search1);
+        
+        // console.log("search1", search1);
 
 
 

@@ -1,21 +1,21 @@
 const connection = require("../models/db")
 
 const Createcategory = (req, res) => {
-    const { category } = req.body;
+    const { category,brand_id } = req.body;
 
-    const query = `INSERT INTO category (category) VALUES (?);`;
-    const data = [category];
+    const query = `INSERT INTO category (category,brand_id) VALUES (?,?);`;
+    const data = [category,brand_id];
 
     connection.query(query, data, (err, result) => {
         console.log(result);
-        if (err) {
-            res.status(500).json({
+       if (err) {
+        return res.status(500).json({
                 success: false,
                 massage: "Server error",
                 err: err,
             });
         }
-        res.status(200).json({
+        res.status(201).json({
             success: true,
             massage: "category created",
             result: result,

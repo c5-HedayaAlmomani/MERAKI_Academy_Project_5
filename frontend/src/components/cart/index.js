@@ -58,7 +58,9 @@ const Cart = () => {
   };
 
   const addToCart = (id, quantity) => {
+
     if (!token) return alert("Please login to continue buying");
+    
     axios
       .post(
         `http://localhost:5000/cart`,

@@ -13,6 +13,7 @@ import CatByBrand from "./components/CatByBrand";
 import ProCB from "./components/ProCB";
 import UsersComponent from "./components/users"; 
 import AdminDashbord from "./components/adminDashbord";
+import AddProductAdmin from "./components/productAdmin/AddProduct";
 
 import ProductAdmin from "./components/productAdmin";
 import UpdateProductAdmin from "./components/productAdmin/UpdateProduct";
@@ -44,6 +45,7 @@ function App() {
           <Route path="/Admin" element={<AdminDashbord />}></Route>
           <Route path="/Admin/product" element={<ProductAdmin />}></Route>
           <Route path="/Admin/product/edit/:id" element={<UpdateProductAdmin />}></Route>
+          <Route path="/Admin/product/create" element={<AddProductAdmin />}></Route>
         </Routes>
      
    

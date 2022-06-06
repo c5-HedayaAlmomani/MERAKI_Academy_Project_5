@@ -62,15 +62,7 @@ const ProductAdmin = () => {
         console.log(err);
       });
   };
-//   const updateProduct = (id) => {
-//     axios
-//       .put(`http://localhost:5000/products/${id}`, {
-//         headers: { authorization: `Bearer ${token}` },
-//       })
-//       .then((result) => {})
-//       .catch((ree) => {});
-//   };
-  // console.log(products);
+
 
   return (
     <div className="ProductAdmin">
@@ -96,10 +88,10 @@ const ProductAdmin = () => {
                 <td style={{ border: "1px solid black" }}>{element.title}</td>
                 <td style={{ border: "1px solid black" }}>{element.price}</td>
                 <td style={{ border: "1px solid black" }}>
-                  {element.brand_id}
+                  {element.brand}
                 </td>
                 <td style={{ border: "1px solid black" }}>
-                  {element.category_id}
+                  {element.category}
                 </td>
                 <td style={{ border: "1px solid black" }}>
                   <button
@@ -119,7 +111,9 @@ const ProductAdmin = () => {
           })}
       </table>
       <div className="Add_Product">
-        <button className="Add_Product">Add Product</button>
+        <button className="Add_Product" onClick={()=>{navigate("/Admin/product/create")
+                
+              }}>Add Product</button>
       </div>
     </div>
   );

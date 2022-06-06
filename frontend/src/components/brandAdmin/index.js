@@ -7,6 +7,8 @@ import {
   addToBrandAction,
   deleteFromBrand,
 } from "../../redux/reducers/brand";
+import { getCloudinaryAction ,addToCloudinaryAction} from "../../redux/reducers/cloudinary";
+import Upload from "../upload";
 
 const BrandAdmin = () => {
   //! redux =========
@@ -14,11 +16,12 @@ const BrandAdmin = () => {
   const [brandName, setBrandName] = useState("");
   const [image, setImage] = useState("");
 
-  const { token, isLoggedIn, category, brands } = useSelector((state) => {
+  const { token, isLoggedIn, category, brands ,cloudinary} = useSelector((state) => {
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
       brands: state.brands.brands,
+      cloudinary:state.cloudinary.cloudinary
     };
   });
   console.log(brands);

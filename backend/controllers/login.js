@@ -20,6 +20,7 @@ const login = (req, res) => {
         }
         if (response) {
           const payload = {
+            firstName:result[0].firstName,
             userId: result[0].id,
             role: result[0].role_id,
           };

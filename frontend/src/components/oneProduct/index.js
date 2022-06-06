@@ -4,6 +4,7 @@ import "./style.css";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { FaStar } from "react-icons/fa";
 
 import { loginAction } from "../../redux/reducers/auth";
 
@@ -13,6 +14,8 @@ const OneProduct = () => {
   const [newFeedback, setNewFeedback] = useState("");
   const [updated, setUpdated] = useState("");
   const [user_id, setUser_id] = useState(0);
+  const [currentValue, setCurrentValue] = useState(0);
+  const [hoverValue, setHoverValue] = useState(undefined);
   const { id } = useParams();
 
   //! redux =========
@@ -25,7 +28,20 @@ const OneProduct = () => {
     };
   });
   //! redux =========
+  //? ======Rate=================
+  const stars = [1, 1, 1, 1, 1];
 
+  const handleClick = (value) => {
+    setCurrentValue(value);
+  };
+  const handleMouseOver = (newHoverValue) => {
+    setHoverValue(newHoverValue);
+  };
+
+  const handleMouseLeave = () => {
+    setHoverValue(undefined);
+  };
+  //? ======Rate=================
   const oneProduct = () => {
     axios
       .get(`http://localhost:5000/products/${id}`)
@@ -155,6 +171,31 @@ const OneProduct = () => {
             <div key={i} className="only_product">
               <img src={`${e.image}`} />
               <div className="detals">
+                {/* //!=================Rate================= */}
+                <div>
+                  {stars.map((e, index) => {
+                    return (
+                      <FaStar
+                        key={index}
+                        size={24}
+                        onClick={() => handleClick(index + 1)}
+                        onMouseOver={() => handleMouseOver(index + 1)}
+                        onMouseLeave={handleMouseLeave}
+                        color={
+                          (hoverValue || currentValue) > index
+                            ? "#FFBA5A"
+                            : "#a9a9a9"
+                        }
+                        style={{
+                          marginRight: 10,
+                          cursor: "pointer",
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+                {/* //!=================Rate================= */}
+
                 <p>{"Title  :" + e.title}</p>
                 <p>{"Description  : " + e.description}</p>
                 <p>{"Price : " + e.price}</p>

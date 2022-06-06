@@ -38,7 +38,8 @@ const Dashboard = () => {
 
         })
         setsearchArray(search1);
-        console.log("search1", search1);
+        
+        // console.log("search1", search1);
 
 
 

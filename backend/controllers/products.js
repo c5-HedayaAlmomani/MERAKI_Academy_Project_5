@@ -108,6 +108,7 @@ const updateProductById = (req, res) => {
     const data = [id];
 
     connection.query(query, data, (err, result) => {
+        console.log(err);
         if (err) {
             return res.status(404).json({
                 success: false,

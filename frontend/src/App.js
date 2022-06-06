@@ -13,7 +13,7 @@ import CatByBrand from "./components/CatByBrand";
 import ProCB from "./components/ProCB";
 import UsersComponent from "./components/users"; 
 import AdminDashbord from "./components/adminDashbord";
-
+import Upload from "./components/upload";
 
 function App() {
 
@@ -41,7 +41,7 @@ function App() {
         </Routes>
      
      
-   
+   <Upload />
     </div>
   );
 }

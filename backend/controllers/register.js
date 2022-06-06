@@ -19,6 +19,7 @@ connection.query(query,data,(err,result)=>{
           massage: "The email already exists",
           err:err
         });
+        
       }
       res.status(200).json({
         success: true,

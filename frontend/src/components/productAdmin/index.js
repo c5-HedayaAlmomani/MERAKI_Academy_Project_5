@@ -97,6 +97,7 @@ const ProductAdmin = () => {
                   <button
                     className="delete_button"
                     onClick={() => {
+                      console.log(element);
                       deleteProduct(element.id);
                     }}
                   >

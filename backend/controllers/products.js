@@ -1,11 +1,11 @@
 const connection = require("../models/db");
 
 const CreateProduct = (req, res) => {
-  const { title, description, price, image, category_id, sub_category_id } =
+  const { title, description, price, image, category_id, sub_category_id,brand_id} =
     req.body;
 
-  const query = `INSERT INTO Products (title,description,price, image, category_id,sub_category_id) VALUES (?,?,?,?,?,?);`;
-  const data = [title, description, price, image, category_id, sub_category_id];
+  const query = `INSERT INTO Products (title,description,price, image, category_id,sub_category_id,brand_id) VALUES (?,?,?,?,?,?,?);`;
+  const data = [title, description, price, image, category_id, sub_category_id,brand_id];
 
   connection.query(query, data, (err, result) => {
     console.log(result);

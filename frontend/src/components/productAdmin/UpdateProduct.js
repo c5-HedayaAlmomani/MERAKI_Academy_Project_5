@@ -71,7 +71,7 @@ const UpdateProductAdmin = () => {
         <h5>Price</h5>
         <input type="number" className="title" onChange={(e)=>{setPrice(e.target.value)}} />
       </div>
-      <button onClick={()=>{updateProduct()}}>Edit</button>
+      <button onClick={()=>{updateProduct()}}>Edit Product</button>
     </div>
   );
 };

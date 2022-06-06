@@ -14,6 +14,7 @@ import ProCB from "./components/ProCB";
 import UsersComponent from "./components/users"; 
 import AdminDashbord from "./components/adminDashbord";
 import AddProductAdmin from "./components/productAdmin/AddProduct";
+import BrandAdmin from "./components/brandAdmin";
 
 import ProductAdmin from "./components/productAdmin";
 import UpdateProductAdmin from "./components/productAdmin/UpdateProduct";
@@ -42,6 +43,7 @@ function App() {
             element={<ProCB />}
           ></Route>
           <Route path="/Admin/users" element={<UsersComponent />}></Route>
+          <Route path="/Admin/brand" element={<BrandAdmin />}></Route>
           <Route path="/Admin" element={<AdminDashbord />}></Route>
           <Route path="/Admin/product" element={<ProductAdmin />}></Route>
           <Route path="/Admin/product/edit/:id" element={<UpdateProductAdmin />}></Route>

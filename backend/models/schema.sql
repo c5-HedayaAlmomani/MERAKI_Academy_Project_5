@@ -104,3 +104,14 @@ CREATE TABLE feedback (
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE rate (
+    id INT NOT NULL AUTO_INCREMENT NOT NULL,
+    product_id INT,
+    user_id INT,
+    rate INT,
+    FOREIGN KEY (product_id) REFERENCES products (id),
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);

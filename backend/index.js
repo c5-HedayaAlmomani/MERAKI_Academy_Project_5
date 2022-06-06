@@ -44,6 +44,9 @@ app.use("/filter", filterRouter);
 
 const feedbackRouter = require("./routes/feedback")
 app.use("/feedback" , feedbackRouter)
+
+const rateRouter = require("./routes/rate")
+app.use("/rate" , rateRouter)
 //!------------------- test -------------------
 
 /*

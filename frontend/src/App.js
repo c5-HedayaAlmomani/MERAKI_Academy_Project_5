@@ -13,8 +13,10 @@ import CatByBrand from "./components/CatByBrand";
 import ProCB from "./components/ProCB";
 import UsersComponent from "./components/users"; 
 import AdminDashbord from "./components/adminDashbord";
+
 import ProductAdmin from "./components/productAdmin";
 import UpdateProductAdmin from "./components/productAdmin/UpdateProduct";
+
 import Upload from "./components/upload";
 
 function App() {

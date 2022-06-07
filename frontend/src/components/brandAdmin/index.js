@@ -58,7 +58,7 @@ const BrandAdmin = () => {
     axios
       .post(
         `http://localhost:5000/brand`,
-        { brand: brandName, image: image },
+        { brand: brandName, image: cloudinary },
         { headers: { authorization: `Bearer ${token}` } }
       )
       .then((result) => {
@@ -138,13 +138,10 @@ const BrandAdmin = () => {
       </div>
 
       <h6>Add Brand</h6>
-      <input
-        className="brand_image"
-        placeholder="brand_image"
-        onChange={(e) => {
-          setImage(e.target.value)
-        }}
-      />
+      <h5>Picture</h5>
+      <Upload/>
+        <input type="text"  className="title" onChange={(e)=>{setImage(e.target.value)}}/>
+        
       <input
         type="text"
         className="brand_Name"

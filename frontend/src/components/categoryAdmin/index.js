@@ -7,6 +7,8 @@ import {
   addToCategoryAction,
   deleteFromCategory,
 } from "../../redux/reducers/categoryAdmin";
+import("./style.css");
+
 
 const CategoryAdmin = () => {
   //! redux =========
@@ -104,11 +106,11 @@ const CategoryAdmin = () => {
   return (
     <div className="category_Admin">
       <div className="category_contener">
-        <table style={{ border: "1px solid black" ,display: "inline-block"}}>
+        <table id="categryT"/* style={{ border: "1px solid black" ,display: "inline-block"}} */>
           <tr>
-            <th style={{ borderRight: "1px solid black" }}>ID</th>
-            <th style={{ borderRight: "1px solid black" }}>Category Name</th>
-            <th style={{ borderRight: "1px solid black" }}>sub_category</th>
+            <th /* style={{ borderRight: "1px solid black" }} */>ID</th>
+            <th /* style={{ borderRight: "1px solid black" }} */>Category Name</th>
+            <th /* style={{ borderRight: "1px solid black" }} */>sub_category</th>
             {/* <th style={{ borderRight: "1px solid black" }}>Edit</th> */}
             <th /* style={{borderRight:"1px solid black"}} */>Delete</th>
           </tr>
@@ -118,13 +120,13 @@ const CategoryAdmin = () => {
               return (
                 
                   <tr key={index}>
-                    <td style={{ border: "1px solid black" }}>{element.id}</td>
-                    <td style={{ border: "1px solid black" }}>
+                    <td /* style={{ border: "1px solid black" }} */>{element.id}</td>
+                    <td /* style={{ border: "1px solid black" }} */>
                       {element.category}
                     </td> 
-                    <td style={{ border: "1px solid black" ,cursor:"pointer"}}><p onClick={()=>{deleteCategoryAdmin(element.id)}}>sub_category</p></td>
+                    <td /* style={{ border: "1px solid black" ,cursor:"pointer"}} */><p onClick={()=>{deleteCategoryAdmin(element.id)}}>sub_category</p></td>
 
-                    <td style={{ border: "1px solid black" ,cursor:"pointer"}}><p onClick={()=>{deleteCategoryAdmin(element.id)}}>Delete</p></td>
+                    <td /* style={{ border: "1px solid black" ,cursor:"pointer"}} */><p onClick={()=>{deleteCategoryAdmin(element.id)}}>Delete</p></td>
                     
                   </tr>
                 

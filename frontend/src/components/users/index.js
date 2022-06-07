@@ -8,6 +8,7 @@ import {
   deleteFromUsers,
   updateProductAction,
 } from "../../redux/reducers/users";
+import"./style.css"
 
 const UsersComponent = () => {
   //! redux =========
@@ -68,12 +69,12 @@ const UsersComponent = () => {
 
   return (
     <div className="UsersComponent">
-      <table style={{ border: "1px solid black", display: "inline-block" }}>
+      <table id="usersT" /* style={{ border: "1px solid black", display: "inline-block" }} */>
         <tr>
-          <th style={{ borderRight: "1px solid black" }}>ID</th>
-          <th style={{ borderRight: "1px solid black" }}>User Name </th>
-          <th style={{ borderRight: "1px solid black" }}>Email</th>
-          <th style={{ borderRight: "1px solid black" }}>Edit Permissions</th>
+          <th /*style={{ borderRight: "1px solid black" }}*/>ID</th>
+          <th /*style={{ borderRight: "1px solid black" }}*/>User Name </th>
+          <th /*style={{ borderRight: "1px solid black" }}*/>Email</th>
+          <th /*style={{ borderRight: "1px solid black" }}*/>Edit Permissions</th>
 
           <th /* style={{borderRight:"1px solid black"}} */>Delete User</th>
         </tr>
@@ -83,19 +84,19 @@ const UsersComponent = () => {
             return (
               <>
                 <tr>
-                  <td style={{ border: "1px solid black" }}>{element.id}</td>
-                  <td style={{ border: "1px solid black" }}>
+                  <td /* style={{ border: "1px solid black" }} */>{element.id}</td>
+                  <td /* style={{ border: "1px solid black" }} */>
                     {element.firstName + " " + element.lastName}
                   </td>
-                  <td style={{ border: "1px solid black" }}>{element.email}</td>
+                  <td /*style={{ border: "1px solid black" }}*/>{element.email}</td>
                   <td
-                    style={{ border: "1px solid black" }}
+                    /*style={{ border: "1px solid black" }}*/
                     onClick={() => {
                       updateUserAdmin(element.id);
                     }}
                   >
                     <button
-                      style={{ border: "none", background: "none" ,cursor: "pointer"}}
+                      /* style={{ border: "none", background: "none" ,cursor: "pointer"}} */
                       onClick={() => {
                         updateUserAdmin(element.id);
                       }}
@@ -103,9 +104,9 @@ const UsersComponent = () => {
                       Edit
                     </button>
                   </td>
-                  <td style={{ border: "1px solid black" }}>
+                  <td /*style={{ border: "1px solid black" }}*/>
                     <button
-                      style={{ border: "none", background: "none" ,cursor: "pointer" }}
+                      /* style={{ border: "none", background: "none" ,cursor: "pointer" }} */
                       onClick={() => {
                         deleteUserAdmin(element.id);
                       }}

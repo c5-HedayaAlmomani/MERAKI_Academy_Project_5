@@ -9,6 +9,7 @@ import {
 } from "../../redux/reducers/brand";
 import { getCloudinaryAction ,addToCloudinaryAction} from "../../redux/reducers/cloudinary";
 import Upload from "../upload";
+import "./style.css"
 
 const BrandAdmin = () => {
   //! redux =========
@@ -84,11 +85,11 @@ const BrandAdmin = () => {
   return (
     <div className="BrandAdmin">
       <div className="category_contener">
-        <table style={{ border: "1px solid black", display: "inline-block" }}>
+        <table id="adminT"/* style={{ border: "1px solid black", display: "inline-block" }} */>
           <tr>
-            <th style={{ borderRight: "1px solid black" }}>#</th>
-            <th style={{ borderRight: "1px solid black" }}>Brand image </th>
-            <th style={{ borderRight: "1px solid black" }}>Brand Name </th>
+            <th /* style={{ borderRight: "1px solid black" }} */>#</th>
+            <th /* style={{ borderRight: "1px solid black" }} */>Brand image </th>
+            <th /* style={{ borderRight: "1px solid black" }} */>Brand Name </th>
 
             {/* <th style={{ borderRight: "1px solid black" }}>Edit</th> */}
             <th /* style={{borderRight:"1px solid black"}} */>Actions</th>
@@ -98,10 +99,10 @@ const BrandAdmin = () => {
             brands.map((element, index) => {
               return (
                 <tr key={index}>
-                  <td style={{ border: "1px solid black" }}>{index + 1}</td>
-                  <td style={{ border: "1px solid black" }}><img src={element.image}/></td>
-                  <td style={{ border: "1px solid black" }}>{element.brand}</td>
-                  <td style={{ border: "1px solid black", cursor: "pointer" }}>
+                  <td /* style={{ border: "1px solid black" }} */>{index + 1}</td>
+                  <td /* style={{ border: "1px solid black" }} */><img src={element.image}/></td>
+                  <td /* style={{ border: "1px solid black" }} */>{element.brand}</td>
+                  <td /* style={{ border: "1px solid black", cursor: "pointer" }} */>
                     <button
                       onClick={() => {
                         deleteBrandAdmin(element.id);

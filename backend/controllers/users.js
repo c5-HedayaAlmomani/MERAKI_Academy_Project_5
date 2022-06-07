@@ -1,7 +1,7 @@
 const connection = require("../models/db");
 
 const getAllUsers = (req, res) => {
-  const query = `SELECT * FROM users WHERE is_deleted=0`;
+  const query = `SELECT *,users.id FROM users INNER JOIN roles ON users.role_id=roles.id  WHERE is_deleted=0`;
 
   connection.query(query, (err, result) => {
     if (err) {

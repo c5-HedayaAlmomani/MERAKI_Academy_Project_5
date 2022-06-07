@@ -18,6 +18,10 @@ const OneProduct = () => {
   const [hoverValue, setHoverValue] = useState(undefined);
   const { id } = useParams();
   const [number, setNumber] = useState(3);
+  //? ======Rate=================
+  const stars = [1, 1, 1, 1, 1];
+  const [rate, setRate] = useState(0);
+  const [allRate, setAllRate] = useState([]);
 
   //! redux =========
   const dispatch = useDispatch();
@@ -29,8 +33,6 @@ const OneProduct = () => {
     };
   });
   //! redux =========
-  //? ======Rate=================
-  const stars = [1, 1, 1, 1, 1];
 
   const handleClick = (value) => {
     setCurrentValue(value);
@@ -158,12 +160,56 @@ const OneProduct = () => {
         console.log(err);
       });
   };
+  const clickStar = (index) => {
+    handleClick(index);
+    axios
+      .post(
+        "http://localhost:5000/rate",
+        { product_id: id, rate: index, user_id: user_id },
+        {
+          headers: {
+            authorization: "Bearer " + token,
+          },
+        }
+      )
+      .then((result) => {
+        console.log(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    getAllRate();
+  };
+  const getAllRate = () => {
+    axios
+      .get(`http://localhost:5000/rate/${id}`)
+      .then((result) => {
+        console.log({ getAllRate: result.data.result });
+        setAllRate(result.data.result);
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
+  };
+  const calculationRate = () => {
+    let totalRate = 0;
+    allRate.forEach((element, index) => {
+      totalRate = totalRate + element.rate;
+    });
+    let avgRate = totalRate / allRate.length;
+    setRate(avgRate);
+    console.log({ avgRate: avgRate });
+  };
 
   useEffect(oneProduct, []);
   useEffect(() => {
     getFeedback(id);
   }, []);
   useEffect(getUserId, []);
+  useEffect(getAllRate, []);
+  useEffect(calculationRate, [allRate]);
+  
+
   return (
     <div>
       <div>
@@ -171,23 +217,43 @@ const OneProduct = () => {
           product.map((e, i) => {
             return (
               <div key={i} className="only_product">
-                <img src={`${e.image}`} />
+                <div>
+                  <img src={`${e.image}`} />
+                  {/* //!rate========================== */}
+                  <p>Add Rate:</p>
+                  {stars.map((e, index) => {
+                    return (
+                      <FaStar
+                        key={index}
+                        size={24}
+                        onClick={() => {
+                          clickStar(index + 1);
+                        }}
+                        onMouseOver={() => handleMouseOver(index + 1)}
+                        onMouseLeave={handleMouseLeave}
+                        color={
+                          (hoverValue || currentValue) > index
+                            ? "#FFBA5A"
+                            : "#a9a9a9"
+                        }
+                        style={{
+                          marginRight: 10,
+                          cursor: "pointer",
+                        }}
+                      />
+                    );
+                  })}
+                </div>
                 <div className="detals">
                   {/* //!=================Rate================= */}
+                  {/* //? الي فووووووووووووووووووووووووووووووووووووووووق */}
                   <div>
                     {stars.map((e, index) => {
                       return (
                         <FaStar
                           key={index}
                           size={24}
-                          onClick={() => handleClick(index + 1)}
-                          onMouseOver={() => handleMouseOver(index + 1)}
-                          onMouseLeave={handleMouseLeave}
-                          color={
-                            (hoverValue || currentValue) > index
-                              ? "#FFBA5A"
-                              : "#a9a9a9"
-                          }
+                          color={rate > index ? "#FFBA5A" : "#a9a9a9"}
                           style={{
                             marginRight: 10,
                             cursor: "pointer",

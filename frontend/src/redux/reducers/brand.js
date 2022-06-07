@@ -6,7 +6,10 @@ export const brands = createSlice({
     brands: [],
   },
   reducers: {
-    // payload :array of Brands [Brands]
+    setBrandsAction: (state, action) => {
+      state.brands=action.payload
+    },
+    // payload :array ofst Brands [Brands]
     getBrandsAction: (state, action) => {
       console.log(action.payload);
       state.brands = action.payload;
@@ -24,7 +27,7 @@ export const brands = createSlice({
   },
 });
 
-export const { getBrandsAction, addToBrandAction, deleteFromBrand } =
+export const { getBrandsAction, addToBrandAction, deleteFromBrand,setBrandsAction } =
   brands.actions;
 
 export default brands.reducer;

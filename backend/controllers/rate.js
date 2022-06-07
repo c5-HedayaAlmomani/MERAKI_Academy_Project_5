@@ -34,8 +34,9 @@ const addRate = (req, res) => {
         });
       });
     } else {
-      const query3 = "UPDATE rate SET rate=? WHERE  user_id=? AND product_id=?";
-      const data3 = [rate, user_id, product_id];
+      const query3 =
+        "UPDATE rate SET rate=? WHERE  user_id=? AND product_id=?";
+      const data3 = [rate,  user_id, product_id];
       connection.query(query3, data3, (err, result) => {
         if (err) {
           res.json({
@@ -78,9 +79,11 @@ const getRate = (req, res) => {
   });
 };
 
+
+
 const deleteRate = (req, res) => {
   const id = req.params.id;
-
+  
   const query = "DELETE FROM rate WHERE id=?";
 
   const data = [id];
@@ -90,6 +93,7 @@ const deleteRate = (req, res) => {
     }
     res.json({ result });
   });
+
 };
 
 module.exports = { addRate, getRate, deleteRate };

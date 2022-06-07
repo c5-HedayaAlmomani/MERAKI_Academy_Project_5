@@ -5,7 +5,7 @@ import { logoutAction } from "../../redux/reducers/auth";
 
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { getSearchAction } from "../../redux/reducers/sreach";
-
+import Getbrand from "../getbrand";
 
 
 
@@ -16,11 +16,13 @@ const Dashboard = () => {
   // const [product, setProduct] = useState([]);
   const [searchArray, setsearchArray] = useState([]);
 
-  const { isLoggedIn, search, products } = useSelector((state) => {
+  const { isLoggedIn, search, products, brands, category } = useSelector((state) => {
     return {
       isLoggedIn: state.auth.isLoggedIn,
       search: state.search.search,
-      products: state.products.products
+      products: state.products.products,
+      brands: state.brands.brands,
+      category: state.category.category
     };
   });
 
@@ -38,7 +40,7 @@ const Dashboard = () => {
 
         })
         setsearchArray(search1);
-        
+
         // console.log("search1", search1);
 
 
@@ -50,6 +52,10 @@ const Dashboard = () => {
       });
 
   };
+
+
+
+
 
   // const categoryDrop =()=>{
 
@@ -68,6 +74,9 @@ const Dashboard = () => {
   //       </select>
   //     </div>
 
+  const brandFunction = () => {
+
+  }
 
   return (
     <div>
@@ -108,7 +117,15 @@ const Dashboard = () => {
         })}
 
       </div>
+      <div>
+        <select onClick={(e) => { brandFunction(e.target.value) }}>
+  //         <optgroup label="Brand 1">
+            <option>Option 1.1</option>
+          </optgroup>
+        </select>
 
+      </div>
+      <Getbrand/>
     </div>
   );
 };

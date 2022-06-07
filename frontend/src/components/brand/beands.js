@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import{setBrandsAction}from "../../redux/reducers/brand"
 import("./style.css");
 
 const Brand = () => {
@@ -24,6 +25,7 @@ const Brand = () => {
       .then((result) => {
         setBrand(result.data.result);
         console.log(result.data);
+        dispatch(setBrandsAction(result.data.result))
       })
       .catch((err) => {
         console.log(err);

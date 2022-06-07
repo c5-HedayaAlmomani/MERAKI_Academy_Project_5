@@ -34,9 +34,8 @@ const addRate = (req, res) => {
         });
       });
     } else {
-      const query3 =
-        "UPDATE rate SET rate=? WHERE  user_id=? AND product_id=?";
-      const data3 = [rate,  user_id, product_id];
+      const query3 = "UPDATE rate SET rate=? WHERE  user_id=? AND product_id=?";
+      const data3 = [rate, user_id, product_id];
       connection.query(query3, data3, (err, result) => {
         if (err) {
           res.json({
@@ -79,34 +78,11 @@ const getRate = (req, res) => {
   });
 };
 
-const updateRate = (req, res) => {
-  const { rate, id } = req.body;
-  const user_id = req.token.userId;
-  const query =
-    "UPDATE rate SET rate=? WHERE id = ? AND is_deleted=0 AND user_id=?";
-  const data = [rate, id, user_id];
-  connection.query(query, data, (err, result) => {
-    if (err) {
-      res.json({
-        success: false,
-        message: "Server Error",
-        err: err,
-      });
-    }
-    res.status(200).json({
-      success: true,
-      message: "rate updated",
-      result: result,
-    });
-  });
-};
-
 const deleteRate = (req, res) => {
   const id = req.params.id;
-  // //   const user_id = req.token.userId;
-  // //   const query = "UPDATE rate SET is_deleted=1 WHERE id = ? AND user_id=?;";
+
   const query = "DELETE FROM rate WHERE id=?";
-  // //   const data = [id, user_id];
+
   const data = [id];
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -114,23 +90,6 @@ const deleteRate = (req, res) => {
     }
     res.json({ result });
   });
-  //     if (err) {
-  //       res.json({
-  //         success: false,
-  //         message: "Server Error",
-  //         err: err,
-  //       });
-  //     }
-  //     res.json({
-  //       success: true,
-  //       message: "rate deleted",
-  //       result: result,
-  //       user_id: user_id,
-  //     });
-  //   });
 };
-const getuserId = (req, res) => {
-  const user_id = req.token.userId;
-  res.json({ user_id });
-};
-module.exports = { addRate, getRate, updateRate, deleteRate, getuserId };
+
+module.exports = { addRate, getRate, deleteRate };

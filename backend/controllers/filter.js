@@ -45,7 +45,7 @@ const getProCategory = (req, res) => {
 const getProCB = (req, res) => {
   const { category, brand } = req.body;
 
-  const query = `SELECT * FROM Products INNER JOIN category ON products.category_id=category.id  INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND category.category=? AND brands.brand=? ;`;
+  const query = `SELECT *,Products.image,Products.id FROM Products INNER JOIN category ON products.category_id=category.id  INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND category.category=? AND brands.brand=? ;`;
 
   const data = [category, brand];
   connection.query(query, data, (err, result) => {

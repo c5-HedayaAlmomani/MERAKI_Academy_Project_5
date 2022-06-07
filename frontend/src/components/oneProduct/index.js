@@ -21,7 +21,7 @@ const OneProduct = () => {
   const [allRate, setAllRate] = useState([]);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
-   //? ======Rate=================
+  //? ======Rate=================
 
   //! redux =========
   const { token } = useSelector((state) => {
@@ -194,7 +194,6 @@ const OneProduct = () => {
   useEffect(getUserId, []);
   useEffect(getAllRate, []);
   useEffect(calculationRate, [allRate]);
-  
 
   return (
     <div>
@@ -215,11 +214,10 @@ const OneProduct = () => {
                         onClick={() => {
                           clickStar(index + 1);
                         }}
-                        onMouseOver={() => {setHoverValue(index + 1)
-                        
-                        
+                        onMouseOver={() => {
+                          setHoverValue(index + 1);
                         }}
-                        onMouseLeave={()=>{
+                        onMouseLeave={() => {
                           setHoverValue(undefined);
                         }}
                         color={

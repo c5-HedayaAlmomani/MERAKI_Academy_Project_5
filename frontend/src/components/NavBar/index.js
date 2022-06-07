@@ -51,6 +51,24 @@ const Dashboard = () => {
 
   };
 
+  // const categoryDrop =()=>{
+
+  // }
+
+  //   <div>
+  //       <select onClick={(e)=>{categoryDrop(e.target.value)}}>
+  //         <optgroup label="Brand 1">
+  //           <option>Option 1.1</option>
+  //           <option>Option 1.2</option>
+  //         </optgroup>
+  //         <optgroup label="Brand 2">
+  //           <option>Option 2.1</option>
+  //           <option>Option 2.2</option>
+  //         </optgroup>
+  //       </select>
+  //     </div>
+
+
   return (
     <div>
       {isLoggedIn ? (

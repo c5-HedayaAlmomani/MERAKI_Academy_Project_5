@@ -60,7 +60,6 @@ const Product = () => {
     if (e == "high Price") {
       let sortedProduct = products.sort((a, b) => b.price - a.price);
       setSorts(sortedProduct);
-
       console.log("product", sortedProduct);
     } else if (e == "low Price") {
       let sortedProduct = products.sort((a, b) => a.price - b.price);
@@ -69,55 +68,20 @@ const Product = () => {
     } else if (e == "Select") {
       setSorts(products);
       console.log("product", products);
-
     }
-   
   };
 
+
+
+  
   useEffect(gitAllProduct, [page]);
 
-  /*
-
-  const mapped = data.map((v, i) => {
-  return { i, value: someSlowOperation(v) };
-})
-
-mapped.sort((a, b) => {
-  if (a.value > b.value) {
-    return 1;
-  }
-  if (a.value < b.value) {
-    return -1;
-  }
-  return 0;
-});
-
-const result = mapped.map(v => data[v.i]);
-///////////////////////////////////////
 
 
-if (statement == "low price") {
-      
-      let sortedProduct = product.sort(
-        (a, b) => parseFloat(a.price) - parseFloat(b.price)
-      );
-
-      setProductSorted(sortedProduct);
-      console.log("product", sortedProduct);
-    } else if (statement == "high price") {
-      let sortedProduct = product.sort(
-        (a, b) => parseFloat(b.price) - parseFloat(a.price)
-      );
-
-      setProductSorted(sortedProduct);
-      console.log("product", sortedProduct);
-    } else if (statement == "select") {
-      let sortedProduct = product;
-      setProductSorted(sortedProduct);
-    }
 
 
-*/
+
+
 
   return (
     <div>
@@ -140,6 +104,8 @@ if (statement == "low price") {
           <option>low Price</option>
         </select>
       </din>
+
+  
 
       <div className="products">
         {products.length &&

@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+
 const ProCB = () => {
+  const navigate = useNavigate();
   const { brand, category } = useParams();
   const [allPCat, setPAllCat] = useState([]);
   const func = () => {
@@ -29,6 +31,10 @@ const ProCB = () => {
           return (
             <div key={index} className="categoryCont">
               <p>{element.title}</p>
+              <img onClick={()=>{
+                navigate(`/product/${element.id}`)
+              }} src={`${element.image}`} />
+
             </div>
           );
         })}

@@ -10,6 +10,7 @@ import products, {
 } from "../../redux/reducers/products";
 import { useEffect } from "react";
 import { useState } from "react";
+import Upload from "../upload";
 
 const UpdateProductAdmin = () => {
   const { id } = useParams();
@@ -23,11 +24,13 @@ const UpdateProductAdmin = () => {
   //! redux =========
   const dispatch = useDispatch();
 
-  const { token, isLoggedIn, users, products } = useSelector((state) => {
+  const { token, isLoggedIn, users, products,cloudinary } = useSelector((state) => {
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
       products: state.products.products,
+      cloudinary:state.cloudinary.cloudinary
+
     };
   });
   const navigate = useNavigate();
@@ -40,7 +43,7 @@ const UpdateProductAdmin = () => {
           title: title,
           description: description,
           price: price,
-          image: image,
+          image: cloudinary,
           category_id: category_id,
           sub_category_id: sub_category_id,
         },
@@ -61,7 +64,8 @@ const UpdateProductAdmin = () => {
     <div className="UpdateProductAdmin">
       <div className="image_container">
         <h5> add new Picture</h5>
-        <input type="image" alt="Submit" width="48" height="48" />
+        <Upload/>
+        <input type="text"  className="title" onChange={(e)=>{setImage(e.target.value)}}/>
       </div>
       <div className="input_container">
         <h5>Title</h5>

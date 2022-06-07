@@ -11,6 +11,15 @@ const addRate = (req, res) => {
         message: "Server Error",
         err: err,
       });
+
+
+
+
+
+
+
+
+      
     }
 
     if (result.length == 0) {

@@ -15,6 +15,7 @@ const OneProduct = () => {
   const [user_id, setUser_id] = useState(0);
   const { id } = useParams();
   const [number, setNumber] = useState(3);
+  const [updateBox, setUpdateBox] = useState(false);
   //? ======Rate=================
   const stars = [1, 1, 1, 1, 1];
   const [rate, setRate] = useState(0);
@@ -125,6 +126,7 @@ const OneProduct = () => {
       });
   };
   const updateFeedback = (feedback, feedback_id) => {
+    setUpdateBox(true);
     axios
       .put(
         `http://localhost:5000/feedback/`,
@@ -280,11 +282,13 @@ const OneProduct = () => {
 
                   {user_id == element.user_id ? (
                     <div>
-                      <input
-                        onChange={(e) => {
-                          setNewFeedback(e.target.value);
-                        }}
-                      />
+                      {updateBox && (
+                        <input
+                          onChange={(e) => {
+                            setNewFeedback(e.target.value);
+                          }}
+                        />
+                      )}
                       <button
                         onClick={() => {
                           updateFeedback(newFeedback, element.id);

@@ -27,7 +27,7 @@ const addRate = (req, res) => {
           });
         }
 
-        res.json({
+        return res.json({
           success: true,
           message: "add rate successufuly",
           result: result,
@@ -38,7 +38,7 @@ const addRate = (req, res) => {
       const data3 = [rate, user_id, product_id];
       connection.query(query3, data3, (err, result) => {
         if (err) {
-          res.json({
+          return res.json({
             success: false,
             message: "Server Error",
             err: err,
@@ -64,7 +64,7 @@ const getRate = (req, res) => {
   const data = [product_id];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.json({
+      return res.json({
         sucsess: false,
         messege: "Server Error",
         err: err,
@@ -86,7 +86,7 @@ const deleteRate = (req, res) => {
   const data = [id];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.json({ err });
+      return res.json({ err });
     }
     res.json({ result });
   });

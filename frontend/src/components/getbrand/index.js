@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import brand from "../../redux/reducers/brand";
 import {
   getBrandsAction,
@@ -16,6 +17,7 @@ import {
 
 const Getbrand = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { token, isLoggedIn, category, brands, cloudinary } = useSelector(
     (state) => {
@@ -24,26 +26,27 @@ const Getbrand = () => {
         isLoggedIn: state.auth.isLoggedIn,
         brands: state.brands.brands,
         cloudinary: state.cloudinary.cloudinary,
-        category :state.category.category
+        category: state.category.category
       };
     }
   );
-console.log(category);
-console.log(brands);
+  console.log(brands);
+  console.log(category);
 
 
-const getCategory = () => {
-  axios
-    .get(`http://localhost:5000/category`, {
-      headers: { authorization: `Bearer ${token}` },
-    })
-    .then((result) => {
-      dispatch(getCategoryAction(result.data.result));
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+
+  const getCategory = () => {
+    axios
+      .get(`http://localhost:5000/category`, {
+        headers: { authorization: `Bearer ${token}` },
+      })
+      .then((result) => {
+        dispatch(getCategoryAction(result.data.result));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const getBrand = () => {
     axios
@@ -59,25 +62,32 @@ const getCategory = () => {
       });
   };
 
+
+
+
   useEffect(() => {
     getCategory()
     getBrand();
-    // getCategory()
+
   }, []);
   console.log(brands);
+
+
+
   return (
-    <div className="filter_item">
+    <div className="filter_item" >
       <ul>
         <li>
           <a>Filter</a>
         </li>
         {brands.map((element, index) => {
-          return( <><li onClick={()=>{console.log(element.id);}}>{element.brand}</li>
-          {category.map((elementCat,index)=>{
-            if(elementCat.brand_id==element.id){
-              return <li onClick={()=>{console.log(elementCat.id);}}>{elementCat.category}</li>
-            }else (<></>)
-          })}</>)
+          return (< div key={index}><li onClick={() => { navigate(`/allCategory/${element.brand}`) }}>{element.brand}</li>
+            {category.map((elementCat, index) => {
+              if (elementCat.brand_id == element.id) {
+                return <div key={index}><li onClick={() => 
+                  { navigate(`allCategory/${elementCat.id}/PRO/${element.id}/${elementCat.id}`) }}>{elementCat.category}</li></div>
+              } else (<></>)
+            })}</div>)
         })}
       </ul>
     </div>

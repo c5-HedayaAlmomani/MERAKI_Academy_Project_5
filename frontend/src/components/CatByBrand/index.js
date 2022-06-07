@@ -19,7 +19,7 @@ const CatByBrand = () => {
       });
   };
 
-  useEffect(func, []);
+  useEffect(func, [brand]);
 
   return (
     <div className="categoryContenar">

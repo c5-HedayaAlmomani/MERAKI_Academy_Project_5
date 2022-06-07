@@ -2,8 +2,8 @@ const connection = require("../models/db");
 const addRate = (req, res) => {
   const { product_id, rate, user_id, id } = req.body;
 
-  const query1 = "SELECT * FROM rate WHERE user_id=? ";
-  const data1 = [user_id];
+  const query1 = "SELECT * FROM rate WHERE product_id=? ";
+  const data1 = [product_id];
   connection.query(query1, data1, (err, result) => {
     if (err) {
       return res.json({

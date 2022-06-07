@@ -1,10 +1,10 @@
 const connection = require("../models/db")
 
 const Createcategory = (req, res) => {
-    const { category,brand_id } = req.body;
+    const { category,brand_id , image } = req.body;
 
-    const query = `INSERT INTO category (category,brand_id) VALUES (?,?);`;
-    const data = [category,brand_id];
+    const query = `INSERT INTO category (category,brand_id , image) VALUES (?,?);`;
+    const data = [category,brand_id , image];
 
     connection.query(query, data, (err, result) => {
         console.log(result);

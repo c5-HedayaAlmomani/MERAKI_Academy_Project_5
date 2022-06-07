@@ -12,39 +12,25 @@ const OneProduct = () => {
   const [product, setProduct] = useState([]);
   const [feedback, setFeedback] = useState([]);
   const [newFeedback, setNewFeedback] = useState("");
-  const [updated, setUpdated] = useState("");
   const [user_id, setUser_id] = useState(0);
-  const [currentValue, setCurrentValue] = useState(0);
-  const [hoverValue, setHoverValue] = useState(undefined);
   const { id } = useParams();
   const [number, setNumber] = useState(3);
   //? ======Rate=================
   const stars = [1, 1, 1, 1, 1];
   const [rate, setRate] = useState(0);
   const [allRate, setAllRate] = useState([]);
+  const [currentValue, setCurrentValue] = useState(0);
+  const [hoverValue, setHoverValue] = useState(undefined);
+   //? ======Rate=================
 
   //! redux =========
-  const dispatch = useDispatch();
-
-  const { token, isLoggedIn } = useSelector((state) => {
+  const { token } = useSelector((state) => {
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
     };
   });
   //! redux =========
-
-  const handleClick = (value) => {
-    setCurrentValue(value);
-  };
-  const handleMouseOver = (newHoverValue) => {
-    setHoverValue(newHoverValue);
-  };
-
-  const handleMouseLeave = () => {
-    setHoverValue(undefined);
-  };
-  //? ======Rate=================
   const oneProduct = () => {
     axios
       .get(`http://localhost:5000/products/${id}`)
@@ -161,7 +147,7 @@ const OneProduct = () => {
       });
   };
   const clickStar = (index) => {
-    handleClick(index);
+    setCurrentValue(index);
     axios
       .post(
         "http://localhost:5000/rate",
@@ -229,8 +215,13 @@ const OneProduct = () => {
                         onClick={() => {
                           clickStar(index + 1);
                         }}
-                        onMouseOver={() => handleMouseOver(index + 1)}
-                        onMouseLeave={handleMouseLeave}
+                        onMouseOver={() => {setHoverValue(index + 1)
+                        
+                        
+                        }}
+                        onMouseLeave={()=>{
+                          setHoverValue(undefined);
+                        }}
                         color={
                           (hoverValue || currentValue) > index
                             ? "#FFBA5A"

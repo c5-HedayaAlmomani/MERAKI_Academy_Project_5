@@ -5,6 +5,6 @@ const authentication = require("../middlewares/authentication")
 rateRouter.post("/",authentication , addRate)
 rateRouter.get("/:product_id" , getRate)
 rateRouter.put ("/" ,authentication, updateRate)
-rateRouter.delete("/:id", authentication , deleteRate)
+rateRouter.delete("/:id", deleteRate)
 rateRouter.get("/user_id" , getuserId)
 module.exports = rateRouter ;

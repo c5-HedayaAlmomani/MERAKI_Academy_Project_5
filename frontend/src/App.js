@@ -18,7 +18,7 @@ import BrandAdmin from "./components/brandAdmin";
 
 import ProductAdmin from "./components/productAdmin";
 import UpdateProductAdmin from "./components/productAdmin/UpdateProduct";
-
+// import Getbrand from "./components/getbrand";
 import Upload from "./components/upload";
 
 function App() {
@@ -48,8 +48,9 @@ function App() {
           <Route path="/Admin/product" element={<ProductAdmin />}></Route>
           <Route path="/Admin/product/edit/:id" element={<UpdateProductAdmin />}></Route>
           <Route path="/Admin/product/create" element={<AddProductAdmin />}></Route>
+          
         </Routes>
-     
+      
    
    
     </div>

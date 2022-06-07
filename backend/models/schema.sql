@@ -49,6 +49,7 @@ CREATE TABLE category (
     id INT NOT NULL AUTO_INCREMENT NOT NULL,
     category VARCHAR(255) NOT NULL,
     brand_id INT,
+     image VARCHAR(225),
     FOREIGN KEY (brand_id) REFERENCES brands(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)

@@ -9,6 +9,8 @@ import products, {
 } from "../../redux/reducers/products";
 import { useEffect } from "react";
 import { useState } from "react";
+import("./style.css");
+
 
 const ProductAdmin = () => {
 //   const [title, setTitle] = useState("");
@@ -66,14 +68,14 @@ const ProductAdmin = () => {
 
   return (
     <div className="ProductAdmin">
-      <table style={{ border: "1px solid black", display: "inline-block" }}>
+      <table id="productT">
         <tr>
-          <th style={{ borderRight: "1px solid black" }}>#</th>
-          <th style={{ borderRight: "1px solid black" }}>Product Name</th>
-          <th style={{ borderRight: "1px solid black" }}>Description </th>
-          <th style={{ borderRight: "1px solid black" }}>Price </th>
-          <th style={{ borderRight: "1px solid black" }}>Brand </th>
-          <th style={{ borderRight: "1px solid black" }}>Category </th>
+          <th >#</th>
+          <th >Product Name</th>
+          <th >Description </th>
+          <th >Price </th>
+          <th >Brand </th>
+          <th >Category </th>
 
           <th /* style={{borderRight:"1px solid black"}} */>Actions</th>
         </tr>
@@ -81,19 +83,19 @@ const ProductAdmin = () => {
           products.map((element, index) => {
             return (
               <tr key={index}>
-                <td style={{ border: "1px solid black" }}>{index + 1}</td>
-                <td style={{ border: "1px solid black" }}>
+                <td >{index + 1}</td>
+                <td >
                   {element.description}
                 </td>{" "}
-                <td style={{ border: "1px solid black" }}>{element.title}</td>
-                <td style={{ border: "1px solid black" }}>{element.price}</td>
-                <td style={{ border: "1px solid black" }}>
+                <td >{element.title}</td>
+                <td >{element.price}</td>
+                <td >
                   {element.brand}
                 </td>
-                <td style={{ border: "1px solid black" }}>
+                <td >
                   {element.category}
                 </td>
-                <td style={{ border: "1px solid black" }}>
+                <td >
                   <button
                     className="delete_button"
                     onClick={() => {

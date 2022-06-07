@@ -1,0 +1,22 @@
+#productT {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#productT td, #productT th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#productT tr:nth-child(even){background-color: #f2f2f2;}
+
+#productT tr:hover {background-color: #ddd;}
+
+#productT th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}

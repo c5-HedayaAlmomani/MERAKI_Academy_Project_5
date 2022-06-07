@@ -26,14 +26,12 @@ const Getbrand = () => {
         isLoggedIn: state.auth.isLoggedIn,
         brands: state.brands.brands,
         cloudinary: state.cloudinary.cloudinary,
-        category: state.category.category
+        category: state.category.category,
       };
     }
   );
-  console.log(brands);
-  console.log(category);
-
-
+  console.log("brands", brands);
+  console.log("category", category);
 
   const getCategory = () => {
     axios
@@ -62,32 +60,47 @@ const Getbrand = () => {
       });
   };
 
-
-
-
   useEffect(() => {
-    getCategory()
+    getCategory();
     getBrand();
-
   }, []);
   console.log(brands);
 
-
-
   return (
-    <div className="filter_item" >
+    <div className="filter_item">
       <ul>
         <li>
           <a>Filter</a>
         </li>
         {brands.map((element, index) => {
-          return (< div key={index}><li onClick={() => { navigate(`/allCategory/${element.brand}`) }}>{element.brand}</li>
-            {category.map((elementCat, index) => {
-              if (elementCat.brand_id == element.id) {
-                return <div key={index}><li onClick={() => 
-                  { navigate(`allCategory/${elementCat.id}/PRO/${element.id}/${elementCat.id}`) }}>{elementCat.category}</li></div>
-              } else (<></>)
-            })}</div>)
+          return (
+            <div key={index}>
+              <li
+                onClick={() => {
+                  navigate(`/allCategory/${element.brand}`);
+                }}
+              >
+                {element.brand}
+              </li>
+              {category.map((elementCat, index) => {
+                if (elementCat.brand_id == element.id) {
+                  return (
+                    <div key={index}>
+                      <li
+                        onClick={() => {
+                          navigate(
+                            `allCategory/${element.brand}/PRO/${element.brand}/${elementCat.category}`
+                          );
+                        }}
+                      >
+                        {elementCat.category}
+                      </li>
+                    </div>
+                  );
+                } else <></>;
+              })}
+            </div>
+          );
         })}
       </ul>
     </div>

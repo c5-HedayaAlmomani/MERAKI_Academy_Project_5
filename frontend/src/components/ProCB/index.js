@@ -15,7 +15,9 @@ const ProCB = () => {
   const navigate = useNavigate();
   const { brand, category } = useParams();
   const [allPCat, setPAllCat] = useState([]);
+
   const func = () => {
+    console.log("in productsssssssssssssssssssssssssssssss");
     axios
       .post(`http://localhost:5000/filter/display/proCB`, {
         brand,
@@ -23,7 +25,7 @@ const ProCB = () => {
       })
       .then((result) => {
         console.log({ brand, category });
-        console.log(result.data);
+        console.log("poroduct",result.data);
         setPAllCat(result.data.result);
       })
       .catch((err) => {
@@ -50,7 +52,7 @@ const ProCB = () => {
       });
   };
 
-  useEffect(func, []);
+  useEffect(func, [category]);
 
   
   return (

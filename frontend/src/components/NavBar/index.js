@@ -118,13 +118,14 @@ const Dashboard = () => {
 
       </div>
       <div>
-        <select onClick={(e) => { brandFunction(e.target.value) }}>
+        {/* <select onClick={(e) => { brandFunction(e.target.value) }}>
   //         <optgroup label="Brand 1">
             <option>Option 1.1</option>
           </optgroup>
-        </select>
+        </select> */}
 
       </div>
+      {/* <p>aaa</p> */}
       <Getbrand/>
     </div>
   );

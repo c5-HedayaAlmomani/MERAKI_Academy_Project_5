@@ -85,7 +85,7 @@ const Product = () => {
 
   return (
     <div>
-      <din>
+      <div>
         <select
           onClick={(e) => {
             sortFunction(e.target.value);
@@ -103,7 +103,7 @@ const Product = () => {
           <option>high Price</option>
           <option>low Price</option>
         </select>
-      </din>
+      </div>
 
   
 

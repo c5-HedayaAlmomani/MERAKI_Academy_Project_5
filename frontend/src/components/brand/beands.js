@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import{setBrandsAction}from "../../redux/reducers/brand"
+import{setBrandsAction,addToBrandAction,deleteFromBrand,getBrandsAction}from "../../redux/reducers/brand"
 import("./style.css");
 
 const Brand = () => {
@@ -23,6 +23,7 @@ const Brand = () => {
     axios
       .get(`http://localhost:5000/brand`)
       .then((result) => {
+
         setBrand(result.data.result);
         console.log(result.data);
         dispatch(setBrandsAction(result.data.result))

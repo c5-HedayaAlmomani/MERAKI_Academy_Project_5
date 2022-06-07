@@ -99,7 +99,7 @@ const BrandAdmin = () => {
               return (
                 <tr key={index}>
                   <td style={{ border: "1px solid black" }}>{index + 1}</td>
-                  <td style={{ border: "1px solid black" }}>{element.image}</td>
+                  <td style={{ border: "1px solid black" }}><img src={element.image}/></td>
                   <td style={{ border: "1px solid black" }}>{element.brand}</td>
                   <td style={{ border: "1px solid black", cursor: "pointer" }}>
                     <button

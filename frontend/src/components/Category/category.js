@@ -27,7 +27,7 @@ const Category = () => {
     return (<div className="categoryContenar">
         {allcat.length&&allcat.map((element,index)=>{
             return <div key={index} className= "categoryCont">
-                 <img src={element}></img>
+                 <img src={element.image}></img>
                 <p>{element.category}</p>
                
             </div>

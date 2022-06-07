@@ -52,6 +52,7 @@ const ProCB = () => {
 
   useEffect(func, []);
 
+  
   return (
     <div className="products">
       {allPCat.length &&

@@ -3,8 +3,8 @@ const connection = require("../models/db")
 const Createcategory = (req, res) => {
     const { category,brand_id , image } = req.body;
 
-    const query = `INSERT INTO category (category,brand_id , image) VALUES (?,?);`;
-    const data = [category,brand_id , image];
+    const query = `INSERT INTO category (category,brand_id , image) VALUES (?,?,?);`;
+    const data = [category,brand_id,image];
 
     connection.query(query, data, (err, result) => {
         console.log(result);
@@ -55,7 +55,7 @@ const deleteCategoryById = (req, res) => {
 };
 
 const getAllCategory = (req, res) => {
-    const query = `SELECT * FROM category WHERE is_deleted=0 ;`;
+    const query = `SELECT * ,category.id ,category.image FROM category INNER JOIN brands ON category.brand_id=brands.id WHERE category.is_deleted=0 ;`;
     connection.query(query, (err, result) => {
         console.log(result);
         if (err) {

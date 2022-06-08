@@ -20,6 +20,29 @@ const getBrandCat = (req, res) => {
   });
 };
 
+const getBrandCatById = (req, res) => {
+  const id = req.params.id;
+
+  const query=`SELECT * FROM category INNER JOIN brands ON category.brand_id=brands.id WHERE category.is_deleted=0 AND brands.id=? `
+  // const query = `SELECT *,brands.id FROM category INNER JOIN brands ON category.brand_id=brands.id WHERE category.is_deleted=0 AND brands.id=? ;`;
+
+  const data = [id];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      massage: "All the Product",
+      result: result,
+    });
+  });
+};
+
 const getProCategory = (req, res) => {
   const { category, sub_category, brand } = req.body;
 
@@ -72,6 +95,7 @@ const subCByCat = (req, res) => {
   const data = [category];
   connection.query(query, data, (err, result) => {
     if (err) {
+      console.log(result,"-----------------");
       return  res.status(500).json({
         success: false,
         massage: "server error",
@@ -91,4 +115,5 @@ module.exports = {
   getProCategory,
   subCByCat,
   getProCB,
+  getBrandCatById
 };

@@ -85,24 +85,24 @@ const BrandAdmin = () => {
   return (
     <div className="BrandAdmin">
       <div className="category_contener">
-        <table id="adminT"/* style={{ border: "1px solid black", display: "inline-block" }} */>
+        <table id="adminT">
           <tr>
-            <th /* style={{ borderRight: "1px solid black" }} */>#</th>
-            <th /* style={{ borderRight: "1px solid black" }} */>Brand image </th>
-            <th /* style={{ borderRight: "1px solid black" }} */>Brand Name </th>
+            <th >#</th>
+            <th >Brand image </th>
+            <th >Brand Name </th>
 
-            {/* <th style={{ borderRight: "1px solid black" }}>Edit</th> */}
-            <th /* style={{borderRight:"1px solid black"}} */>Actions</th>
+            
+            <th >Actions</th>
           </tr>
-          {/* <tr> */}
+          
           {brands.length &&
             brands.map((element, index) => {
               return (
                 <tr key={index}>
-                  <td /* style={{ border: "1px solid black" }} */>{index + 1}</td>
-                  <td /* style={{ border: "1px solid black" }} */><img src={element.image}/></td>
-                  <td /* style={{ border: "1px solid black" }} */>{element.brand}</td>
-                  <td /* style={{ border: "1px solid black", cursor: "pointer" }} */>
+                  <td >{index + 1}</td>
+                  <td ><img src={element.image}/></td>
+                  <td >{element.brand}</td>
+                  <td>
                     <button
                       onClick={() => {
                         deleteBrandAdmin(element.id);
@@ -111,27 +111,7 @@ const BrandAdmin = () => {
                       Delete
                     </button>
                   </td>
-
-                  {/*                   
-                  <td style={{ border: "1px solid black", cursor: "pointer" }}>
-                    <p
-                      onClick={() => {
-                        deleteCategoryAdmin(element.id);
-                      }}
-                    >
-                      sub_category
-                    </p>
-                  </td>
-
-                  <td style={{ border: "1px solid black", cursor: "pointer" }}>
-                    <p
-                      onClick={() => {
-                        deleteCategoryAdmin(element.id);
-                      }}
-                    >
-                      Delete
-                    </p>
-                  </td> */}
+                  
                 </tr>
               );
             })}

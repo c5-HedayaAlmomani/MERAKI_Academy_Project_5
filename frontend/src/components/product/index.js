@@ -11,6 +11,8 @@ const Product = () => {
   const dispatch = useDispatch();
   const [sorts, setSorts] = useState([]);
   const [arrayofPage, setArrayofPage] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [numberOfPage, setNumberOfPage] = useState(0);
   const { token, isLoggedIn } = useSelector((state) => {
     return {
       token: state.auth.token,
@@ -28,6 +30,7 @@ const Product = () => {
       .then((result) => {
         console.log({ all: result.data.result.length });
         console.log(Math.ceil(result.data.result.length / 6));
+        setNumberOfPage(Math.ceil(result.data.result.length / 6));
         setArrayofPage(Array(Math.ceil(result.data.result.length / 6)).fill(0));
       })
       .catch((err) => {
@@ -147,6 +150,7 @@ const Product = () => {
               onClick={() => {
                 setPage(index + 1);
                 gitAllProduct();
+                setIndex(index + 1);
               }}
             >
               {index + 1}
@@ -158,11 +162,9 @@ const Product = () => {
       {page != 1 ? (
         <>
           <button
-            className="next"
             onClick={() => {
-              setPage(page - 1);
+              setPage(index - 1);
               gitAllProduct();
-              console.log(page);
             }}
           >
             back
@@ -171,14 +173,12 @@ const Product = () => {
       ) : (
         <></>
       )}
-      {page != 3 ? (
+      {page != numberOfPage ? (
         <>
           <button
-            className="next"
             onClick={() => {
-              setPage(page + 1);
+              setPage(index + 1);
               gitAllProduct();
-              console.log(page);
             }}
           >
             next

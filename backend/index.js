@@ -14,8 +14,15 @@ const BrandRouter = require("./routes/brand");
 const googleRouter = require("./routes/loginGoogle");
 const UsersRouter = require("./routes/users");
 const payment = require("./controllers/payment");
+
 //routers
 const app = express();
+
+//built-in middleware
+app.use(express.json());
+app.use(cors());
+
+// router middleware
 const filterRouter = require("./routes/filter");
 app.use("/filter", filterRouter);
 
@@ -24,11 +31,6 @@ app.use("/feedback" , feedbackRouter)
 
 const rateRouter = require("./routes/rate")
 app.use("/rate" , rateRouter)
-//built-in middleware
-app.use(express.json());
-app.use(cors());
-
-// router middleware
 app.use("/roles", roleRouter);
 app.use("/permission", permissionRouter);
 app.use("/register", registerRouter);

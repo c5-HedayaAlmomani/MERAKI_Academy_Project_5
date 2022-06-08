@@ -20,6 +20,7 @@ import ProductAdmin from "./components/productAdmin";
 import UpdateProductAdmin from "./components/productAdmin/UpdateProduct";
 // import Getbrand from "./components/getbrand";
 import Upload from "./components/upload";
+import Sold from "./components/sold";
 
 function App() {
 
@@ -52,7 +53,7 @@ function App() {
         </Routes>
       
    
-   
+        <Sold/>
     </div>
   );
 }

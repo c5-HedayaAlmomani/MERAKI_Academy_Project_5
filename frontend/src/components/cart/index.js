@@ -172,6 +172,9 @@ const Cart = () => {
                       <p className="product_details">
                         {"Description : " + element.description}
                       </p>
+                      <p className="product_details">
+                        {"AvailableQuantity : " + element.AvailableQuantity}
+                      </p>
                     </div>
                   </div>
                   <Payment />

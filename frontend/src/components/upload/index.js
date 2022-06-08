@@ -33,7 +33,7 @@ function Upload() {
 
   return (
     <div className="App">
-       {!loading ? <div style={{background:"red"}}><p>aaa</p></div> : <img src={image} style={{ width: "300px" }} />}
+       {!loading ? <div style={{background:"none"}}><p></p></div> : <img src={image} style={{ width: "300px" }} />}
       <button
         onClick={(e) => {
           uploadImage(e);

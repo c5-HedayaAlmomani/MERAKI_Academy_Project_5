@@ -17,7 +17,7 @@ const ProCB = () => {
   const [allPCat, setPAllCat] = useState([]);
 
   const func = () => {
-    console.log("in productsssssssssssssssssssssssssssssss");
+    
     axios
       .post(`http://localhost:5000/filter/display/proCB`, {
         brand,

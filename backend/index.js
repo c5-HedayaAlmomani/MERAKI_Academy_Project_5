@@ -16,7 +16,14 @@ const UsersRouter = require("./routes/users");
 const payment = require("./controllers/payment");
 //routers
 const app = express();
+const filterRouter = require("./routes/filter");
+app.use("/filter", filterRouter);
 
+const feedbackRouter = require("./routes/feedback")
+app.use("/feedback" , feedbackRouter)
+
+const rateRouter = require("./routes/rate")
+app.use("/rate" , rateRouter)
 //built-in middleware
 app.use(express.json());
 app.use(cors());
@@ -39,14 +46,7 @@ app.listen(PORT, () => {
   console.log(`server on ${PORT}`);
 });
 
-const filterRouter = require("./routes/filter");
-app.use("/filter", filterRouter);
 
-const feedbackRouter = require("./routes/feedback")
-app.use("/feedback" , feedbackRouter)
-
-const rateRouter = require("./routes/rate")
-app.use("/rate" , rateRouter)
 //!------------------- test -------------------
 
 /*

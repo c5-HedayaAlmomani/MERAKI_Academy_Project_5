@@ -10,8 +10,13 @@ import products, {
   import Upload from "../upload";
   import { getCloudinaryAction ,addToCloudinaryAction} from "../../redux/reducers/cloudinary";
 
+
   const AddProductAdmin=()=>{
     // const { id } = useParams();
+    
+    const [categoryFilter, setCategoryFilter] = useState([]);
+    const [brandOnClick, setBrandOnClick] = useState("");
+
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState(0);
@@ -57,6 +62,23 @@ import products, {
     
   }
 
+  const func = () => {
+    axios
+      .get(`http://localhost:5000/filter/display/category/id/${brand_id}`)
+      .then((result) => {
+        console.log(brand_id);
+        console.log(brandOnClick);
+        console.log(result);
+        setCategoryFilter(result.data.result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(
+    func
+  ,[brand_id])
   return(
       <div className="AddProductAdmin">
           <div className="UpdateProductAdmin">
@@ -75,23 +97,37 @@ import products, {
 
         <h5>Brand</h5>
         
-        <select onClick={(e)=>{setBrand_id(e.target.value)}}>
+        <select onClick={(e)=>{setBrand_id(e.target.value) ;func()  }} >
+        <option value="0">Select</option> 
           {brands&& brands.map((element,index)=>{
             return (<>
-              <option value="0">Select</option> 
+              
               <option value={element.id}>{element.brand}</option>   
               </>
                       )
           })}
         </select>
 
+
+
+
+{/*         <select onClick={(e)=>{setBrand_id(e.target.value) ;setBrandOnClick(e.target.value)  ; func()}}>
+        <option >Select</option>
+          {brands&& brands.map((element,index)=>{
+            return (<>
+              
+              <option value={element.id}>{element.brand}</option>   
+              </>
+                      )
+          })}
+        </select> */}
+
         {/* <h5>Category</h5>
         <input type="number" className="category" onChange={(e)=>{setCategory_id(e.target.value)}} /> */}
         <h5>Category</h5>
         <select onClick={(e)=>{setCategory_id(e.target.value)}}>
         <option value="0">Select</option> 
-          {category&& category.map((element,index)=>{
-            
+          {categoryFilter&& categoryFilter.map((element,index)=>{            
             return (<>              
               <option value={element.id}>{element.category}</option>   
               </>

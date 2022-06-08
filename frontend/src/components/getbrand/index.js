@@ -75,11 +75,12 @@ const Getbrand = () => {
         {brands.map((element, index) => {
           return (
             <div key={index}>
-              <li
+              <li 
                 onClick={() => {
                   navigate(`/allCategory/${element.brand}`);
                 }}
               >
+                
                 {element.brand}
               </li>
               {category.map((elementCat, index) => {

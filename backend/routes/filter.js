@@ -5,6 +5,7 @@ const {
   getProCategory,
   subCByCat,
   getProCB,
+  getBrandCatById
 } = require("../controllers/filter");
 
 
@@ -16,3 +17,5 @@ filterRouter.get("/subCByCat/:category", subCByCat)
 
 filterRouter.post ("/display/proCB" , getProCB)
 module.exports= filterRouter
+
+filterRouter.get("/display/category/id/:id" , getBrandCatById)

@@ -23,16 +23,16 @@ import products, {
     //! redux =========
   const dispatch = useDispatch();
 
-  const { token, isLoggedIn, users, products ,cloudinary} = useSelector((state) => {
+  const { token, isLoggedIn, users, products ,cloudinary,category,brands} = useSelector((state) => {
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
       products: state.products.products,
-      cloudinary:state.cloudinary.cloudinary
-
+      cloudinary:state.cloudinary.cloudinary,
+      brands:state.brands.brands,
+      category: state.category.category,
     };
   });
-//   const navigate = useNavigate();
 
   //! redux =========
 
@@ -63,7 +63,7 @@ import products, {
       <div className="image_container">
         <h5>Picture</h5>
       <Upload/>
-        <input type="text"  className="title" onChange={(e)=>{setImage(e.target.value)}}/>
+       
       </div>
       <div className="input_container">
         <h5>Title</h5>
@@ -72,10 +72,33 @@ import products, {
         <input type="text" className="description" onChange={(e)=>{setDescription(e.target.value)}}/>
         <h5>Price</h5>
         <input type="number" className="title" onChange={(e)=>{setPrice(e.target.value)}} />
+
         <h5>Brand</h5>
-        <input type="number" className="brand" onChange={(e)=>{setBrand_id(e.target.value)}} />
+        
+        <select onClick={(e)=>{setBrand_id(e.target.value)}}>
+          {brands&& brands.map((element,index)=>{
+            return (<>
+              <option value="0">Select</option> 
+              <option value={element.id}>{element.brand}</option>   
+              </>
+                      )
+          })}
+        </select>
+
+        {/* <h5>Category</h5>
+        <input type="number" className="category" onChange={(e)=>{setCategory_id(e.target.value)}} /> */}
         <h5>Category</h5>
-        <input type="number" className="category" onChange={(e)=>{setCategory_id(e.target.value)}} />
+        <select onClick={(e)=>{setCategory_id(e.target.value)}}>
+        <option value="0">Select</option> 
+          {category&& category.map((element,index)=>{
+            
+            return (<>              
+              <option value={element.id}>{element.category}</option>   
+              </>
+                      )
+          })}
+        </select>
+
         <h5>sub Category</h5>
         <input type="number" className="sub_category" onChange={(e)=>{setSub_Category_id(e.target.value)}} />
       </div>

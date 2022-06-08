@@ -11,6 +11,9 @@ import {
   deleteFromCartAction,
   emptyCartAction,
   setTotalPriceAction,
+  setquantityAction,
+  reducequantityAction,
+  iccuresquantityAction
 } from "../../redux/reducers/cart";
 
 import StripeCheckout from "react-stripe-checkout";
@@ -21,20 +24,22 @@ const Cart = () => {
   //! redux =========
   const dispatch = useDispatch();
 
-  const { token, isLoggedIn, cart } = useSelector((state) => {
+  const { token, isLoggedIn, cart, quantity } = useSelector((state) => {
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
       cart: state.cart.cart,
+      quantity: state.cart.quantity
     };
   });
   //! redux =========
 
+  // const [availableQuantity, SetAvailableQuantity] = useState(0);
   const [subtotal, SetSubTotal] = useState(0);
 
   useEffect(() => {
     getCartItems();
-  }, []);
+  }, [quantity]);
 
   const getCartItems = async () => {
     await axios
@@ -48,7 +53,14 @@ const Cart = () => {
         let priceTotal = result.data.result.reduce((acc, element, index) => {
           return acc + element.price * element.quantity;
         }, 0);
+        // let sumQuant = result.data.result.reduce((acc, element, index) => {
+        //   return acc + element.AvailableQuantity;
+        // }, 0);
         SetSubTotal(priceTotal);
+        // SetAvailableQuantity(sumQuant)
+
+        // console.log(result.data.result[0].AvailableQuantity);
+
 
         dispatch(setTotalPriceAction(priceTotal));
       })
@@ -56,11 +68,24 @@ const Cart = () => {
         console.log(error);
       });
   };
+  const func = async () => {
+    await axios
+      .get(`http://localhost:5000/cart`, {
+        headers: { authorization: `Bearer ${token}` },
+      }).then((result) => {
+        dispatch(setquantityAction(result.data.result[0].AvailableQuantity))
 
+      }).catch((err) => {
+        console.log(err);
+      })
+
+
+
+  }
   const addToCart = (id, quantity) => {
 
     if (!token) return alert("Please login to continue buying");
-    
+
     axios
       .post(
         `http://localhost:5000/cart`,
@@ -109,7 +134,7 @@ const Cart = () => {
         console.log(err);
       });
   };
-
+  useEffect(func, [])
   return (
     <div className="cart_container">
       {isLoggedIn ? (
@@ -142,8 +167,14 @@ const Cart = () => {
                         className="decrees"
                         id={element.id}
                         onClick={(e) => {
+
+                          element.AvailableQuantity !== quantity ? dispatch(iccuresquantityAction()) : <></>
+
+
                           element.quantity > 1 ? (
                             addToCart(element.id, -1)
+
+
                           ) : (
                             <></>
                           );
@@ -151,13 +182,32 @@ const Cart = () => {
                       >
                         -
                       </button>
+
                       <p className="product-quantity">{element.quantity}</p>
+
+
+
                       <button
+
                         className="increase"
                         id={element.id}
                         onClick={(e) => {
-                          addToCart(element.id, 1);
+                          console.log(quantity+"vvvvvvvvvvvvvv");
+                          console.log(element.AvailableQuantity+"wwwwwwwwwww");
+                          quantity !== element.AvailableQuantity ? addToCart(element.id, 1) : <></>;
+
+                          quantity === 0 ? <></> : dispatch(reducequantityAction())
+
+                          
+
+                          getCartItems()
+
+
+
+
+
                         }}
+
                       >
                         +
                       </button>
@@ -173,7 +223,10 @@ const Cart = () => {
                         {"Description : " + element.description}
                       </p>
                       <p className="product_details">
-                        {"AvailableQuantity : " + element.AvailableQuantity}
+                        {/* {availableQuantity.map((element,index)=>{
+                          return<div key={index}>{element.AvailableQuantity}</div>
+                        })} */}
+                        {"AvailableQuantity : " + quantity}
                       </p>
                     </div>
                   </div>

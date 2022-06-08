@@ -65,7 +65,7 @@ const UpdateProductAdmin = () => {
       <div className="image_container">
         <h5> add new Picture</h5>
         <Upload/>
-        <input type="text"  className="title" onChange={(e)=>{setImage(e.target.value)}}/>
+        
       </div>
       <div className="input_container">
         <h5>Title</h5>

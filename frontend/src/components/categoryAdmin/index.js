@@ -1,4 +1,5 @@
 import axios from "axios";
+import Upload from "../upload";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,17 +12,22 @@ import("./style.css");
 
 
 const CategoryAdmin = () => {
+  const [image, setImage] = useState("");
+  const [categoryName, setCategoryName] = useState("");
+  const [brand, setBrand] = useState("");
   //! redux =========
   const dispatch = useDispatch();
-  const [categoryName, setCategoryName] = useState("");
 
-  const { token, isLoggedIn, category } = useSelector((state) => {
+  const { token, isLoggedIn, category, cloudinary ,brands} = useSelector((state) => {
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
       category: state.category.category,
+      cloudinary: state.cloudinary.cloudinary,
+      brands: state.brands.brands,
     };
   });
+  console.log(brand);
   //! redux =========
   const navigate = useNavigate();
 
@@ -29,7 +35,7 @@ const CategoryAdmin = () => {
     axios
       .post(
         `http://localhost:5000/category`,
-        { category: categoryName },
+        { category: categoryName, image: cloudinary, brand_id:brand },
         { headers: { authorization: `Bearer ${token}` } }
       )
       .then((result) => {
@@ -38,6 +44,8 @@ const CategoryAdmin = () => {
           addToCategoryAction({
             id: result.data.result.insertId,
             category: categoryName,
+            image: cloudinary,
+            brand_id: brand,
             is_deleted: 0,
           })
         );
@@ -62,19 +70,6 @@ const CategoryAdmin = () => {
       });
   };
 
-//   const getSubCategoryAdmin = (id) => {
-//     axios
-//       .get(`http://localhost:5000/category`, {
-//         headers: { authorization: `Bearer ${token}` },
-//       })
-//       .then((result) => {
-//         dispatch(getCategoryAction(result.data.result));
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
-
   const getCategoryAdmin = () => {
     axios
       .get(`http://localhost:5000/category`, {
@@ -82,22 +77,26 @@ const CategoryAdmin = () => {
       })
       .then((result) => {
         dispatch(getCategoryAction(result.data.result));
+        console.log(result);
+
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  const deleteCategoryAdmin=(id)=>{
+  const deleteCategoryAdmin = (id) => {
     axios
       .delete(`http://localhost:5000/category/${id}`, {
         headers: { authorization: `Bearer ${token}` },
-      }).then((result)=>{
-        dispatch(deleteFromCategory(id))
-      }).catch((err)=>{
-          console.log(err);
       })
-  }
+      .then((result) => {
+        dispatch(deleteFromCategory(id));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     getCategoryAdmin();
@@ -106,37 +105,46 @@ const CategoryAdmin = () => {
   return (
     <div className="category_Admin">
       <div className="category_contener">
-        <table id="categryT"/* style={{ border: "1px solid black" ,display: "inline-block"}} */>
+        <table id="categryT">
           <tr>
-            <th /* style={{ borderRight: "1px solid black" }} */>ID</th>
-            <th /* style={{ borderRight: "1px solid black" }} */>Category Name</th>
-            <th /* style={{ borderRight: "1px solid black" }} */>sub_category</th>
-            {/* <th style={{ borderRight: "1px solid black" }}>Edit</th> */}
-            <th /* style={{borderRight:"1px solid black"}} */>Delete</th>
-          </tr>
-          {/* <tr> */}
-          {category.length &&
-            category.map((element,index) => {
-              return (
-                
-                  <tr key={index}>
-                    <td /* style={{ border: "1px solid black" }} */>{element.id}</td>
-                    <td /* style={{ border: "1px solid black" }} */>
-                      {element.category}
-                    </td> 
-                    <td /* style={{ border: "1px solid black" ,cursor:"pointer"}} */><p onClick={()=>{deleteCategoryAdmin(element.id)}}>sub_category</p></td>
+            <th>#</th>
+            <th>ID</th>
+            <th>Category Name</th>
+            <th>Brand</th>
 
-                    <td /* style={{ border: "1px solid black" ,cursor:"pointer"}} */><p onClick={()=>{deleteCategoryAdmin(element.id)}}>Delete</p></td>
-                    
-                  </tr>
-                
+            <th>Actions</th>
+          </tr>
+
+          {category.length &&
+            category.map((element, index) => {
+              return (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td><img src={element.image} style={{width:"100px" , aspectRatio:"1/1.25"}}/></td>
+                  <td>{element.category}</td>
+                  <td>{element.brand}</td>
+
+                  <td>
+                    <p
+                      onClick={() => {
+                        deleteCategoryAdmin(element.id);
+                      }}
+                    >
+                      Delete
+                    </p>
+                  </td>
+                </tr>
               );
             })}
-          
         </table>
       </div>
 
       <h6>Add Category</h6>
+      <h5>Picture</h5>
+      <Upload />
+      
+
+      <h5>Title</h5>
       <input
         className="category"
         placeholder="category Name"
@@ -144,6 +152,25 @@ const CategoryAdmin = () => {
           setCategoryName(e.target.value);
         }}
       />
+      <h5>Brand</h5>
+
+        <select onClick={(e)=>{setBrand(e.target.value)}}>
+        <option value="0">Select</option> 
+          {brands&& brands.map((element,index)=>{
+            return (<>
+              
+              <option value={element.id}>{element.brand}</option>   
+              </>
+                      )
+          })}
+        </select>
+      {/* <input
+        className="category"
+        placeholder="category Name"
+        onChange={(e) => {
+          setBrand(e.target.value);
+        }}
+      /> */}
       <button
         className="add_category"
         onClick={() => {

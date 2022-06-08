@@ -9,12 +9,9 @@ import "./style.css";
 const Product = () => {
   //! redux =========
   const dispatch = useDispatch();
-
   const [sorts, setSorts] = useState([]);
-
+  const [arrayofPage, setArrayofPage] = useState([]);
   const { token, isLoggedIn } = useSelector((state) => {
-    // console.log(state);
-
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
@@ -24,6 +21,20 @@ const Product = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
+
+  const getAllProductNoLimit = () => {
+    axios
+      .get("http://localhost:5000/products")
+      .then((result) => {
+        console.log({ all: result.data.result.length });
+        console.log(Math.ceil(result.data.result.length / 6));
+        setArrayofPage(Array(Math.ceil(result.data.result.length / 6)).fill(0));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  // Array(5).fill(1)=>[1, 1, 1, 1, 1]
   const gitAllProduct = () => {
     axios
       .get(`http://localhost:5000/products/pagination/${page}`)
@@ -71,17 +82,8 @@ const Product = () => {
     }
   };
 
-
-
-  
   useEffect(gitAllProduct, [page]);
-
-
-
-
-
-
-
+  useEffect(getAllProductNoLimit, []);
 
   return (
     <div>
@@ -104,8 +106,6 @@ const Product = () => {
           <option>low Price</option>
         </select>
       </div>
-
-  
 
       <div className="products">
         {products.length &&
@@ -139,6 +139,22 @@ const Product = () => {
             );
           })}
       </div>
+
+      {arrayofPage.map((element, index) => {
+        return (
+          <div key={index}>
+            <button
+              onClick={() => {
+                setPage(index + 1);
+                gitAllProduct();
+              }}
+            >
+              {index + 1}
+            </button>
+          </div>
+        );
+      })}
+
       {page != 1 ? (
         <>
           <button

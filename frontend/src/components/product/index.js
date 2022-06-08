@@ -123,6 +123,7 @@ const Product = () => {
                     {" "}
                     {e.title}
                     {e.price}
+                    {e.description}
                   </div>
                   <button
                     className="add_to_cart"

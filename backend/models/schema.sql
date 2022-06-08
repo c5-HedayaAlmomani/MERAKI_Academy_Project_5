@@ -73,6 +73,7 @@ CREATE TABLE products (
     price INT,
     image VARCHAR(255),
     sold INT DEFAULT 0,
+    AvailableQuantity INT,
     category_id INT,
     sub_category_id INT,
     brand_id INT,

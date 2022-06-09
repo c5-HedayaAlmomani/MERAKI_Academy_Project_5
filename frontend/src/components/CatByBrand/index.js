@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import "./style.css"
 const CatByBrand = () => {
   const navigate = useNavigate();
   const { brand } = useParams();
@@ -22,18 +22,18 @@ const CatByBrand = () => {
   useEffect(func, [brand]);
 
   return (
-    <div className="categoryContenar">
+    <div className="all_category">
       {allCat.length &&
         allCat.map((element, index) => {
           return (
-            <div key={index} className="categoryCont">
-              <img
+            <div key={index} className="categorydiv">
+              <img className="img_category"
                 onClick={() => {
                   navigate(`PRO/${brand}/${element.category}`);
                 }}
                 src={`${element.image}`}
               ></img>
-              <p>{element.category}</p>
+              <p className="name_category">{element.category}</p>
             </div>
           );
         })}

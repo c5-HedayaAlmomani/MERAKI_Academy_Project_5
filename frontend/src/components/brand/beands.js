@@ -35,18 +35,18 @@ const Brand = () => {
 
   useEffect(brandD, []);
   return (
-    <div>
+    <div className="all_brand">
       {brand.length &&
         brand.map((element, index) => {
           return (
             <div key={index} className="branddiv">
-              <img
+              <img className="img_brand"
                 onClick={() => {
                   navigate(`/allCategory/${element.brand}`);
                 }}
                 src={`${element.image}`}
               />
-              <div className="branddiv">
+              <div className="name_brand">
                 <p>{"Drand  :" + element.brand}</p>
               </div>
             </div>

@@ -42,6 +42,9 @@ app.use("/brand", BrandRouter);
 app.use("/loginGoogle", googleRouter);
 app.use("/admin/users", UsersRouter);
 
+const orderRouter = require("./routes/oder")
+app.use("/order" , orderRouter)
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
@@ -125,3 +128,5 @@ app.get("/", (req, res) => {
 });
 
 app.post("/checkout", payment);
+
+

@@ -86,14 +86,25 @@ CREATE TABLE products (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE orders (
+    id INT  AUTO_INCREMENT NOT NULL,
+    user_id INT,
+   timestamp  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);
+
 CREATE TABLE cart (
     id INT NOT NULL AUTO_INCREMENT NOT NULL,
     product_id INT,
     user_id INT,
+    order_id INT ,
     sub_total INT DEFAULT 0,
     quantity INT DEFAULT 1,
     FOREIGN KEY (product_id) REFERENCES products (id),
     FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (order_id) REFERENCES orders (id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );

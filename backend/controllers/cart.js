@@ -3,16 +3,16 @@ const connection = require("../models/db");
 const addToCart = (req, res) => {
   const { productId, quantity } = req.body;
   const userId = req.token.userId;
-console.log("productId",productId);
-console.log("userId",userId);
+  console.log("productId", productId);
+  console.log("userId", userId);
 
   const query = `SELECT * FROM cart WHERE user_id=? AND product_id=? AND is_deleted=0`;
-  const data = [userId,productId];
+  const data = [userId, productId];
 
   connection.query(query, data, (err, result) => {
     console.log(result);
     if (err) {
-      console.log("err1",err);
+      console.log("err1", err);
       return res.status(500).json({
         success: false,
         massage: "Server error",
@@ -24,12 +24,12 @@ console.log("userId",userId);
       const query = `INSERT INTO cart (product_id,user_id) VALUES (?,?)`;
       const data = [productId, userId];
 
-      console.log("data---------",productId, userId);
+      console.log("data---------", productId, userId);
 
       connection.query(query, data, (err, result) => {
-        console.log("result",result);
+        console.log("result", result);
         if (err) {
-          console.log("err",err);
+          console.log("err", err);
           return res.status(500).json({
             success: false,
             massage: "Server error",
@@ -44,7 +44,6 @@ console.log("userId",userId);
         });
       });
     } else {
-      
       const newQuantity = result[0].quantity + quantity;
       console.log("err2");
       console.log(newQuantity);
@@ -60,19 +59,7 @@ console.log("userId",userId);
             err: err,
           });
         }
-  //       const query = `SELECT * FROM cart WHERE user_id=? AND product_id=? `;
-  // const data = [productId, userId];
-        
-  //       connection.query(query,data,(err,result)=>{
-  //         if (err) {
-  //           return res.status(500).json({
-  //             success: false,
-  //             massage: "Server error",
-  //             err: err,
-  //           });
-  //         }
-          
-  //       })
+
         return res.status(201).json({
           success: true,
           massage: "cart updated",
@@ -152,7 +139,7 @@ const getCartItem = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      return  res.status(409).json({
+      return res.status(409).json({
         success: false,
         Message: "Server error",
         err: err,

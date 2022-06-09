@@ -166,6 +166,8 @@ const Product = () => {
           <button
             onClick={() => {
               setPage(index - 1);
+              console.log(index - 1);
+              setIndex(index - 1);
               gitAllProduct();
             }}
           >
@@ -180,6 +182,8 @@ const Product = () => {
           <button
             onClick={() => {
               setPage(index + 1);
+              setIndex(index + 1);
+
               gitAllProduct();
             }}
           >

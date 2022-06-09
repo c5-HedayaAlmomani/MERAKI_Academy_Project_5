@@ -7,7 +7,7 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { getSearchAction } from "../../redux/reducers/sreach";
 import Getbrand from "../getbrand";
 
-
+import "./style.css"
 
 const Dashboard = () => {
 
@@ -80,6 +80,10 @@ const Dashboard = () => {
 
   return (
     <div>
+    <div className="navbar">
+    <Link to="product">All Product</Link>
+      <Link to="/">All Brand</Link>
+      <input className="search" onChange={(e) => { searchFunction(e.target.value) }} />
       {isLoggedIn ? (
         <>
           <Link to="/cart">Cart</Link>
@@ -95,17 +99,19 @@ const Dashboard = () => {
         </>
       ) : (
         <>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Sign up</Link>
+          <Link className="login_link" to="/login">Login</Link>
+          <Link className="register_link" to="/register">Sign up</Link>
         </>
       )}
 
-      <Link to="product">All Product</Link>
-      <Link to="/">All Brand</Link>
+      {/* <Link to="product">All Product</Link>
+      <Link to="/">All Brand</Link> */}
       {/* <Link to="category">All category</Link> */}
 
-      <input onChange={(e) => { searchFunction(e.target.value) }} />
+      {/* <input onChange={(e) => { searchFunction(e.target.value) }} /> */}
       <div>
+      </div>
+      </div>
         {searchArray.length && searchArray.map((element, index) => {
           return <div onClick={() => {
             navigate(`/product/${element.id}`);
@@ -116,7 +122,7 @@ const Dashboard = () => {
           </div>
         })}
 
-      </div>
+     
       <div>
         {/* <select onClick={(e) => { brandFunction(e.target.value) }}>
   //         <optgroup label="Brand 1">
@@ -126,6 +132,7 @@ const Dashboard = () => {
 
       </div>
       {/* <p>aaa</p> */}
+     
       <Getbrand/>
     </div>
   );

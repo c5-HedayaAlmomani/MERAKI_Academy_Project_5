@@ -1,8 +1,12 @@
 DROP DATABASE ECMA_Project_5;
 
+-- SET  time_zone = '+3:00';
+
 CREATE DATABASE ECMA_Project_5;
 
 USE ECMA_Project_5;
+
+
 
 CREATE TABLE roles (
     id INT AUTO_INCREMENT NOT NULL,
@@ -17,12 +21,14 @@ CREATE TABLE users(
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255),
     role_id INT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
     userLoginTime TIMESTAMP,
     FOREIGN KEY (role_id) REFERENCES roles(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+
+-- SET time_zone='+03:00'
 
 CREATE TABLE orders (
     id INT  AUTO_INCREMENT NOT NULL,
@@ -32,6 +38,8 @@ CREATE TABLE orders (
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+
+
 
 CREATE TABLE permissions (
     id INT AUTO_INCREMENT NOT NULL,
@@ -133,5 +141,8 @@ CREATE TABLE rate (
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+
+SET time_zone='+03:00'
+
 
 

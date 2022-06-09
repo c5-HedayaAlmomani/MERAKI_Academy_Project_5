@@ -2,6 +2,9 @@ import { GoogleLogin } from "react-google-login";
 import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
+
+import { orderAction } from "../../redux/reducers/auth";
+
 import { loginAction } from "../../redux/reducers/auth";
 
 import axios from "axios";
@@ -17,6 +20,20 @@ const LogGoogle = () => {
     };
   });
   //!redux===============
+
+
+  const getLiveOrder = (email) => {
+    axios
+      .get(`http://localhost:5000/order/live/${email}`)
+      .then((result) => {
+        console.log(result);
+        dispatch(orderAction(result.data.order[0].id))
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const responseGoogle = (response) => {
     console.log(response.Ru);
 
@@ -27,7 +44,10 @@ const LogGoogle = () => {
         email: response.Ru.Iv,
       })
       .then((result) => {
+        console.log("LOGINGoogle",result);
         dispatch(loginAction(result.data.token));
+        getLiveOrder(response.Ru.Iv)
+        
         navigate("/");
       })
       .catch((err) => {

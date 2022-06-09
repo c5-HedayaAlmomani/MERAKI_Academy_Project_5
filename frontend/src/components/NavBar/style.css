@@ -66,6 +66,7 @@ grid-template-areas: "a b c d e" "f g h j j";
   height: 35%;
   margin-top: -6%;
   
+  
 }
 .navbar a{
   color: rgb(255, 255, 255);
@@ -83,3 +84,40 @@ grid-area: d;
 .register_link{
 grid-area: e;
 }
+.cart{
+  grid-area: d;
+}
+.logout{
+  grid-area: e;
+}
+
+
+@media (max-width:600px)
+{.navbar{
+  display: flex;
+  position: absolute;
+  margin-left: 0px;
+  top: 60px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+  transition: 0.6s ease;
+  padding: 5px;
+  height: 200px;
+  transition: transform 250ms;
+
+}
+.navbar a{
+  display: block;
+  color: aliceblue;
+}
+.search{
+
+  display: none;
+  
+}
+
+
+
+}
+

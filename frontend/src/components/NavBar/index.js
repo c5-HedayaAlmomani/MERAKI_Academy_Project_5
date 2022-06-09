@@ -80,14 +80,16 @@ const Dashboard = () => {
 
   return (
     <div>
+   
     <div className="navbar">
+    
     <Link to="product">All Product</Link>
       <Link to="/">All Brand</Link>
       <input className="search" onChange={(e) => { searchFunction(e.target.value) }} />
       {isLoggedIn ? (
         <>
-          <Link to="/cart">Cart</Link>
-          <button
+          <Link className="cart" to="/cart">Cart</Link>
+          <a
             className="logout"
             onClick={() => {
               dispatch(logoutAction());
@@ -95,7 +97,7 @@ const Dashboard = () => {
             }}
           >
             Logout
-          </button>
+          </a>
         </>
       ) : (
         <>

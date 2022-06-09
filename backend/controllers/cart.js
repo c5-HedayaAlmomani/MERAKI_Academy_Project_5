@@ -1,7 +1,7 @@
 const connection = require("../models/db");
 
 const addToCart = (req, res) => {
-  const { productId, quantity } = req.body;
+  const { productId, quantity,order_id } = req.body;
   const userId = req.token.userId;
   console.log("productId", productId);
   console.log("userId", userId);
@@ -21,8 +21,8 @@ const addToCart = (req, res) => {
     }
 
     if (!result.length) {
-      const query = `INSERT INTO cart (product_id,user_id) VALUES (?,?)`;
-      const data = [productId, userId];
+      const query = `INSERT INTO cart (product_id,user_id,order_id) VALUES (?,?,?)`;
+      const data = [productId, userId,order_id];
 
       console.log("data---------", productId, userId);
 

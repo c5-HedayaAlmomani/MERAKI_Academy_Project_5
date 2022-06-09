@@ -21,10 +21,28 @@ connection.query(query,data,(err,result)=>{
         });
         
       }
+      const query=`INSERT INTO orders (user_email) VALUES (?)`
+      const data=[email]
+      connection.query(query,data,(err,result)=>{
+        if (err) {
+          console.log(err);
+          return res.status(409).json({
+            success: false,
+            massage: "The email already exists",
+            err:err
+          });
+          
+        }
+        // localStorage.setItem('orderID', "aa");
+
+        console.log(result);
+
+      })
       res.status(200).json({
         success: true,
         massage: "Account Created Successfully",
-        result
+        result:result,
+        orderId:result.insertId
       });
 })
 

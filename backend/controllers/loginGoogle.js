@@ -10,7 +10,16 @@ const loginGoogle = (req, res) => {
     if (err) {
       return res.json(err);
     }
+    const query=`Update users SET userLoginTime=CURRENT_TIMESTAMP WHERE email=?`;
+        const data = [email];
 
+        connection.query(query,data,(err,result)=>{
+          if (err) {
+            console.log(err);          
+          }
+        
+          console.log("TimeStamp",result);
+        })
     const payload = {
       firstName:result[0].firstName,
       userId: result[0].id,

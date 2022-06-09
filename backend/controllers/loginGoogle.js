@@ -1,7 +1,10 @@
 const jwt = require("jsonwebtoken");
 const connection = require("../models/db");
+
 const loginGoogle = (req, res) => {
   const { email } = req.body;
+
+  
 
   const query = "SELECT * FROM users WHERE email=? AND is_deleted=0";
   const data = [email];

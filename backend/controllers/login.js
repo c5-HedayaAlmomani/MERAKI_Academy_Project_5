@@ -33,6 +33,7 @@ const login = (req, res) => {
             firstName:result[0].firstName,
             userId: result[0].id,
             role: result[0].role_id,
+            email:result[0].email
           };
           const secret = process.env.SECRET;
 

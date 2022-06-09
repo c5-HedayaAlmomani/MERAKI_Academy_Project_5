@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/reducers/auth";
 import { useNavigate } from "react-router-dom";
+import { orderAction } from "../../redux/reducers/auth";
 import("./style.css");
 
 const Login = () => {
@@ -14,6 +15,8 @@ const Login = () => {
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
+      orders: state.auth.orderId,
+
     };
   });
   //!redux===============
@@ -21,13 +24,26 @@ const Login = () => {
   const [password, setPassword] = useState();
   const [message, setMessage] = useState();
 
+  const getLiveOrder = () => {
+    axios
+      .get(`http://localhost:5000/order/live/${email}`)
+      .then((result) => {
+        console.log(result);
+        dispatch(orderAction(result.data.order[0].id))
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const login = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
         setMessage("Login Successfuly");
         dispatch(loginAction(result.data.token));
-        if ((result.data.token === 1)) {
+        getLiveOrder()
+        if (result.data.token === 1) {
           navigate("/");
         } else {
           navigate("/admin");
@@ -42,13 +58,7 @@ const Login = () => {
   };
 
   return (
-    
     <div className="login">
-      
-
-
-
-
       <input
         className="input"
         placeholder="Enter Your email"
@@ -63,7 +73,7 @@ const Login = () => {
           setPassword(e.target.value);
         }}
       />
-      
+
       <button onClick={login}>Log in</button>
       <h1>{message}</h1>
       <LogGoogle />

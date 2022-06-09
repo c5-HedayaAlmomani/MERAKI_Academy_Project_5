@@ -51,12 +51,16 @@ const Product = () => {
 
   const addToCart = async (id) => {
     if (!token) return alert("Please login to continue buying");
+    const orderId=localStorage.getItem("orderId")
+
     await axios
       .post(
         `http://localhost:5000/cart`,
         {
           productId: id,
           quantity: 1,
+          order_id:orderId,
+
         },
         { headers: { authorization: `Bearer ${token}` } }
       )

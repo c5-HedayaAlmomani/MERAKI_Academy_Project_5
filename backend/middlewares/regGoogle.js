@@ -22,6 +22,26 @@ const regGoogle = (req, res, next) => {
           if (err) {
             res.json({ err });
           }
+
+          //!----------------ORDER---
+
+          const query = `INSERT INTO orders (user_email) VALUES (?)`;
+          const data = [email];
+          connection.query(query, data, (err, result) => {
+            if (err) {
+              console.log(err);
+              return res.status(409).json({
+                success: false,
+                massage: "The email already exists",
+                err: err,
+              });
+            }
+           
+
+            console.log(result);
+          });
+          //!-----------------------
+
           next();
         });
       });

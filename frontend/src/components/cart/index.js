@@ -13,7 +13,7 @@ import {
   setTotalPriceAction,
   setquantityAction,
   reducequantityAction,
-  iccuresquantityAction
+  iccuresquantityAction,
 } from "../../redux/reducers/cart";
 
 import StripeCheckout from "react-stripe-checkout";
@@ -29,7 +29,7 @@ const Cart = () => {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
       cart: state.cart.cart,
-      quantity: state.cart.quantity
+      quantity: state.cart.quantity,
     };
   });
   //! redux =========
@@ -39,6 +39,7 @@ const Cart = () => {
 
   useEffect(() => {
     getCartItems();
+    func();
   }, [quantity]);
 
   const getCartItems = async () => {
@@ -61,7 +62,6 @@ const Cart = () => {
 
         // console.log(result.data.result[0].AvailableQuantity);
 
-
         dispatch(setTotalPriceAction(priceTotal));
       })
       .catch((error) => {
@@ -72,26 +72,25 @@ const Cart = () => {
     await axios
       .get(`http://localhost:5000/cart`, {
         headers: { authorization: `Bearer ${token}` },
-      }).then((result) => {
-        dispatch(setquantityAction(result.data.result[0].AvailableQuantity))
-
-      }).catch((err) => {
-        console.log(err);
       })
-
-
-
-  }
+      .then((result) => {
+        dispatch(setquantityAction(result.data.result[0].AvailableQuantity));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const addToCart = (id, quantity) => {
-
     if (!token) return alert("Please login to continue buying");
-
+    const orderId=localStorage.getItem("orderId")
+    console.log("add to cart orderid",orderId);
     axios
       .post(
         `http://localhost:5000/cart`,
         {
           productId: id,
           quantity: quantity,
+          order_id:orderId,
         },
         { headers: { authorization: `Bearer ${token}` } }
       )
@@ -134,7 +133,7 @@ const Cart = () => {
         console.log(err);
       });
   };
-  useEffect(func, [])
+  // useEffect(func, [])
   return (
     <div className="cart_container">
       {isLoggedIn ? (
@@ -167,14 +166,14 @@ const Cart = () => {
                         className="decrees"
                         id={element.id}
                         onClick={(e) => {
-
-                          element.AvailableQuantity !== quantity ? dispatch(iccuresquantityAction()) : <></>
-
+                          element.AvailableQuantity !== quantity ? (
+                            dispatch(iccuresquantityAction())
+                          ) : (
+                            <></>
+                          );
 
                           element.quantity > 1 ? (
                             addToCart(element.id, -1)
-
-
                           ) : (
                             <></>
                           );
@@ -185,29 +184,28 @@ const Cart = () => {
 
                       <p className="product-quantity">{element.quantity}</p>
 
-
-
                       <button
-
                         className="increase"
                         id={element.id}
                         onClick={(e) => {
-                          console.log(quantity+"vvvvvvvvvvvvvv");
-                          console.log(element.AvailableQuantity+"wwwwwwwwwww");
-                          quantity !== element.AvailableQuantity ? addToCart(element.id, 1) : <></>;
+                          console.log(quantity + "vvvvvvvvvvvvvv");
+                          console.log(
+                            element.AvailableQuantity + "wwwwwwwwwww"
+                          );
+                          quantity !== element.AvailableQuantity ? (
+                            addToCart(element.id, 1)
+                          ) : (
+                            <></>
+                          );
 
-                          quantity === 0 ? <></> : dispatch(reducequantityAction())
+                          quantity === 0 ? (
+                            <></>
+                          ) : (
+                            dispatch(reducequantityAction())
+                          );
 
-                          
-
-                          getCartItems()
-
-
-
-
-
+                          getCartItems();
                         }}
-
                       >
                         +
                       </button>

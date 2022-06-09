@@ -19,6 +19,25 @@ const login = (req, res) => {
           });
         }
         if (response) {
+        const query=`Update users SET userLoginTime=CURRENT_TIMESTAMP WHERE email=?  `;
+        const data = [email];
+
+        connection.query(query,data,(err,result)=>{
+          if (err) {
+            console.log(err);
+            // return res.status(500).json({
+            //   success: false,
+            //   massage: "Server error",
+            //   err: err,
+            // });
+          }
+          // return res.status(201).json({
+          //   success: true,
+          //   massage: "cart updated",
+          //   result: result,
+          // });
+          console.log("TimeStamp",result);
+        })
           const payload = {
             firstName:result[0].firstName,
             userId: result[0].id,

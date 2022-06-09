@@ -24,18 +24,9 @@ const login = (req, res) => {
 
         connection.query(query,data,(err,result)=>{
           if (err) {
-            console.log(err);
-            // return res.status(500).json({
-            //   success: false,
-            //   massage: "Server error",
-            //   err: err,
-            // });
+            console.log(err);          
           }
-          // return res.status(201).json({
-          //   success: true,
-          //   massage: "cart updated",
-          //   result: result,
-          // });
+        
           console.log("TimeStamp",result);
         })
           const payload = {

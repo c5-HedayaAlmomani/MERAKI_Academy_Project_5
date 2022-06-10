@@ -53,7 +53,7 @@ function App() {
         </Routes>
       
    
-        <Sold/>
+        {/* <Sold/> */}
         
         <Footer/>
     </div>

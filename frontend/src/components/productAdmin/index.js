@@ -72,6 +72,8 @@ const ProductAdmin = () => {
           <th>Product Name</th>
           <th>Description </th>
           <th>Price </th>
+          <th>Create Date </th>
+
           <th>Brand </th>
           <th>Category </th>
 
@@ -85,6 +87,7 @@ const ProductAdmin = () => {
                 <td>{element.description}</td>
                 <td>{element.title}</td>
                 <td>{element.price}</td>
+                <td>{new Date(element.created_at).toLocaleString("es-CL")}</td>
                 <td>{element.brand}</td>
                 <td>{element.category}</td>
                 <td>

@@ -1,12 +1,9 @@
 DROP DATABASE ECMA_Project_5;
 
 -- SET  time_zone = '+3:00';
-
 CREATE DATABASE ECMA_Project_5;
 
 USE ECMA_Project_5;
-
-
 
 CREATE TABLE roles (
     id INT AUTO_INCREMENT NOT NULL,
@@ -21,7 +18,7 @@ CREATE TABLE users(
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255),
     role_id INT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     userLoginTime TIMESTAMP,
     FOREIGN KEY (role_id) REFERENCES roles(id),
     is_deleted TINYINT DEFAULT 0,
@@ -29,17 +26,14 @@ CREATE TABLE users(
 );
 
 -- SET time_zone='+03:00'
-
 CREATE TABLE orders (
-    id INT  AUTO_INCREMENT NOT NULL,
+    id INT AUTO_INCREMENT NOT NULL,
     user_email VARCHAR(255),
-    create_Date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_email) REFERENCES users(email),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
-
-
 
 CREATE TABLE permissions (
     id INT AUTO_INCREMENT NOT NULL,
@@ -57,6 +51,7 @@ CREATE TABLE role_permission (
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+
 CREATE TABLE brands (
     id INT NOT NULL AUTO_INCREMENT NOT NULL,
     brand VARCHAR(225) UNIQUE,
@@ -64,11 +59,12 @@ CREATE TABLE brands (
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+
 CREATE TABLE category (
     id INT NOT NULL AUTO_INCREMENT NOT NULL,
     category VARCHAR(255) NOT NULL,
     brand_id INT,
-     image VARCHAR(225),
+    image VARCHAR(225),
     FOREIGN KEY (brand_id) REFERENCES brands(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
@@ -83,8 +79,6 @@ CREATE TABLE sub_category (
     PRIMARY KEY (id)
 );
 
-
-
 CREATE TABLE products (
     id INT AUTO_INCREMENT NOT NULL,
     title VARCHAR(255),
@@ -94,16 +88,15 @@ CREATE TABLE products (
     sold INT DEFAULT 0,
     AvailableQuantity INT,
     category_id INT,
-    create_Date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     sub_category_id INT,
     brand_id INT,
     FOREIGN KEY (brand_id) REFERENCES brands(id),
     FOREIGN KEY (category_id) REFERENCES category(id),
-    FOREIGN KEY (sub_category_id) REFERENCES ,sub_category(id),
+    FOREIGN KEY (sub_category_id) REFERENCES sub_category(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
-
 
 CREATE TABLE cart (
     id INT NOT NULL AUTO_INCREMENT NOT NULL,
@@ -131,7 +124,7 @@ CREATE TABLE feedback (
 );
 
 CREATE TABLE rate (
-    id INT  AUTO_INCREMENT NOT NULL,
+    id INT AUTO_INCREMENT NOT NULL,
     product_id INT,
     user_id INT,
     rate INT,
@@ -140,7 +133,3 @@ CREATE TABLE rate (
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
-
-
-
-

@@ -85,6 +85,7 @@ const Dashboard = () => {
     
     <Link to="product">All Product</Link>
       <Link to="/">All Brand</Link>
+      <Link to="/order">All Order</Link>
       <input className="search" onChange={(e) => { searchFunction(e.target.value) }} />
       {isLoggedIn ? (
         <>

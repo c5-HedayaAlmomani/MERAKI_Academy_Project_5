@@ -85,4 +85,25 @@ const updateOrder = (req, res) => {
   });
 };
 
-module.exports = { addOrder, getOrder,updateOrder,getLiveOrder};
+
+const getOrderWithProduct = (req, res) => {
+
+  const user_email = req.token.email;
+  const query = "SELECT * FROM orders INNER JOIN cart ON cart.order_id=orders.id INNER JOIN products ON products.id=cart.product_id WHERE orders.is_deleted=0;";
+  const data = [user_email];
+  connection.query(query,data,(err, result) => {
+    if (err) {
+      return res.json({
+        success: false,
+        message: "Server Error",
+        err: err,
+      });
+    }
+    res.json({
+      success: true,
+      message: "all the order",
+      order: result,
+    });
+  });
+};
+module.exports = { addOrder, getOrder,updateOrder,getLiveOrder, getOrderWithProduct};

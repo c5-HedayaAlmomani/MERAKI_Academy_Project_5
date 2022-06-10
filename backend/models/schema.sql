@@ -94,6 +94,7 @@ CREATE TABLE products (
     sold INT DEFAULT 0,
     AvailableQuantity INT,
     category_id INT,
+    create_Date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     sub_category_id INT,
     brand_id INT,
     FOREIGN KEY (brand_id) REFERENCES brands(id),
@@ -102,8 +103,6 @@ CREATE TABLE products (
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
-
-
 
 
 CREATE TABLE cart (
@@ -142,7 +141,6 @@ CREATE TABLE rate (
     PRIMARY KEY (id)
 );
 
-SET time_zone='+03:00'
 
 
 

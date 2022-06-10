@@ -72,11 +72,13 @@ const UsersComponent = () => {
     <div className="UsersComponent">
       <table id="usersT">
         <tr>
-          <th>ID</th>
+          <th>#</th>
           <th>User Name </th>
           <th>Email</th>
+          <th>Register Date</th>
+          <th>Last Login Date</th>
           <th>Role</th>
-          <th>Actions</th>        
+          <th>Actions</th>
         </tr>
 
         {users.length &&
@@ -84,18 +86,15 @@ const UsersComponent = () => {
             return (
               <>
                 <tr>
-                  <td >
-                    {element.id}
+                  <td>{index+1}</td>
+                  <td>{element.firstName }</td>
+                  <td>{element.email}</td>
+                  <td>
+                    {new Date(element.created_at).toLocaleString("es-CL")}
                   </td>
-                  <td >
-                    {element.firstName + " " + element.lastName}
-                  </td>
-                  <td >
-                    {element.email}
-                  </td>
-                  <td >
-                    {element.role}
-                  </td>
+                  {new Date(element.userLoginTime).toLocaleString("es-CL")}
+
+                  <td>{element.role}</td>
 
                   <td
                     onClick={() => {

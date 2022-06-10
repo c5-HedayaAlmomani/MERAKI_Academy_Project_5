@@ -38,9 +38,12 @@ const Cart = () => {
   const [subtotal, SetSubTotal] = useState(0);
 
   useEffect(() => {
-    getCartItems();
-    func();
+    getCartItems();    
   }, [quantity]);
+
+  useEffect(() => {
+        func();
+  }, []);
 
   const getCartItems = async () => {
     await axios
@@ -82,15 +85,15 @@ const Cart = () => {
   };
   const addToCart = (id, quantity) => {
     if (!token) return alert("Please login to continue buying");
-    const orderId=localStorage.getItem("orderId")
-    console.log("add to cart orderid",orderId);
+    const orderId = localStorage.getItem("orderId");
+    console.log("add to cart orderid", orderId);
     axios
       .post(
         `http://localhost:5000/cart`,
         {
           productId: id,
           quantity: quantity,
-          order_id:orderId,
+          order_id: orderId,
         },
         { headers: { authorization: `Bearer ${token}` } }
       )
@@ -188,23 +191,21 @@ const Cart = () => {
                         className="increase"
                         id={element.id}
                         onClick={(e) => {
-                          console.log(quantity + "vvvvvvvvvvvvvv");
-                          console.log(
-                            element.AvailableQuantity + "wwwwwwwwwww"
-                          );
-                          quantity !== element.AvailableQuantity ? (
+                          // addToCart(element.id, 1);
+                          
+                          quantity-1 !==0 ? (
                             addToCart(element.id, 1)
                           ) : (
                             <></>
                           );
 
-                          quantity === 0 ? (
+                          quantity-1 ===0 ? (
                             <></>
                           ) : (
                             dispatch(reducequantityAction())
                           );
 
-                          getCartItems();
+                          // getCartItems();
                         }}
                       >
                         +
@@ -224,7 +225,7 @@ const Cart = () => {
                         {/* {availableQuantity.map((element,index)=>{
                           return<div key={index}>{element.AvailableQuantity}</div>
                         })} */}
-                        {"AvailableQuantity : " + quantity}
+                        {"AvailableQuantity : " + (quantity-1)}
                       </p>
                     </div>
                   </div>
@@ -238,7 +239,9 @@ const Cart = () => {
         <h1>Please Login First</h1>
       )}
 
-      <h4 className="sub_total">{subtotal} JOD</h4>
+      {cart.length===0?(<></>):( <h4 className="sub_total">{subtotal} JOD</h4>
+)}
+      {/* <h4 className="sub_total">{subtotal} JOD</h4> */}
 
       <button
         className="empty_cart"

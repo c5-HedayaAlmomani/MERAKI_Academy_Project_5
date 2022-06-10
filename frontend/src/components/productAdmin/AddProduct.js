@@ -20,6 +20,8 @@ import products, {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState(0);
+    const [quantity, seQuantity] = useState(0);
+
     const [image, setImage] = useState("");
     const [category_id, setCategory_id] = useState("");
     const [sub_category_id, setSub_Category_id] = useState("");
@@ -50,6 +52,7 @@ import products, {
         category_id:category_id,
         sub_category_id:sub_category_id,
         brand_id:brand_id,
+        AvailableQuantity:quantity
       },{
         headers: { authorization: `Bearer ${token}` },
       }).then((result)=>{
@@ -94,7 +97,8 @@ import products, {
         <input type="text" className="description" onChange={(e)=>{setDescription(e.target.value)}}/>
         <h5>Price</h5>
         <input type="number" className="title" onChange={(e)=>{setPrice(e.target.value)}} />
-
+        <h5>Quantity</h5>
+        <input type="number" className="title" onChange={(e)=>{seQuantity(e.target.value)}} />
         <h5>Brand</h5>
         
         <select onClick={(e)=>{setBrand_id(e.target.value) ;func()  }} >
@@ -108,22 +112,6 @@ import products, {
           })}
         </select>
 
-
-
-
-{/*         <select onClick={(e)=>{setBrand_id(e.target.value) ;setBrandOnClick(e.target.value)  ; func()}}>
-        <option >Select</option>
-          {brands&& brands.map((element,index)=>{
-            return (<>
-              
-              <option value={element.id}>{element.brand}</option>   
-              </>
-                      )
-          })}
-        </select> */}
-
-        {/* <h5>Category</h5>
-        <input type="number" className="category" onChange={(e)=>{setCategory_id(e.target.value)}} /> */}
         <h5>Category</h5>
         <select onClick={(e)=>{setCategory_id(e.target.value)}}>
         <option value="0">Select</option> 

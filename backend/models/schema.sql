@@ -99,7 +99,7 @@ CREATE TABLE products (
     brand_id INT,
     FOREIGN KEY (brand_id) REFERENCES brands(id),
     FOREIGN KEY (category_id) REFERENCES category(id),
-    FOREIGN KEY (sub_category_id) REFERENCES sub_category(id),
+    FOREIGN KEY (sub_category_id) REFERENCES ,sub_category(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );

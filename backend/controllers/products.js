@@ -9,9 +9,10 @@ const CreateProduct = (req, res) => {
     category_id,
     sub_category_id,
     brand_id,
+    AvailableQuantity
   } = req.body;
 
-  const query = `INSERT INTO Products (title,description,price, image, category_id,sub_category_id,brand_id) VALUES (?,?,?,?,?,?,?);`;
+  const query = `INSERT INTO Products (title,description,price, image, category_id,sub_category_id,brand_id,AvailableQuantity) VALUES (?,?,?,?,?,?,?,?);`;
   const data = [
     title,
     description,
@@ -20,6 +21,7 @@ const CreateProduct = (req, res) => {
     category_id,
     sub_category_id,
     brand_id,
+    AvailableQuantity
   ];
 
   connection.query(query, data, (err, result) => {

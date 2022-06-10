@@ -118,33 +118,61 @@ const Product = () => {
         {products.length &&
           products.map((e, i) => {
             return (
-              <div key={i} className="one_product">
-                <img
+              <div className="card">
+              <ul className="ul">
+              <li>
+                <i>{e.price} $</i>
+              </li>
+              <li>
+                <i></i>
+              </li>
+              <li>
+                <i></i>
+              </li>
+              <li>
+                <i></i>
+              </li>
+              </ul>
+              <img src={e.image} alt="" />
+              <div className="con-text">
+                <h2>{e.title}</h2>
+                <p>{e.description} <button      className="add_to_cart"
                   onClick={() => {
-                    navigate(`/product/${e.id}`);
-                  }}
-                  src={`${e.image}`}
-                />
-                <div className="information">
-                  <div>
-                    {" "}
-                    {e.title}
-                    {e.price}
-                    {e.description}
-                    <br></br>
-                    {e.AvailableQuantity}
-                  </div>
-                  <button
-                    className="add_to_cart"
-                    onClick={() => {
-                      console.log(e.id);
-                      addToCart(e.id);
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
+                   console.log(e.id);
+                   addToCart(e.id);
+                  }}>Add to Cart</button>
+                  <button onClick={() => {
+                  navigate(`/product/${e.id}`);
+                 }}>View Product</button></p>
               </div>
+              </div>
+              // <div key={i} className="one_product">
+              //   <img
+              //     onClick={() => {
+              //       navigate(`/product/${e.id}`);
+              //     }}
+              //     src={`${e.image}`}
+              //   />
+              //   <div className="information">
+              //     <div>
+              //       {" "}
+              //       {e.title}
+              //       {e.price}
+              //       {e.description}
+              //       <br></br>
+              //       {e.AvailableQuantity}
+              //     </div>
+              //     <button
+              //       className="add_to_cart"
+              //       onClick={() => {
+              //         console.log(e.id);
+              //         addToCart(e.id);
+              //       }}
+              //     >
+              //       Add to Cart
+              //     </button>
+              //   </div>
+              // </div>
             );
           })}
       </div>

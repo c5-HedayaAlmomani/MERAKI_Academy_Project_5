@@ -10,6 +10,7 @@ const {
   getProductById,
   deleteProductById,
   updateProductById,
+  updateProductSold
 } = require("../controllers/products");
 
 productsRouter.post("/", CreateProduct);
@@ -22,6 +23,13 @@ productsRouter.put(
   authorization("UPDATE_PRODUCT"), */
   updateProductById
 );
+productsRouter.put(
+  "/update/product",
+  /* authentication,
+  authorization("UPDATE_PRODUCT"), */
+  updateProductSold
+);
+
 
 const getAllProductPagination = require("../controllers/paginationProduct");
 productsRouter.get("/pagination/:page", getAllProductPagination);

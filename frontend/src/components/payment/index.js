@@ -39,6 +39,7 @@ function Payment() {
   );
   //!-------------- reducer--------------
 
+  console.log("cart-------------------,",cart);
   const emptyCart = async () => {
     await axios
       .delete(
@@ -96,6 +97,19 @@ function Payment() {
       });
   };
 
+  const updateProductSold=(product_id,sold,AvailableQuantity)=>{
+    axios.put(`http://localhost:5000/products/update/product`,{
+      product_id:product_id,
+      sold:sold,
+      AvailableQuantity:AvailableQuantity
+    }).then((result)=>{
+      console.log(result);
+
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }
+
   const [product] = useState({
     name: "Ecma shop",
     price: totalPrice,
@@ -114,6 +128,9 @@ function Payment() {
     if (response.status === 200) {
       toast("Success! Check email for details", { type: "success" });
       console.log("success");
+      cart.length&&cart.map((element,index)=>{
+        updateProductSold(element.product_id,element.quantity+element.sold,element.AvailableQuantity-element.quantity)
+      })
       updateOrder();
       emptyCart();
       createOrder();

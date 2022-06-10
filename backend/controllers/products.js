@@ -1,11 +1,26 @@
 const connection = require("../models/db");
 
 const CreateProduct = (req, res) => {
-  const { title, description, price, image, category_id, sub_category_id,brand_id} =
-    req.body;
+  const {
+    title,
+    description,
+    price,
+    image,
+    category_id,
+    sub_category_id,
+    brand_id,
+  } = req.body;
 
   const query = `INSERT INTO Products (title,description,price, image, category_id,sub_category_id,brand_id) VALUES (?,?,?,?,?,?,?);`;
-  const data = [title, description, price, image, category_id, sub_category_id,brand_id];
+  const data = [
+    title,
+    description,
+    price,
+    image,
+    category_id,
+    sub_category_id,
+    brand_id,
+  ];
 
   connection.query(query, data, (err, result) => {
     console.log(result);
@@ -56,7 +71,7 @@ const getProductById = (req, res) => {
       });
     }
     if (!result.length) {
-     return res.status(404).json({
+      return res.status(404).json({
         success: false,
         massage: "The Product is Not Found",
       });
@@ -100,6 +115,7 @@ const deleteProductById = (req, res) => {
 };
 
 const updateProductById = (req, res) => {
+  console.log("updateProductById");
   const { title, description, price, image, category_id, sub_category_id } =
     req.body;
   const id = req.params.id;
@@ -117,7 +133,7 @@ const updateProductById = (req, res) => {
       });
     }
     if (!result.length) {
-     return res.status(404).json({
+      return res.status(404).json({
         success: false,
         massage: `The Product: ${id} is not found`,
         err: err,
@@ -149,10 +165,53 @@ const updateProductById = (req, res) => {
   });
 };
 
+const updateProductSold = (req, res) => {
+  const { product_id, sold, AvailableQuantity } = req.body;
+  const query = `SELECT * FROM products WHERE id=? AND is_deleted=0`;
+  data = [product_id];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(404).json({
+        success: false,
+        massage: `Server error`,
+        err: err,
+      });
+    }
+    console.log("----------", result, "--------------");
+    if (result[0].AvailableQuantity !== 0) {
+      const query = `UPDATE Products SET sold=?,AvailableQuantity=? WHERE id=?;`;
+
+      const data = [sold, AvailableQuantity, product_id];
+      connection.query(query, data, (err, result) => {
+        console.log(data);
+        if (err) {
+          return res.status(404).json({
+            success: false,
+            massage: `Server error`,
+            err: err,
+          });
+        }
+        res.status(201).json({
+          success: true,
+          massage: `Product updated`,
+          result: result,
+        });
+      });
+    } else {
+      return res.status(404).json({
+        success: false,
+        massage: `Available is 0`,
+        err: err,
+      });
+    }
+  });
+};
+
 module.exports = {
   CreateProduct,
   getAllProduct,
   getProductById,
   deleteProductById,
   updateProductById,
+  updateProductSold,
 };

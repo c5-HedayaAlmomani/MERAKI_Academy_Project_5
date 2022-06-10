@@ -1,7 +1,7 @@
 const connection = require("../models/db");
 
 const addToCart = (req, res) => {
-  const { productId, quantity } = req.body;
+  const { productId, quantity  } = req.body;
   const userId = req.token.userId;
   console.log("productId", productId);
   console.log("userId", userId);

@@ -12,13 +12,14 @@ import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector , useDispatch } from "react-redux";
-import {setTotalPriceAction} from "../../redux/reducers/cart"
+import {setTotalPriceAction , emptyCartAction} from "../../redux/reducers/cart"
 function Payment() {
+ 
 
 const dispatch = useDispatch();
-const {totalPrice, cart} = useSelector((state) => {
+const {token,totalPrice, cart} = useSelector((state) => {
   return {
- 
+    token: state.auth.token,
     totalPrice:state.cart.totalPrice,
     cart:state.cart.cart
   };
@@ -29,6 +30,22 @@ const {totalPrice, cart} = useSelector((state) => {
     price: totalPrice,
     description: "This is a product",
   });
+  const emptyCart = async () => {
+    await axios
+      .delete(
+        "http://localhost:5000/cart/",
+
+        {
+          headers: { authorization: `Bearer ${token}` },
+        }
+      )
+      .then((result) => {
+        dispatch(emptyCartAction());
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   async function handleToken(token, addresses) {
     console.log(totalPrice);
@@ -42,6 +59,17 @@ const {totalPrice, cart} = useSelector((state) => {
     if (response.status === 200) {
       toast("Success! Check email for details", { type: "success" });
       console.log("success");
+      emptyCart();
+
+
+
+
+
+
+
+
+
+
     } else {
       toast("Something went wrong", { type: "error" });
     }

@@ -1,9 +1,9 @@
 const connection = require("../models/db");
 const addOrder = (req, res) => {
-  const { user_id, cart_id, timestamp } = req.body;
+  const { user_id,  timestamp } = req.body;
   const query =
     "INSERT INTO orders (user_id ,cart_id , timestamp ) VALUES (?,?,?)";
-  const data = [user_id, cart_id, timestamp];
+  const data = [user_id,  timestamp];
   connection.query(query, data, (err, result) => {
     if (err) {
       return res.json({

@@ -33,12 +33,14 @@ const Cart = () => {
     };
   });
   //! redux =========
+  
 
   // const [availableQuantity, SetAvailableQuantity] = useState(0);
   const [subtotal, SetSubTotal] = useState(0);
 
   useEffect(() => {
     getCartItems();
+    func();
   }, [quantity]);
 
   const getCartItems = async () => {
@@ -134,7 +136,7 @@ const Cart = () => {
         console.log(err);
       });
   };
-  useEffect(func, [])
+  // useEffect(func, [])
   return (
     <div className="cart_container">
       {isLoggedIn ? (

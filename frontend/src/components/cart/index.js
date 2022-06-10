@@ -164,7 +164,7 @@ const Cart = () => {
                   />
                   <br></br>
                   <div className="all_detals">
-                    <div className="information_cart">
+                    {element.AvailableQuantity===0?(<p>Sold Out</p>):(<div className="information_cart">
                       <button
                         className="decrees"
                         id={element.id}
@@ -210,7 +210,8 @@ const Cart = () => {
                       >
                         +
                       </button>
-                    </div>
+                    </div>)}
+                    
                     <div className="details">
                       <p className="product_title">
                         {"Title : " + element.title}

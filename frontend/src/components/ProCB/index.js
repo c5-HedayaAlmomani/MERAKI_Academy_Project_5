@@ -57,6 +57,40 @@ const ProCB = () => {
   
   return (
     <div className="products">
+    {allPCat.length &&
+      allPCat.map((e, i) => {
+        return (
+          <div className="card">
+          <ul className="ul">
+          <li>
+            <i>{e.price} $</i>
+          </li>
+          <li>
+            <i></i>
+          </li>
+          <li>
+            <i></i>
+          </li>
+          <li>
+            <i></i>
+          </li>
+          </ul>
+          <img src={e.image} alt="" />
+          <div className="con-text">
+            <h2>{e.title}</h2>
+            <p>{e.description} <button      className="add_to_cart"
+              onClick={() => {
+               console.log(e.id);
+               addToCart(e.id);
+              }}>Add to Cart</button>
+              <button onClick={() => {
+              navigate(`/product/${e.id}`);
+             }}>View Product</button></p>
+          </div>
+          </div>
+          
+/* 
+    <div className="products">
       {allPCat.length &&
         allPCat.map((element, index) => {
           return (<div key={index} className="one_product">
@@ -83,7 +117,7 @@ const ProCB = () => {
               Add to Cart
             </button>
           </div>
-        </div>
+        </div> */
 
             // <div key={index} className="categoryCont">
             //   <p>{element.title}</p>

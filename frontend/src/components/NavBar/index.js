@@ -81,8 +81,14 @@ const Dashboard = () => {
   return (
     <div>
    
+    <div>
+      <div className="icon_bar">
+    <i onClick={()=>{
+     
+    }} class="fa fa-bars" aria-hidden="true"></i>
+  
+    </div >
     <div className="navbar">
-    
     <Link to="product">All Product</Link>
       <Link to="/">All Brand</Link>
       <Link to="/order">All Order</Link>
@@ -106,7 +112,7 @@ const Dashboard = () => {
           <Link className="register_link" to="/register">Sign up</Link>
         </>
       )}
-
+</div>
       {/* <Link to="product">All Product</Link>
       <Link to="/">All Brand</Link> */}
       {/* <Link to="category">All category</Link> */}
@@ -137,6 +143,7 @@ const Dashboard = () => {
       {/* <p>aaa</p> */}
      
       <Getbrand/>
+      
     </div>
   );
 };

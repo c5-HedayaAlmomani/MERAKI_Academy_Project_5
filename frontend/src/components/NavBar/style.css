@@ -78,6 +78,13 @@ grid-template-areas: "a b c d e" "f g h j j";
 
 
 }
+.icon_bar{
+  display: none;
+  justify-self: start;
+  width:50px ;
+  font-size: xx-large;
+  
+}
 .login_link {
 grid-area: d;
 }
@@ -93,7 +100,20 @@ grid-area: e;
 
 
 @media (max-width:600px)
-{.navbar{
+{
+  
+  
+  .icon_bar{
+    display: block;
+  }
+  
+
+  
+  
+  
+  
+  .navbar{
+  margin-top: -20px;
   display: flex;
   position: absolute;
   margin-left: 0px;
@@ -105,6 +125,7 @@ grid-area: e;
   padding: 5px;
   height: 200px;
   transition: transform 250ms;
+  
 
 }
 .navbar a{

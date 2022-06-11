@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
   
-      
+ 
         <NavBar />
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -57,8 +57,10 @@ function App() {
       
    
         {/* <Sold/> */}
+ 
         
         <Footer/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></link>
     </div>
   );
 }

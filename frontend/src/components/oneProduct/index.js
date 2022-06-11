@@ -23,6 +23,7 @@ const OneProduct = () => {
   const [allRate, setAllRate] = useState([]);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
+  const img = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
   //? ======Rate=================
 
   //! redux =========
@@ -278,70 +279,84 @@ const OneProduct = () => {
             feedback.slice(0, number).map((element, index) => {
               return (
                 <div key={index}>
-                  <p>{element.firstName + ": " + element.feedback} </p>
+                  <div className="feedback_div">
+                    <img className="imge_feedback" src={`${img}`} />
+                    <p className="firstName_feedback">{element.firstName} </p>
+                    <p className="feedpact">{element.feedback}</p>
+                    <p className="rr"></p>
+                    {user_id == element.user_id ? (
+                      <>
+                        {updateBox && feedbackId == element.id && (
+                          <input
+                            className="input_update_feedback"
+                            onChange={(e) => {
+                              setNewFeedback(e.target.value);
+                            }}
+                          />
+                        )}
+                        <button
+                          className="button_update_feedback"
+                          onClick={() => {
+                            setfeedbackId(element.id);
+                            setUpdateBox(!updateBox);
 
-                  {user_id == element.user_id ? (
-                    <div>
-                      {updateBox && feedbackId == element.id && (
-                        <input
-                          onChange={(e) => {
-                            setNewFeedback(e.target.value);
+                            updateFeedback(newFeedback, element.id);
                           }}
-                        />
-                      )}
+                        >
+                          Update
+                        </button>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                    {user_id == element.user_id ? (
                       <button
+                        className="button_delete_feedback"
                         onClick={() => {
-                          setfeedbackId(element.id);
-                          setUpdateBox(!updateBox);
-
-                          updateFeedback(newFeedback, element.id);
+                          deleteFeedback(element.id);
                         }}
                       >
-                        Update
+                        Delete
                       </button>
-                    </div>
-                  ) : (
-                    <></>
-                  )}
-                  {user_id == element.user_id ? (
-                    <button
-                      onClick={() => {
-                        deleteFeedback(element.id);
-                      }}
-                    >
-                      Delete
-                    </button>
-                  ) : (
-                    <></>
-                  )}
+                    ) : (
+                      <></>
+                    )}
+                  </div>
                 </div>
               );
             })}
 
-          <input
-            placeholder="add feedback"
-            onChange={(e) => {
-              setNewFeedback(e.target.value);
-            }}
-          />
+          <div className="new_feedback">
+            <img className="imge_feedback2" src={`${img}`} />
+            <input
+              className="input_addfeedback"
+              placeholder="add feedback"
+              onChange={(e) => {
+                setNewFeedback(e.target.value);
+              }}
+            />
+
+            <button
+              className="button_addFeedback"
+              onClick={() => {
+                addFeedback(newFeedback);
+              }}
+            >
+              Add Feedback
+            </button>
+          </div>
         </div>
-        <button
-          onClick={() => {
-            addFeedback(newFeedback);
-          }}
-        >
-          Add Feedback
-        </button>
       </div>
+
       <div>
-        <button
+        <button className="see"
           onClick={() => {
             setNumber(number + 3);
           }}
         >
           See More
         </button>
-        <button
+        <button className="see"
           onClick={() => {
             setNumber(3);
           }}

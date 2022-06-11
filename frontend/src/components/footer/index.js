@@ -17,7 +17,9 @@ const Footer = () => {
 
 
     return (
+        
         <div>
+            
             <footer class="footer-distributed">
 
                 <div class="footer-left">
@@ -35,7 +37,7 @@ const Footer = () => {
 
                         <a href="#">Faq</a>
 
-                        <a href="#">Contact</a>
+                        <a href="/contact">Contact</a>
                     </p>
 
                     <p class="footer-company-name">ECMA© 2022</p>
@@ -85,6 +87,7 @@ const Footer = () => {
         </div>
     )
 
+    
 }
 
 

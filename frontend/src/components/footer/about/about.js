@@ -20,6 +20,7 @@ const About = () => {
 
             Fifthly, the customer can return the goods in the event of any industrial error
         </p>
+        <br></br>
         <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0010/7588/brand.gif?itok=HKe8eImc"/>
     </div>)
 

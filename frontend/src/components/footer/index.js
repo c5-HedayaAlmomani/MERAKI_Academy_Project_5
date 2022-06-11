@@ -24,14 +24,14 @@ const Footer = () => {
 
                 <div class="footer-left">
 
-                    <h3>ECMA<span>logo</span></h3>
+                <h3>ECMA<span>logo</span></h3>
 
                     <p class="footer-links">
                         <a href="/" class="link-1">Home</a>
 
                         <a href="https://en.wikipedia.org/wiki/Electronics">Blog</a>
 
-                        <a href="#">Pricing</a>
+                        {/* <a href="#"></a> */}
 
                         <a href="/about" >About</a>
 
@@ -39,6 +39,9 @@ const Footer = () => {
 
                         <a href="/contact">Contact</a>
                     </p>
+
+                    
+                    <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0010/7588/brand.gif?itok=HKe8eImc"/>
 
                     <p class="footer-company-name">ECMA© 2022</p>
                 </div>

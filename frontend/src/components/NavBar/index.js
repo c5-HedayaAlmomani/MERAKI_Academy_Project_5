@@ -77,6 +77,8 @@ const Dashboard = () => {
   const brandFunction = () => {
 
   }
+  // style={{display: { this.state.showStore ? 'block' : 'none'} }}>
+  // style={{ display: isHidden ? 'none' : null }}
 
   return (
     <div>
@@ -84,8 +86,9 @@ const Dashboard = () => {
     <div>
       <div className="icon_bar">
     <i onClick={()=>{
-     
-    }} class="fa fa-bars" aria-hidden="true"></i>
+
+    }} class="fa fa-bars" 
+    aria-hidden="true"></i>
   
     </div >
     <div className="navbar">

@@ -14,7 +14,7 @@ import {
   addToCategoryAction,
   deleteFromCategory,
 } from "../../redux/reducers/categoryAdmin";
-
+import "./style.css"
 const Getbrand = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -70,7 +70,7 @@ const Getbrand = () => {
     <div className="filter_item">
       <ul>
         <li>
-          <a>Filter</a>
+          <a ><mark>Filter</mark></a>
         </li>
         {brands.map((element, index) => {
           return (

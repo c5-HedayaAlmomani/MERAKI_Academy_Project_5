@@ -35,7 +35,7 @@ const Footer = () => {
 
                         <a href="/about" >About</a>
 
-                        <a href="#">Faq</a>
+                        <a href="/privacy-policy">privacy-policy</a>
 
                         <a href="/contact">Contact</a>
                     </p>

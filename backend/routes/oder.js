@@ -1,6 +1,6 @@
 const express = require("express")
 const orderRouter = express.Router();
-const {addOrder , getOrder,updateOrder,getLiveOrder,getOrderWithProduct
+const {addOrder , getOrder,updateOrder,getLiveOrder,getOrderWithProduct, getOrderWithProductById
 } = require("../controllers/order")
 const authorization = require("../middlewares/authorization");
 const authentication = require("../middlewares/authentication");
@@ -11,5 +11,6 @@ orderRouter.put("/" ,authentication,updateOrder )
 orderRouter.get("/live/:userName",getLiveOrder )
 
 orderRouter.get("/product/cart",authentication,getOrderWithProduct )
+orderRouter.get("/cart/id/:order_id",authentication,getOrderWithProductById )
 
 module.exports = orderRouter ;

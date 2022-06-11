@@ -112,7 +112,7 @@ const getOrderWithProductById = (req, res) => {
   const {order_id}= req.params
 
     // const user_email = req.token.email;
-    const query = "SELECT * FROM cart INNER JOIN products ON cart.product_id=products.id WHERE cart.order_id=?;";
+    const query = "SELECT * FROM cart INNER JOIN products ON cart.product_id=products.id INNER JOIN users ON users.id=cart.user_id WHERE cart.order_id=?;";
     const data = [ order_id];
     connection.query(query,data,(err, result) => {
       if (err) {

@@ -69,11 +69,13 @@ section {
 }
 
 .footer-distributed .footer-company-name {
-  color: #222;
+  color: rgb(74, 0, 83);
   font-size: 14px;
   font-weight: normal;
   font: normal 13px "Open Sans", cursive;
   margin: 0;
+  margin-left: 10%;
+
 }
 
 /* Footer Center */

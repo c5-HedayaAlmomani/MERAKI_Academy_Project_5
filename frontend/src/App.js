@@ -25,6 +25,7 @@ import Footer from "./components/footer";
 import Order from "./components/order";
 import About from "./components/footer/about/about";
 import Contact from "./components/footer/contact/Contact";
+import Privacy from "./components/footer/privacy";
 function App() {
 
   return (
@@ -55,6 +56,8 @@ function App() {
           <Route path="/order" element={<Order />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
+          {/* /privacy-policy/   Privacy */}
+          <Route path="/privacy-policy" element={<Privacy />}></Route>
         </Routes>
       
    

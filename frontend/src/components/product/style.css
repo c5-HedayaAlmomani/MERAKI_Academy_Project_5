@@ -74,7 +74,7 @@
    /* transform:scale(1.25); */
 }
 .card:hover .ul{
-   transform:translate(0);
+  transform:translate(0);
   opacity:1;
 }
 
@@ -153,14 +153,14 @@
 }
 
 .ul li{
-  background:#fff;
+  background:rgb(58, 172, 96);
   list-style:none;
-  width:40px;
-  height:40px;
+  width:fit-content;
+  height:fit-content;
   display:flex;
   align-items:center;
   justify-content:center;
-  opacity:.7;
+  opacity:.9;
   transition:all.25s ease;
   backface-visibility:hidden;
   

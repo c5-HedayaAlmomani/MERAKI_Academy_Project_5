@@ -4,7 +4,7 @@
 const About = () => {
 
     return (<div>
-        <p class="about">
+        <p className="about">
             <span>About the company</span>
             An online store selling all kinds of electronic products in various shapes.. All high-quality products are specially designed to suit your needs at a competitive price that satisfies you. It is normal for high-quality products to have a different price than low-quality products - and we at ECMA.com provide you with high-quality products.
 

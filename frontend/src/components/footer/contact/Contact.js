@@ -6,23 +6,23 @@ const Contact = () => {
 
 
 
-    return <div class="wrapper">
-        <div class="title">
+    return <div className="wrapper">
+        <div className="title">
             <h1>contact us </h1>
-            <div class="contact-form"></div>
+            <div className="contact-form"></div>
 
-            <div class="input-fields">
+            <div className="input-fields">
 
-                <input type="text" class="input" placeholder="Name" />
-                <input type="text" class="input" placeholder="Email Address" />
-                <input type="text" class="input" placeholder="Phone" />
-                <input type="text" class="input" placeholder="Subject" />
+                <input type="text" className="input" placeholder="Name" />
+                <input type="text" className="input" placeholder="Email Address" />
+                <input type="text" className="input" placeholder="Phone" />
+                <input type="text" className="input" placeholder="Subject" />
 
             </div>
             
-            <div class="msg">
+            <div className="msg">
                 <textarea placeholder="Message"></textarea>
-                <div class="btn">send</div>
+                <div className="btn">send</div>
             </div>
 
         </div>

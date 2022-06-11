@@ -23,6 +23,7 @@ import Upload from "./components/upload";
 import Sold from "./components/sold";
 import Footer from "./components/foter";
 import Order from "./components/order";
+import About from "./components/foter/about";
 function App() {
 
   return (
@@ -51,6 +52,7 @@ function App() {
           <Route path="/Admin/product/edit/:id" element={<UpdateProductAdmin />}></Route>
           <Route path="/Admin/product/create" element={<AddProductAdmin />}></Route>
           <Route path="/order" element={<Order />}></Route>
+          <Route path="/about" element={<About />}></Route>
         </Routes>
       
    

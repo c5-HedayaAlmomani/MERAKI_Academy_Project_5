@@ -38,11 +38,11 @@ const Cart = () => {
   const [subtotal, SetSubTotal] = useState(0);
 
   useEffect(() => {
-    getCartItems();    
+    getCartItems();
   }, [quantity]);
 
   useEffect(() => {
-        func();
+    func();
   }, []);
 
   const getCartItems = async () => {
@@ -57,13 +57,8 @@ const Cart = () => {
         let priceTotal = result.data.result.reduce((acc, element, index) => {
           return acc + element.price * element.quantity;
         }, 0);
-        // let sumQuant = result.data.result.reduce((acc, element, index) => {
-        //   return acc + element.AvailableQuantity;
-        // }, 0);
-        SetSubTotal(priceTotal);
-        // SetAvailableQuantity(sumQuant)
 
-        // console.log(result.data.result[0].AvailableQuantity);
+        SetSubTotal(priceTotal);
 
         dispatch(setTotalPriceAction(priceTotal));
       })
@@ -99,7 +94,7 @@ const Cart = () => {
       )
       .then((result) => {
         console.log(result.data);
-        // setCart(result.data.result);
+        
         getCartItems();
       })
       .catch((error) => {
@@ -136,7 +131,7 @@ const Cart = () => {
         console.log(err);
       });
   };
-  // useEffect(func, [])
+ 
   return (
     <div className="cart_container">
       {isLoggedIn ? (
@@ -164,54 +159,56 @@ const Cart = () => {
                   />
                   <br></br>
                   <div className="all_detals">
-                    {element.AvailableQuantity===0?(<p>Sold Out</p>):(<div className="information_cart">
-                      <button
-                        className="decrees"
-                        id={element.id}
-                        onClick={(e) => {
-                          element.AvailableQuantity !== quantity ? (
-                            dispatch(iccuresquantityAction())
-                          ) : (
-                            <></>
-                          );
+                    {element.AvailableQuantity === 0 ? (
+                      <p>Sold Out</p>
+                    ) : (
+                      <div className="information_cart">
+                        <button
+                          className="decrees"
+                          id={element.id}
+                          onClick={(e) => {
+                            element.AvailableQuantity !== quantity ? (
+                              dispatch(iccuresquantityAction())
+                            ) : (
+                              <></>
+                            );
 
-                          element.quantity > 1 ? (
-                            addToCart(element.id, -1)
-                          ) : (
-                            <></>
-                          );
-                        }}
-                      >
-                        -
-                      </button>
+                            element.quantity > 1 ? (
+                              addToCart(element.id, -1)
+                            ) : (
+                              <></>
+                            );
+                          }}
+                        >
+                          -
+                        </button>
 
-                      <p className="product-quantity">{element.quantity}</p>
+                        <p className="product-quantity">{element.quantity}</p>
 
-                      <button
-                        className="increase"
-                        id={element.id}
-                        onClick={(e) => {
-                          // addToCart(element.id, 1);
-                          
-                          quantity-1 !==0 ? (
-                            addToCart(element.id, 1)
-                          ) : (
-                            <></>
-                          );
+                        <button
+                          className="increase"
+                          id={element.id}
+                          onClick={(e) => {
+                            
 
-                          quantity-1 ===0 ? (
-                            <></>
-                          ) : (
-                            dispatch(reducequantityAction())
-                          );
+                            quantity - 1 !== 0 ? (
+                              addToCart(element.id, 1)
+                            ) : (
+                              <></>
+                            );
 
-                          // getCartItems();
-                        }}
-                      >
-                        +
-                      </button>
-                    </div>)}
-                    
+                            quantity - 1 === 0 ? (
+                              <></>
+                            ) : (
+                              dispatch(reducequantityAction())
+                            );
+                          }}
+                        >
+                          +
+                        </button>
+                      </div>
+                    )}
+
                     <div className="details">
                       <p className="product_title">
                         {"Title : " + element.title}
@@ -223,10 +220,7 @@ const Cart = () => {
                         {"Description : " + element.description}
                       </p>
                       <p className="product_details">
-                        {/* {availableQuantity.map((element,index)=>{
-                          return<div key={index}>{element.AvailableQuantity}</div>
-                        })} */}
-                        {"AvailableQuantity : " + (quantity-1)}
+                        {"AvailableQuantity : " + (quantity - 1)}
                       </p>
                     </div>
                   </div>
@@ -240,8 +234,11 @@ const Cart = () => {
         <h1>Please Login First</h1>
       )}
 
-      {cart.length===0?(<></>):( <h4 className="sub_total">{subtotal} JOD</h4>
-)}
+      {cart.length === 0 ? (
+        <></>
+      ) : (
+        <h4 className="sub_total">{subtotal} JOD</h4>
+      )}
       {/* <h4 className="sub_total">{subtotal} JOD</h4> */}
 
       <button

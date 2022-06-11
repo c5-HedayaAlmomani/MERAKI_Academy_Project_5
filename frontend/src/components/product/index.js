@@ -136,16 +136,18 @@ const Product = () => {
               <img src={e.image} alt="" />
               <div className="con-text">
                 <h2>{e.title}</h2>
-                <p>{e.description} <button      className="add_to_cart"
-                  onClick={() => {
-                   console.log(e.id);
-                   addToCart(e.id);
-                  }}>Add to Cart</button>
+                <p>{e.description} {e.AvailableQuantity>0?(<button      className="add_to_cart"
+                    onClick={() => {
+                    console.log(e.id);
+                    addToCart(e.id);
+                    }}>Add to Cart</button>):(<button>SoldOut</button>)}       
+                
                   <button onClick={() => {
                   navigate(`/product/${e.id}`);
                  }}>View Product</button></p>
               </div>
               </div>
+
               // <div key={i} className="one_product">
               //   <img
               //     onClick={() => {

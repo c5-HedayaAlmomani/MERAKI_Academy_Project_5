@@ -1,20 +1,16 @@
 
 
 .login {
-
 width: 27%;
 height: 70%;
-background-color: rgb(215, 224, 224);
-
+background-color: rgba(62, 75, 75, 0.452);
 display: grid;
 grid-template-columns: 80%;
-
 justify-content: center;
 padding: 3%;
 margin-left:34%;
 border-radius: 5%;
 opacity: 0.7;
-
 }
 
 /* .login input{
@@ -26,13 +22,14 @@ opacity: 0.7;
     box-shadow:2px 7px 7px 7px #aaaaaa;
 } */
 .login button{
+    
     height: 50%;
     color: aliceblue;
     border: none;
     margin: 10%;
-    background-color: rgb(0, 87, 145);
+    background-color: rgb(32, 140, 212);
     transition: 0.7s ease;
-    border-radius: 7px;
+    border-radius: 7px; 
 }
 
 .login button:hover{

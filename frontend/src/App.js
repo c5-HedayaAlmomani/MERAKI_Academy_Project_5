@@ -21,9 +21,10 @@ import UpdateProductAdmin from "./components/productAdmin/UpdateProduct";
 // import Getbrand from "./components/getbrand";
 import Upload from "./components/upload";
 import Sold from "./components/sold";
-import Footer from "./components/foter";
+import Footer from "./components/footer";
 import Order from "./components/order";
-import About from "./components/foter/about";
+import About from "./components/footer/about/about";
+import Contact from "./components/footer/contact/Contact";
 function App() {
 
   return (
@@ -53,6 +54,7 @@ function App() {
           <Route path="/Admin/product/create" element={<AddProductAdmin />}></Route>
           <Route path="/order" element={<Order />}></Route>
           <Route path="/about" element={<About />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
         </Routes>
       
    

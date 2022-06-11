@@ -87,10 +87,11 @@ const updateOrder = (req, res) => {
 
 
 const getOrderWithProduct = (req, res) => {
-
+// const {order_id}= req.params
   const user_email = req.token.email;
-  const query = "SELECT * FROM orders INNER JOIN cart ON cart.order_id=orders.id INNER JOIN products ON products.id=cart.product_id WHERE orders.is_deleted=0;";
-  const data = [user_email];
+  // const query = "SELECT *,orders.id FROM orders INNER JOIN cart ON cart.order_id=orders.id INNER JOIN products ON products.id=cart.product_id WHERE orders.is_deleted=1 AND  orders.user_email=?;";
+  const query = "SELECT * FROM orders  WHERE orders.is_deleted=1 AND  orders.user_email=?;"; 
+  const data = [ user_email];
   connection.query(query,data,(err, result) => {
     if (err) {
       return res.json({
@@ -106,4 +107,26 @@ const getOrderWithProduct = (req, res) => {
     });
   });
 };
-module.exports = { addOrder, getOrder,updateOrder,getLiveOrder, getOrderWithProduct};
+const getOrderWithProductById = (req, res) => {
+  
+  const {order_id}= req.params
+
+    // const user_email = req.token.email;
+    const query = "SELECT * FROM cart INNER JOIN products ON cart.product_id=products.id WHERE cart.order_id=?;";
+    const data = [ order_id];
+    connection.query(query,data,(err, result) => {
+      if (err) {
+        return res.json({
+          success: false,
+          message: "Server Error",
+          err: err,
+        });
+      }
+      res.json({
+        success: true,
+        message: "all the order",
+        order: result,
+      });
+    });
+  };
+module.exports = { addOrder, getOrder,updateOrder,getLiveOrder, getOrderWithProduct , getOrderWithProductById};

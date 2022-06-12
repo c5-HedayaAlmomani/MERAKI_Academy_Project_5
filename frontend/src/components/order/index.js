@@ -75,7 +75,7 @@ const Order = () => {
   console.log("order in  window", order);
 
   return (
-    <div>
+    <div className="main">
       
       <div className="order_container">
        

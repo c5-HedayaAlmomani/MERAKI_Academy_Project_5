@@ -93,7 +93,7 @@ const Product = () => {
   useEffect(getAllProductNoLimit, []);
 
   return (
-    <div>
+    <div className="main">
       <div>
         <select
           onClick={(e) => {

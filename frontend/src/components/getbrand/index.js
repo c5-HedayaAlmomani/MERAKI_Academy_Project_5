@@ -2,12 +2,14 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import brand from "../../redux/reducers/brand";
+
 import {
   getBrandsAction,
   addToBrandAction,
   deleteFromBrand,
+  
 } from "../../redux/reducers/brand";
 import {
   getCategoryAction,
@@ -19,7 +21,7 @@ const Getbrand = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { token, isLoggedIn, category, brands, cloudinary } = useSelector(
+  const { token, isLoggedIn, category, brands,show, cloudinary } = useSelector(
     (state) => {
       return {
         token: state.auth.token,
@@ -27,6 +29,7 @@ const Getbrand = () => {
         brands: state.brands.brands,
         cloudinary: state.cloudinary.cloudinary,
         category: state.category.category,
+        show:state.brands.show
       };
     }
   );
@@ -67,12 +70,19 @@ const Getbrand = () => {
   console.log(brands);
 
   return (
-    <div className="filter_item">
+ show &&(   <div className="filter_item">
+      <Link className="All_Product" to="product">
+        All Product
+      </Link>
+      <Link className="All_Brand" to="/">
+        All Brand
+      </Link>
+      <Link className="All_Order" to="/order">
+        All Order
+      </Link>
       <ul>
-        <li>
-          <a>
-            Filter
-          </a>
+        <li className="Filter">
+          <a>Filter</a>
         </li>
         {brands.map((element, index) => {
           return (
@@ -105,8 +115,9 @@ const Getbrand = () => {
           );
         })}
       </ul>
-    </div>
-  );
+    </div>)
+
+  )
 };
 
 export default Getbrand;

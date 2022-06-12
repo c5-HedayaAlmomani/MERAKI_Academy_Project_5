@@ -58,24 +58,24 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className="loginDiv">
       <input
-        className="input"
+        className="input1"
         placeholder="Enter Your email"
         onChange={(e) => {
           setEmail(e.target.value);
         }}
       />
       <input
-        className="input"
+        className="input2"
         placeholder="Enter Your Password"
         onChange={(e) => {
           setPassword(e.target.value);
         }}
       />
 
-      <button onClick={login}>Log in</button>
-      <h1>{message}</h1>
+      <button className="button" onClick={login}>Log in</button>
+      <h1 className="ms">{message}</h1>
       <LogGoogle />
     </div>
   );

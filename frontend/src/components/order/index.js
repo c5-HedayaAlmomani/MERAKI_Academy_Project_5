@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   updateOrderAction,
   setNumOfOrderAcion,
+  setCompletedOrderAction
 } from "../../redux/reducers/order";
 import "./style.css";
 
@@ -37,6 +38,7 @@ const Order = () => {
         },
       })
       .then((result) => {
+        dispatch(setCompletedOrderAction([]))
         result.data.order.map((element, index) => {
           console.log(element);
           getOrderById(element.id);

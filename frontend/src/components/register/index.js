@@ -69,8 +69,9 @@ const Register = () => {
           setPassword(e.target.value);
         }}
       />
+      
+      <h1 className="mss">{message}</h1>
       <button onClick={register}>Sign Up</button>
-      <h1>{message}</h1>
     </div>
   );
 };

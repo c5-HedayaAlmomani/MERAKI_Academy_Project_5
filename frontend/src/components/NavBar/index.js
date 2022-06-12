@@ -53,6 +53,7 @@ const Dashboard = () => {
         console.log("search1");
       });
   };
+}
 
   return (
     <div>
@@ -147,5 +148,6 @@ const Dashboard = () => {
     </div>
   );
 };
+
 
 export default Dashboard;

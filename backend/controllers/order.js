@@ -22,10 +22,34 @@ const addOrder = (req, res) => {
 };
 
 const getOrder = (req, res) => {
+  // console.log("bb");
+
   const user_email = req.params.userName;
   const query = "SELECT * FROM orders WHERE is_deleted=1 AND user_email= ?";
   const data = [user_email];
   connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.json({
+        success: false,
+        message: "Server Error",
+        err: err,
+      });
+    }
+    res.json({
+      success: true,
+      message: "all the order",
+      order: result,
+    });
+  });
+};
+
+const getAllOrderAllUsers = (req, res) => {
+  console.log("aaa");
+  // const user_email = req.params.userName;
+  const query = "SELECT * FROM orders WHERE is_deleted=1";
+  // const data = [user_email];
+  connection.query(query,(err, result) => {
+    
     if (err) {
       return res.json({
         success: false,
@@ -129,4 +153,4 @@ const getOrderWithProductById = (req, res) => {
       });
     });
   };
-module.exports = { addOrder, getOrder,updateOrder,getLiveOrder, getOrderWithProduct , getOrderWithProductById};
+module.exports = { addOrder, getOrder,updateOrder,getLiveOrder, getOrderWithProduct , getOrderWithProductById,getAllOrderAllUsers};

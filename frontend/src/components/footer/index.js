@@ -41,7 +41,7 @@ const Footer = () => {
                     </p>
 
                     
-                    <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0010/7588/brand.gif?itok=HKe8eImc"/>
+                    <img src="https://res.cloudinary.com/hudhud/image/upload/v1655027682/maxqgc69/jewjejpruuyddsyu4uis.png"/>
 
                     <p className="footer-company-name"><mark>ECMA© 2022</mark></p>
                 </div>

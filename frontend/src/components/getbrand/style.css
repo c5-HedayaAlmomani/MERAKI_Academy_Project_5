@@ -45,29 +45,32 @@
 }
 
 .filter_item {
-  background-color: rgb(12, 95, 95);
+  position: relative;top:130px;
+  
   display: flex;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse;
   align-content: stretch;
-  justify-content: flex-end;
-  /* margin-left: 10px; */
-  padding-left: 30px;
-  width: 200px;
+  justify-content: flex-end; */
+
+  /* padding-left: 20px;
+  
+  width: 18.25%; */
 }
 
 .filter_item li {
-  padding: 10px;
-  /* font-size: larger; */
+text-decoration: none;
+  padding: 18px;
   font-weight: 900;
   color: azure;
+  width: 134px;
+  background-color: rgb(12, 95, 95);
 }
 .filter_item li:hover {
-  color: rgb(214, 214, 214);
   cursor: pointer;
 }
 
-mark {
+/* mark {
   background-color: rgb(12, 95, 95);
   color: rgb(214, 214, 214);
   font-size: larger;
-}
+} */

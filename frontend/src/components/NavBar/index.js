@@ -77,61 +77,64 @@ const Dashboard = () => {
   const brandFunction = () => {
 
   }
+  // style={{display: { this.state.showStore ? 'block' : 'none'} }}>
+  // style={{ display: isHidden ? 'none' : null }}
 
   return (
     <div>
+   
+    <div>
+      <div className="icon_bar">
+    <i onClick={()=>{
 
-      <div>
-        <div className="icon_bar">
-          <i onClick={() => {
-
-          }} className="fa fa-bars" aria-hidden="true"></i>
-
-        </div >
-        <div className="navbar">
-          <Link to="product">All Product</Link>
-          <Link to="/">All Brand</Link>
-          <Link to="/order">All Order</Link>
-          <input className="search" onChange={(e) => { searchFunction(e.target.value) }} />
-          {isLoggedIn ? (
-            <>
-              <Link className="cart" to="/cart">Cart</Link>
-              <a
-                className="logout"
-                onClick={() => {
-                  dispatch(logoutAction());
-                  navigate("/");
-                }}
-              >
-                Logout
-              </a>
-            </>
-          ) : (
-            <>
-              <Link className="login_link" to="/login">Login</Link>
-              <Link className="register_link" to="/register">Sign up</Link>
-            </>
-          )}
-        </div>
-        {/* <Link to="product">All Product</Link>
+    }} class="fa fa-bars" 
+    aria-hidden="true"></i>
+  
+    </div >
+    <div className="navbar">
+    <Link to="product">All Product</Link>
+      <Link to="/">All Brand</Link>
+      <Link to="/order">All Order</Link>
+      <input className="search" onChange={(e) => { searchFunction(e.target.value) }} />
+      {isLoggedIn ? (
+        <>
+          <Link className="cart" to="/cart">Cart</Link>
+          <a
+            className="logout"
+            onClick={() => {
+              dispatch(logoutAction());
+              navigate("/");
+            }}
+          >
+            Logout
+          </a>
+        </>
+      ) : (
+        <>
+          <Link className="login_link" to="/login">Login</Link>
+          <Link className="register_link" to="/register">Sign up</Link>
+        </>
+      )}
+</div>
+      {/* <Link to="product">All Product</Link>
       <Link to="/">All Brand</Link> */}
-        {/* <Link to="category">All category</Link> */}
+      {/* <Link to="category">All category</Link> */}
 
-        {/* <input onChange={(e) => { searchFunction(e.target.value) }} /> */}
-        <div>
-        </div>
+      {/* <input onChange={(e) => { searchFunction(e.target.value) }} /> */}
+      <div>
       </div>
-      {searchArray.length && searchArray.map((element, index) => {
-        return <div onClick={() => {
-          navigate(`/product/${element.id}`);
-        }}
-        >
-          <img className="Serch_title" src={element.image} alt="image product" />
-          <p className="Serch_title">{element.title}</p>
-        </div>
-      })}
+      </div>
+        {searchArray.length && searchArray.map((element, index) => {
+          return <div onClick={() => {
+            navigate(`/product/${element.id}`);
+          }}
+          >
+            <img className="Serch_title" src={element.image} alt="image product" />
+            <p className="Serch_title">{element.title}</p>
+          </div>
+        })}
 
-
+     
       <div>
         {/* <select onClick={(e) => { brandFunction(e.target.value) }}>
   //         <optgroup label="Brand 1">
@@ -141,9 +144,9 @@ const Dashboard = () => {
 
       </div>
       {/* <p>aaa</p> */}
-
-      <Getbrand />
-
+     
+      <Getbrand/>
+      
     </div>
   );
 };

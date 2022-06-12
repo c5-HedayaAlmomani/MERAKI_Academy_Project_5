@@ -18,7 +18,7 @@ const Footer = () => {
 
     return (
         
-        <div>
+        <div className="foter">
             
             <footer className="footer-distributed">
 

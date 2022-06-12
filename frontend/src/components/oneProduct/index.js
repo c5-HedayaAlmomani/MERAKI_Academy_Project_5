@@ -199,7 +199,7 @@ const OneProduct = () => {
   useEffect(calculationRate, [allRate]);
 
   return (
-    <div>
+    <div className="main">
       <div>
         {product.length &&
           product.map((e, i) => {

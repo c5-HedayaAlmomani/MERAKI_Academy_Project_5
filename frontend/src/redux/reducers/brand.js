@@ -4,8 +4,12 @@ export const brands = createSlice({
   name: "category",
   initialState: {
     brands: [],
+    show:false
   },
   reducers: {
+    setShoeAction:(state , action)=>{
+      state.show=action.payload
+    },
     setBrandsAction: (state, action) => {
       state.brands=action.payload
     },
@@ -27,7 +31,7 @@ export const brands = createSlice({
   },
 });
 
-export const { getBrandsAction, addToBrandAction, deleteFromBrand,setBrandsAction } =
+export const { getBrandsAction, addToBrandAction, deleteFromBrand,setBrandsAction , setShoeAction } =
   brands.actions;
 
 export default brands.reducer;

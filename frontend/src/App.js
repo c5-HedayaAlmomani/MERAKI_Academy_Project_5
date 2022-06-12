@@ -15,7 +15,7 @@ import UsersComponent from "./components/users";
 import AdminDashbord from "./components/adminDashbord";
 import AddProductAdmin from "./components/productAdmin/AddProduct";
 import BrandAdmin from "./components/brandAdmin";
-
+import AdminOrder from "./components/orderAdmin"
 import ProductAdmin from "./components/productAdmin";
 import UpdateProductAdmin from "./components/productAdmin/UpdateProduct";
 // import Getbrand from "./components/getbrand";
@@ -66,6 +66,7 @@ function App() {
         <Route path="/contact" element={<Contact />}></Route>
         {/* /privacy-policy/   Privacy */}
         <Route path="/privacy-policy" element={<Privacy />}></Route>
+        <Route path="/Admin/Orders" element={<AdminOrder />}></Route>
       </Routes>
 
       <Footer className="foter" />

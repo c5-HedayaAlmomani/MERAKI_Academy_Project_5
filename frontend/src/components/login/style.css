@@ -1,52 +1,91 @@
-
-
-.login {
-width: 27%;
-height: 70%;
-background-color: rgba(62, 75, 75, 0.452);
-display: grid;
-grid-template-columns: 80%;
-justify-content: center;
-padding: 3%;
-margin-left:34%;
-border-radius: 5%;
-opacity: 0.7;
+.loginDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 450px;
+    background: rgba(34, 105, 105, 0.8);
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-/* .login input{
-    height: 80%;
-   
-    border: none;
-    margin: 10px;
-    border-radius: 7px;
-    box-shadow:2px 7px 7px 7px #aaaaaa;
-} */
-.login button{
-    
-    height: 50%;
-    color: aliceblue;
-    border: none;
-    margin: 10%;
-    background-color: rgb(32, 140, 212);
-    transition: 0.7s ease;
-    border-radius: 7px; 
-}
 
-.login button:hover{
-    transform: scale(110%);
+
+.input1{
   
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
     
-}
-.login input:hover{
-    /* background-color: rgb(235, 235, 235); */
-}
-.input{
-    height: 70%;
-    background-color: rgb(252, 250, 250);
-    border: none;
-    margin: 10px;
-    border-radius: 7px;
-    box-shadow:2px 7px 7px 7px #aaaaaa;
+    padding: 2%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.8);
+    color: #c5ecfd;
+    width: 60%;
+    margin: 1%;
+    margin-left: 20%;
+    border-radius: 7px,;
+    border-color: aqua;
+    
+  
+  }
+  .input2{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2%;
+  
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.8);
+    color: #c5ecfd;
+    width: 60%;
+    margin: 1%;
+    margin-left: 20%;
+    border-radius: 7px,;
+    border-color: aqua;
     
    
+  }
+
+  .ms{
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #c5ecfd;
+  padding: 10px;
+  color: #c5ecfd;
+  width: 100%;
 }
+
+  .ms:-webkit-any(h1) {
+    /* IE 10+ */
+    color: #c5ecfd;
+  }
+
+
+
+  ::-webkit-input-placeholder .input1 {
+    /* Chrome/Opera/Safari */
+    color: #c5ecfd;
+  }
+  ::-moz-placeholder.input2{
+    /* Firefox 19+ */
+    color: #c5ecfd;
+  }
+
+  
+.button{
+  background: #39b7dd;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+

@@ -71,7 +71,7 @@ const Getbrand = () => {
       <ul>
         <li>
           <a>
-            <mark>Filter</mark>
+            Filter
           </a>
         </li>
         {brands.map((element, index) => {

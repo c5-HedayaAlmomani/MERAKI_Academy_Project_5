@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "axios";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutAction } from "../../redux/reducers/auth";
@@ -7,55 +7,50 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { getSearchAction } from "../../redux/reducers/sreach";
 import Getbrand from "../getbrand";
 
-import "./style.css"
+import "./style.css";
 
 const Dashboard = () => {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // const [product, setProduct] = useState([]);
   const [searchArray, setsearchArray] = useState([]);
 
-  const { isLoggedIn, search, products, brands, category } = useSelector((state) => {
-    return {
-      isLoggedIn: state.auth.isLoggedIn,
-      search: state.search.search,
-      products: state.products.products,
-      brands: state.brands.brands,
-      category: state.category.category
-    };
-  });
+  const { isLoggedIn, search, products, brands, category } = useSelector(
+    (state) => {
+      return {
+        isLoggedIn: state.auth.isLoggedIn,
+        search: state.search.search,
+        products: state.products.products,
+        brands: state.brands.brands,
+        category: state.category.category,
+      };
+    }
+  );
 
   const searchFunction = (searchInput) => {
+    if(searchInput.length===0){
+      setsearchArray([]);
 
-    axios
+    }else{
+      axios
       .get(`http://localhost:5000/products`)
       .then((result) => {
-
-
         // console.log("result", result);
         const search1 = result.data.result.filter((element, index) => {
-
-          return element.title.includes(searchInput)
-
-        })
+          return element.title.includes(searchInput);
+        });
         setsearchArray(search1);
 
         // console.log("search1", search1);
-
-
-
       })
       .catch((err) => {
         console.log(err);
         console.log("search1");
       });
-
+    }
+    // console.log(searchInput.length===0);
+    
   };
-
-
-
-
 
   // const categoryDrop =()=>{
 
@@ -74,79 +69,85 @@ const Dashboard = () => {
   //       </select>
   //     </div>
 
-  const brandFunction = () => {
-
-  }
+  const brandFunction = () => {};
   // style={{display: { this.state.showStore ? 'block' : 'none'} }}>
   // style={{ display: isHidden ? 'none' : null }}
 
   return (
     <div>
-   
-    <div>
-      <div className="icon_bar">
-    <i onClick={()=>{
-
-    }} class="fa fa-bars" 
-    aria-hidden="true"></i>
-  
-    </div >
-    <div className="navbar">
-    <Link to="product">All Product</Link>
-      <Link to="/">All Brand</Link>
-      <Link to="/order">All Order</Link>
-      <input className="search" onChange={(e) => { searchFunction(e.target.value) }} />
-      {isLoggedIn ? (
-        <>
-          <Link className="cart" to="/cart">Cart</Link>
-          <a
-            className="logout"
-            onClick={() => {
-              dispatch(logoutAction());
-              navigate("/");
-            }}
-          >
-            Logout
-          </a>
-        </>
-      ) : (
-        <>
-          <Link className="login_link" to="/login">Login</Link>
-          <Link className="register_link" to="/register">Sign up</Link>
-        </>
-      )}
-</div>
-      {/* <Link to="product">All Product</Link>
-      <Link to="/">All Brand</Link> */}
-      {/* <Link to="category">All category</Link> */}
-
-      {/* <input onChange={(e) => { searchFunction(e.target.value) }} /> */}
       <div>
+        <div className="icon_bar">
+          <i onClick={() => {}} class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <div className="navbar">
+          <Link to="product">All Product</Link>
+          <Link to="/">All Brand</Link>
+          <Link to="/order">All Order</Link>
+          <input
+            className="search"
+            onChange={(e) => {
+              
+                searchFunction(e.target.value);
+              
+            }}
+          />
+          {isLoggedIn ? (
+            <>
+              <Link className="cart" to="/cart">
+                Cart
+              </Link>
+              <a
+                className="logout"
+                onClick={() => {
+                  dispatch(logoutAction());
+                  navigate("/");
+                }}
+              >
+                Logout
+              </a>
+            </>
+          ) : (
+            <>
+              <Link className="login_link" to="/login">
+                Login
+              </Link>
+              <Link className="register_link" to="/register">
+                Sign up
+              </Link>
+            </>
+          )}
+        </div>
+
+        <div></div>
       </div>
-      </div>
-        {searchArray.length && searchArray.map((element, index) => {
-          return <div onClick={() => {
-            navigate(`/product/${element.id}`);
-          }}
-          >
-            <img className="Serch_title" src={element.image} alt="image product" />
-            <p className="Serch_title">{element.title}</p>
-          </div>
+      {searchArray.length &&
+        searchArray.map((element, index) => {
+          return (
+            <div
+              onClick={() => {
+                navigate(`/product/${element.id}`);
+              }}
+            >
+              <img
+                className="Serch_title"
+                src={element.image}
+                alt="image product"
+              />
+              <p className="Serch_title">{element.title}</p>
+            </div>
+          );
         })}
 
-     
       <div>
         {/* <select onClick={(e) => { brandFunction(e.target.value) }}>
   //         <optgroup label="Brand 1">
             <option>Option 1.1</option>
           </optgroup>
         </select> */}
-
       </div>
       {/* <p>aaa</p> */}
-     
-      <Getbrand/>
-      
+
+      <Getbrand />
     </div>
   );
 };

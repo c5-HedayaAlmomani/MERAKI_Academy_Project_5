@@ -10,7 +10,9 @@ import Getbrand from "../getbrand";
 import "./style.css";
 
 const Dashboard = () => {
+
   const [show, setShow] = useState(true);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -29,13 +31,22 @@ const Dashboard = () => {
   );
 
   const searchFunction = (searchInput) => {
-    axios
+
+    if(searchInput.length===0){
+      setsearchArray([]);
+
+    }else{
+      axios
       .get(`http://localhost:5000/products`)
       .then((result) => {
+        // console.log("result", result);
+
         const search1 = result.data.result.filter((element, index) => {
           return element.title.includes(searchInput);
         });
         setsearchArray(search1);
+
+
       })
       .catch((err) => {
         console.log(err);
@@ -107,6 +118,7 @@ const Dashboard = () => {
           </div>
         
 
+
         <div></div>
       </div>
       {searchArray.length &&
@@ -127,9 +139,11 @@ const Dashboard = () => {
           );
         })}
 
+
       <div></div>
 
       {show && (<Getbrand />)}
+
     </div>
   );
 };

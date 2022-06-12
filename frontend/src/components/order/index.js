@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   updateOrderAction,
   setNumOfOrderAcion,
-  setCompletedOrderAction
+  setCompletedOrderAction,
 } from "../../redux/reducers/order";
 import "./style.css";
 
@@ -38,7 +38,7 @@ const Order = () => {
         },
       })
       .then((result) => {
-        dispatch(setCompletedOrderAction([]))
+        dispatch(setCompletedOrderAction([]));
         result.data.order.map((element, index) => {
           console.log(element);
           getOrderById(element.id);
@@ -76,35 +76,46 @@ const Order = () => {
 
   return (
     <div>
-      <div>
-        <div className="all_title">
-          <h3 className="title1">User Email</h3>
-          <h3 className="title2">Number of Products</h3>
-          <h3 className="title3"> Date Order</h3>
-          <h3 className="title4"> All Product</h3>
-        </div>
-      </div>
+      
+      <div className="order_container">
+       
+      <h2 className="Title">
+        Order History
+      </h2>
+        {order.length &&
+          order.map((element, index) => (
+            <div className="one_order">
+              <div className="container">
+                <h3 className="title1">#</h3>
+                <p className="user_order">{index + 1}</p>
+              </div>
+              <div className="container">
+                <h3 className="title2">Number Of Products</h3>
+                <p className="number_product">{element.length}</p>
+              </div>
 
-      {order.length &&
-        order.map((element, index) => (
-          <div className="one_order">
-            <p className="user_order">{element[0].email}</p>
-            <p className="number_product">{element.length}</p>
-            <p className="date_order">
-              {element[element.length - 1].created_at}
-            </p>
-            <div>
-              {element.length &&
-                element.map((element2) => (
-                  <div className="all_product">
-                    <img src={element2.image} />
-                    <p>{element2.title}</p>
-                    <p>{element2.price}</p>
-                  </div>
-                ))}
+              <div className="container">
+                <h3 className="title3"> Date Of Order</h3>
+                <p className="date_order">
+                  {element[element.length - 1].created_at}
+                </p>
+              </div>
+              <div className="container_P">
+                <h3 className="title4">Products</h3>
+                <div>
+                  {element.length &&
+                    element.map((element2) => (
+                      <div className="all_product">
+                        {/* <img src={element2.image} /> */}
+                        <p>{element2.title}</p>
+                        {/* <p>{element2.price}</p> */}
+                      </div>
+                    ))}
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 };

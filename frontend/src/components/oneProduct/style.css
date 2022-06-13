@@ -8,13 +8,14 @@
   width: 90%;
   margin-top: 10px;
   position: relative;
-  right: 80px;
+  right: 14%;
   padding: 15px;
 }
 
 .only_product img {
-  width: 400px;
-  height: 400px;
+  /* width: 400px;
+  height: 400px; */
+  width: 90%;
   padding-top: 20px;
 }
 .payment_methods {
@@ -24,6 +25,7 @@
   color: rgb(151, 151, 151);
 }
 .detals {
+  width: 60%;
   display: flex;
   flex-direction: column;
   /* margin: 100px; */

@@ -18,7 +18,7 @@
   display: grid;
   grid-template-columns:100%;
   grid-template-rows: 85% 10%;
-  width: 25%;
+  width: 20%;
   height: 285px;
   justify-items: center;
   background-color: rgba(158, 158, 158, 0.8);

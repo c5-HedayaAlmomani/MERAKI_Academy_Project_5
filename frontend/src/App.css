@@ -19,7 +19,7 @@ grid-area: sidebar;
 grid-area: foter;
 } 
 .all_brand ,.cart_container,.all_category , .categoryContenar ,.loginDiv,.main ,.products,.register, .AddProductAdmin{
-	grid-area: main;
+	grid-area:main;
 }
 
 

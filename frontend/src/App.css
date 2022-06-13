@@ -1,10 +1,11 @@
 .App {
-  text-align: center;
-  display: grid;
-  grid-template-columns: 20% 85%;
-  grid-template-rows:5% 89% 6% ;
-  grid-template-areas: "hedaer hedaer " "sidebar main" "foter foter" 
-}
+	text-align: center;
+	display: grid;
+	grid-template-columns: 20vw auto;
+	grid-template-rows:10vh auto 5vh ;
+	grid-template-areas: "hedaer hedaer " "sidebar main" "foter foter" 
+  }
+  
 
 .navv{
 grid-area: hedaer;

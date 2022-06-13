@@ -24,10 +24,7 @@
   justify-items: center;
   background-color: rgb(240, 240, 240);
   margin: 10px;
-  /* box-shadow: 1px 5px 5px 5px rgba(148, 47, 47, 0.2); */
   border: 1px solid var(--deep_gray);
-  /* box-shadow: none; */
-  /* transition: box-shadow .4s,background-color .4s,border .4s; */
   border-radius: 1vh;
   transition: transform 1s; 
 

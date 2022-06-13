@@ -12,6 +12,7 @@ import "./style.css";
 const Dashboard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [Check,setCheck]=useState(false)
 
   const [searchArray, setsearchArray] = useState([]);
 
@@ -27,19 +28,25 @@ const Dashboard = () => {
       };
     }
   );
-
+// const Check=false
   const searchFunction = (searchInput) => {
     if (searchInput.length === 0) {
       setsearchArray([]);
+      setCheck(false)
     } else {
       axios
         .get(`http://localhost:5000/products`)
         .then((result) => {
-          // console.log("result", result);
-
           const search1 = result.data.result.filter((element, index) => {
             return element.title.includes(searchInput);
           });
+          if(search1.length===0){
+            setCheck(false)
+
+          }else{
+            setCheck(true)
+
+          }
           setsearchArray(search1);
         })
         .catch((err) => {
@@ -51,7 +58,7 @@ const Dashboard = () => {
 
   return (
     <div className="navv">
-      <div>
+      
         <div className="navbar">
           <i
             onClick={() => {
@@ -70,6 +77,7 @@ const Dashboard = () => {
             placeholder="    SEARCH"
             className="search"
             onChange={(e) => {
+
               searchFunction(e.target.value);
             }}
           />
@@ -99,13 +107,15 @@ const Dashboard = () => {
             </>
           )}
         </div>
-      </div>
-      <div className="navbar_section">
+      
+      {Check?(<div className="navbar_section" >
         {searchArray.length &&
           searchArray.map((element, index) => {
-            return searchArray.length !== 0 ? (
-              <div
-                className="navbar_section"
+            console.log("searchArray",searchArray);
+            if(searchArray.length!==0){
+              return(
+                <div
+                className="SERCHa"
                 onClick={() => {
                   navigate(`/product/${element.id}`);
                 }}
@@ -116,12 +126,39 @@ const Dashboard = () => {
                   alt="image product"
                 />
                 <p className="Serch_title">{element.title}</p>
-              </div>
-            ) : (
-              <></>
-            );
+              </div> 
+              )
+            }else{
+              return <></>
+            }
+              
+            
+            
+            // return (
+            // searchArray.length !== 0 ? (
+            //   <div
+            //     className="navbar_section"
+            //     onClick={() => {
+            //       navigate(`/product/${element.id}`);
+            //     }}
+            //   >
+            //     <img
+            //       className="Serch_title"
+            //       src={element.image}
+            //       alt="image product"
+            //     />
+            //     <p className="Serch_title">{element.title}</p>
+            //   </div>
+            // ) : (
+            //   <p>aaaaaa</p>
+            // ))
           })}
-      </div>
+      </div> ):(<></>)}
+
+
+
+      
+      
     </div>
   );
 };

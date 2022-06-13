@@ -24,9 +24,9 @@ const Category = () => {
 
     useEffect(clickbrand, [])
 
-    return (<div className="categoryContenar">
+    return (<div className="all_brand">
         {allcat.length&&allcat.map((element,index)=>{
-            return <div key={index} className= "categoryCont">
+            return <div key={index} className= "branddiv">
                  <img src={element.image}></img>
                 <p>{element.category}</p>
                

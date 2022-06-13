@@ -283,6 +283,7 @@ const OneProduct = () => {
                       addToCart(e.id);
                     }}
                   >
+                    
                     Add To Cart{" "}
                     <i
                       className="love"

@@ -69,6 +69,6 @@
 }
 
 ::-webkit-input-placeholder .input {
-  /* Chrome/Opera/Safari */
-  color: #c5ecfd;
+
+  color: #000;
 }

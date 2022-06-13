@@ -5,7 +5,7 @@ import {
   getCloudinaryAction,
   addToCloudinaryAction,
 } from "../../redux/reducers/cloudinary";
-
+import "./style.css"
 function Upload() {
   const dispatch = useDispatch();
   const [image, setImage] = useState("");
@@ -32,8 +32,8 @@ function Upload() {
   };
 
   return (
-    <div className="App">
-       {!loading ? <div style={{background:"none"}}><p></p></div> : <img src={image} style={{ width: "300px" }} />}
+    <div className="upload">
+       {!loading ? <div style={{background:"none"}}><p></p></div> : <img className="img_cloudenary" src={image} style={{ width: "300px" }} />}
       <button
         onClick={(e) => {
           uploadImage(e);
@@ -47,13 +47,11 @@ function Upload() {
         type="file"
         name="file"
         placeholder="Upload an image"
-        // onChange={uploadImage}
-
         onChange={(e) => {
           setImage(e.target.files[0]);
         }}
       />
-      {/* {!loading ? <></> : <img src={image} style={{ width: "300px" }} />} */}
+     
     </div>
   );
 }

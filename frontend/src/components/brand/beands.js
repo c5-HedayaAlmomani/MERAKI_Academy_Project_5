@@ -40,14 +40,14 @@ const Brand = () => {
         brand.map((element, index) => {
           return (
             <div key={index} className='branddiv'>
-              {/* <div className="imgAndName"> */}
+              <div className="imgAndName">
               <img className="img_brand"
                 onClick={() => {
                   navigate(`/allCategory/${element.brand}`);
                 }}
                 src={`${element.image}`}
               />
-              {/* </div> */}
+              </div>
               <div className="name_brand">
                 <p>{"Brand :" + element.brand}</p>
                 

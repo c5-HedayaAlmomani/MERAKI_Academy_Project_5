@@ -43,3 +43,30 @@
   font-size: larger;
   font-weight: 700;
 }
+
+.upload{
+  width: 250px;
+  height: 250px;
+}
+.upload img{
+  position: relative;left:  80%;top: 10%;
+  height: 170px;
+  width: auto;
+}
+.upload button{
+  position: relative;top: 86%;left:  130%;
+  border: none;
+  background-color: #0b724c;
+  font-size: larger;
+  color: rgb(255, 255, 255);
+  padding: 3px;
+  border-radius: 5px;
+}
+.upload input{
+  position: relative;top: 75%;left:  30%;
+  border: none;
+  background-color: #0b724c;
+  font-size: larger;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+}

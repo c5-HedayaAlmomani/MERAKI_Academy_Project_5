@@ -23,7 +23,9 @@ const OneProduct = () => {
   const [allRate, setAllRate] = useState([]);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
+  const [exactRate, setExactRate] = useState(0);
   const img = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+
   //? ======Rate=================
 
   //! redux =========
@@ -187,6 +189,7 @@ const OneProduct = () => {
     });
     let avgRate = totalRate / allRate.length;
     setRate(avgRate);
+    setExactRate(totalRate);
     console.log({ avgRate: avgRate });
   };
 
@@ -253,12 +256,26 @@ const OneProduct = () => {
                         />
                       );
                     })}
+                    <p className="avg_rate">
+                      {"Average Rate : " + "(" + exactRate + "/5)"}
+                    </p>
                   </div>
                   {/* //!================= End Rate================= */}
-
+                  <p>{"Price : " + e.price + " JOD"}</p>
                   <p>{"Title  :" + e.title}</p>
-                  <p>{"Description  : " + e.description}</p>
-                  <p>{"Price : " + e.price}</p>
+                  <p className="About">{"About This Product  : "} </p>
+
+                  <p className="description">{e.description}</p>
+                  <p className="payment_methods">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <span> Payment Methods :</span> Credit cards or Cash
+                  </p>
+                  <p className="payment_methods">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <span> AvailableQuantity: </span>
+                    {e.AvailableQuantity} Item
+                  </p>
+                  <p>{e.category}</p>
                   <button
                     className="add_to_cart"
                     onClick={() => {
@@ -266,7 +283,12 @@ const OneProduct = () => {
                       addToCart(e.id);
                     }}
                   >
-                    Add To Cart
+                    Add To Cart{" "}
+                    <i
+                      className="love"
+                      class="fa fa-heart"
+                      aria-hidden="true"
+                    ></i>
                   </button>
                 </div>
               </div>
@@ -303,7 +325,7 @@ const OneProduct = () => {
                             updateFeedback(newFeedback, element.id);
                           }}
                         >
-                          Update
+                          <i class="fas fa-edit"></i>
                         </button>
                       </>
                     ) : (
@@ -316,7 +338,7 @@ const OneProduct = () => {
                           deleteFeedback(element.id);
                         }}
                       >
-                        Delete
+                        <i class="fa fa-trash" aria-hidden="true"></i>
                       </button>
                     ) : (
                       <></>
@@ -328,6 +350,7 @@ const OneProduct = () => {
 
           <div className="new_feedback">
             <img className="imge_feedback2" src={`${img}`} />
+
             <input
               className="input_addfeedback"
               placeholder="add feedback"
@@ -342,22 +365,23 @@ const OneProduct = () => {
                 addFeedback(newFeedback);
               }}
             >
-              Add Feedback
+              <i class="fa fa-plus" aria-hidden="true"></i>
             </button>
           </div>
         </div>
       </div>
 
       <div>
-        <button className="see"
+        <button
+          className="see"
           onClick={() => {
             setNumber(number + 3);
           }}
         >
-    
           See More
         </button>
-        <button className="see"
+        <button
+          className="see"
           onClick={() => {
             setNumber(3);
           }}

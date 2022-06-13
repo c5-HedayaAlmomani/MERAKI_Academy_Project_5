@@ -9,11 +9,9 @@ import products, {
   } from "../../redux/reducers/products";
   import Upload from "../upload";
   import { getCloudinaryAction ,addToCloudinaryAction} from "../../redux/reducers/cloudinary";
-
+import "./style.css"
 
   const AddProductAdmin=()=>{
-    // const { id } = useParams();
-    
     const [categoryFilter, setCategoryFilter] = useState([]);
     const [brandOnClick, setBrandOnClick] = useState("");
 
@@ -86,19 +84,19 @@ import products, {
       <div className="AddProductAdmin">
           <div className="UpdateProductAdmin">
       <div className="image_container">
-        <h5>Picture</h5>
+        {/* <h5>Picture</h5> */}
       <Upload/>
        
       </div>
       <div className="input_container">
         <h5>Title</h5>
-        <input type="text" className="title" onChange={(e)=>{setTitle(e.target.value)}}/>
+        <input placeholder="  Title" type="text" className="title" onChange={(e)=>{setTitle(e.target.value)}}/>
         <h5>Description</h5>
-        <input type="text" className="description" onChange={(e)=>{setDescription(e.target.value)}}/>
+        <input placeholder="  Description" type="text" className="des_input" onChange={(e)=>{setDescription(e.target.value)}}/>
         <h5>Price</h5>
-        <input type="number" className="title" onChange={(e)=>{setPrice(e.target.value)}} />
+        <input placeholder="  Price" type="number" className="title" onChange={(e)=>{setPrice(e.target.value)}} />
         <h5>Quantity</h5>
-        <input type="number" className="title" onChange={(e)=>{seQuantity(e.target.value)}} />
+        <input placeholder="  Quantity" type="number" className="title" onChange={(e)=>{seQuantity(e.target.value)}} />
         <h5>Brand</h5>
         
         <select onClick={(e)=>{setBrand_id(e.target.value) ;func()  }} >
@@ -126,7 +124,7 @@ import products, {
         <h5>sub Category</h5>
         <input type="number" className="sub_category" onChange={(e)=>{setSub_Category_id(e.target.value)}} />
       </div>
-      <button onClick={()=>{creatProduct()}}>Create Product</button>
+      <button className="but_add_pro" onClick={()=>{creatProduct()}}>Create Product</button>
     </div>
       </div>
   )

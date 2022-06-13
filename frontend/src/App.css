@@ -1,8 +1,8 @@
 .App {
   text-align: center;
   display: grid;
-  grid-template-columns: 25% 75%;
-  grid-template-rows:7% 89% 4% ;
+  grid-template-columns: 20% 85%;
+  grid-template-rows:5% 89% 6% ;
   grid-template-areas: "hedaer hedaer " "sidebar main" "foter foter" 
 }
 
@@ -21,6 +21,8 @@ grid-area: foter;
 .all_brand ,.cart_container,.all_category , .categoryContenar ,.loginDiv,.main ,.products,.register, .AddProductAdmin{
 	grid-area: main;
 }
+
+
 
 
 

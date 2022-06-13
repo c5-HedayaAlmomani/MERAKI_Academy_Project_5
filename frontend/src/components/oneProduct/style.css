@@ -7,8 +7,8 @@
   color: rgb(19, 71, 56);
   width: 90%;
   margin-top: 10px;
-  position: relative;
-  right: 14%;
+  /* position: relative;
+  right: 14%; */
   padding: 15px;
 }
 
@@ -76,8 +76,8 @@
 .feedback_div {
   width: 60%;
   margin-top: 3%;
-  position: relative;
-  right: 80px;
+  /* position: relative;
+  right: 80px; */
   background-color: rgb(248, 248, 248);
   display: grid;
   border-radius: 25px;
@@ -145,8 +145,8 @@
 .new_feedback {
   width: 60%;
   margin-top: 3%;
-  position: relative;
-  right: 80px;
+  /* position: relative;
+  right: 80px; */
   background-color: rgb(248, 248, 248);
   display: grid;
   border-radius: 25px;

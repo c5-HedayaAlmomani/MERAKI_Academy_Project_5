@@ -202,15 +202,16 @@ const OneProduct = () => {
   useEffect(calculationRate, [allRate]);
 
   return (
-    <div className="main">
-      <div>
+    <div className="product_Page">
+      <div className="only_product">
         {product.length &&
           product.map((e, i) => {
             return (
-              <div key={i} className="only_product">
-                <div>
+              <div key={i} className="oo">
+                <div className="image_container">
                   <img src={`${e.image}`} />
                   {/* //!rate========================== */}
+                  <div className="Rate">
                   <p>Add Rate:</p>
                   {stars.map((e, index) => {
                     return (
@@ -238,10 +239,13 @@ const OneProduct = () => {
                       />
                     );
                   })}
+                  </div>
                 </div>
-                <div className="detals">
+                <div class="vl"></div>
+                <div className="details_container">
+                  
                   {/* //!=================Rate================= */}
-                  {/* //? الي فووووووووووووووووووووووووووووووووووووووووق */}
+                 
                   <div>
                     {stars.map((e, index) => {
                       return (
@@ -261,22 +265,27 @@ const OneProduct = () => {
                     </p>
                   </div>
                   {/* //!================= End Rate================= */}
-                  <p>{"Price : " + e.price + " JOD"}</p>
-                  <p>{"Title  :" + e.title}</p>
-                  <p className="About">{"About This Product  : "} </p>
-
-                  <p className="description">{e.description}</p>
+                  <h1 className="product_title_oneProduct">{e.title}</h1>
+                  <hr></hr>
+                  <div><p className="product_price_oneProduct">{ e.price } <span>JOD</span></p></div>
+                  
+                  
+                  <p className="product_description_oneProduct">{e.description}</p>
+                  {/* <div className="product_category_oneProduct">
+                    <p className="product_description_oneProduct">CATEGORIES</p>
+                    <span class="productDetails_category_list__dd_3c">{e.category}</span>
+                  </div> */}
                   <p className="payment_methods">
                     <i class="fa fa-check" aria-hidden="true"></i>
-                    <span> Payment Methods :</span> Credit cards or Cash
+                    <span> Payment Methods :</span><span className="spansdd">Credit cards or Cash</span> 
                   </p>
                   <p className="payment_methods">
                     <i class="fa fa-check" aria-hidden="true"></i>
-                    <span> AvailableQuantity: </span>
-                    {e.AvailableQuantity} Item
+                    <span> AvailableQuantity : </span>
+                   <span className="spansdd">
+                    {e.AvailableQuantity}</span> 
                   </p>
-                  <p>{e.category}</p>
-                  <button
+                 <div className="button_container"><button
                     className="add_to_cart"
                     onClick={() => {
                       console.log("e");
@@ -290,14 +299,42 @@ const OneProduct = () => {
                       class="fa fa-heart"
                       aria-hidden="true"
                     ></i>
-                  </button>
+                  </button></div>
+                  
                 </div>
               </div>
             );
           })}
 
+
+
+
+
+
+
         {/* //!=============================feedback============================= */}
+
         <div>
+        <div className="new_feedback">
+            <img className="imge_feedback2" src={`${img}`} />
+
+            <input
+              className="input_addfeedback"
+              placeholder="add feedback"
+              onChange={(e) => {
+                setNewFeedback(e.target.value);
+              }}
+            />
+
+            <button
+              className="button_addFeedback"
+              onClick={() => {
+                addFeedback(newFeedback);
+              }}
+            >
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+          </div>
           {feedback.length &&
             feedback.slice(0, number).map((element, index) => {
               return (
@@ -349,26 +386,7 @@ const OneProduct = () => {
               );
             })}
 
-          <div className="new_feedback">
-            <img className="imge_feedback2" src={`${img}`} />
-
-            <input
-              className="input_addfeedback"
-              placeholder="add feedback"
-              onChange={(e) => {
-                setNewFeedback(e.target.value);
-              }}
-            />
-
-            <button
-              className="button_addFeedback"
-              onClick={() => {
-                addFeedback(newFeedback);
-              }}
-            >
-              <i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
-          </div>
+          
         </div>
       </div>
 

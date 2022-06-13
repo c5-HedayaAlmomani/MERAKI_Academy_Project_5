@@ -107,7 +107,7 @@ const Dashboard = () => {
             </>
           )}
         </div>
-      
+      {/* 
       {Check?(<div className="navbar_section" >
         {searchArray.length &&
           searchArray.map((element, index) => {
@@ -153,7 +153,7 @@ const Dashboard = () => {
             //   <p>aaaaaa</p>
             // ))
           })}
-      </div> ):(<></>)}
+      </div> ):(<></>)} */}
 
 
 

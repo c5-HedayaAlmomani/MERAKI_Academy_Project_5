@@ -55,7 +55,7 @@ section {
 
 .footer-distributed .footer-links {
   color: #ffffff;
-  /* margin: 20px 0 12px; */
+  margin: 20px 0 12px;
   padding: 0;
 }
 
@@ -94,7 +94,7 @@ section {
   border-radius: 50%;
   text-align: center;
   line-height: 42px;
-  /* margin: 10px 15px; */
+  margin: 10px 15px;
   vertical-align: middle;
 }
 
@@ -162,11 +162,11 @@ section {
   font-size: 14px;
   font: normal 14px "Open Sans", cursive;
   font-weight: bold;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
 }
 
 .footer-distributed .footer-icons {
-  /* margin-top: 25px; */
+  margin-top: 25px;
 }
 
 .footer-distributed .footer-icons a {
@@ -183,8 +183,8 @@ section {
   text-align: center;
   line-height: 35px;
 
-  /* margin-right: 3px;
-  margin-bottom: 5px; */
+  margin-right: 3px;
+  margin-bottom: 5px;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
@@ -200,7 +200,7 @@ section {
   .footer-distributed .footer-right {
     display: block;
     width: 100%;
-    /* margin-bottom: 40px; */
+    margin-bottom: 40px;
     text-align: center;
   }
 

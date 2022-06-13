@@ -46,7 +46,7 @@
 
 .navbar {
   background-color: rgb(168, 214, 193);
-  height: 60px;
+  height: 100%;
 
   display: grid;
   grid-template-columns: 4.6% 10.6% 7.6% 7.6% 0.6% 7.6% 7.6% 7.6% 7.6% 10.8% 14.6% 7.6% 7.6%;

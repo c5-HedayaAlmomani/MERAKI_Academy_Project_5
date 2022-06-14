@@ -40,7 +40,7 @@ const CatByBrand = () => {
                 onClick={() => {
                   navigate(`PRO/${brand}/${element.category}`);
                 }}
-                src={`${element.image}`}
+                src={`${element.img}`}
               ></img>
               <p className="name_category">{element.category}</p>
             </div>

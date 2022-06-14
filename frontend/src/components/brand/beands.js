@@ -10,6 +10,14 @@ import Slider from "../Slider/Slider";
 import("./style.css");
 
 const Brand = () => {
+
+  const [index, setIndex] = useState(0);
+  const [numberOfPage, setNumberOfPage] = useState(0);
+
+  const [page, setPage] = useState(1);
+  const [arrayofPage, setArrayofPage] = useState([]);
+
+
   const navigate = useNavigate();
   const [brand, setBrand] = useState([]);
   const dispatch = useDispatch();
@@ -22,6 +30,21 @@ const Brand = () => {
       isLoggedIn: state.auth.isLoggedIn,
     };
   });
+
+  const getAllProductNoLimit = () => {
+    axios
+      .get("http://localhost:5000/category/")
+      .then((result) => {
+        console.log({ all: result.data.result.length });
+        console.log(Math.ceil(result.data.result.length / 6));
+        setNumberOfPage(Math.ceil(result.data.result.length / 6));
+        setArrayofPage(Array(Math.ceil(result.data.result.length / 6)).fill(0));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
 
   const brandD = () => {
     axios
@@ -40,7 +63,7 @@ const Brand = () => {
 
 
   const category = () => {
-    axios.get(`http://localhost:5000/category`).then((result) => {
+    axios.get(`http://localhost:5000/category/pagination/${page}`).then((result) => {
       setCategorys(result.data.result)
       console.log(result.data.result);
     }).catch((err) => {
@@ -50,10 +73,11 @@ const Brand = () => {
 
   useEffect(category, []);
 
-
+  useEffect(getAllProductNoLimit, []);
 
 
   useEffect(brandD, []);
+
   return (
     <div>
      <Slider />
@@ -85,8 +109,9 @@ const Brand = () => {
         {
 
           categorys.length && categorys.map((element, index) => {
+            console.log("element---------------",element);
             return (<div key={index} className="contenar_category_brands">
-              <img src={element.image} className="img_category_brands" onClick={() => {
+              <img src={element.img} className="img_category_brands" onClick={() => {
                 navigate(
                   `allCategory/${element.brand}/PRO/${element.brand}/${element.category}`
                 );
@@ -98,11 +123,62 @@ const Brand = () => {
                 <p className="p_category_brands">{element.category}</p>
 
               </div>
+           
             </div>)
           })
+         
 
         }
+{   <div className="buttons">
+                {arrayofPage.map((element, index) => {
+                  return (
+                    <div key={index}>
+                      <button
+                        onClick={() => {
+                          setPage(index + 1);
+                          category();
+                          setIndex(index + 1);
+                        }}
+                      >
+                        {index + 1}
+                      </button>
+                    </div>
+                  );
+                })}
 
+                {page != 1 ? (
+                  <>
+                    <button
+                      onClick={() => {
+                        setPage(index - 1);
+
+                        setIndex(index - 1);
+                        category();
+                      }}
+                    >
+                      back
+                    </button>
+                  </>
+                ) : (
+                  <></>
+                )}
+                {page != numberOfPage ? (
+                  <>
+                    <button
+                      onClick={() => {
+                        setPage(index + 1);
+                        setIndex(index + 1);
+
+                        category();
+                      }}
+                    >
+                      next
+                    </button>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </div>}
 
       </div>
       <ProductMain />

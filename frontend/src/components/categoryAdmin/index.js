@@ -35,16 +35,17 @@ const CategoryAdmin = () => {
     axios
       .post(
         `http://localhost:5000/category`,
-        { category: categoryName, image: cloudinary, brand_id:brand },
+        { category: categoryName, img: cloudinary, brand_id:brand },
         { headers: { authorization: `Bearer ${token}` } }
       )
+      // img
       .then((result) => {
         console.log(result);
         dispatch(
           addToCategoryAction({
             id: result.data.result.insertId,
             category: categoryName,
-            image: cloudinary,
+            img: cloudinary,
             brand_id: brand,
             is_deleted: 0,
           })
@@ -117,10 +118,11 @@ const CategoryAdmin = () => {
 
           {category.length &&
             category.map((element, index) => {
+              console.log(element);
               return (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td><img src={element.image} style={{width:"100px" , aspectRatio:"1/1.25"}}/></td>
+                  <td><img src={element.img} style={{width:"100px" , aspectRatio:"1/1.25"}}/></td>
                   <td>{element.category}</td>
                   <td>{element.brand}</td>
 

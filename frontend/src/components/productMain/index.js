@@ -40,7 +40,7 @@ const ProductMain = () => {
   // Array(5).fill(1)=>[1, 1, 1, 1, 1]
   const gitAllProduct = () => {
     axios
-      .get(`http://localhost:5000/products/pagination/${page}`)
+      .get(`http://localhost:5000/products/four/pagination/${page}`)
       .then((result) => {
         setProducts(result.data.result);
       })
@@ -94,25 +94,8 @@ const ProductMain = () => {
 
   return (
     <div className="main">
-      {/* <div>
-        <select
-          onClick={(e) => {
-            sortFunction(e.target.value);
-          }}
-        >
-          {sorts.length &&
-            sorts.map((element, index) => {
-              return (
-                <div key={index}>
-                  <p>{element.price}</p>
-                </div>
-              );
-            })}
-          <option>select</option>
-          <option>high Price</option>
-          <option>low Price</option>
-        </select>
-      </div> */}
+        <p>NEW PRODUCTS</p>
+  
 
       <div className="pro_main">
 
@@ -130,7 +113,7 @@ const ProductMain = () => {
                 <h2>{e.title}</h2>
                 {/* <div className="innfo">  */}
                 
-               <p>PRICE {e.price} JOB</p> 
+               <p>PRICE {e.price} JOD</p> 
                 {e.AvailableQuantity>0?(<button      className="addcart"
                     onClick={() => {
                     console.log(e.id);

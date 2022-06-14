@@ -4,74 +4,73 @@
   width: 100%;
 }
 
-#productT td, #productT th {
+#productT td,
+#productT th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#productT tr:nth-child(even){background-color: #f2f2f2;}
+#productT tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-#productT tr:hover {background-color: #ddd;}
-.des_input{
+#productT tr:hover {
+  background-color: #ddd;
+}
+.des_input {
   height: 50%;
- 
 }
 #productT th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
 }
-.input_container{
-  position: relative;right: 9%;
- 
-  width: 100%;
-  display: grid;
-  grid-template-columns: 15% 60%;
-  margin-top: 10px;
-
-
+.input_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.input_container h5{
-  
-font-size: larger;
-text-align: left;
-color: rgb(114, 114, 114);
-
+.input_container h5 {
+  font-size: larger;
+  text-align: left;
+  color: rgb(114, 114, 114);
 }
-.input_container input{
+.input_container input {
+  width: 85%;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   border: none;
-  box-shadow: 0px 2px 2px 2px ;color:rgb(180, 180, 180);
+  box-shadow: 0px 2px 2px 2px;
+  color: rgb(180, 180, 180);
   background-color: rgba(253, 252, 252, 0.6);
-  border-radius: 4px;color: rgb(133, 133, 133);
-  
+  border-radius: 4px;
+  color: rgb(133, 133, 133);
 }
-.input_container select{
+.input_container select {
+  width: 85%;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   border: none;
-  box-shadow: 0px 2px 2px 2px ;color:rgb(180, 180, 180);
-  background-color: rgb(255, 255, 255);
-  border-radius: 4px;color: rgb(133, 133, 133);
+  box-shadow: 0px 2px 2px 2px;
+  color: rgb(180, 180, 180);
+  background-color: rgba(253, 252, 252, 0.6);
+  border-radius: 4px;
+  color: rgb(133, 133, 133);
 }
-.but_add_pro{
-  position: relative;right: 13%;
+.but_add_pro {
   height: 50px;
   width: 20%;
   border: none;
   background-color: #0b724c;
   font-size: larger;
   color: rgb(255, 255, 255);
+  margin-bottom: 20px;
 }
-
-
-
-

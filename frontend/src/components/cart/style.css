@@ -80,7 +80,9 @@
   margin: 10px;
   justify-content: space-between;
 }
-
+.empty{
+  margin: 60px;
+}
 .title_productt {
   padding-top: 15px;
   display: grid;
@@ -89,6 +91,8 @@
 }
 .title_productt p {
   text-align: center;
+  font-family: Arial; 
+  font-size: 90%;
 }
 
 .action button {

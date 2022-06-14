@@ -140,14 +140,9 @@ function Payment() {
   }
 
   return (
-    <div className="App">
-      <div className="container">
-        <br />
-        <br />
-
-        <br />
-
-        <br />
+    <div className="payment_div">
+     
+  
         <div className="form-group container">
           <StripeCheckout
             className="center"
@@ -158,7 +153,8 @@ function Payment() {
             billingAddress
             shippingAddress
           />
-        </div>
+
+       
       </div>
     </div>
   );

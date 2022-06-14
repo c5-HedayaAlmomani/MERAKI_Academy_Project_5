@@ -15,7 +15,7 @@ import UsersComponent from "./components/users";
 import AdminDashbord from "./components/adminDashbord";
 import AddProductAdmin from "./components/productAdmin/AddProduct";
 import BrandAdmin from "./components/brandAdmin";
-import AdminOrder from "./components/orderAdmin"
+import AdminOrder from "./components/orderAdmin";
 import ProductAdmin from "./components/productAdmin";
 import UpdateProductAdmin from "./components/productAdmin/UpdateProduct";
 
@@ -27,16 +27,15 @@ import About from "./components/footer/about/about";
 import Contact from "./components/footer/contact/Contact";
 import Privacy from "./components/footer/privacy";
 import Getbrand from "./components/getbrand";
+import Slider from "./components/Slider/Slider";
 
 function App() {
   return (
     <div className="App">
-      {/* <div > */}
       <NavBar />
-      {/* </div>  */}
+      <Slider />
       <Getbrand className="side_bar" />
       <Routes className="main">
-        
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product" element={<Product />}></Route>
@@ -69,9 +68,7 @@ function App() {
         <Route path="/privacy-policy" element={<Privacy />}></Route>
         <Route path="/Admin/Orders" element={<AdminOrder />}></Route>
       </Routes>
-
       <Footer className="foter" />
-    
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"

@@ -37,7 +37,7 @@ const ProductMain = () => {
         console.log(err);
       });
   };
-  // Array(5).fill(1)=>[1, 1, 1, 1, 1]
+  
   const gitAllProduct = () => {
     axios
       .get(`http://localhost:5000/products/four/pagination/${page}`)
@@ -74,7 +74,7 @@ const ProductMain = () => {
   };
 
   const sortFunction = (e) => {
-    // console.log(result.data.result);
+    
     if (e == "high Price") {
       let sortedProduct = products.sort((a, b) => b.price - a.price);
       setSorts(sortedProduct);
@@ -111,18 +111,18 @@ const ProductMain = () => {
                  }} src={e.image} alt="" />
               <div className="innfo">
                 <h2>{e.title}</h2>
-                {/* <div className="innfo">  */}
+              
                 
                <p>PRICE {e.price} JOD</p> 
                 {e.AvailableQuantity>0?(<button      className="addcart"
                     onClick={() => {
-                    console.log(e.id);
+                    
                     addToCart(e.id);
-                    }}>Add to Cart</button>):(<button>SoldOut</button>)}       
+                    }}>Add to Cart</button>):(<button className="Sold_out_productmain" style={{backgroundColor:"red"}}>SoldOut</button>)}       
                   
             </div>
               
-              {/* </div> */}
+              
               </div>
             );
           })}
@@ -150,7 +150,7 @@ const ProductMain = () => {
           <button
             onClick={() => {
               setPage(index - 1);
-              console.log(index - 1);
+              
               setIndex(index - 1);
               gitAllProduct();
             }}

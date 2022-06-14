@@ -1,8 +1,10 @@
 import axios from "axios";
+import SidebarAdmin from "../sidebarAdmin";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
+
 import brand from "../../redux/reducers/brand";
 
 import {
@@ -21,7 +23,7 @@ const Getbrand = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { token, isLoggedIn, category, brands,show, cloudinary } = useSelector(
+  const { token, isLoggedIn, category, brands,show, cloudinary , isAdmin } = useSelector(
     (state) => {
       return {
         token: state.auth.token,
@@ -29,7 +31,8 @@ const Getbrand = () => {
         brands: state.brands.brands,
         cloudinary: state.cloudinary.cloudinary,
         category: state.category.category,
-        show:state.brands.show
+        show:state.brands.show,
+        isAdmin:state.auth.isAdmin
       };
     }
   );
@@ -70,7 +73,11 @@ const Getbrand = () => {
   console.log(brands);
 
   return (
- show &&(   <div className="filter_item">
+
+<div>
+
+{isAdmin && show && <SidebarAdmin />}
+ {show &&(   <div className="filter_item">
       <Link className="All_Product" to="product">
         All Product
       </Link>
@@ -115,8 +122,8 @@ const Getbrand = () => {
           );
         })}
       </ul>
-    </div>)
-
+    </div>)}
+    </div>
   )
 };
 

@@ -51,7 +51,6 @@ const Dashboard = () => {
         })
         .catch((err) => {
           console.log(err);
-          console.log("search1");
         });
     }
   };
@@ -112,6 +111,30 @@ const Dashboard = () => {
             </>
           )}
         </div>
+        {Check?(<div className="navbar_section" >
+        {searchArray.length &&
+          searchArray.map((element, index) => {
+            if(searchArray.length!==0){
+              return(
+                <div
+                className="SERCHa"
+                onClick={() => {
+                  navigate(`/product/${element.id}`);
+                }}
+              >
+                <img
+                  className="Serch_title"
+                  src={element.image}
+                  alt="image product"
+                />
+                <p className="Serch_title">{element.title}</p>
+              </div> 
+              )
+            }else{
+              return <></>
+            }  
+          })}
+      </div> ):(<></>)}
     </div>
   );
 };

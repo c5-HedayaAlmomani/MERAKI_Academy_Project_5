@@ -1,7 +1,7 @@
 const connection = require("../models/db");
 const getBrandCat = (req, res) => {
   const brand = req.params.brand;
-  const query = `SELECT *,category.image FROM category INNER JOIN brands ON category.brand_id=brands.id WHERE category.is_deleted=0 AND brands.brand=? ;`;
+  const query = `SELECT *,category.img FROM category INNER JOIN brands ON category.brand_id=brands.id WHERE category.is_deleted=0 AND brands.brand=? ;`;
 
   const data = [brand];
   connection.query(query, data, (err, result) => {

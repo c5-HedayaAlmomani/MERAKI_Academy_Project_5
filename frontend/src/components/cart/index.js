@@ -134,7 +134,7 @@ const Cart = () => {
 
   return (
     <div className="cart_containerr">
-      <div className="title_productt">
+      {cart.length? (<div className="title_productt">
         <p>IMAGE</p>
         <p>NAME</p>
         <p>PRICE</p>
@@ -146,7 +146,10 @@ const Cart = () => {
         </p>
 
         <p>ACTIONS</p>
-      </div>
+      </div>):(<></>)
+
+      }
+      
       {isLoggedIn ? (
         cart.length === 0 ? (
           <h1 className="empty">Your shopping cart is empty!</h1>
@@ -248,10 +251,9 @@ const Cart = () => {
       {cart.length === 0 ? (
         <></>
       ) : (
+        <>
         <h4 className="sub_total">TOTAL PRICE : {subtotal} JOD</h4>
-      )}
-
-      <div className="final">
+        <div className="final">
         <Payment />
         <button
           className="empty_cart"
@@ -262,6 +264,12 @@ const Cart = () => {
           Empty Cart
         </button>
       </div>
+      </>
+        
+      )}
+
+
+      
     </div>
   );
 };

@@ -81,6 +81,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
 
 }
 .all_product .titleProduct {
@@ -88,6 +89,7 @@
     color: rgb(245, 88, 114);
     margin-bottom: 10%;
 }
+
 
 
 
@@ -103,6 +105,10 @@
   font-size: 1rem;
 }
 
-hr{
+.order_container hr{
     margin-top: 5vh;
+}
+
+.order_container h3{
+    font-size: medium;
 }

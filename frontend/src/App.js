@@ -27,6 +27,7 @@ import About from "./components/footer/about/about";
 import Contact from "./components/footer/contact/Contact";
 import Privacy from "./components/footer/privacy";
 import Getbrand from "./components/getbrand";
+import SidebarAdmin from "./components/sidebarAdmin";
 function App() {
   return (
     <div className="App">
@@ -70,6 +71,7 @@ function App() {
       </Routes>
 
       <Footer className="foter" />
+      <SidebarAdmin/>
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"

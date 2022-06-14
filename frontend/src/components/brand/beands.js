@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import{setBrandsAction,addToBrandAction,deleteFromBrand,getBrandsAction}from "../../redux/reducers/brand"
+import ProductMain from "../productMain";
 import("./style.css");
 
 const Brand = () => {
@@ -35,6 +36,7 @@ const Brand = () => {
 
   useEffect(brandD, []);
   return (
+    <div>
     <div className="all_brand">
       {brand.length &&
         brand.map((element, index) => {
@@ -55,6 +57,10 @@ const Brand = () => {
             </div>
           );
         })}
+      
+        
+    </div>
+    <ProductMain />
     </div>
   );
 };

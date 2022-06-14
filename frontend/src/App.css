@@ -1,9 +1,9 @@
 .App {
 	text-align: center;
-	display: grid;
-	grid-template-columns: 20vw auto;
-	grid-template-rows:10vh auto 5vh ;
-	grid-template-areas: "hedaer hedaer " "sidebar main" "foter foter" 
+	/* display: grid; */
+	/* grid-template-columns: 20vw auto; */
+	/* grid-template-rows:10vh auto 5vh ; */
+	/* grid-template-areas: "hedaer hedaer " "sidebar main" "foter foter"  */
   }
   
 
@@ -19,7 +19,7 @@ grid-area: sidebar;
 .foter{
 grid-area: foter;
 } 
-.all_brand ,.cart_container,.all_category , .categoryContenar ,.loginDiv,.main ,.products,.register, .AddProductAdmin{
+.all_brand ,.cart_container,.all_category , .categoryContenar ,.loginDiv,.main ,.products,.register, .AddProductAdmin ,.cart_containerr{
 	grid-area:main;
 
 }

@@ -1,3 +1,9 @@
+.cart_containerr{
+  min-height: 50vh;
+}
+
+
+
 .title_all {
   margin-top: 90px;
   display: flex;
@@ -8,6 +14,7 @@
 
 }
 .product_detailss {
+  min-height: 20vh;
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
@@ -96,7 +103,8 @@
   /* gap: 10%; */
 }
 .empty{
-  margin: 60px;
+  
+  margin: 15%;
 }
 .title_productt {
   padding-top: 15px;

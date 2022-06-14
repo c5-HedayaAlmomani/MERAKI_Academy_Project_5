@@ -24,12 +24,10 @@ const Order = () => {
   //! redux =========
 
   useEffect(() => {
-    console.log("IN EFFECT");
     getOrders();
   }, []);
 
   const getOrders = () => {
-    console.log("in getOrders");
 
     axios
       .get(`http://localhost:5000/order/product/cart`, {
@@ -40,10 +38,8 @@ const Order = () => {
       .then((result) => {
         dispatch(setCompletedOrderAction([]));
         result.data.order.map((element, index) => {
-          console.log(element);
           getOrderById(element.id);
         });
-        console.log(result.data.order, "IN GET ORDER");
 
         dispatch(setNumOfOrderAcion(result.data.order));
       })
@@ -53,8 +49,7 @@ const Order = () => {
   };
 
   const getOrderById = (id) => {
-    console.log("getOrderById");
-    console.log("numOfOrder", numOfOrder);
+    
 
     axios
       .get(`http://localhost:5000/order/cart/id/${id}`, {
@@ -72,47 +67,52 @@ const Order = () => {
       });
   };
 
-  console.log("order in  window", order);
 
   return (
-    <div className="main">
+    <div className="orderss">
       
       <div className="order_container">
        
+
       <h2 className="Title">
         Order History
       </h2>
         {order.length &&
           order.map((element, index) => (
-            <div className="one_order">
-              <div className="container">
-                <h3 className="title1">#</h3>
-                <p className="user_order">{index + 1}</p>
-              </div>
-              <div className="container">
-                <h3 className="title2">Number Of Products</h3>
-                <p className="number_product">{element.length}</p>
-              </div>
 
-              <div className="container">
-                <h3 className="title3"> Date Of Order</h3>
+            <div className="one_order">
+
+
+
+              
+                <h3 className="title1"># <hr></hr></h3>
+                <p className="user_order">{index + 1}</p>
+              
+             
+                <h3 className="title2">Number Of Products <hr></hr></h3>
+                <p className="number_product">{element.length}</p>
+              
+
+              
+                <h3 className="title3"> Date Of Order <hr></hr></h3>
                 <p className="date_order">
                   {element[element.length - 1].created_at}
                 </p>
-              </div>
-              <div className="container_P">
-                <h3 className="title4">Products</h3>
+             
+              
+                <h3 className="title4">Products <hr></hr></h3>
                 <div>
                   {element.length &&
                     element.map((element2) => (
                       <div className="all_product">
-                        {/* <img src={element2.image} /> */}
-                        <p>{element2.title}</p>
-                        {/* <p>{element2.price}</p> */}
+                       
+                        <p className="titleProduct">{element2.title}</p>
+                          
+                        
                       </div>
                     ))}
                 </div>
-              </div>
+              
             </div>
           ))}
       </div>

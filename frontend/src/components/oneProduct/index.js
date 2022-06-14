@@ -202,8 +202,8 @@ const OneProduct = () => {
   useEffect(calculationRate, [allRate]);
 
   return (
-    <div className="product_Page">
-      <div className="only_product">
+    // <div className="product_Page">
+      <div  className="product_Page" >
         {product.length &&
           product.map((e, i) => {
             return (
@@ -242,11 +242,11 @@ const OneProduct = () => {
                   </div>
                 </div>
                 <div class="vl"></div>
-                <div className="details_container">
+                {/* <div className="details_container"> */}
                   
                   {/* //!=================Rate================= */}
                  
-                  <div>
+                  {/* <div className="div_rate">
                     {stars.map((e, index) => {
                       return (
                         <FaStar
@@ -263,29 +263,68 @@ const OneProduct = () => {
                     <p className="avg_rate">
                       {"Average Rate : " + "(" + exactRate + "/5)"}
                     </p>
-                  </div>
+                  </div> */}
                   {/* //!================= End Rate================= */}
+                  <div className="details_container">
                   <h1 className="product_title_oneProduct">{e.title}</h1>
-                  <hr></hr>
-                  <div><p className="product_price_oneProduct">{ e.price } <span>JOD</span></p></div>
-                  
-                  
+                  {/* <hr></hr> */}
                   <p className="product_description_oneProduct">{e.description}</p>
+                  <div>
+                    <br></br>
+                    <p className="product_price_oneProduct">{ e.price } <span>JOD</span></p></div>
+                  
+                  
+                  {/* <p className="product_description_oneProduct">{e.description}</p> */}
                   {/* <div className="product_category_oneProduct">
                     <p className="product_description_oneProduct">CATEGORIES</p>
                     <span class="productDetails_category_list__dd_3c">{e.category}</span>
                   </div> */}
-                  <p className="payment_methods">
-                    <i class="fa fa-check" aria-hidden="true"></i>
-                    <span> Payment Methods :</span><span className="spansdd">Credit cards or Cash</span> 
-                  </p>
+
                   <p className="payment_methods">
                     <i class="fa fa-check" aria-hidden="true"></i>
                     <span> AvailableQuantity : </span>
                    <span className="spansdd">
                     {e.AvailableQuantity}</span> 
                   </p>
-                 <div className="button_container"><button
+                 {/* <div className="button_container"><button
+                    className="add_to_cart"
+                    onClick={() => {
+                      console.log("e");
+                      addToCart(e.id);
+                    }}
+                  >
+                    
+                    Add To Cart{" "}
+                    <i
+                      className="love"
+                      class="fa fa-heart"
+                      aria-hidden="true"
+                    ></i>
+                  </button></div> */}
+                  
+                </div>
+
+{/* //!---------------------------------- */}
+
+                <div className="div_rate">
+                    {stars.map((e, index) => {
+                      return (
+                        <FaStar
+                          key={index}
+                          size={24}
+                          color={rate > index ? "#FFBA5A" : "#a9a9a9"}
+                          style={{
+                            marginRight: 10,
+                            cursor: "pointer",
+                          }}
+                        />
+                      );
+                    })}
+                    <p className="avg_rate">
+                      {"Average Rate : " + "(" + exactRate + "/5)"}
+                    </p>
+
+                    <div className="button_container"><button
                     className="add_to_cart"
                     onClick={() => {
                       console.log("e");
@@ -300,9 +339,15 @@ const OneProduct = () => {
                       aria-hidden="true"
                     ></i>
                   </button></div>
+                  </div>
                   
-                </div>
+{/* //!---------------------------------- */}
+
+
+
+
               </div>
+              
             );
           })}
 
@@ -314,7 +359,7 @@ const OneProduct = () => {
 
         {/* //!=============================feedback============================= */}
 
-        <div>
+        <div className="div_new_feedback">
         <div className="new_feedback">
             <img className="imge_feedback2" src={`${img}`} />
 
@@ -338,7 +383,7 @@ const OneProduct = () => {
           {feedback.length &&
             feedback.slice(0, number).map((element, index) => {
               return (
-                <div key={index}>
+                <div className="all_feedback" key={index}>
                   <div className="feedback_div">
                     <img className="imge_feedback" src={`${img}`} />
                     <p className="firstName_feedback">{element.firstName} </p>
@@ -387,7 +432,7 @@ const OneProduct = () => {
             })}
 
           
-        </div>
+        {/* </div> */}
       </div>
 
       <div>

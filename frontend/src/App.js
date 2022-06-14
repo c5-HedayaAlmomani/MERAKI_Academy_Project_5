@@ -27,13 +27,12 @@ import About from "./components/footer/about/about";
 import Contact from "./components/footer/contact/Contact";
 import Privacy from "./components/footer/privacy";
 import Getbrand from "./components/getbrand";
-import Slider from "./components/Slider/Slider";
+
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <Slider />
       <Getbrand className="side_bar" />
       <Routes className="main">
         <Route path="/login" element={<Login />} />

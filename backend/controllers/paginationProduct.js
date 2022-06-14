@@ -58,7 +58,7 @@ const getAllCategoryPagination = (req, res) => {
 
   const offset = (page - 1) * limit;
 
-  const query = `SELECT * FROM category WHERE is_deleted=0 LIMIT ${limit} OFFSET ${offset};`;
+  const query = `SELECT * ,category.id ,category.img, brands.image FROM category INNER JOIN brands ON category.brand_id=brands.id WHERE category.is_deleted=0  LIMIT ${limit} OFFSET ${offset};`;
 
   connection.query(query, (err, result) => {
     if (err) {

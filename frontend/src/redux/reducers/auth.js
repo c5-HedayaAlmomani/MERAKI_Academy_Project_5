@@ -6,6 +6,7 @@ export const auth = createSlice({
     token: localStorage.getItem("token") || "",
     isLoggedIn: localStorage.getItem("token") ? true : false,
     orderId:localStorage.getItem("orderId")|| "",
+    isAdmin:(true)
   },
   reducers: {
     // payload :token
@@ -26,8 +27,12 @@ export const auth = createSlice({
       localStorage.setItem("orderId", action.payload);
       state.orderId = action.payload;      
     }
+    ,
+    setIsAdmainAction:(state , action)=>{
+      state.isAdmin=action.payload
+    }
   },
 });
-export const { logoutAction, loginAction ,orderAction } = auth.actions;
+export const { logoutAction, loginAction ,orderAction ,setIsAdmainAction} = auth.actions;
 
 export default auth.reducer;

@@ -6,10 +6,8 @@
   justify-content: space-around;
   align-content: flex-start;
   align-items: stretch;
-
-
-
 }
+
 .imgAndName{
   padding: 2vh;
 
@@ -24,7 +22,8 @@
   justify-items: center;
   background-color: rgb(240, 240, 240);
   margin: 10px;
-  border: 1px solid var(--deep_gray);
+  border: 1px solid ;
+  border-color: rgba(0, 0, 0, 0.158);
   border-radius: 1vh;
   transition: transform 1s; 
 
@@ -50,13 +49,52 @@
 .name_brand {
   width: 100%;
   height: 4vh;
-  font-size: 2.75vh;
+  font-size: 2.25vh;
 }
 
 
 
 
+.contenar_category_brands{
+  display: grid;
+  grid-template-columns:100%;
+  grid-template-rows: 85% 10%;
+  width: 20vh;
+  height: 10vw;
+  justify-items: center;
+  background-color: rgb(240, 240, 240);
+  margin: 10px;
+  border: 1px solid ;
+  border-color: rgba(0, 0, 0, 0.158);
+  border-radius: 1vh;
+  transition: transform 1s; 
 
+}
 
+.img_category_brands{
+  width: 15vh;
+  border-radius: 5vh;
+  display: block;
+  overflow: hidden;
+  transition: transform .4s;
+}
 
+.p_category_brands{
+  width: 100%;
+  height: 4vh;
+  font-size: 2.25vh;
+}
+
+.contenar_namecategoryand_bands{
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 20vh;
+
+}
+
+.img_brand_brands{
+  width: 6vh;
+  align-items: flex-end;
+  margin-right: 3vh;
+}
 

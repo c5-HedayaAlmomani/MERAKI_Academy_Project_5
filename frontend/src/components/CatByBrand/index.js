@@ -7,6 +7,9 @@ const CatByBrand = () => {
   const { brand } = useParams();
   const [allCat, setAllCat] = useState([]);
 
+  
+
+
   const func = () => {
     axios
       .get(`http://localhost:5000/filter/display/category/${brand}`)
@@ -19,7 +22,13 @@ const CatByBrand = () => {
       });
   };
 
+
+
+
   useEffect(func, [brand]);
+
+
+
 
   return (
     <div className="all_category">

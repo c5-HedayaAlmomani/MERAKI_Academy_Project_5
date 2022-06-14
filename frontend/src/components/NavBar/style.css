@@ -49,12 +49,16 @@
   height: 100%;
 
   display: grid;
-  grid-template-columns: 4.6% 10.6% 7.6% 7.6% 0.6% 7.6% 7.6% 7.6% 7.6% 10.8% 14.6% 7.6% 7.6%;
+  grid-template-columns: 4.6% 10.6% 7.6% 7.6% 0.6% 7.6% 7.6% 7.6% 13.6% 8.8% 8.6% 8.6% 8.6%;
   grid-template-rows: 60px;
-  grid-template-areas: "q q w w w w e e e e r t y";
+  grid-template-areas: "q q w w w w e e e n r t y";
   transition: transform 250ms;
   align-content: stretch;
   align-items: center;
+}
+.All_Product_nav{
+  grid-area:n ;
+  /* padding-left: 40%; */
 }
 .first_icon {
   grid-area: a;
@@ -89,6 +93,7 @@
 }
 .cart {
   grid-area: y;
+  align-self: left;
 }
 
 .fa-cart-plus:before {

@@ -45,12 +45,16 @@
 }
 
 .filter_item {
+  position: absolute;
+  bottom: 72px;
   background-color: rgb(13, 95, 95);
   display: flex;
   flex-direction: column;
-  width: 100%;
-  transition:250ms;
+  width: 15%;
+  transition: transform 1s;
+  z-index: 100;
 }
+
 .filter_item a {
   text-decoration: none;
 

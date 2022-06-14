@@ -56,7 +56,7 @@ const Brand = () => {
   useEffect(brandD, []);
   return (
     <div>
-      <Slider />
+     <Slider />
       <h1 className="all_brand">All_brand</h1>
       <div className="all_brand">
         {brand.length &&
@@ -70,11 +70,13 @@ const Brand = () => {
                     }}
                     src={`${element.image}`}
                   />
+                    
                 </div>
                 <div className="name_brand">
                   <p>{element.brand}</p>
 
                 </div>
+              
               </div>
             );
           })}

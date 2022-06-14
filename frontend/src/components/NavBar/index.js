@@ -73,6 +73,11 @@ const Dashboard = () => {
             src="https://res.cloudinary.com/hudhud/image/upload/v1655027682/maxqgc69/jewjejpruuyddsyu4uis.png"
           />
 
+<Link className="All_Product_nav" to="product">
+        All Product
+      </Link>
+
+
           <input
             placeholder="    SEARCH"
             className="search"
@@ -107,58 +112,6 @@ const Dashboard = () => {
             </>
           )}
         </div>
-      {/* 
-      {Check?(<div className="navbar_section" >
-        {searchArray.length &&
-          searchArray.map((element, index) => {
-            console.log("searchArray",searchArray);
-            if(searchArray.length!==0){
-              return(
-                <div
-                className="SERCHa"
-                onClick={() => {
-                  navigate(`/product/${element.id}`);
-                }}
-              >
-                <img
-                  className="Serch_title"
-                  src={element.image}
-                  alt="image product"
-                />
-                <p className="Serch_title">{element.title}</p>
-              </div> 
-              )
-            }else{
-              return <></>
-            }
-              
-            
-            
-            // return (
-            // searchArray.length !== 0 ? (
-            //   <div
-            //     className="navbar_section"
-            //     onClick={() => {
-            //       navigate(`/product/${element.id}`);
-            //     }}
-            //   >
-            //     <img
-            //       className="Serch_title"
-            //       src={element.image}
-            //       alt="image product"
-            //     />
-            //     <p className="Serch_title">{element.title}</p>
-            //   </div>
-            // ) : (
-            //   <p>aaaaaa</p>
-            // ))
-          })}
-      </div> ):(<></>)} */}
-
-
-
-      
-      
     </div>
   );
 };

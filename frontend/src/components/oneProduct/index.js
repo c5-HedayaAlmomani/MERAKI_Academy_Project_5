@@ -5,9 +5,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa";
-
-import { loginAction } from "../../redux/reducers/auth";
-
 const OneProduct = () => {
   const [product, setProduct] = useState([]);
   const [feedback, setFeedback] = useState([]);
@@ -202,16 +199,15 @@ const OneProduct = () => {
   useEffect(calculationRate, [allRate]);
 
   return (
-    // <div className="product_Page">
-      <div  className="product_Page" >
-        {product.length &&
-          product.map((e, i) => {
-            return (
-              <div key={i} className="oo">
-                <div className="image_container">
-                  <img src={`${e.image}`} />
-                  {/* //!rate========================== */}
-                  <div className="Rate">
+    <div className="product_Page">
+      {product.length &&
+        product.map((e, i) => {
+          return (
+            <div key={i} className="oo">
+              <div className="image_container">
+                <img src={`${e.image}`} />
+                {/* //!rate========================== */}
+                <div className="Rate">
                   <p>Add Rate:</p>
                   {stars.map((e, index) => {
                     return (
@@ -239,200 +235,147 @@ const OneProduct = () => {
                       />
                     );
                   })}
-                  </div>
                 </div>
-                <div class="vl"></div>
-                {/* <div className="details_container"> */}
-                  
-                  {/* //!=================Rate================= */}
-                 
-                  {/* <div className="div_rate">
-                    {stars.map((e, index) => {
-                      return (
-                        <FaStar
-                          key={index}
-                          size={24}
-                          color={rate > index ? "#FFBA5A" : "#a9a9a9"}
-                          style={{
-                            marginRight: 10,
-                            cursor: "pointer",
-                          }}
-                        />
-                      );
-                    })}
-                    <p className="avg_rate">
-                      {"Average Rate : " + "(" + exactRate + "/5)"}
-                    </p>
-                  </div> */}
-                  {/* //!================= End Rate================= */}
-                  <div className="details_container">
-                  <h1 className="product_title_oneProduct">{e.title}</h1>
-                  {/* <hr></hr> */}
-                  <p className="product_description_oneProduct">{e.description}</p>
-                  <div>
-                    <br></br>
-                    <p className="product_price_oneProduct">{ e.price } <span>JOD</span></p></div>
-                  
-                  
-                  {/* <p className="product_description_oneProduct">{e.description}</p> */}
-                  {/* <div className="product_category_oneProduct">
-                    <p className="product_description_oneProduct">CATEGORIES</p>
-                    <span class="productDetails_category_list__dd_3c">{e.category}</span>
-                  </div> */}
-
-                  <p className="payment_methods">
-                    <i class="fa fa-check" aria-hidden="true"></i>
-                    <span> AvailableQuantity : </span>
-                   <span className="spansdd">
-                    {e.AvailableQuantity}</span> 
-                  </p>
-                 {/* <div className="button_container"><button
-                    className="add_to_cart"
-                    onClick={() => {
-                      console.log("e");
-                      addToCart(e.id);
-                    }}
-                  >
-                    
-                    Add To Cart{" "}
-                    <i
-                      className="love"
-                      class="fa fa-heart"
-                      aria-hidden="true"
-                    ></i>
-                  </button></div> */}
-                  
-                </div>
-
-{/* //!---------------------------------- */}
-
-                <div className="div_rate">
-                    {stars.map((e, index) => {
-                      return (
-                        <FaStar
-                          key={index}
-                          size={24}
-                          color={rate > index ? "#FFBA5A" : "#a9a9a9"}
-                          style={{
-                            marginRight: 10,
-                            cursor: "pointer",
-                          }}
-                        />
-                      );
-                    })}
-                    <p className="avg_rate">
-                      {"Average Rate : " + "(" + exactRate + "/5)"}
-                    </p>
-
-                    <div className="button_container"><button
-                    className="add_to_cart"
-                    onClick={() => {
-                      console.log("e");
-                      addToCart(e.id);
-                    }}
-                  >
-                    
-                    Add To Cart{" "}
-                    <i
-                      className="love"
-                      class="fa fa-heart"
-                      aria-hidden="true"
-                    ></i>
-                  </button></div>
-                  </div>
-                  
-{/* //!---------------------------------- */}
-
-
-
-
               </div>
-              
-            );
-          })}
+              <div class="vl"></div>
 
+              {/* //!=================Rate================= */}
 
+              {/* //!================= End Rate================= */}
+              <div className="details_container">
+                <h1 className="product_title_oneProduct">{e.title}</h1>
 
+                <p className="product_description_oneProduct">
+                  {e.description}
+                </p>
+                <div>
+                  <br></br>
+                  <p className="product_price_oneProduct">
+                    {e.price} <span>JOD</span>
+                  </p>
+                </div>
 
+                <p className="payment_methods">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <span> AvailableQuantity : </span>
+                  <span className="spansdd">{e.AvailableQuantity}</span>
+                </p>
+              </div>
 
+              {/* //!---------------------------------- */}
 
+              <div className="div_rate">
+                {stars.map((e, index) => {
+                  return (
+                    <FaStar
+                      key={index}
+                      size={24}
+                      color={rate > index ? "#FFBA5A" : "#a9a9a9"}
+                      style={{
+                        marginRight: 10,
+                        cursor: "pointer",
+                      }}
+                    />
+                  );
+                })}
+                <p className="avg_rate">
+                  {"Average Rate : " + "(" + exactRate + "/5)"}
+                </p>
 
-        {/* //!=============================feedback============================= */}
+                <div className="button_container">
+                  <button
+                    className="add_to_cart"
+                    onClick={() => {
+                      console.log("e");
+                      addToCart(e.id);
+                    }}
+                  >
+                    Add To Cart{" "}
+                    <i
+                      className="love"
+                      class="fa fa-heart"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
 
-        <div className="div_new_feedback">
+      {/* //!=============================feedback============================= */}
+
+      <div className="div_new_feedback">
         <div className="new_feedback">
-            <img className="imge_feedback2" src={`${img}`} />
+          <img className="imge_feedback2" src={`${img}`} />
 
-            <input
-              className="input_addfeedback"
-              placeholder="add feedback"
-              onChange={(e) => {
-                setNewFeedback(e.target.value);
-              }}
-            />
+          <input
+            className="input_addfeedback"
+            placeholder="add feedback"
+            onChange={(e) => {
+              setNewFeedback(e.target.value);
+            }}
+          />
 
-            <button
-              className="button_addFeedback"
-              onClick={() => {
-                addFeedback(newFeedback);
-              }}
-            >
-              <i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
-          </div>
-          {feedback.length &&
-            feedback.slice(0, number).map((element, index) => {
-              return (
-                <div className="all_feedback" key={index}>
-                  <div className="feedback_div">
-                    <img className="imge_feedback" src={`${img}`} />
-                    <p className="firstName_feedback">{element.firstName} </p>
-                    <p className="feedpact">{element.feedback}</p>
-                    <p className="rr"></p>
-                    {user_id == element.user_id ? (
-                      <>
-                        {updateBox && feedbackId == element.id && (
-                          <input
-                            className="input_update_feedback"
-                            onChange={(e) => {
-                              setNewFeedback(e.target.value);
-                            }}
-                          />
-                        )}
-                        <button
-                          className="button_update_feedback"
-                          onClick={() => {
-                            setfeedbackId(element.id);
-                            setUpdateBox(!updateBox);
-
-                            updateFeedback(newFeedback, element.id);
+          <button
+            className="button_addFeedback"
+            onClick={() => {
+              addFeedback(newFeedback);
+            }}
+          >
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </div>
+        {feedback.length &&
+          feedback.slice(0, number).map((element, index) => {
+            return (
+              <div className="all_feedback" key={index}>
+                <div className="feedback_div">
+                  <img className="imge_feedback" src={`${img}`} />
+                  <p className="firstName_feedback">{element.firstName} </p>
+                  <p className="feedpact">{element.feedback}</p>
+                  <p className="rr"></p>
+                  {user_id == element.user_id ? (
+                    <>
+                      {updateBox && feedbackId == element.id && (
+                        <input
+                          className="input_update_feedback"
+                          onChange={(e) => {
+                            setNewFeedback(e.target.value);
                           }}
-                        >
-                          <i class="fas fa-edit"></i>
-                        </button>
-                      </>
-                    ) : (
-                      <></>
-                    )}
-                    {user_id == element.user_id ? (
+                        />
+                      )}
                       <button
-                        className="button_delete_feedback"
+                        className="button_update_feedback"
                         onClick={() => {
-                          deleteFeedback(element.id);
+                          setfeedbackId(element.id);
+                          setUpdateBox(!updateBox);
+
+                          updateFeedback(newFeedback, element.id);
                         }}
                       >
-                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        <i class="fas fa-edit"></i>
                       </button>
-                    ) : (
-                      <></>
-                    )}
-                  </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                  {user_id == element.user_id ? (
+                    <button
+                      className="button_delete_feedback"
+                      onClick={() => {
+                        deleteFeedback(element.id);
+                      }}
+                    >
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  ) : (
+                    <></>
+                  )}
                 </div>
-              );
-            })}
-
-          
-        {/* </div> */}
+              </div>
+            );
+          })}
       </div>
 
       <div>

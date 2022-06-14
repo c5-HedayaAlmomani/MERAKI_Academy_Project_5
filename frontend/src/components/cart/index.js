@@ -34,7 +34,7 @@ const Cart = () => {
   });
   //! redux =========
 
-  // const [availableQuantity, SetAvailableQuantity] = useState(0);
+
   const [subtotal, SetSubTotal] = useState(0);
 
   useEffect(() => {

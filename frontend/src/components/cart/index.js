@@ -149,7 +149,7 @@ const Cart = () => {
       </div>
       {isLoggedIn ? (
         cart.length === 0 ? (
-          <h1>Your shopping cart is empty!</h1>
+          <h1 className="empty">Your shopping cart is empty!</h1>
         ) : (
           cart.length &&
           cart.map((element, index) => {

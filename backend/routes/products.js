@@ -32,6 +32,9 @@ productsRouter.put(
 
 
 const {getAllProductPagination , getfourProductPagination}= require("../controllers/paginationProduct");
+const { request } = require("express");
 productsRouter.get("/pagination/:page", getAllProductPagination);
 productsRouter.get("/four/pagination/:page", getfourProductPagination);
+
+
 module.exports = productsRouter;

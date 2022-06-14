@@ -94,7 +94,7 @@ const Cart = () => {
       )
       .then((result) => {
         console.log(result.data);
-        
+
         getCartItems();
       })
       .catch((error) => {
@@ -131,9 +131,22 @@ const Cart = () => {
         console.log(err);
       });
   };
- 
+
   return (
-    <div className="cart_container">
+    <div className="cart_containerr">
+      <div className="title_productt">
+        <p>IMAGE</p>
+        <p>NAME</p>
+        <p>PRICE</p>
+        <p>QUANTITY</p>
+        <p>
+          <p>AVAILABLE </p>
+          <br></br>
+          <p>QUANTITY</p>
+        </p>
+
+        <p>ACTIONS</p>
+      </div>
       {isLoggedIn ? (
         cart.length === 0 ? (
           <h1>Your shopping cart is empty!</h1>
@@ -141,30 +154,39 @@ const Cart = () => {
           cart.length &&
           cart.map((element, index) => {
             return (
-              <div className="product_details" key={index}>
-                <p
-                  className="delete"
-                  id={element.id}
-                  onClick={(e) => {
-                    deleteItemsFromCart(element.id);
-                  }}
-                >
-                  ×
-                </p>
-                <div className="image_button">
-                  <img
-                    className="product_image"
-                    src={element.image}
-                    alt="product image"
-                  />
-                  <br></br>
-                  <div className="all_detals">
-                    {element.AvailableQuantity === 0 ? (
-                      <p>Sold Out</p>
-                    ) : (
-                      <div className="information_cart">
+              <div>
+                <div className="product_detailss" key={index}>
+                  <div className="img">
+                    <img src={element.image} alt="product image" />
+                  </div>
+
+                  <div className="name">
+                    <div>
+                      <p className="product_titlee">
+                        {element.title}
+                        <br></br>
+                        {element.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="price_product">
+                    <p>{element.price * element.quantity}JOD</p>
+                  </div>
+                  <div className="product_quantity">
+                    <p className="product-quantityy">{element.quantity}</p>
+                  </div>
+                  <div className="available_quantity">
+                    <p>{quantity - 1}</p>
+                  </div>
+
+                  {element.AvailableQuantity === 0 ? (
+                    <p>Sold Out</p>
+                  ) : (
+                    <div className="information_cartt">
+                      <div className="action">
                         <button
-                          className="decrees"
+                          className="decreess"
                           id={element.id}
                           onClick={(e) => {
                             element.AvailableQuantity !== quantity ? (
@@ -183,14 +205,10 @@ const Cart = () => {
                           -
                         </button>
 
-                        <p className="product-quantity">{element.quantity}</p>
-
                         <button
-                          className="increase"
+                          className="increasee"
                           id={element.id}
                           onClick={(e) => {
-                            
-
                             quantity - 1 !== 0 ? (
                               addToCart(element.id, 1)
                             ) : (
@@ -206,25 +224,18 @@ const Cart = () => {
                         >
                           +
                         </button>
+                        <button
+                          className="delete"
+                          id={element.id}
+                          onClick={(e) => {
+                            deleteItemsFromCart(element.id);
+                          }}
+                        >
+                          ×
+                        </button>
                       </div>
-                    )}
-
-                    <div className="details">
-                      <p className="product_title">
-                        {"Title : " + element.title}
-                      </p>
-                      <p className="product_total">
-                        {"Total : " + element.price * element.quantity}JOD
-                      </p>
-                      <p className="product_details">
-                        {"Description : " + element.description}
-                      </p>
-                      <p className="product_details">
-                        {"AvailableQuantity : " + (quantity - 1)}
-                      </p>
                     </div>
-                  </div>
-                  <Payment />
+                  )}
                 </div>
               </div>
             );
@@ -237,18 +248,20 @@ const Cart = () => {
       {cart.length === 0 ? (
         <></>
       ) : (
-        <h4 className="sub_total">{subtotal} JOD</h4>
+        <h4 className="sub_total">TOTAL PRICE : {subtotal} JOD</h4>
       )}
-      {/* <h4 className="sub_total">{subtotal} JOD</h4> */}
 
-      <button
-        className="empty_cart"
-        onClick={(e) => {
-          emptyCart();
-        }}
-      >
-        Empty Cart
-      </button>
+      <div className="final">
+        <Payment />
+        <button
+          className="empty_cart"
+          onClick={(e) => {
+            emptyCart();
+          }}
+        >
+          Empty Cart
+        </button>
+      </div>
     </div>
   );
 };

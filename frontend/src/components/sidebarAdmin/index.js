@@ -5,32 +5,32 @@ const SidebarAdmin =()=>{
     return (
       <div className="sidebar_admin">
         <Link className="register_link" to="/Admin/users">
-          admin
+          USERS
         </Link>
 
         <Link className="register_link" to="/Admin/brand">
-          admin
+          BRAND
         </Link>
 
         <Link className="register_link" to="/Admin">
-          admin
+          ADMIN
         </Link>
 
         <Link className="register_link" to="/Admin/product">
-          admin
+          PRODUCT
         </Link>
 
 
-        <Link className="register_link" to="/Admin/product/edit/:id">
+        {/* <Link className="register_link" to="/Admin/product/edit/:id">
           admin
-        </Link>
+        </Link> */}
 
-        <Link className="register_link" to="/Admin/product/create">
+        {/* <Link className="register_link" to="/Admin/product/create">
           admin
-        </Link>
+        </Link> */}
 
         <Link className="register_link" to="/Admin/Orders">
-          admin
+          ORDER
         </Link>
       </div>
     );

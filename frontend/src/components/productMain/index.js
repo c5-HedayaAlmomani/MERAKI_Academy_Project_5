@@ -22,6 +22,7 @@ const ProductMain = () => {
   //! redux =========
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState([]);
   const [page, setPage] = useState(1);
 
   const getAllProductNoLimit = () => {
@@ -37,7 +38,7 @@ const ProductMain = () => {
         console.log(err);
       });
   };
-  
+
   const gitAllProduct = () => {
     axios
       .get(`http://localhost:5000/products/four/pagination/${page}`)
@@ -51,7 +52,7 @@ const ProductMain = () => {
 
   const addToCart = async (id) => {
     if (!token) return alert("Please login to continue buying");
-    const orderId=localStorage.getItem("orderId")
+    const orderId = localStorage.getItem("orderId")
 
     await axios
       .post(
@@ -59,7 +60,7 @@ const ProductMain = () => {
         {
           productId: id,
           quantity: 1,
-          order_id:orderId,
+          order_id: orderId,
 
         },
         { headers: { authorization: `Bearer ${token}` } }
@@ -73,8 +74,19 @@ const ProductMain = () => {
       });
   };
 
+  const gitAllCategory = () => {
+    axios
+      .get(`http://localhost:5000/category/pagination/${page}`)
+      .then((result) => {
+        setCategory(result.data.result);
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
+  };
+
   const sortFunction = (e) => {
-    
+
     if (e == "high Price") {
       let sortedProduct = products.sort((a, b) => b.price - a.price);
       setSorts(sortedProduct);
@@ -88,14 +100,39 @@ const ProductMain = () => {
       console.log("product", products);
     }
   };
-
+  useEffect(gitAllCategory, [page]);
   useEffect(gitAllProduct, [page]);
   useEffect(getAllProductNoLimit, []);
 
   return (
     <div className="main">
-        <p>NEW PRODUCTS</p>
-  
+      {/* <p>AllCategory</p>
+      <div>
+
+        {
+
+          category.length && category.map((element, index) => {
+            return (<div key={index} className="contenar_category_brands">
+              <img src={element.image} className="img_category_brands" onClick={() => {
+                navigate(
+                  `allCategory/${element.brand}/PRO/${element.brand}/${element.category}`
+                );
+              }} />
+
+
+              <div className="contenar_namecategoryand_bands">
+                <img src={element.image} className="img_brand_brands" />
+                <p className="p_category_brands">{element.category}</p>
+
+              </div>
+            </div>)
+          })
+
+        }
+
+      </div> */}
+
+      <p>NEW PRODUCTS</p>
 
       <div className="pro_main">
 
@@ -103,81 +140,85 @@ const ProductMain = () => {
           products.map((e, i) => {
             return (
               <div className="product_main">
-             
-               
-            
-              <img onClick={() => {
+
+
+
+                <img onClick={() => {
                   navigate(`/product/${e.id}`);
-                 }} src={e.image} alt="" />
-              <div className="innfo">
-                <h2>{e.title}</h2>
-              
-                
-               <p>PRICE {e.price} JOD</p> 
-                {e.AvailableQuantity>0?(<button      className="addcart"
+                }} src={e.image} alt="" />
+                <div className="innfo">
+                  <h2>{e.title}</h2>
+
+
+                  <p>PRICE {e.price} JOD</p>
+                  {e.AvailableQuantity > 0 ? (<button className="addcart"
                     onClick={() => {
-                    
-                    addToCart(e.id);
-                    }}>Add to Cart</button>):(<button className="Sold_out_productmain" style={{backgroundColor:"red"}}>SoldOut</button>)}       
-                  
-            </div>
-              
-              
+
+                      addToCart(e.id);
+                    }}>Add to Cart</button>) : (<button className="Sold_out_productmain" style={{ backgroundColor: "red" }}>SoldOut</button>)}
+
+                </div>
+
+
               </div>
             );
           })}
-          </div>
-    
-<div className="buttons">
-      {arrayofPage.map((element, index) => {
-        return (
-          <div key={index}>
+
+      </div>
+
+
+
+
+      <div className="buttons">
+        {arrayofPage.map((element, index) => {
+          return (
+            <div key={index}>
+              <button
+                onClick={() => {
+                  setPage(index + 1);
+                  gitAllProduct();
+                  setIndex(index + 1);
+                }}
+              >
+                {index + 1}
+              </button>
+            </div>
+          );
+        })}
+
+        {page != 1 ? (
+          <>
+            <button
+              onClick={() => {
+                setPage(index - 1);
+
+                setIndex(index - 1);
+                gitAllProduct();
+              }}
+            >
+              back
+            </button>
+          </>
+        ) : (
+          <></>
+        )}
+        {page != numberOfPage ? (
+          <>
             <button
               onClick={() => {
                 setPage(index + 1);
-                gitAllProduct();
                 setIndex(index + 1);
+
+                gitAllProduct();
               }}
             >
-              {index + 1}
+              next
             </button>
-          </div>
-        );
-      })}
-
-      {page != 1 ? (
-        <>
-          <button
-            onClick={() => {
-              setPage(index - 1);
-              
-              setIndex(index - 1);
-              gitAllProduct();
-            }}
-          >
-            back
-          </button>
-        </>
-      ) : (
-        <></>
-      )}
-      {page != numberOfPage ? (
-        <>
-          <button
-            onClick={() => {
-              setPage(index + 1);
-              setIndex(index + 1);
-
-              gitAllProduct();
-            }}
-          >
-            next
-          </button>
-        </>
-      ) : (
-        <></>
-      )}
-</div>
+          </>
+        ) : (
+          <></>
+        )}
+      </div>
 
 
     </div>

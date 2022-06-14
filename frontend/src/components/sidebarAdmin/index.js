@@ -21,14 +21,6 @@ const SidebarAdmin =()=>{
         </Link>
 
 
-        {/* <Link className="register_link" to="/Admin/product/edit/:id">
-          admin
-        </Link> */}
-
-        {/* <Link className="register_link" to="/Admin/product/create">
-          admin
-        </Link> */}
-
         <Link className="register_link" to="/Admin/Orders">
           ORDER
         </Link>
@@ -37,3 +29,5 @@ const SidebarAdmin =()=>{
 }
 
 export default SidebarAdmin;
+
+

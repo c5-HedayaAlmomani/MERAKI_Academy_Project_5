@@ -123,6 +123,7 @@ const Getbrand = () => {
         })}
       </ul>
     </div>)}
+    
     </div>
   )
 };

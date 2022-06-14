@@ -107,8 +107,9 @@ const Brand = () => {
         {
 
           categorys.length && categorys.map((element, index) => {
+            console.log("element---------------",element);
             return (<div key={index} className="contenar_category_brands">
-              <img src={element.image} className="img_category_brands" onClick={() => {
+              <img src={element.img} className="img_category_brands" onClick={() => {
                 navigate(
                   `allCategory/${element.brand}/PRO/${element.brand}/${element.category}`
                 );

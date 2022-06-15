@@ -63,12 +63,12 @@ export const New = function () {
   );
 };
 //!=============================================
-// import React from 'react';
+
 
 
 
 export function Appppp(){
-  const notify = () => toast("Wow so easy!");
+  const notify = () => toast("Edited successfully");
 
   return (
     <div>

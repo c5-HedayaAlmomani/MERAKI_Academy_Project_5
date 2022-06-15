@@ -8,6 +8,8 @@ import {
   deleteFromBrand,
 } from "../../redux/reducers/brand";
 import { getCloudinaryAction ,addToCloudinaryAction} from "../../redux/reducers/cloudinary";
+import { FaTrash } from "react-icons/fa";
+
 import Upload from "../upload";
 import "./style.css"
 
@@ -100,15 +102,15 @@ const BrandAdmin = () => {
               return (
                 <tr key={index}>
                   <td >{index + 1}</td>
-                  <td ><img src={element.image}/></td>
+                  <td ><img className="tableImage" src={element.image}/></td>
                   <td >{element.brand}</td>
                   <td>
-                    <button
+                    <button className="DeleteBrand"
                       onClick={() => {
                         deleteBrandAdmin(element.id);
                       }}
                     >
-                      Delete
+                      <FaTrash/>  Delete 
                     </button>
                   </td>
                   
@@ -118,10 +120,8 @@ const BrandAdmin = () => {
         </table>
       </div>
 
-      <h6>Add Brand</h6>
-      <h5>Picture</h5>
+      <h3>Add Brand</h3>
       <Upload/>
-        <input type="text"  className="title" onChange={(e)=>{setImage(e.target.value)}}/>
         
       <input
         type="text"

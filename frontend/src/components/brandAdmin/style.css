@@ -1,22 +1,62 @@
+.BrandAdmin{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  padding-top: 5%;
+  padding-bottom: 5%;
+
+}
+
+.tableImage {
+  width: 30%;
+}
+
+
+
+
 #adminT {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
-  }
+    width: 70vw; 
+   }
   
   #adminT td, #adminT th {
     border: 1px solid #ddd;
     padding: 8px;
   }
   
-  #adminT tr:nth-child(even){background-color: #f2f2f2;}
+  #usersT tr:nth-child(odd) {
+    background-color: #d4ffdd80;
+  }
   
-  #adminT tr:hover {background-color: #ddd;}
+  #adminT tr:hover {background-color: rgba(93, 133, 81, 0.521);}
   
   #adminT th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: #04AA6D;
     color: white;
   }
+
+  .DeleteBrand {
+    cursor: pointer;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    color: #b90000;
+    font-weight: 900;
+  }
+
+  .ActionsCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    row-gap: 5px;
+}
+

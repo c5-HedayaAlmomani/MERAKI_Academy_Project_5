@@ -16,9 +16,9 @@
   background-color: #d4ffdd80;
 }
 
-#usersT tr:hover {
+/* #usersT tr:hover {
   background-color: rgba(93, 133, 81);
-}
+} */
 
 #usersT th {
   padding-top: 12px;
@@ -29,7 +29,7 @@
   align-items: center;
 }
 
-.UsersComponent {
+.UsersComponent , .order_admin {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -46,8 +46,7 @@
   row-gap: 5px;
 }
 
-.thAction {
-}
+
 
 .Delete {
   cursor: pointer;

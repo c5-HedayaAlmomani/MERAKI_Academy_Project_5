@@ -9,16 +9,13 @@ import products, {
 } from "../../redux/reducers/products";
 import { useEffect } from "react";
 import { useState } from "react";
+import { FaTrash } from "react-icons/fa";
+import { FaUserEdit } from "react-icons/fa";
+
 import("./style.css");
 
 const ProductAdmin = () => {
-  //   const [title, setTitle] = useState("");
-  //   const [description, setDescription] = useState("");
-  //   const [price, setPrice] = useState("");
-  //   const [image, setImage] = useState("");
-  //   const [category_id, setCategory_id] = useState("");
-  //   const [sub_category_id, setSub_Category_id] = useState("");
-
+  
   //! redux =========
   const dispatch = useDispatch();
 
@@ -48,7 +45,7 @@ const ProductAdmin = () => {
   };
 
   const deleteProduct = (id) => {
-    console.log(id);
+    
     axios
       .delete(`http://localhost:5000/products/${id}`, {
         headers: { authorization: `Bearer ${token}` },
@@ -66,7 +63,23 @@ const ProductAdmin = () => {
 
   return (
     <div className="ProductAdmin">
-      <table id="productT">
+     
+       <div className="Add_Product">
+        <br></br>
+        <button
+          className="Add_Productbutton" role="button"
+          onClick={() => {
+            navigate("/Admin/product/create");
+          }}
+          
+        >
+          <span class="text"> Add Product</span>
+        </button>
+      </div>
+      
+      <br></br>
+      <br></br>
+      <table id="usersT">
         <tr>
           <th>#</th>
           <th>Product Name</th>
@@ -78,7 +91,7 @@ const ProductAdmin = () => {
           <th>Brand </th>
           <th>Category </th>
 
-          <th /* style={{borderRight:"1px solid black"}} */>Actions</th>
+          <th className="thAction">Actions</th>
         </tr>
         {products.length &&
           products.map((element, index) => {
@@ -93,39 +106,31 @@ const ProductAdmin = () => {
                 <td>{new Date(element.create_Date).toLocaleString("es-CL")}</td>
                 <td>{element.brand}</td>
                 <td>{element.category}</td>
-                <td>
+                <td className="ActionsCont">
+                <button
+                    className="Update"
+                    onClick={() => {
+                      navigate(`/Admin/product/edit/${element.id}`);
+                    }}
+                  >
+                   <FaUserEdit/>  Edit
+                  </button>
                   <button
-                    className="delete_button"
+                    className="Delete"
                     onClick={() => {
                       console.log(element);
                       deleteProduct(element.id);
                     }}
                   >
-                    Delete
+                    <FaTrash/>  Delete 
                   </button>
-                  <button
-                    className="edit_button"
-                    onClick={() => {
-                      navigate(`/Admin/product/edit/${element.id}`);
-                    }}
-                  >
-                    Edit
-                  </button>
+                  
                 </td>
               </tr>
             );
           })}
       </table>
-      <div className="Add_Product">
-        <button
-          className="Add_Product"
-          onClick={() => {
-            navigate("/Admin/product/create");
-          }}
-        >
-          Add Product
-        </button>
-      </div>
+     
     </div>
   );
 };

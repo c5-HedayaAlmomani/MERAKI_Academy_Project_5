@@ -44,7 +44,6 @@
   font-weight: 700;
 }
 
-
 .navbar {
   background-color: rgb(168, 214, 193);
   width: 100%;
@@ -135,6 +134,25 @@
   font-size: xx-large;
 }
 
+.SERCHa {
+  position: absolute;
+  width: 62vh;
+  background-color: rgba(218, 218, 248, 0.795);
+  left: 292px;
+  top: 60px;
+  border-radius: 5px;
+  border: 2px solid black;
+  display: flex;
+}
+.SERCHa img {
+  width: 8.5vh;
+  height: auto;
+  border-radius: 5px;
+}
+.SERCHa p {
+  margin: auto;
+}
+
 /* @media (max-width:600px)
 {
   
@@ -173,4 +191,30 @@
 
 
 
+} */
+
+/* input {
+    
+  margin: 0 auto;
+  float: none;
+  width:100%;
+  max-width: 300px;
+  padding: 5px 10px;
+  border: 2px solid black;
+}
+ul {
+margin: 0;
+padding: 0;
+}
+li {
+  text-align: left;
+  padding: 5px 10px;
+  width: 100%;
+  max-width: 280px;
+  margin: 1px auto;
+  background-color: white;
+  border: 1px solid       black;
+  
+
+  list-style: none;
 } */

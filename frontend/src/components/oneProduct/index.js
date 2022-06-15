@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa";
+import {FaCartPlus} from "react-icons/fa"
 const OneProduct = () => {
   const [product, setProduct] = useState([]);
   const [feedback, setFeedback] = useState([]);
@@ -290,12 +291,8 @@ const OneProduct = () => {
                       addToCart(e.id);
                     }}
                   >
-                    Add To Cart{" "}
-                    <i
-                      className="love"
-                      class="fa fa-heart"
-                      aria-hidden="true"
-                    ></i>
+                   <FaCartPlus/> Add To Cart{" "}
+                    
                   </button>
                 </div>
               </div>

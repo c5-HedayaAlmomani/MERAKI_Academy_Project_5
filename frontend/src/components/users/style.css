@@ -1,7 +1,10 @@
 #usersT {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: auto;
+    /* margin-top: %; */
+    /* margin-bottom: 5vh; */
+
   }
   
   #usersT td, #usersT th {
@@ -9,14 +12,59 @@
     padding: 8px;
   }
   
-  #usersT tr:nth-child(even){background-color: #f2f2f2;}
+  #usersT tr:nth-child(odd){background-color: #d4ffdd80;}
   
-  #usersT tr:hover {background-color: #ddd;}
+  #usersT tr:hover {background-color: rgb(190, 252, 175);}
   
   #usersT th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: #04AA6D;
     color: white;
+align-items: center;  }
+
+
+  .UsersComponent{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+
+  }
+  .ActionsCont{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-start;
+row-gap: 5px;
+
+
+  }
+
+  .thAction{
+  }
+
+  .Delete  {
+    cursor: pointer;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none; 
+    color: #b90000;
+    font-weight: 900;
+  }
+
+  .Update{
+    cursor: pointer;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none; 
+    color: #b90000;
+    font-weight: 900;
+  }
+  .Update svg {
+    color: blue;
   }

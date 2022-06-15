@@ -77,7 +77,8 @@ const Order = () => {
       <h2 className="Title">
         Order History
       </h2>
-        {order.length &&
+
+        {order.length===0 ?<h3>No order yet</h3>  :order.length &&
           order.map((element, index) => (
 
             <div className="one_order">

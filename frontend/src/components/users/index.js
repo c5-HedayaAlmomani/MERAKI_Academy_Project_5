@@ -124,7 +124,7 @@ const UsersComponent = () => {
                     
                   
 
-                    <button 
+                    <button className="Delete"
                       onClick={() => {
                         deleteUserAdmin(element.id);
                       }}

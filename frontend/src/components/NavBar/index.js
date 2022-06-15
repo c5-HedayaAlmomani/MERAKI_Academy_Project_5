@@ -12,7 +12,7 @@ import "./style.css";
 const Dashboard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [Check,setCheck]=useState(false)
+  const [Check, setCheck] = useState(false)
 
   const [searchArray, setsearchArray] = useState([]);
 
@@ -28,7 +28,7 @@ const Dashboard = () => {
       };
     }
   );
-// const Check=false
+  // const Check=false
   const searchFunction = (searchInput) => {
     if (searchInput.length === 0) {
       setsearchArray([]);
@@ -41,10 +41,10 @@ const Dashboard = () => {
           const search1 = result.data.result.filter((element, index) => {
             return element.title.includes(searchInput);
           });
-          if(search1.length===0){
+          if (search1.length === 0) {
             setCheck(false)
 
-          }else{
+          } else {
             setCheck(true)
           }
           setsearchArray(search1);
@@ -57,84 +57,91 @@ const Dashboard = () => {
 
   return (
     <div className="navv">
-      
-        <div className="navbar">
-          <i
-            onClick={() => {
-              dispatch(setShoeAction(!show));
-            }}
-            className="first_icon"
-            class="fa fa-bars"
-            aria-hidden="true"
-          ></i>
-          <img
-            className="logo_img"
-            src="https://res.cloudinary.com/hudhud/image/upload/v1655027682/maxqgc69/jewjejpruuyddsyu4uis.png"
-          />
 
-<Link className="All_Product_nav" to="product">
-        All Product
-      </Link>
+      <div className="navbar">
+        <i
+          onClick={() => {
+            dispatch(setShoeAction(!show));
+          }}
+          className="first_icon"
+          class="fa fa-bars"
+          aria-hidden="true"
+        ></i>
+        <img
+          className="logo_img"
+          src="https://res.cloudinary.com/hudhud/image/upload/v1655027682/maxqgc69/jewjejpruuyddsyu4uis.png"
+        />
 
+        <Link className="All_Product_nav" to="product">
+          All Product
+        </Link>
 
+        {/* div */}
+        {<div className="navbarsearch">
           <input
             placeholder="    SEARCH"
-            className="search"
+            className="searchss"
             onChange={(e) => {
-
               searchFunction(e.target.value);
             }}
           />
-          {isLoggedIn ? (
-            <>
-              <Link className="cart" to="/cart">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </Link>
-              <a
-                className="logout"
-                onClick={() => {
-                  dispatch(logoutAction());
-                  navigate("/");
-                }}
-              >
-                Logout
-              </a>
-            </>
-          ) : (
-            <>
-              <Link className="login_link" to="/login">
-                Login
-              </Link>
-              <Link className="register_link" to="/register">
-                Sign up
-              </Link>
-            </>
-          )}
-        </div>
-        {Check?(<div className="navbar_section" >
-        {searchArray.length &&
-          searchArray.map((element, index) => {
-            if(searchArray.length!==0){
-              return(
-                <div
-                className="SERCHa"
-                onClick={() => {
-                  navigate(`/product/${element.id}`);
-                }}
-              >
-                <img
-                  className="Serch_title"
-                  src={element.image}
-                  alt="image product"
-                />
-                <p className="Serch_title">{element.title}</p>
-              </div> 
-              )
-            }else{
-              return <></>
-            }  
-          })}
-      </div> ):(<></>)}
+          {Check ? (<div className="navbar_section" >
+            {searchArray.length &&
+              searchArray.map((element, index) => {
+                if (searchArray.length !== 0) {
+                  return (
+                    <div
+                      className="SERCHa"
+                      onClick={()=>{navigate(`/product/${element.id}`);
+                      }}
+                    >
+                      <img
+                        className="Serch_img"
+                        src={element.image}
+                        alt="image product"
+                      />
+                      <p className="Serch_title">{element.title}</p>
+                      <p>{element.description}</p>
+                    </div>
+                  )
+                } else {
+                  return <></>
+                }
+              })}
+          </div>) : (<></>)}
+        </div>}
+
+
+        {/* div search -> resulta */}
+
+
+        {isLoggedIn ? (
+          <>
+            <Link className="cart" to="/cart">
+              <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </Link>
+            <a
+              className="logout"
+              onClick={() => {
+                dispatch(logoutAction());
+                navigate("/");
+              }}
+            >
+              Logout
+            </a>
+          </>
+        ) : (
+          <>
+            <Link className="login_link" to="/login">
+              Login
+            </Link>
+            <Link className="register_link" to="/register">
+              Sign up
+            </Link>
+          </>
+        )}
+      </div>
+
     </div>
   );
 };

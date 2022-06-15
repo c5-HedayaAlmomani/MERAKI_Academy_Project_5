@@ -15,7 +15,7 @@ import { FaUserEdit } from "react-icons/fa";
 import("./style.css");
 
 const ProductAdmin = () => {
-  
+  const [test, setTest] = useState(false);
   //! redux =========
   const dispatch = useDispatch();
 
@@ -45,7 +45,6 @@ const ProductAdmin = () => {
   };
 
   const deleteProduct = (id) => {
-    
     axios
       .delete(`http://localhost:5000/products/${id}`, {
         headers: { authorization: `Bearer ${token}` },
@@ -63,20 +62,19 @@ const ProductAdmin = () => {
 
   return (
     <div className="ProductAdmin">
-     
-       <div className="Add_Product">
+      <div className="Add_Product">
         <br></br>
         <button
-          className="Add_Productbutton" role="button"
+          className="Add_Productbutton"
+          role="button"
           onClick={() => {
             navigate("/Admin/product/create");
           }}
-          
         >
           <span class="text"> Add Product</span>
         </button>
       </div>
-      
+
       <br></br>
       <br></br>
       <table id="usersT">
@@ -107,30 +105,61 @@ const ProductAdmin = () => {
                 <td>{element.brand}</td>
                 <td>{element.category}</td>
                 <td className="ActionsCont">
-                <button
+                  <button
                     className="Update"
                     onClick={() => {
                       navigate(`/Admin/product/edit/${element.id}`);
                     }}
                   >
-                   <FaUserEdit/>  Edit
+                    <FaUserEdit /> Edit
                   </button>
                   <button
                     className="Delete"
                     onClick={() => {
                       console.log(element);
-                      deleteProduct(element.id);
+
+                      setTest(true);
                     }}
                   >
-                    <FaTrash/>  Delete 
+                    <FaTrash /> Delete
                   </button>
-                  
+
+                  {/* //!=================== */}
+                  {test ? (
+                    <div className="popup">
+                      <div className="popup-inner">
+                        <h1>Delete Product</h1>
+                        <p>Are you sure to Delete Product</p>
+
+                        <button
+                          className="close-btn"
+                          onClick={() => {
+                            deleteProduct(element.id);
+                            setTest(false);
+                          }}
+                        >
+                          yes
+                        </button>
+                        <button
+                          className="close-btn2"
+                          onClick={() => {
+                            setTest(false);
+                          }}
+                        >
+                          no
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+
+                  {/* //!=================== */}
                 </td>
               </tr>
             );
           })}
       </table>
-     
     </div>
   );
 };

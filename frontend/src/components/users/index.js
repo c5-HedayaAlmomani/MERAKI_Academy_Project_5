@@ -10,10 +10,13 @@ import {
 } from "../../redux/reducers/users";
 import { FaTrash } from "react-icons/fa";
 import { FaUserEdit } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./style.css";
 
 const UsersComponent = () => {
+  const [test, setTest] = useState(false);
   //! redux =========
   const dispatch = useDispatch();
 
@@ -30,7 +33,7 @@ const UsersComponent = () => {
   useEffect(() => {
     getAllUsers();
   }, []);
-
+  const notifyEdit = () => toast("Edited successfully");
   const getAllUsers = () => {
     axios
       .get(`http://localhost:5000/admin/users`, {
@@ -66,6 +69,7 @@ const UsersComponent = () => {
       .then((result) => {
         console.log(result);
         getAllUsers()
+        notifyEdit();
       })
       .catch((err) => {
         console.log(err);
@@ -126,11 +130,50 @@ const UsersComponent = () => {
 
                     <button className="Delete"
                       onClick={() => {
-                        deleteUserAdmin(element.id);
+                        setTest(true)
                       }}
                     >
                       <FaTrash/>  Delete User
                     </button>
+
+
+ {/* //!=================== */}
+ {test ? (
+        <div className="popup">
+          <div className="popup-inner">
+            <h1>Delete User</h1>
+            <p>Are you sure to delete user</p>
+
+            <button
+              className="close-btn"
+              onClick={() => {
+                deleteUserAdmin(element.id);
+                setTest(false);
+                
+              }}
+            >
+              yes
+            </button>
+            <button
+              className="close-btn2"
+              onClick={() => {
+                setTest(false);
+              }}
+            >
+              no
+            </button>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+
+      {/* //!=================== */}
+
+
+
+
+
                   </td>
                 </tr>
               </>

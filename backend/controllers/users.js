@@ -18,6 +18,26 @@ const getAllUsers = (req, res) => {
     });
   });
 };
+const getUserById = (req, res) => {
+  
+  const email = req.body.email
+  const query = `SELECT *,users.id FROM users INNER JOIN roles ON users.role_id=roles.id  WHERE is_deleted=0 AND users.email=?`;
+const data =[email]
+  connection.query(query,data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "Server error",
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      massage: "user",
+      result: result,
+    });
+  });
+};
 
 const updateUser = (req, res) => {
   const userId = req.params.id;
@@ -80,4 +100,5 @@ module.exports = {
   getAllUsers,
   updateUser,
   deleteUser,
+  getUserById
 };

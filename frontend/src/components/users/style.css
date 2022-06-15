@@ -1,70 +1,71 @@
 #usersT {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: auto;
-    /* margin-top: %; */
-    /* margin-bottom: 5vh; */
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: auto;
+  /* margin-top: %; */
+  /* margin-bottom: 5vh; */
+}
 
-  }
-  
-  #usersT td, #usersT th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #usersT tr:nth-child(odd){background-color: #d4ffdd80;}
-  
-  #usersT tr:hover {background-color: rgb(190, 252, 175);}
-  
-  #usersT th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background-color: #04AA6D;
-    color: white;
-align-items: center;  }
+#usersT td,
+#usersT th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
 
+#usersT tr:nth-child(odd) {
+  background-color: #d4ffdd80;
+}
 
-  .UsersComponent{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    min-height: 50vh;
+#usersT tr:hover {
+  background-color: rgba(93, 133, 81);
+}
 
-  }
-  .ActionsCont{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    align-items: flex-start;
-row-gap: 5px;
+#usersT th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04aa6d;
+  color: white;
+  align-items: center;
+}
 
+.UsersComponent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+.ActionsCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  row-gap: 5px;
+}
 
-  }
+.thAction {
+}
 
-  .thAction{
-  }
+.Delete {
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  color: #b90000;
+  font-weight: 900;
+}
 
-  .Delete  {
-    cursor: pointer;
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none; 
-    color: #b90000;
-    font-weight: 900;
-  }
-
-  .Update{
-    cursor: pointer;
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none; 
-    color: #b90000;
-    font-weight: 900;
-  }
-  .Update svg {
-    color: blue;
-  }
+.Update {
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  color: #b90000;
+  font-weight: 900;
+}
+.Update svg {
+  color: blue;
+}

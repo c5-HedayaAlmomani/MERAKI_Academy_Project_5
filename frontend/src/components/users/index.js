@@ -8,6 +8,9 @@ import {
   deleteFromUsers,
   updateProductAction,
 } from "../../redux/reducers/users";
+import { FaTrash } from "react-icons/fa";
+import { FaUserEdit } from "react-icons/fa";
+
 import "./style.css";
 
 const UsersComponent = () => {
@@ -62,6 +65,7 @@ const UsersComponent = () => {
       })
       .then((result) => {
         console.log(result);
+        getAllUsers()
       })
       .catch((err) => {
         console.log(err);
@@ -70,15 +74,20 @@ const UsersComponent = () => {
 
   return (
     <div className="UsersComponent">
+      <h3>Users Table</h3>
+      
+      <br></br>
+      <br></br>
+
       <table id="usersT">
         <tr>
           <th>#</th>
           <th>User Name </th>
           <th>Email</th>
           <th>Register Date</th>
-          <th>Last Login Date</th>
+          <th>Last Login </th>
           <th>Role</th>
-          <th>Actions</th>
+          <th className="thAction">Actions</th>
         </tr>
 
         {users.length &&
@@ -92,28 +101,35 @@ const UsersComponent = () => {
                   <td>
                     {new Date(element.created_at).toLocaleString("es-CL")}
                   </td>
-                  {new Date(element.userLoginTime).toLocaleString("es-CL")}
+                  <td>
+                     {new Date(element.userLoginTime).toLocaleString("es-CL")}
+                  </td>
+                 
 
                   <td>{element.role}</td>
 
-                  <td
+                  <td className="ActionsCont"
                     onClick={() => {
                       updateUserAdmin(element.id);
                     }}
                   >
-                    <button
+                    
+                    <button className="Update"
                       onClick={() => {
                         updateUserAdmin(element.id);
                       }}
                     >
-                      Edit
+                      <FaUserEdit/>  Make Admin
                     </button>
-                    <button
+                    
+                  
+
+                    <button className="Delete"
                       onClick={() => {
                         deleteUserAdmin(element.id);
                       }}
                     >
-                      delete
+                      <FaTrash/>  Delete User
                     </button>
                   </td>
                 </tr>

@@ -77,7 +77,7 @@ const UsersComponent = () => {
       <h3>Users Table</h3>
       
       <br></br>
-      <br></br>
+      
 
       <table id="usersT">
         <tr>

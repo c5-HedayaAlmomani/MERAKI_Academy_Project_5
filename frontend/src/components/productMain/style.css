@@ -55,6 +55,7 @@
   font-weight: 900;
   height: 53px;
   font-family: Arial;
+  
 }
 .innfo p {
   border: none;
@@ -75,10 +76,11 @@
 }
 .buttons button {
   border: none;
-  width: 42px;
-  height: 23px;
+  width: 6vh;
+  height: 4vh;
   color: rgb(245, 245, 245);
   background-color: #0b724c;
+  border-radius: 0.5vh;
 }
 
 

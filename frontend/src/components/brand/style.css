@@ -4,7 +4,7 @@
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content: flex-start;
+  justify-content: center;
   align-items: stretch;
 }
 
@@ -18,7 +18,7 @@
   grid-template-columns:100%;
   grid-template-rows: 85% 10%;
   width: 20vh;
-  height: 10vw;
+  height: 15vw;
   justify-items: center;
   background-color: rgb(240, 240, 240);
   margin: 10px;
@@ -30,7 +30,7 @@
 }
 
 .all_brand :hover {
-  background-color: rgba(230, 225, 225, 0.945);
+  /* background-color: rgba(230, 225, 225, 0.945); */
   transform: scale(1.05);
 }
 
@@ -60,7 +60,7 @@
   grid-template-columns:100%;
   grid-template-rows: 85% 10%;
   width: 20vh;
-  height: 10vw;
+  height: 15vw;
   justify-items: center;
   background-color: rgb(240, 240, 240);
   margin: 10px;

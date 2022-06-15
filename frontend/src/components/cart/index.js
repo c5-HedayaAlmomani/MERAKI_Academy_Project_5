@@ -2,6 +2,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Popup } from "../popup";
+
 import "./style.css";
 
 import Payment from "../payment";
@@ -33,8 +35,8 @@ const Cart = () => {
     };
   });
   //! redux =========
-
-
+  //?==============================
+  const [test, setTest] = useState(false);
   const [subtotal, SetSubTotal] = useState(0);
 
   useEffect(() => {
@@ -134,22 +136,24 @@ const Cart = () => {
 
   return (
     <div className="cart_containerr">
-      {cart.length? (<div className="title_productt">
-        <p>IMAGE</p>
-        <p>NAME</p>
-        <p>PRICE</p>
-        <p>QUANTITY</p>
-        <p>
-          <p>AVAILABLE </p>
-          <br></br>
+      {cart.length ? (
+        <div className="title_productt">
+          <p>IMAGE</p>
+          <p>NAME</p>
+          <p>PRICE</p>
           <p>QUANTITY</p>
-        </p>
+          <p>
+            <p>AVAILABLE </p>
+            <br></br>
+            <p>QUANTITY</p>
+          </p>
 
-        <p>ACTIONS</p>
-      </div>):(<></>)
+          <p>ACTIONS</p>
+        </div>
+      ) : (
+        <></>
+      )}
 
-      }
-      
       {isLoggedIn ? (
         cart.length === 0 ? (
           <h1 className="empty">Your shopping cart is empty!</h1>
@@ -227,15 +231,48 @@ const Cart = () => {
                         >
                           +
                         </button>
+
                         <button
                           className="delete"
                           id={element.id}
                           onClick={(e) => {
-                            deleteItemsFromCart(element.id);
+                            setTest(true);
                           }}
                         >
                           ×
                         </button>
+
+                        {/* //!=================== */}
+                        {test ? (
+                          <div className="popup">
+                            <div className="popup-inner">
+                              <h1>Delete Shop Cart</h1>
+                              <p>Are you sure to delete the shopping cart</p>
+
+                              <button
+                                className="close-btn"
+                                onClick={() => {
+                                  deleteItemsFromCart(element.id);
+                                  setTest(false);
+                                }}
+                              >
+                                yes
+                              </button>
+                              <button
+                                className="close-btn2"
+                                onClick={() => {
+                                  setTest(false);
+                                }}
+                              >
+                                no
+                              </button>
+                            </div>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+
+                        {/* //!=================== */}
                       </div>
                     </div>
                   )}
@@ -252,24 +289,20 @@ const Cart = () => {
         <></>
       ) : (
         <>
-        <h4 className="sub_total">TOTAL PRICE : {subtotal} JOD</h4>
-        <div className="final">
-        <Payment />
-        <button
-          className="empty_cart"
-          onClick={(e) => {
-            emptyCart();
-          }}
-        >
-          Empty Cart
-        </button>
-      </div>
-      </>
-        
+          <h4 className="sub_total">TOTAL PRICE : {subtotal} JOD</h4>
+          <div className="final">
+            <Payment />
+            <button
+              className="empty_cart"
+              onClick={(e) => {
+                emptyCart();
+              }}
+            >
+              Empty Cart
+            </button>
+          </div>
+        </>
       )}
-
-
-      
     </div>
   );
 };

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/reducers/auth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import "./style.css";
 
@@ -23,7 +25,7 @@ const Product = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
-
+  const notifyCart = () => toast("added successufully");
   const getAllProductNoLimit = () => {
     axios
       .get("http://localhost:5000/products")
@@ -140,6 +142,7 @@ const Product = () => {
                     onClick={() => {
                     console.log(e.id);
                     addToCart(e.id);
+                    notifyCart()
                     }}>Add to Cart</button>):(<button>SoldOut</button>)}       
                 
                   <button onClick={() => {

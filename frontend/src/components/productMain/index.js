@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/reducers/auth";
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import "./style.css";
 
@@ -38,7 +40,7 @@ const ProductMain = () => {
         console.log(err);
       });
   };
-
+  const notifyCart = () => toast("added successufully");
   const gitAllProduct = () => {
     axios
       .get(`http://localhost:5000/products/four/pagination/${page}`)
@@ -151,14 +153,20 @@ const ProductMain = () => {
 
 
                   <p>PRICE {e.price} JOD</p>
-                  {e.AvailableQuantity > 0 ? (<button className="addcart"
+                  {e.AvailableQuantity > 0 ? (<>
+                  <button className="addcart"
                     onClick={() => {
-
                       addToCart(e.id);
-                    }}>Add to Cart</button>) : (<button className="Sold_out_productmain" style={{ backgroundColor: "red" }}>SoldOut</button>)}
+                      notifyCart()
+                    }}>Add to Cart</button>
+                    
+                    </>
+                    
+                    
+                    ) : (<button className="Sold_out_productmain" style={{ backgroundColor: "red" }}>SoldOut</button>)}
 
                 </div>
-
+               
 
               </div>
             );
@@ -220,7 +228,7 @@ const ProductMain = () => {
         )}
       </div>
 
-
+     
     </div>
   );
 };

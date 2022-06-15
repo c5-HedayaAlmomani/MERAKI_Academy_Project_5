@@ -6,7 +6,8 @@ export const auth = createSlice({
     token: localStorage.getItem("token") || "",
     isLoggedIn: localStorage.getItem("token") ? true : false,
     orderId:localStorage.getItem("orderId")|| "",
-    isAdmin:false
+    isAdmin:false,
+    openPopup:false,
   },
   reducers: {
     // payload :token
@@ -30,9 +31,12 @@ export const auth = createSlice({
     ,
     setIsAdmainAction:(state , action)=>{
       state.isAdmin=action.payload
+    },
+    setOpenPopupAction:(state , action)=>{
+      state.openPopup=action.payload
     }
   },
 });
-export const { logoutAction, loginAction ,orderAction ,setIsAdmainAction} = auth.actions;
+export const { logoutAction, loginAction ,orderAction ,setIsAdmainAction , setOpenPopupAction} = auth.actions;
 
 export default auth.reducer;

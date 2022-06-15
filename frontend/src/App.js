@@ -18,7 +18,7 @@ import BrandAdmin from "./components/brandAdmin";
 import AdminOrder from "./components/orderAdmin";
 import ProductAdmin from "./components/productAdmin";
 import UpdateProductAdmin from "./components/productAdmin/UpdateProduct";
-
+import { ToastContainer, toast } from 'react-toastify';
 import Upload from "./components/upload";
 import Sold from "./components/sold";
 import Footer from "./components/footer";
@@ -29,10 +29,10 @@ import Privacy from "./components/footer/privacy";
 import Getbrand from "./components/getbrand";
 
 
+
 function App() {
   return (
     <div className="App">
-
       <NavBar />
       <Getbrand className="side_bar" />
       <Routes className="main">
@@ -64,11 +64,14 @@ function App() {
         <Route path="/order" element={<Order />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        {/* /privacy-policy/   Privacy */}
+   
         <Route path="/privacy-policy" element={<Privacy />}></Route>
         <Route path="/Admin/Orders" element={<AdminOrder />}></Route>
       </Routes>
       <Footer className="foter" />
+
+      <ToastContainer />
+
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"

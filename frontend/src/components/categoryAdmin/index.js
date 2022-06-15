@@ -8,6 +8,8 @@ import {
   addToCategoryAction,
   deleteFromCategory,
 } from "../../redux/reducers/categoryAdmin";
+import { FaTrash } from "react-icons/fa";
+
 import("./style.css");
 
 
@@ -40,7 +42,7 @@ const CategoryAdmin = () => {
       )
       // img
       .then((result) => {
-        console.log(result);
+        
         dispatch(
           addToCategoryAction({
             id: result.data.result.insertId,
@@ -50,6 +52,7 @@ const CategoryAdmin = () => {
             is_deleted: 0,
           })
         );
+        
       })
       .catch((err) => {
         console.log(err);
@@ -65,6 +68,7 @@ const CategoryAdmin = () => {
       )
       .then((result) => {
         console.log(result);
+        
       })
       .catch((err) => {
         console.log(err);
@@ -78,7 +82,6 @@ const CategoryAdmin = () => {
       })
       .then((result) => {
         dispatch(getCategoryAction(result.data.result));
-        console.log(result);
 
       })
       .catch((err) => {
@@ -104,9 +107,54 @@ const CategoryAdmin = () => {
   }, []);
 
   return (
-    <div className="category_Admin">
+    <div className="BrandAdmin">
+      <div className="create_Brand">
+      <div className="inputDiv">
+          <div className="brand_Name">
+          <h3>🗄 Add Category</h3>
+ <Upload />
+ <h6>Title</h6>
+<input
+        className="brandInput"
+        placeholder="category Name"
+        onChange={(e) => {
+          setCategoryName(e.target.value);
+        }}
+      />
+<h6>Brand</h6>
+<select onClick={(e)=>{setBrand(e.target.value)}}>
+        <option value="0">Select</option> 
+          {brands&& brands.map((element,index)=>{
+            return (<>
+              
+              <option value={element.id}>{element.brand}</option>   
+              </>
+                      )
+          })}
+        </select>
+          </div>
+          <button
+        className="add_brand"
+        onClick={() => {
+          addCategoryAdmin(categoryName);
+        }}
+      >
+        Add Category{" "}
+      </button>
+      </div>
+</div>
+
+
+
+
+
+
+
+
       <div className="category_contener">
-        <table id="categryT">
+<h2>🗄 Brand Table</h2>
+<hr />
+        <table id="adminT">
           <tr>
             <th>#</th>
             <th>ID</th>
@@ -127,13 +175,14 @@ const CategoryAdmin = () => {
                   <td>{element.brand}</td>
 
                   <td>
-                    <p
+                    <button
+                    className="DeleteBrand"
                       onClick={() => {
                         deleteCategoryAdmin(element.id);
                       }}
                     >
-                      Delete
-                    </p>
+                      <FaTrash /> Delete
+                    </button>
                   </td>
                 </tr>
               );
@@ -141,46 +190,9 @@ const CategoryAdmin = () => {
         </table>
       </div>
 
-      <h6>Add Category</h6>
-      <h5>Picture</h5>
-      <Upload />
+     
       
-
-      <h5>Title</h5>
-      <input
-        className="category"
-        placeholder="category Name"
-        onChange={(e) => {
-          setCategoryName(e.target.value);
-        }}
-      />
-      <h5>Brand</h5>
-
-        <select onClick={(e)=>{setBrand(e.target.value)}}>
-        <option value="0">Select</option> 
-          {brands&& brands.map((element,index)=>{
-            return (<>
-              
-              <option value={element.id}>{element.brand}</option>   
-              </>
-                      )
-          })}
-        </select>
-      {/* <input
-        className="category"
-        placeholder="category Name"
-        onChange={(e) => {
-          setBrand(e.target.value);
-        }}
-      /> */}
-      <button
-        className="add_category"
-        onClick={() => {
-          addCategoryAdmin(categoryName);
-        }}
-      >
-        Add Category{" "}
-      </button>
+      
     </div>
   );
 };

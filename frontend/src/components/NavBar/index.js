@@ -37,6 +37,7 @@ const Dashboard = () => {
       axios
         .get(`http://localhost:5000/products`)
         .then((result) => {
+          console.log(result.data.result);
           const search1 = result.data.result.filter((element, index) => {
             return element.title.includes(searchInput);
           });
@@ -45,7 +46,6 @@ const Dashboard = () => {
 
           }else{
             setCheck(true)
-
           }
           setsearchArray(search1);
         })

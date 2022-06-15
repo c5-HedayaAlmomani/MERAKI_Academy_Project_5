@@ -32,6 +32,7 @@ import Getbrand from "./components/getbrand";
 function App() {
   return (
     <div className="App">
+
       <NavBar />
       <Getbrand className="side_bar" />
       <Routes className="main">
@@ -41,7 +42,7 @@ function App() {
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/product/:id" element={<OneProduct />}></Route>
         <Route path="/" element={<Brand />}></Route>
-        // <Route path="/category" element={<Category />}></Route>
+        <Route path="/category" element={<Category />}></Route>
         <Route path="/Admin/category" element={<CategoryAdmin />}></Route>
         <Route path="/allCategory/:brand" element={<CatByBrand />}></Route>
         <Route

@@ -6,7 +6,7 @@ export const auth = createSlice({
     token: localStorage.getItem("token") || "",
     isLoggedIn: localStorage.getItem("token") ? true : false,
     orderId:localStorage.getItem("orderId")|| "",
-    isAdmin:(true)
+    isAdmin:false
   },
   reducers: {
     // payload :token

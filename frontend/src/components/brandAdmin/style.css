@@ -14,9 +14,6 @@
   width: 30%;
 }
 
-
-
-
 #adminT {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -28,11 +25,11 @@
     padding: 8px;
   }
   
-  #usersT tr:nth-child(odd) {
+  #usersT tr:nth-child(even) {
     background-color: #d4ffdd80;
   }
   
-  #adminT tr:hover {background-color: rgba(93, 133, 81, 0.521);}
+  /* #adminT tr:hover {background-color: rgba(93, 133, 81, 0.521);} */
   
   #adminT th {
     padding-top: 12px;
@@ -59,4 +56,127 @@
     align-items: flex-start;
     row-gap: 5px;
 }
+
+.create_Brand{
+  border: solid gray 1px;
+  background-color: white;
+  margin-bottom: 5%;
+  width: 60vw;
+}
+
+.brand_Name{
+  /* gap: 10%; */
+  grid-area: a;
+  display: flex;
+  /* grid-area: a; */
+  color: black;
+  /* width: 70%; */
+  /* margin: auto; */
+  /* display: flex; */
+  /* align-items: center; */
+  flex-direction: column;
+  align-items: center;
+  min-height: 30vh;
+  gap: 10%;
+
+
+  /* grid-area: a;
+  color: black;
+  width: 70%;
+margin: auto;
+display: flex;
+align-items: center; */
+}
+
+.brand_Name h3{
+  margin-bottom: 5%;
+  margin-top: 2%;
+
+}
+.brand_Name h6{
+  margin-top: 5%;
+
+}
+
+.brandInput::placeholder {
+  color: rgb(131, 131, 131);
+}
+
+.add_brand{
+  grid-area: b;
+  display:inline-block;
+
+}
+.inputDiv{
+  display: grid;
+grid-template-columns: 70% 30%;
+grid-template-areas: "a b";
+}
+
+.brandInput{
+  margin-top: 2%;
+width: 70%;
+}
+
+/* CSS */
+.add_brand {
+  appearance: none;
+  background-color: #04AA6D;
+  border: 1px solid rgba(27, 31, 35, .15);
+  /* border-radius: 6px; */
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.add_brand:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.add_brand:hover {
+  background-color: #2c974b;
+}
+
+.add_brand:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.add_brand:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.add_brand:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+.category_contener h2 {
+text-align: left;
+
+}
+
+.category_contener hr {
+  padding-bottom: 15px;
+}
+
 

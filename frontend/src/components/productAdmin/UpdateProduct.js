@@ -2,6 +2,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import products, {
   setProductsAction,
   addProductAction,
@@ -13,6 +15,7 @@ import { useState } from "react";
 import Upload from "../upload";
 
 const UpdateProductAdmin = () => {
+  const [test, setTest] = useState(false);
   const { id } = useParams();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -24,17 +27,18 @@ const UpdateProductAdmin = () => {
   //! redux =========
   const dispatch = useDispatch();
 
-  const { token, isLoggedIn, users, products,cloudinary } = useSelector((state) => {
-    return {
-      token: state.auth.token,
-      isLoggedIn: state.auth.isLoggedIn,
-      products: state.products.products,
-      cloudinary:state.cloudinary.cloudinary
-
-    };
-  });
+  const { token, isLoggedIn, users, products, cloudinary } = useSelector(
+    (state) => {
+      return {
+        token: state.auth.token,
+        isLoggedIn: state.auth.isLoggedIn,
+        products: state.products.products,
+        cloudinary: state.cloudinary.cloudinary,
+      };
+    }
+  );
   const navigate = useNavigate();
-
+  const notifyEdit = () => toast("Edited successfully");
   const updateProduct = () => {
     axios
       .put(
@@ -54,9 +58,10 @@ const UpdateProductAdmin = () => {
       .then((result) => {
         dispatch(updateProductAction(id));
         console.log(result);
+        notifyEdit();
       })
       .catch((err) => {
-          console.log(err);
+        console.log(err);
       });
   };
 
@@ -64,18 +69,74 @@ const UpdateProductAdmin = () => {
     <div className="UpdateProductAdmin">
       <div className="image_container">
         <h5> add new Picture</h5>
-        <Upload/>
-        
+        <Upload />
       </div>
       <div className="input_container">
         <h5>Title</h5>
-        <input type="text" className="title" onChange={(e)=>{setTitle(e.target.value)}}/>
+        <input
+          type="text"
+          className="title"
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
         <h5>Description</h5>
-        <input type="text" className="description" onChange={(e)=>{setDescription(e.target.value)}}/>
+        <input
+          type="text"
+          className="description"
+          onChange={(e) => {
+            setDescription(e.target.value);
+          }}
+        />
         <h5>Price</h5>
-        <input type="number" className="title" onChange={(e)=>{setPrice(e.target.value)}} />
+        <input
+          type="number"
+          className="title"
+          onChange={(e) => {
+            setPrice(e.target.value);
+          }}
+        />
       </div>
-      <button className="but_add_pro" onClick={()=>{updateProduct()}}>Edit Product</button>
+      <button
+        className="but_add_pro"
+        onClick={() => {
+          setTest(true);
+        }}
+      >
+        Edit Product
+      </button>
+
+      {/* //!=================== */}
+      {test ? (
+        <div className="popup">
+          <div className="popup-inner">
+            <h1>Update Product</h1>
+            <p>Are you sure to Update Product</p>
+
+            <button
+              className="close-btn"
+              onClick={() => {
+                updateProduct();
+                setTest(false);
+              }}
+            >
+              yes
+            </button>
+            <button
+              className="close-btn2"
+              onClick={() => {
+                setTest(false);
+              }}
+            >
+              no
+            </button>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+
+      {/* //!=================== */}
     </div>
   );
 };

@@ -34,24 +34,25 @@ function Upload() {
   return (
     <div className="upload">
        {!loading ? <div style={{background:"none"}}><p></p></div> : <img className="img_cloudenary" src={image} style={{ width: "300px" }} />}
-      <button
-        onClick={(e) => {
-          uploadImage(e);
-        }}
-      >
-        image
-      </button>
+     
 
 
       <input
+      placeholder="Upload an image"
         type="file"
         name="file"
-        placeholder="Upload an image"
+        
         onChange={(e) => {
           setImage(e.target.files[0]);
         }}
       />
-     
+       <button 
+        onClick={(e) => {
+          uploadImage(e);
+        }}
+      >
+        Submit
+      </button>
     </div>
   );
 }

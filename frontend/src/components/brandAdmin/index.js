@@ -7,11 +7,14 @@ import {
   addToBrandAction,
   deleteFromBrand,
 } from "../../redux/reducers/brand";
-import { getCloudinaryAction ,addToCloudinaryAction} from "../../redux/reducers/cloudinary";
+import {
+  getCloudinaryAction,
+  addToCloudinaryAction,
+} from "../../redux/reducers/cloudinary";
 import { FaTrash } from "react-icons/fa";
 
 import Upload from "../upload";
-import "./style.css"
+import "./style.css";
 
 const BrandAdmin = () => {
   //! redux =========
@@ -19,14 +22,16 @@ const BrandAdmin = () => {
   const [brandName, setBrandName] = useState("");
   const [image, setImage] = useState("");
 
-  const { token, isLoggedIn, category, brands ,cloudinary} = useSelector((state) => {
-    return {
-      token: state.auth.token,
-      isLoggedIn: state.auth.isLoggedIn,
-      brands: state.brands.brands,
-      cloudinary:state.cloudinary.cloudinary
-    };
-  });
+  const { token, isLoggedIn, category, brands, cloudinary } = useSelector(
+    (state) => {
+      return {
+        token: state.auth.token,
+        isLoggedIn: state.auth.isLoggedIn,
+        brands: state.brands.brands,
+        cloudinary: state.cloudinary.cloudinary,
+      };
+    }
+  );
   console.log(brands);
   //! redux =========
   const navigate = useNavigate();
@@ -70,7 +75,7 @@ const BrandAdmin = () => {
           addToBrandAction({
             id: result.data.result.insertId,
             brand: brandName,
-            image:image,
+            image: image,
             is_deleted: 0,
           })
         );
@@ -86,59 +91,68 @@ const BrandAdmin = () => {
 
   return (
     <div className="BrandAdmin">
+      <div className="create_Brand">
+        <div className="inputDiv">
+          <div className="brand_Name">
+            <h3>Add Brand</h3>
+            <Upload />
+            <h6> Brand Name :</h6>
+            <input
+              type="text"
+              className="brandInput"
+              placeholder="Brand Name"
+              onChange={(e) => {
+                setBrandName(e.target.value);
+              }}
+            />
+          </div>
+
+          <button
+            className="add_brand"
+            onClick={() => {
+              addBrandAdmin();
+            }}
+          >
+            Add Brand{" "}
+          </button>
+        </div>
+      </div>
+
       <div className="category_contener">
+        <h2>🗄 Brand Table</h2>
+        <hr />
         <table id="adminT">
           <tr>
-            <th >#</th>
-            <th >Brand image </th>
-            <th >Brand Name </th>
-
-            
-            <th >Actions</th>
+            <th>#</th>
+            <th>Brand image </th>
+            <th>Brand Name </th>
+            <th>Actions</th>
           </tr>
-          
+
           {brands.length &&
             brands.map((element, index) => {
               return (
                 <tr key={index}>
-                  <td >{index + 1}</td>
-                  <td ><img className="tableImage" src={element.image}/></td>
-                  <td >{element.brand}</td>
+                  <td>{index + 1}</td>
                   <td>
-                    <button className="DeleteBrand"
+                    <img className="tableImage" src={element.image} />
+                  </td>
+                  <td>{element.brand}</td>
+                  <td>
+                    <button
+                      className="DeleteBrand"
                       onClick={() => {
                         deleteBrandAdmin(element.id);
                       }}
                     >
-                      <FaTrash/>  Delete 
+                      <FaTrash /> Delete
                     </button>
                   </td>
-                  
                 </tr>
               );
             })}
         </table>
       </div>
-
-      <h3>Add Brand</h3>
-      <Upload/>
-        
-      <input
-        type="text"
-        className="brand_Name"
-        placeholder="brand_Name"
-        onChange={(e) => {
-          setBrandName(e.target.value)
-        }}
-      />
-      <button
-        className="add_brand"
-        onClick={() => {
-          addBrandAdmin();
-        }}
-      >
-        Add Brand{" "}
-      </button>
     </div>
   );
 };

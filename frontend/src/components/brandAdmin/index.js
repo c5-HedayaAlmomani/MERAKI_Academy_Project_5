@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   getBrandsAction,
   addToBrandAction,
@@ -15,8 +17,9 @@ import { FaTrash } from "react-icons/fa";
 
 import Upload from "../upload";
 import "./style.css";
-
+const notifyAdd = () => toast("Added successfully");
 const BrandAdmin = () => {
+  const [test, setTest] = useState(false);
   //! redux =========
   const dispatch = useDispatch();
   const [brandName, setBrandName] = useState("");
@@ -79,6 +82,7 @@ const BrandAdmin = () => {
             is_deleted: 0,
           })
         );
+        notifyAdd();
       })
       .catch((err) => {
         console.log(err);
@@ -142,11 +146,43 @@ const BrandAdmin = () => {
                     <button
                       className="DeleteBrand"
                       onClick={() => {
-                        deleteBrandAdmin(element.id);
+                        setTest(true);
                       }}
                     >
                       <FaTrash /> Delete
                     </button>
+
+                    {/* //!=================== */}
+                    {test ? (
+                      <div className="popup">
+                        <div className="popup-inner">
+                          <h1>Delete Brand</h1>
+                          <p>Are you sure you will delete the brand?</p>
+
+                          <button
+                            className="close-btn"
+                            onClick={() => {
+                              deleteBrandAdmin(element.id);
+                              setTest(false);
+                            }}
+                          >
+                            yes
+                          </button>
+                          <button
+                            className="close-btn2"
+                            onClick={() => {
+                              setTest(false);
+                            }}
+                          >
+                            no
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+
+                    {/* //!=================== */}
                   </td>
                 </tr>
               );

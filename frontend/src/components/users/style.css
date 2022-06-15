@@ -29,7 +29,7 @@
   align-items: center;
 }
 
-.UsersComponent {
+.UsersComponent , .order_admin {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -46,8 +46,7 @@
   row-gap: 5px;
 }
 
-.thAction {
-}
+
 
 .Delete {
   cursor: pointer;

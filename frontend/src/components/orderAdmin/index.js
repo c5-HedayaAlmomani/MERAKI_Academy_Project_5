@@ -85,6 +85,7 @@ const AdminOrder = () => {
         {order.length &&
           order.map((element, index) => {
             return (
+              
               <tr key={index}>
                 <td>
                   <p className="user_order">{index + 1}</p>

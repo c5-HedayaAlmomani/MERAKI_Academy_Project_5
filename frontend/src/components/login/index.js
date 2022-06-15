@@ -1,10 +1,11 @@
 import LogGoogle from "../../components/loginGoogle";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/reducers/auth";
 import { useNavigate } from "react-router-dom";
-import { orderAction } from "../../redux/reducers/auth";
+import { orderAction , setIsAdmainAction } from "../../redux/reducers/auth";
+
 import("./style.css");
 
 const Login = () => {
@@ -16,7 +17,7 @@ const Login = () => {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
       orders: state.auth.orderId,
-
+      isAdmin: state.auth.isAdmin,
     };
   });
   //!redux===============
@@ -29,20 +30,35 @@ const Login = () => {
       .get(`http://localhost:5000/order/live/${email}`)
       .then((result) => {
         console.log(result);
-        dispatch(orderAction(result.data.order[0].id))
+        dispatch(orderAction(result.data.order[0].id));
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
+  const getRole = () => {
+    axios
+      .post(`http://localhost:5000/admin/users`, { email: email })
+      .then((result) => {
+        if (result.data.result[0].role == "ADMIN") {
+        dispatch(setIsAdmainAction(true));
+        }else{
+            dispatch(setIsAdmainAction(false));  
+        }
+        console.log({ hedaya: result.data.result[0].role });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const login = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
         setMessage("Login Successfuly");
         dispatch(loginAction(result.data.token));
-        getLiveOrder()
+        getLiveOrder();
+
         if (result.data.token === 1) {
           navigate("/");
         } else {
@@ -55,6 +71,7 @@ const Login = () => {
 
         setMessage(err.response.data.message);
       });
+    getRole();
   };
 
   return (
@@ -74,7 +91,9 @@ const Login = () => {
         }}
       />
 
-      <button className="button" onClick={login}>Log in</button>
+      <button className="button" onClick={login}>
+        Log in
+      </button>
       <h1 className="ms">{message}</h1>
       <LogGoogle />
     </div>

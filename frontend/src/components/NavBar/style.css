@@ -44,14 +44,14 @@
   font-weight: 700;
 }
 
+
 .navbar {
   background-color: rgb(168, 214, 193);
-  position: fixed;
   width: 100%;
   display: grid;
-  grid-template-columns: 5% 10% 62% 9% 8% 6%;
+  grid-template-columns: 5% 10% 60% 9% 7% 4% 1%;
   grid-template-rows: 80px;
-  grid-template-areas: "q  w e n r t y";
+  grid-template-areas: "q  w e n r t yy";
   transition: transform 250ms;
   align-content: stretch;
   align-items: center;
@@ -94,7 +94,7 @@
   width: 100%;
 }
 .cart {
-  grid-area: y;
+  grid-area: yy;
   align-self: left;
   margin: auto;
 }

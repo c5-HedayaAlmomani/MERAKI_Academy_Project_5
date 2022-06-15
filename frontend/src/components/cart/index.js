@@ -295,11 +295,44 @@ const Cart = () => {
             <button
               className="empty_cart"
               onClick={(e) => {
-                emptyCart();
+                // emptyCart();
+                setTest(true);
               }}
             >
               Empty Cart
             </button>
+
+            {/* //!=================== */}
+            {test ? (
+              <div className="popup">
+                <div className="popup-inner">
+                  <h1>Update Product</h1>
+                  <p>Are you sure to Update Product</p>
+
+                  <button
+                    className="close-btn"
+                    onClick={() => {
+                      emptyCart();
+                      setTest(false);
+                    }}
+                  >
+                    yes
+                  </button>
+                  <button
+                    className="close-btn2"
+                    onClick={() => {
+                      setTest(false);
+                    }}
+                  >
+                    no
+                  </button>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+
+            {/* //!=================== */}
           </div>
         </>
       )}

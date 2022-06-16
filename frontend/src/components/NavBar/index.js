@@ -59,6 +59,7 @@ const Dashboard = () => {
     <div className="navv">
 
       <div className="navbar">
+        {/* //!icon */}
         <i
           onClick={() => {
             dispatch(setShoeAction(!show));
@@ -67,16 +68,13 @@ const Dashboard = () => {
           class="fa fa-bars"
           aria-hidden="true"
         ></i>
+        {/* //!logo */}
         <img
           className="logo_img"
-          src="https://res.cloudinary.com/hudhud/image/upload/v1655027682/maxqgc69/jewjejpruuyddsyu4uis.png"
+          src="https://res.cloudinary.com/hudhud/image/upload/v1655323955/maxqgc69/t0gxdcb18rb4qjek4pzh.gif"
         />
-
-        <Link className="All_Product_nav" to="product">
-          All Product
-        </Link>
-
-        {/* div */}
+{/* //! search */}
+  
         {<div className="navbarsearch">
           <input
             placeholder="    SEARCH"
@@ -109,17 +107,18 @@ const Dashboard = () => {
                 }
               })}
           </div>) : (<></>)}
+
         </div>}
+{/* //!all product  */}
+        <Link className="All_Product_nav" to="product">
+          All Product
+        </Link>
+        
 
-
-        {/* div search -> resulta */}
-
-
+{/* //! login & register & cart & logout */}
         {isLoggedIn ? (
           <>
-            <Link className="cart" to="/cart">
-              <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </Link>
+          
             <a
               className="logout"
               onClick={() => {
@@ -129,9 +128,13 @@ const Dashboard = () => {
             >
               Logout
             </a>
+            <Link className="cart" to="/cart">
+              <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </Link>
           </>
         ) : (
           <>
+
             <Link className="login_link" to="/login">
               Login
             </Link>
@@ -141,7 +144,11 @@ const Dashboard = () => {
           </>
         )}
       </div>
+<div className="added">
+<p></p>
 
+
+</div>
     </div>
   );
 };

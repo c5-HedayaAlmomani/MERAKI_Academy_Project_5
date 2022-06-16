@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/reducers/auth";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./style.css";
 
@@ -30,8 +30,6 @@ const Product = () => {
     axios
       .get("http://localhost:5000/products")
       .then((result) => {
-        
-       
         setNumberOfPage(Math.ceil(result.data.result.length / 6));
         setArrayofPage(Array(Math.ceil(result.data.result.length / 6)).fill(0));
       })
@@ -52,7 +50,7 @@ const Product = () => {
 
   const addToCart = async (id) => {
     if (!token) return alert("Please login to continue buying");
-    const orderId=localStorage.getItem("orderId")
+    const orderId = localStorage.getItem("orderId");
 
     await axios
       .post(
@@ -60,21 +58,17 @@ const Product = () => {
         {
           productId: id,
           quantity: 1,
-          order_id:orderId,
-
+          order_id: orderId,
         },
         { headers: { authorization: `Bearer ${token}` } }
       )
-      .then((result) => {
-      })
+      .then((result) => {})
       .catch((err) => {
-        
         console.log(err);
       });
   };
 
   const sortFunction = (e) => {
-    
     if (e == "high Price") {
       let sortedProduct = products.sort((a, b) => b.price - a.price);
       setSorts(sortedProduct);
@@ -116,88 +110,100 @@ const Product = () => {
           products.map((e, i) => {
             return (
               <div className="card">
-              <ul className="ul">
-              <li>
-                <i>{/* {e.price} $ */}</i>
-              </li>
-              <li>
-                <i></i>
-              </li>
-              <li>
-                <i></i>
-              </li>
-              <li>
-                <i></i>
-              </li>
-              </ul>
-              <img src={e.image} alt="" />
-              <div className="con-text">
-                <h2>{e.title}</h2>
-                <p>{e.price} JOD</p>
-                <p>{/* {e.description} */} {e.AvailableQuantity>0?(<button      className="add_to_cart"
-                    onClick={() => {
-                    addToCart(e.id);
-                    notifyCart()
-                    }}>Add to Cart</button>):(<p>SoldOut</p>)}       
-                
-                  <button onClick={() => {
-                  navigate(`/product/${e.id}`);
-                 }}>View Product</button></p>
+                <ul className="ul">
+                  <li>
+                    <i>{/* {e.price} $ */}</i>
+                  </li>
+                  <li>
+                    <i></i>
+                  </li>
+                  <li>
+                    <i></i>
+                  </li>
+                  <li>
+                    <i></i>
+                  </li>
+                </ul>
+                <img src={e.image} alt="" />
+                <div className="con-text">
+                  <h2>{e.title}</h2>
+                  <p>{e.price} JOD</p>
+                  <p>
+                    {/* {e.description} */}{" "}
+                    {e.AvailableQuantity > 0 ? (
+                      <button
+                        className="add_to_cart"
+                        onClick={() => {
+                          addToCart(e.id);
+                          notifyCart();
+                        }}
+                      >
+                        Add to Cart
+                      </button>
+                    ) : (
+                      <p>SoldOut</p>
+                    )}
+                    <button
+                      onClick={() => {
+                        navigate(`/product/${e.id}`);
+                      }}
+                    >
+                      View Product
+                    </button>
+                  </p>
+                </div>
               </div>
-              </div>
-
-             
             );
           })}
       </div>
-<div className="pagination">
-      {arrayofPage.map((element, index) => {
-        return (
-          <div key={index}>
+      <div className="pagination">
+        {page != 1 ? (
+          <>
+            <button
+              onClick={() => {
+                setPage(index - 1);
+                setIndex(index - 1);
+                gitAllProduct();
+              }}
+            >
+              &laquo;
+            </button>
+          </>
+        ) : (
+          <></>
+        )}
+        {arrayofPage.map((element, index) => {
+          return (
+            <div key={index}>
+              <button
+                onClick={() => {
+                  setPage(index + 1);
+                  gitAllProduct();
+                  setIndex(index + 1);
+                }}
+              >
+                {index + 1}
+              </button>
+            </div>
+          );
+        })}
+
+        {page != numberOfPage ? (
+          <>
             <button
               onClick={() => {
                 setPage(index + 1);
-                gitAllProduct();
                 setIndex(index + 1);
+
+                gitAllProduct();
               }}
             >
-              {index + 1}
+              &raquo;
             </button>
-          </div>
-        );
-      })}
-
-      {page != 1 ? (
-        <>
-          <button
-            onClick={() => {
-              setPage(index - 1);
-              setIndex(index - 1);
-              gitAllProduct();
-            }}
-          >
-            back
-          </button>
-        </>
-      ) : (
-        <></>
-      )}
-      {page != numberOfPage ? (
-        <>
-          <button
-            onClick={() => {
-              setPage(index + 1);
-              setIndex(index + 1);
-
-              gitAllProduct();
-            }}
-          >
-            next
-          </button>
-        </>
-      ) : (
-        <></>
-      )}
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

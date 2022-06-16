@@ -1,15 +1,17 @@
 import { GoogleLogin } from "react-google-login";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { orderAction } from "../../redux/reducers/auth";
+import { orderAction ,setIsAdmainAction} from "../../redux/reducers/auth";
 
 import { loginAction } from "../../redux/reducers/auth";
 
 import axios from "axios";
 const LogGoogle = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState();
 
   //!redux===============
   const dispatch = useDispatch();
@@ -17,14 +19,36 @@ const LogGoogle = () => {
     return {
       token: state.auth.token,
       isLoggedIn: state.auth.isLoggedIn,
+      isAdmin: state.auth.isAdmin,
     };
   });
   //!redux===============
+  
+  const getRole = () => {
+    axios
+      .post(`http://localhost:5000/admin/users`, { email: email })
+      .then((result) => {
+        if (result.data.result[0].role == "ADMIN") {
+        dispatch(setIsAdmainAction(true));
+        }else{
+            dispatch(setIsAdmainAction(false));  
+        }
+        
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+
+
+
 
   const getLiveOrder = (email) => {
     axios
       .get(`http://localhost:5000/order/live/${email}`)
       .then((result) => {
+
         console.log(result);
         dispatch(orderAction(result.data.order[0].id));
       })
@@ -41,15 +65,18 @@ const LogGoogle = () => {
         email: response.profileObj.email,
       })
       .then((result) => {
+        setEmail(response.profileObj.email)
         console.log("LOGINGoogle", result);
         dispatch(loginAction(result.data.token));
-        getLiveOrder(response.Ru.Iv);
-
+        getLiveOrder(response.profileObj.email);
+        
         navigate("/");
+
       })
       .catch((err) => {
         console.log({ err });
       });
+      getRole()
   };
 
   return (

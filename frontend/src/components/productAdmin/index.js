@@ -96,8 +96,8 @@ const ProductAdmin = () => {
             return (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td>{element.description}</td>
                 <td>{element.title}</td>
+                <td>{element.description}</td>
                 <td>{element.price}</td>
                 <td>{element.AvailableQuantity}</td>
                 <td>{element.sold}</td>

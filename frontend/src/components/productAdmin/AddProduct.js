@@ -66,7 +66,6 @@ const AddProductAdmin = () => {
         }
       )
       .then((result) => {
-        console.log(result);
         dispatch(addProductAction(result));
 
         notifyAdd();
@@ -80,9 +79,6 @@ const AddProductAdmin = () => {
     axios
       .get(`http://localhost:5000/filter/display/category/id/${brand_id}`)
       .then((result) => {
-        console.log(brand_id);
-        console.log(brandOnClick);
-        console.log(result);
         setCategoryFilter(result.data.result);
       })
       .catch((err) => {

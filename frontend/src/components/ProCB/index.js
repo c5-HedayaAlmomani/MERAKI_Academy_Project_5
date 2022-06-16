@@ -24,8 +24,6 @@ const ProCB = () => {
         category,
       })
       .then((result) => {
-        console.log({ brand, category });
-        console.log("poroduct",result.data);
         setPAllCat(result.data.result);
       })
       .catch((err) => {
@@ -47,7 +45,6 @@ const ProCB = () => {
         console.log(result);
       })
       .catch((err) => {
-        console.log(token);
         console.log(err);
       });
   };
@@ -80,7 +77,6 @@ const ProCB = () => {
             <h2>{e.title}</h2>
             <p>{e.description} <button      className="add_to_cart"
               onClick={() => {
-               console.log(e.id);
                addToCart(e.id);
               }}>Add to Cart</button>
               <button onClick={() => {
@@ -88,46 +84,7 @@ const ProCB = () => {
              }}>View Product</button></p>
           </div>
           </div>
-          
-/* 
-    <div className="products">
-      {allPCat.length &&
-        allPCat.map((element, index) => {
-          return (<div key={index} className="one_product">
-
-            <img src={`${element.image}`}
-                  onClick={() => {
-                    navigate(`/product/${element.id}`);
-                    console.log({allPCat});
-                  }}
-                   />
-          <div className="information">
-            <div>
-              {" "}
-              {element.title}
-              {element.price}
-            </div>
-            <button
-              className="add_to_cart"
-              onClick={() => {
-                console.log(element.id);
-                addToCart(element.id);
-              }}
-            >
-              Add to Cart
-            </button>
-          </div>
-        </div> */
-
-            // <div key={index} className="categoryCont">
-            //   <p>{element.title}</p>
-            //   <img
-            //     onClick={() => {
-            //       navigate(`/product/${element.id}`);
-            //     }}
-            //     src={`${element.image}`}
-            //   />
-            // </div>
+      
           );
         })}
     </div>

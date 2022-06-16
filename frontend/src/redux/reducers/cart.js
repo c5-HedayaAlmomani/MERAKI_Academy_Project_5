@@ -28,21 +28,7 @@ export const cart = createSlice({
     },
     // payload : product object {product}
     addToCartAction: (state, action) => {
-      //   console.log("action", action.payload[0]);
-      //   const isInserted = state.cart.map((element, index) => {
-      //     console.log(element.id);
-      //     console.log(element.id == action.payload[0].id);
-
-
-      //     return element.id == action.payload[0].id;
-      //   });
-      //   console.log("isInsert", isInserted);
-
-      //   if (isInserted) {
-
-      //   }else{
-
-      //   }
+      
 
       state.cart.push(action.payload);
     },
@@ -60,7 +46,6 @@ export const cart = createSlice({
     // payload :totalprice
     setTotalPriceAction: (state, action) => {
       state.totalPrice = action.payload;
-      console.log(action.payload);
     },
   },
 });

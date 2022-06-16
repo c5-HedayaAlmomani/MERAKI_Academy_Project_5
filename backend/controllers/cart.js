@@ -3,16 +3,12 @@ const connection = require("../models/db");
 const addToCart = (req, res) => {
   const { productId, quantity,order_id } = req.body;
   const userId = req.token.userId;
-  console.log("productId", productId);
-  console.log("userId", userId);
 
   const query = `SELECT * FROM cart WHERE user_id=? AND product_id=? AND is_deleted=0`;
   const data = [userId, productId];
 
   connection.query(query, data, (err, result) => {
-    console.log(result);
     if (err) {
-      console.log("err1", err);
       return res.status(500).json({
         success: false,
         massage: "Server error",
@@ -24,12 +20,9 @@ const addToCart = (req, res) => {
       const query = `INSERT INTO cart (product_id,user_id,order_id) VALUES (?,?,?)`;
       const data = [productId, userId,order_id];
 
-      console.log("data---------", productId, userId);
 
       connection.query(query, data, (err, result) => {
-        console.log("result", result);
         if (err) {
-          console.log("err", err);
           return res.status(500).json({
             success: false,
             massage: "Server error",
@@ -45,14 +38,10 @@ const addToCart = (req, res) => {
       });
     } else {
       const newQuantity = result[0].quantity + quantity;
-      console.log("err2");
-      console.log(newQuantity);
       const query = `UPDATE cart SET quantity=? WHERE user_id=? AND product_id=? `;
       const data = [newQuantity, userId, productId];
-      console.log(newQuantity, userId, productId);
       connection.query(query, data, (err, result1) => {
         if (err) {
-          console.log(err);
           return res.status(500).json({
             success: false,
             massage: "Server error",

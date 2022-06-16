@@ -72,7 +72,6 @@ const getProCB = (req, res) => {
 
   const data = [category, brand];
   connection.query(query, data, (err, result) => {
-    console.log(result);
     if (err) {
       return res.status(500).json({
         success: false,
@@ -95,7 +94,6 @@ const subCByCat = (req, res) => {
   const data = [category];
   connection.query(query, data, (err, result) => {
     if (err) {
-      console.log(result,"-----------------");
       return  res.status(500).json({
         success: false,
         massage: "server error",

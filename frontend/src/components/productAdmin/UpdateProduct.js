@@ -57,7 +57,6 @@ const UpdateProductAdmin = () => {
       )
       .then((result) => {
         dispatch(updateProductAction(id));
-        console.log(result);
         notifyEdit();
       })
       .catch((err) => {

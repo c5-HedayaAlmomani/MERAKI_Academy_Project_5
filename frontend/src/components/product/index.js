@@ -46,7 +46,7 @@ const Product = () => {
         setProducts(result.data.result);
       })
       .catch((err) => {
-        console.log({ err });
+        console.log(err);
       });
   };
 
@@ -66,7 +66,6 @@ const Product = () => {
         { headers: { authorization: `Bearer ${token}` } }
       )
       .then((result) => {
-        console.log(result);
       })
       .catch((err) => {
         

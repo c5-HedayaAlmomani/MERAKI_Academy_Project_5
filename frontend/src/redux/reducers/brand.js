@@ -15,7 +15,6 @@ export const brands = createSlice({
     },
     // payload :array ofst Brands [Brands]
     getBrandsAction: (state, action) => {
-      console.log(action.payload);
       state.brands = action.payload;
     },
     // payload : Brand object {Brand}

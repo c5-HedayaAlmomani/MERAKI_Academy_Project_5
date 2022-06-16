@@ -23,7 +23,6 @@ function Upload() {
         setImage(result.data.secure_url);
         dispatch(addToCloudinaryAction(result.data.secure_url));
         setLoading(true);
-        console.log(result);
       })
       .catch((err) => {
         setLoading(false);

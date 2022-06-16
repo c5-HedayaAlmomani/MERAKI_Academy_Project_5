@@ -1,8 +1,9 @@
 .loginDiv{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* position: absolute; */
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  
   width: 100%;
   max-width: 450px;
   background: rgba(0, 0, 0, 0.8);
@@ -13,6 +14,14 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.loginn{
+  display: flex;
+    justify-content: center;
+    margin: 5% 0%;
+    flex-direction: column;
+    align-items: center;
+
+}
 
 
 .input1{
@@ -64,7 +73,6 @@
 }
 
   .ms:-webkit-any(h1) {
-    /* IE 10+ */
     color: #c5ecfd;
   }
 

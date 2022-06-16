@@ -22,7 +22,6 @@ const addOrder = (req, res) => {
 };
 
 const getOrder = (req, res) => {
-  // console.log("bb");
 
   const user_email = req.params.userName;
   const query = "SELECT * FROM orders WHERE is_deleted=1 AND user_email= ?";
@@ -44,7 +43,6 @@ const getOrder = (req, res) => {
 };
 
 const getAllOrderAllUsers = (req, res) => {
-  console.log("aaa");
   // const user_email = req.params.userName;
   const query = "SELECT * FROM orders WHERE is_deleted=1";
   // const data = [user_email];

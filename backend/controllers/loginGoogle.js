@@ -21,7 +21,6 @@ const loginGoogle = (req, res) => {
             console.log(err);          
           }
         
-          console.log("TimeStamp",result);
         })
     const payload = {
       firstName:result[0].firstName,

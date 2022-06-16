@@ -73,7 +73,6 @@ const deleteUser = (req, res) => {
   const data = [userId];
 
   connection.query(query, data, (err, result) => {
-    console.log(result);
     if (err) {
       return res.status(404).json({
         success: false,

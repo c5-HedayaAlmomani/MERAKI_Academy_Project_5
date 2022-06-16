@@ -100,7 +100,6 @@ const updateBrandById = (req, res) => {
     const query = `SELECT * FROM brands WHERE id=?;`;
     const data = [id];
     connection.query(query, data, (err, result) => {
-        // console.log(result+"oneeeee");
         if (err) {
             return res.status(404).json({
                 success: false,
@@ -125,7 +124,6 @@ const updateBrandById = (req, res) => {
             ];
 
             connection.query(query, data, (err, result) => {
-                console.log(result);
                 
             if (result.affectedRows != 0)
                   return  res.status(201).json({

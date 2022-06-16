@@ -27,12 +27,13 @@ import About from "./components/footer/about/about";
 import Contact from "./components/footer/contact/Contact";
 import Privacy from "./components/footer/privacy";
 import Getbrand from "./components/getbrand";
-
+// import { Chart } from "./components/chart";
 
 
 function App() {
   return (
     <div className="App">
+      {/* <Chart/> */}
       <NavBar />
       <Getbrand className="side_bar" />
       <Routes className="main">

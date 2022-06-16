@@ -21,13 +21,12 @@ const LogGoogle = () => {
   });
   //!redux===============
 
-
   const getLiveOrder = (email) => {
     axios
       .get(`http://localhost:5000/order/live/${email}`)
       .then((result) => {
         console.log(result);
-        dispatch(orderAction(result.data.order[0].id))
+        dispatch(orderAction(result.data.order[0].id));
       })
       .catch((err) => {
         console.log(err);
@@ -35,6 +34,9 @@ const LogGoogle = () => {
   };
 
   const responseGoogle = (response) => {
+
+    console.log("HHHHHHHHHHHHHHHHH");
+
     console.log(response);
 
     axios
@@ -44,10 +46,10 @@ const LogGoogle = () => {
         email: response.Ru.Iv,
       })
       .then((result) => {
-        console.log("LOGINGoogle",result);
+        console.log("LOGINGoogle", result);
         dispatch(loginAction(result.data.token));
-        getLiveOrder(response.Ru.Iv)
-        
+        getLiveOrder(response.Ru.Iv);
+
         navigate("/");
       })
       .catch((err) => {

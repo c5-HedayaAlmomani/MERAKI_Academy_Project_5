@@ -61,37 +61,50 @@
 .All_Product_nav {
   grid-area: n;
   width: 90%;
-margin-left: 20px;
-
+  margin-left: 20px;
 }
 .first_icon {
   grid-area: a;
   align-self: left;
   font-size: x-large;
-  
 }
-.added{
-height: 80px;
-background-color: rgb(255, 255, 255);
+.added {
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 20px;
+}
+.added a {
+  padding: 30px;
+  font-family: Arial;
+  font-weight: 600;
+  font-size: 95%;
+  color: rgb(146, 145, 145);
+  text-decoration: none;
+}
+.added a:hover {
+  color: rgb(11, 39, 131);
 }
 .fa,
 .fas {
   font-size: x-large;
   margin: auto;
-  /* color: aliceblue; */
+
+  color: aliceblue;
 }
 
 .logo_img {
   grid-area: w;
-  height: 105px;
+  height: 108px;
   margin: auto;
-  /* border: solid; */
   margin-top: 3%;
   z-index: 102;
-  /* margin-left:-10px; */
   margin-left: 160px;
+  width: 140px;
 }
-
 
 .login_link {
   grid-area: r;
@@ -129,25 +142,23 @@ background-color: rgb(255, 255, 255);
   background: rgb(255, 255, 255);
   position: absolute;
   top: 50px;
-
 }
 .navbar_section {
   width: 40vw;
 }
 
-.SERCHa{
+.SERCHa {
   display: flex;
-      border-bottom: 1px solid;
-      border-left: 1px solid;
-      border-right: 1px solid;
-      padding: 5px;
-      border-radius: 5px;
-      justify-self: center;
-      align-items: center;
-      height: 3vh;
-width: 70%;
-    }
-  
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  padding: 5px;
+  border-radius: 5px;
+  justify-self: center;
+  align-items: center;
+  height: 3vh;
+  width: 70%;
+}
 
 .navbar a {
   text-decoration: none;
@@ -165,114 +176,88 @@ width: 70%;
   font-size: xx-large;
 }
 
-
-
-
-
-.navbarsearch{
+.navbarsearch {
   display: flex;
   flex-direction: column;
- 
-
   width: 100%;
-  /* background-color: beige; */
 }
 .searchss {
   grid-area: e;
-    /* display: flex; */
-    width: 40vw;
-    border-radius: 5px;
-    border: none;
-    /* height: 6vh; */
-    color: black;
-    /* margin: 50% 20%; */
-
-
+  width: 40vw;
+  border-radius: 5px;
+  border: none;
+  color: black;
 }
 
 .Serch_img {
   width: 30px;
-    height: 30px;
-    border-radius: 50%;
-
+  height: 30px;
+  border-radius: 50%;
 }
 .Serch_title {
-  /* margin: auto; */
   width: 100%;
-
 }
 .navbarsearch {
   display: flex;
   flex-direction: column;
-  /* height: 100%; */
-  /* background-color: red; */
-  /* width: 100%; */
-  /* background-color: beige; */
 }
 
-
-/* @media (max-width:600px)
-{
-  
-  
-  .icon_bar{
-    display: block;
+@media (max-width: 400px) {
+  .added {
+    background-color: aqua;
   }
-  
 
-  
-  
-  
-  
-  .navbar{
-  margin-top: -20px;
-  display: flex;
-  position: absolute;
-  margin-left: 0px;
-  top: 60px;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 250px;
-  transition: 0.6s ease;
-  padding: 5px;
-  height: 200px;
-  transition: transform 250ms;
-  
+  .logo_img {
+    grid-area: w;
+    height: 60px;
+    margin: auto;
+    margin-top: 10%;
+    z-index: 101;
+    margin-left: 40px;
+    width: 60px;
+  }
 
+  .added {
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 8px;
+  }
+  .added a {
+    padding: 8px;
+    font-family: Arial;
+    font-weight: 600;
+    font-size: 80%;
+    color: rgb(146, 145, 145);
+    text-decoration: none;
+  }
+
+  .All_Product_nav {
+    display: none;
+  }
+
+  .logout {
+    grid-area: r;
+    font-weight: 900;
+    font-size: smaller;
+  }
+  .cart {
+    grid-area: t;
+  }
+
+  .fa-cart-plus {
+    font-size: smaller;
+    margin-top: 26px;
+    margin-left: 10px;
+  }
+  .fa,
+  .fas {
+    font-size: 18px;
+    margin-left: 9px;
+
+    color: aliceblue;
+  }
 }
-
-.search{
-
-  display: none;
-  
-}
-
-
-
-} */
-
-/* input {
-    
-  margin: 0 auto;
-  float: none;
-  width:100%;
-  max-width: 300px;
-  padding: 5px 10px;
-  border: 2px solid black;
-}
-ul {
-margin: 0;
-padding: 0;
-}
-li {
-  text-align: left;
-  padding: 5px 10px;
-  width: 100%;
-  max-width: 280px;
-  margin: 1px auto;
-  background-color: white;
-  border: 1px solid       black;
-  
-
-  list-style: none;
-} */

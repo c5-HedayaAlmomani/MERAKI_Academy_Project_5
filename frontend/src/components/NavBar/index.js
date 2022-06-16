@@ -145,7 +145,12 @@ const Dashboard = () => {
         )}
       </div>
 <div className="added">
-<p></p>
+  <a href="/">HOME</a>
+  <a href="/contact">CONTACT</a>
+  <a href="/privacy-policy">PRIVACY-POLICY</a>
+  <a href="/about">ABOUT</a>
+
+
 
 
 </div>

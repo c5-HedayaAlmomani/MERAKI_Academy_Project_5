@@ -20,7 +20,8 @@ export default function Slider() {
           return (
             <div className={styles.slide} key={slide}>
               <div style={{ backgroundImage: `url(${slideImages[index]})` }}>
-                <span>Slide {index + 1}</span>
+                {/* <span>Slide {index + 1}</span> */}
+                <span>ECMA </span>
               </div>
             </div>
           );

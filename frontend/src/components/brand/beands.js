@@ -80,54 +80,58 @@ const Brand = () => {
   useEffect(brandD, []);
 
   return (
-    <div>
+    <div className="all_all">
       <Slider />
-      <h1 className="all_brand">All_brand</h1>
-      <div>
-        <div className="all_brand-only">
-          {brand.length &&
-            brand.map((element, index) => {
-              return (
-                <div key={index} className="branddivv">
-                  <div className="imgAndName">
-                    <img
-                      className="img_brand"
-                      onClick={() => {
-                        navigate(`/allCategory/${element.brand}`);
-                      }}
-                      src={`${element.image}`}
-                    />
+      <div className="brand_with_title">
+        <h1 className="all_brand">ALL BRANDS</h1>
+        <div>
+          <div className="all_brand-only">
+            {brand.length &&
+              brand.map((element, index) => {
+                return (
+                  <div key={index} className="branddivv">
+                    <div className="imgAndName">
+                      <img
+                        className="img_brand"
+                        onClick={() => {
+                          navigate(`/allCategory/${element.brand}`);
+                        }}
+                        src={`${element.image}`}
+                      />
+                    </div>
+                    <div className="name_brand"></div>
                   </div>
-                  <div className="name_brand"></div>
+                );
+              })}
+          </div>
+        </div>
+      </div>
+      <div className="category_with _title">
+        {<h1 className="all_brand">ALL CATEGORY</h1>}
+        <div className="all_category-only">
+          {categorys.length &&
+            categorys.map((element, index) => {
+              console.log("element---------------", element);
+              return (
+                <div key={index} className="contenar_category_brands">
+                  <img
+                    src={element.img}
+                    className="img_category_brands"
+                    onClick={() => {
+                      navigate(
+                        `allCategory/${element.brand}/PRO/${element.brand}/${element.category}`
+                      );
+                    }}
+                  />
+
+                  <div className="contenar_namecategoryand_bands">
+                    <img src={element.image} className="img_brand_brands" />
+                    <p className="p_category_brands">{element.category}</p>
+                  </div>
                 </div>
               );
             })}
         </div>
-        {<h1 className="all_brand">All_Category</h1>}
-        <div className="all_category-only">
-        {categorys.length &&
-          categorys.map((element, index) => {
-            console.log("element---------------", element);
-            return (
-              <div key={index} className="contenar_category_brands">
-                <img
-                  src={element.img}
-                  className="img_category_brands"
-                  onClick={() => {
-                    navigate(
-                      `allCategory/${element.brand}/PRO/${element.brand}/${element.category}`
-                    );
-                  }}
-                />
-
-                <div className="contenar_namecategoryand_bands">
-                  <img src={element.image} className="img_brand_brands" />
-                  <p className="p_category_brands">{element.category}</p>
-                </div>
-              </div>
-            );
-          })}
-          </div>
         {
           <div className="buttons">
             {arrayofPage.map((element, index) => {
@@ -181,6 +185,7 @@ const Brand = () => {
           </div>
         }
       </div>
+
       <ProductMain />
     </div>
   );

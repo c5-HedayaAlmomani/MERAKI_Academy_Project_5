@@ -6,6 +6,9 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa";
 import {FaCartPlus} from "react-icons/fa"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const OneProduct = () => {
   const [product, setProduct] = useState([]);
   const [feedback, setFeedback] = useState([]);
@@ -34,6 +37,7 @@ const OneProduct = () => {
     };
   });
   //! redux =========
+  const notifyEdit = () => toast("Added successfully");
   const oneProduct = () => {
     axios
       .get(`http://localhost:5000/products/${id}`)
@@ -63,6 +67,7 @@ const OneProduct = () => {
         console.log(token);
         console.log(err);
       });
+      notifyEdit();
   };
   const getFeedback = (id) => {
     axios

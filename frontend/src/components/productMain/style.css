@@ -3,10 +3,10 @@
   height: 100px;
   padding: 10px;
 }
-.mainn{
+.mainn {
   padding-top: 10px;
   padding-bottom: 10px;
-background-color: #e4e4e4;
+  background-color: #e4e4e4;
 }
 .mainn p {
   font-size: xx-large;
@@ -20,7 +20,6 @@ background-color: #e4e4e4;
 }
 
 .product_main {
-
   width: 100%;
   display: flex;
 
@@ -63,7 +62,6 @@ background-color: #e4e4e4;
   height: 53px;
   margin-top: 12px;
   font-family: Arial;
-  
 }
 .innfo p {
   border: none;
@@ -90,58 +88,60 @@ background-color: #e4e4e4;
   background-color: #0b724c;
   border-radius: 0.5vh;
 }
+/* //!====================== */
 
-
-@media (max-width: 400px){
+@media (max-width: 400px) {
   .product_main img {
-    width: 50px;
+    width: 40px;
     height: auto;
-    padding: 10px;
   }
-  .mainn{
+  .mainn {
     padding-top: 5px;
     padding-bottom: 5px;
-  background-color: #e4e4e4;
-  height: auto;
+    background-color: #e4e4e4;
+    height: 500px;
+    width: 100%;
   }
   .mainn p {
+    margin: 0px;
     font-size: 10px;
-    /* margin-top: 5px;
-    margin-bottom: 5px; */
     font-family: Arial;
   }
   .mainn h2 {
+    margin: 0px;
     font-family: Arial;
     font-size: 100%;
   }
-  
+
   .product_main {
-  
     width: 100px;
     display: flex;
-  height: auto;
+    height: 130px;
     flex-direction: column;
-    /* justify-content: space-around; */
+
     align-items: center;
     background-color: rgb(255, 255, 255);
-  
-    /* margin: 40px; */
+
     border-radius: 10px;
     transition: transform 0.8s;
+    padding: 7px;
+    margin: 10px;
   }
   .product_main:hover {
     transform: scale(1.05);
   }
-  
+
   .pro_main {
-    background-color: #e4e4e4;
-    height: 220px;
+    padding: 0px;
+    margin: 0px;
     display: flex;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
     flex-wrap: wrap;
     flex-direction: row;
-    padding-left: 100px;
-    padding-right: 100px;
-    width: 50px;
+    justify-content: center;
+    align-items: center;
   }
   .innfo {
     justify-self: center;
@@ -151,7 +151,7 @@ background-color: #e4e4e4;
     padding: 2px;
     padding-bottom: 0px;
   }
-  
+
   .innfo button {
     border: none;
     background-color: #0b724c;
@@ -159,9 +159,8 @@ background-color: #e4e4e4;
     font-size: 9px;
     font-weight: 900;
     height: 30px;
-    margin-top: 12px;
+    margin-top: 0px;
     font-family: Arial;
-    
   }
   .innfo p {
     border: none;
@@ -169,6 +168,9 @@ background-color: #e4e4e4;
     color: rgb(100, 100, 100);
     font-size: 9px;
     font-weight: 900;
+  }
+  .innfo h2 {
+    font-size: smaller;
   }
   .buttons {
     display: flex;
@@ -187,8 +189,5 @@ background-color: #e4e4e4;
     color: rgb(245, 245, 245);
     background-color: #0b724c;
     border-radius: 0.5vh;
-   
   }
-
-
 }

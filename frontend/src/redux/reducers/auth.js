@@ -25,7 +25,6 @@ export const auth = createSlice({
     },
 
     orderAction:(state,action)=>{
-      console.log("orderAction",action.payload);
       localStorage.setItem("orderId", action.payload);
       state.orderId = action.payload;      
     }

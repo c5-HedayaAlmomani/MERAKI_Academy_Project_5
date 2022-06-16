@@ -4,7 +4,6 @@ const stripe = require("stripe")(
 const uuid = require("uuid").v4;
 
 const payment = async (req, res) => {
-    console.log("Request:", req.body);
    
     let error;
     let status;
@@ -39,7 +38,6 @@ const payment = async (req, res) => {
           idempotency_key,
         }
       );
-      console.log("Charge:", { charge });
       status = "success";
     } catch (error) {
       console.error("Error:", error);

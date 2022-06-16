@@ -40,7 +40,6 @@ const UsersComponent = () => {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
-        console.log(result.data.result);
         dispatch(getUsersAction(result.data.result));
       })
       .catch((err) => {
@@ -67,7 +66,6 @@ const UsersComponent = () => {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
-        console.log(result);
         getAllUsers()
         notifyEdit();
       })

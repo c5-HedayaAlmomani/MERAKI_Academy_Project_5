@@ -10,7 +10,6 @@ const login = (req, res) => {
   connection.query(query, data, (err, result) => {
     if (err) throw err;
     if (result.length > 0) {
-      console.log(result);
       bcrypt.compare(password, result[0].password, (err, response) => {
         if (err) {
           res.status(403).json({
@@ -27,7 +26,6 @@ const login = (req, res) => {
             console.log(err);          
           }
         
-          console.log("TimeStamp",result);
         })
           const payload = {
             firstName:result[0].firstName,
@@ -53,7 +51,6 @@ const login = (req, res) => {
         }
       });
     } else {
-      console.log(result);
 
       res
         .status(404)

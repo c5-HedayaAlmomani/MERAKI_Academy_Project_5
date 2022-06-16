@@ -19,7 +19,6 @@ const Sold = () => {
         axios
             .get(`http://localhost:5000/products/pagination/${page}`)
             .then((result) => {
-                console.log(result);
                 setProducts(result.data.result);
             })
             .catch((err) => {

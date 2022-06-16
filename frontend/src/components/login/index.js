@@ -29,7 +29,6 @@ const Login = () => {
     axios
       .get(`http://localhost:5000/order/live/${email}`)
       .then((result) => {
-        console.log(result);
         dispatch(orderAction(result.data.order[0].id));
       })
       .catch((err) => {
@@ -45,7 +44,7 @@ const Login = () => {
         }else{
             dispatch(setIsAdmainAction(false));  
         }
-        console.log({ hedaya: result.data.result[0].role });
+        
       })
       .catch((err) => {
         console.log(err);
@@ -67,7 +66,6 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err);
-        console.log(err.response.data.message);
 
         setMessage(err.response.data.message);
       });
@@ -75,8 +73,14 @@ const Login = () => {
   };
 
   return (
+    <div className="loginn">
+
+
     <div className="loginDiv">
+    <h2 className="titleR">Login Form</h2>
+      <br></br>
       <input
+      type={"email"}
         className="input1"
         placeholder="Enter Your email"
         onChange={(e) => {
@@ -84,6 +88,8 @@ const Login = () => {
         }}
       />
       <input
+      type={"password"}
+
         className="input2"
         placeholder="Enter Your Password"
         onChange={(e) => {
@@ -97,6 +103,8 @@ const Login = () => {
       <h1 className="ms">{message}</h1>
       <LogGoogle />
     </div>
+    </div>
+
   );
 };
 export default Login;

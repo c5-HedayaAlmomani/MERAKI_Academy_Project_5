@@ -7,7 +7,6 @@ const Createsub_category = (req, res) => {
   const data = [sub_category, category_id];
 
   connection.query(query, data, (err, result) => {
-    console.log(result);
     if (err) {
       return  res.status(500).json({
         success: false,

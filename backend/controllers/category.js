@@ -7,7 +7,6 @@ const Createcategory = (req, res) => {
     const data = [category,brand_id,img];
 
     connection.query(query, data, (err, result) => {
-        console.log(result);
        if (err) {
         return res.status(500).json({
                 success: false,
@@ -57,7 +56,6 @@ const deleteCategoryById = (req, res) => {
 const getAllCategory = (req, res) => {
     const query = `SELECT * ,category.id ,category.img, brands.image FROM category INNER JOIN brands ON category.brand_id=brands.id WHERE category.is_deleted=0 ;`;
     connection.query(query, (err, result) => {
-        console.log("in category -----",result);
         if (err) {
             return res.status(500).json({
                 

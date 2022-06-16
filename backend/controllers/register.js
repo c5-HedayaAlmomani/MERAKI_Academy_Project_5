@@ -13,7 +13,6 @@ const query=`INSERT INTO users (firstName,lastName,email,password,role_id) VALUE
 
 connection.query(query,data,(err,result)=>{
     if (err) {
-        console.log(err);
         return res.status(409).json({
           success: false,
           massage: "The email already exists",
@@ -25,7 +24,6 @@ connection.query(query,data,(err,result)=>{
       const data=[email]
       connection.query(query,data,(err,result)=>{
         if (err) {
-          console.log(err);
           return res.status(409).json({
             success: false,
             massage: "The email already exists",
@@ -35,7 +33,6 @@ connection.query(query,data,(err,result)=>{
         }
         // localStorage.setItem('orderID', "aa");
 
-        console.log(result);
 
       })
       res.status(200).json({

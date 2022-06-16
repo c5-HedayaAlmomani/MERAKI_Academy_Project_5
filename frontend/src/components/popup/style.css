@@ -18,7 +18,7 @@ bottom: 100px;
     padding: 32px;
     width: 100%;
     max-width: 640px;
-    background-color: rgb(219, 212, 212);
+    background-color: rgba(144, 199, 156, 0.849);
   }
   .popup-inner .close-btn {
     position: absolute;
@@ -26,7 +26,7 @@ bottom: 100px;
     right:60vh;
     margin: auto;
     width: 10vh;
-
+    background-color: red;
     
   }
   

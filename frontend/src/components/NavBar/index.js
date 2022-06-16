@@ -77,10 +77,12 @@ const Dashboard = () => {
   
         {<div className="navbarsearch">
           <input
-            placeholder="    SEARCH"
+          id="serxchinput"
+            placeholder="SEARCH"
             className="searchss"
             onChange={(e) => {
               searchFunction(e.target.value);
+              
             }}
           />
           {Check ? (<div className="navbar_section" >
@@ -90,7 +92,13 @@ const Dashboard = () => {
                   return (
                     <div
                       className="SERCHa"
-                      onClick={()=>{navigate(`/product/${element.id}`);
+                      onClick=
+                      {(e)=>{
+                        
+                        navigate(`/product/${element.id}`);
+                        setsearchArray([])
+                        setCheck(false)
+                        
                       }}
                     >
                       <img

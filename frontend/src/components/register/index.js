@@ -42,8 +42,14 @@ const Register = () => {
   };
 
   return (
+    <div className="registerCont">
+
     <div className="register">
+      <h2 className="titleR">Register Form</h2>
+      <br></br>
       <input
+      type={"text"}
+
         placeholder="Enter First Name"
         onChange={(e) => {
           setfirstname(e.target.value);
@@ -51,6 +57,8 @@ const Register = () => {
       />
 
       <input
+      type={"text"}
+
         placeholder="Enter Last Name"
         onChange={(e) => {
           setlastname(e.target.value);
@@ -58,12 +66,15 @@ const Register = () => {
       />
 
       <input
+      type={"email"}
         placeholder="Enter Your email"
         onChange={(e) => {
           setEmail(e.target.value);
         }}
       />
       <input
+      type={"password"}
+
         placeholder="Enter Your Password"
         onChange={(e) => {
           setPassword(e.target.value);
@@ -73,6 +84,8 @@ const Register = () => {
       <h1 className="mss">{message}</h1>
       <button onClick={register}>Sign Up</button>
     </div>
+    </div>
+
   );
 };
 export default Register;

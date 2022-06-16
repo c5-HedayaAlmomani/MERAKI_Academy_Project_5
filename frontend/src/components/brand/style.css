@@ -97,7 +97,9 @@
   align-items: flex-end;
   margin-right: 3vh;
 } */
-
+.pro_main{
+  background-color: rgb(226, 226, 226);
+}
 .branddivv img {
   width: 130px;
   height: auto;
@@ -111,4 +113,40 @@
   align-items: center;
   height: 300px;
   margin: 70px 0px;
+}
+.all_category-only{
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin: 70px 0px;
+}
+.img_category_brands{
+  width: 130px;
+  height: auto;
+  margin: 20px 20px;
+}
+.contenar_namecategoryand_bands{
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 20vh;
+}
+.contenar_namecategoryand_bands img{
+  width: 40px;
+  height: auto;
+  /* margin: 20px 20px; */
+  margin: auto;
+}
+.contenar_namecategoryand_bands p{
+
+  margin: auto;
+}
+.contenar_category_brands{
+  /* background-color: rgb(255, 255, 255); */
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 1px;
+  border:solid rgba(206, 206, 206, 0.945) ;
 }

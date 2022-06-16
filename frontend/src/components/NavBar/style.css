@@ -45,41 +45,57 @@
 }
 
 .navbar {
-  background-color: rgb(168, 214, 193);
+  background-color: rgb(25, 107, 173);
+  /* background-color: rgb(2, 83, 83); */
   width: 100%;
   display: grid;
-  grid-template-columns: 8% 13% 46% 11% 9% 6% 3%;
-  grid-template-rows: 80px;
+  grid-template-columns: 4% 30% 40% 7% 7% 7% 3%;
+  grid-template-rows: 40px;
   grid-template-areas: "q  w e n r t yy";
   transition: transform 250ms;
   align-content: stretch;
   align-items: center;
   z-index: 100;
+  /* margin-bottom: 50px; */
 }
 .All_Product_nav {
   grid-area: n;
   width: 90%;
+margin-left: 20px;
+
 }
 .first_icon {
   grid-area: a;
   align-self: left;
   font-size: x-large;
+  
+}
+.added{
+height: 80px;
+background-color: rgb(255, 255, 255);
 }
 .fa,
 .fas {
   font-size: x-large;
   margin: auto;
+  /* color: aliceblue; */
 }
 
 .logo_img {
   grid-area: w;
-  height: 70px;
+  height: 105px;
   margin: auto;
+  /* border: solid; */
+  margin-top: 3%;
+  z-index: 102;
+  /* margin-left:-10px; */
+  margin-left: 160px;
 }
 
 
 .login_link {
   grid-area: r;
+  margin-left: 30px;
 }
 .register_link {
   grid-area: t;
@@ -87,13 +103,15 @@
 }
 .cart {
   grid-area: yy;
-  align-self: left;
-  margin: auto;
+  margin-bottom: 20px;
 }
 
 .fa-cart-plus:before {
   content: "\f217";
-  color: rgb(13, 95, 95);
+  color: rgb(255, 255, 255);
+  /* margin: auto; */
+  padding-bottom: 15px;
+  margin-bottom: 20px;
 }
 .fa-cart-plus {
   font-size: x-large;
@@ -127,7 +145,7 @@
       justify-self: center;
       align-items: center;
       height: 3vh;
-
+width: 70%;
     }
   
 
@@ -156,7 +174,7 @@
   flex-direction: column;
  
 
-  /* width: 100%; */
+  width: 100%;
   /* background-color: beige; */
 }
 .searchss {

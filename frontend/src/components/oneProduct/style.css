@@ -394,6 +394,9 @@ margin-left: 8%;
   box-shadow: 0px 5px 15px 7px rgb(151, 151, 151);
   margin-bottom: 5px;
 }
+.fa-trash:before {
+  height: 10px;
+}
 .button_update_feedback {
   grid-area: uuu;
   height: 20px;

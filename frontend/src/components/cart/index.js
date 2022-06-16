@@ -37,6 +37,7 @@ const Cart = () => {
   //! redux =========
   //?==============================
   const [test, setTest] = useState(false);
+  const [test2, setTest2] = useState(false);
   const [subtotal, SetSubTotal] = useState(0);
 
   useEffect(() => {
@@ -296,24 +297,24 @@ const Cart = () => {
               className="empty_cart"
               onClick={(e) => {
                 // emptyCart();
-                setTest(true);
+                setTest2(true);
               }}
             >
               Empty Cart
             </button>
 
             {/* //!=================== */}
-            {test ? (
+            {test2 ? (
               <div className="popup">
                 <div className="popup-inner">
-                  <h1>Update Product</h1>
-                  <p>Are you sure to Update Product</p>
+                  <h1>Delete Product</h1>
+                  <p>Are you sure to delete all products in thecart</p>
 
                   <button
                     className="close-btn"
                     onClick={() => {
                       emptyCart();
-                      setTest(false);
+                      setTest2(false);
                     }}
                   >
                     yes
@@ -321,7 +322,7 @@ const Cart = () => {
                   <button
                     className="close-btn2"
                     onClick={() => {
-                      setTest(false);
+                      setTest2(false);
                     }}
                   >
                     no

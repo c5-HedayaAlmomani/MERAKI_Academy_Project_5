@@ -30,8 +30,8 @@ const Product = () => {
     axios
       .get("http://localhost:5000/products")
       .then((result) => {
-        console.log({ all: result.data.result.length });
-        console.log(Math.ceil(result.data.result.length / 6));
+        
+       
         setNumberOfPage(Math.ceil(result.data.result.length / 6));
         setArrayofPage(Array(Math.ceil(result.data.result.length / 6)).fill(0));
       })
@@ -39,7 +39,6 @@ const Product = () => {
         console.log(err);
       });
   };
-  // Array(5).fill(1)=>[1, 1, 1, 1, 1]
   const gitAllProduct = () => {
     axios
       .get(`http://localhost:5000/products/pagination/${page}`)
@@ -70,24 +69,21 @@ const Product = () => {
         console.log(result);
       })
       .catch((err) => {
-        console.log(token);
+        
         console.log(err);
       });
   };
 
   const sortFunction = (e) => {
-    // console.log(result.data.result);
+    
     if (e == "high Price") {
       let sortedProduct = products.sort((a, b) => b.price - a.price);
       setSorts(sortedProduct);
-      console.log("product", sortedProduct);
     } else if (e == "low Price") {
       let sortedProduct = products.sort((a, b) => a.price - b.price);
       setSorts(sortedProduct);
-      console.log("product", sortedProduct);
     } else if (e == "Select") {
       setSorts(products);
-      console.log("product", products);
     }
   };
 
@@ -96,7 +92,7 @@ const Product = () => {
 
   return (
     <div className="main">
-      <div>
+      <div className="sort">
         <select
           onClick={(e) => {
             sortFunction(e.target.value);
@@ -123,7 +119,7 @@ const Product = () => {
               <div className="card">
               <ul className="ul">
               <li>
-                <i>{e.price} $</i>
+                <i>{/* {e.price} $ */}</i>
               </li>
               <li>
                 <i></i>
@@ -138,12 +134,12 @@ const Product = () => {
               <img src={e.image} alt="" />
               <div className="con-text">
                 <h2>{e.title}</h2>
-                <p>{e.description} {e.AvailableQuantity>0?(<button      className="add_to_cart"
+                <p>{e.price} JOD</p>
+                <p>{/* {e.description} */} {e.AvailableQuantity>0?(<button      className="add_to_cart"
                     onClick={() => {
-                    console.log(e.id);
                     addToCart(e.id);
                     notifyCart()
-                    }}>Add to Cart</button>):(<button>SoldOut</button>)}       
+                    }}>Add to Cart</button>):(<p>SoldOut</p>)}       
                 
                   <button onClick={() => {
                   navigate(`/product/${e.id}`);
@@ -151,37 +147,11 @@ const Product = () => {
               </div>
               </div>
 
-              // <div key={i} className="one_product">
-              //   <img
-              //     onClick={() => {
-              //       navigate(`/product/${e.id}`);
-              //     }}
-              //     src={`${e.image}`}
-              //   />
-              //   <div className="information">
-              //     <div>
-              //       {" "}
-              //       {e.title}
-              //       {e.price}
-              //       {e.description}
-              //       <br></br>
-              //       {e.AvailableQuantity}
-              //     </div>
-              //     <button
-              //       className="add_to_cart"
-              //       onClick={() => {
-              //         console.log(e.id);
-              //         addToCart(e.id);
-              //       }}
-              //     >
-              //       Add to Cart
-              //     </button>
-              //   </div>
-              // </div>
+             
             );
           })}
       </div>
-
+<div className="pagination">
       {arrayofPage.map((element, index) => {
         return (
           <div key={index}>
@@ -203,7 +173,6 @@ const Product = () => {
           <button
             onClick={() => {
               setPage(index - 1);
-              console.log(index - 1);
               setIndex(index - 1);
               gitAllProduct();
             }}
@@ -230,6 +199,7 @@ const Product = () => {
       ) : (
         <></>
       )}
+      </div>
     </div>
   );
 };

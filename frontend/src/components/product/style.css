@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 5%;
     
 
 } 
@@ -46,10 +47,11 @@
 
 /* !!!!-------- */
 .card{
-  width:300px;
-   height:400px;
+  width:18VW;
+  aspect-ratio: 1/1.5;
+   /* height:400px; */
   background:#000;
-   border-radius:30px;
+   border-radius:5px;
    overflow:hidden;
    position:relative;
   display:flex;
@@ -72,7 +74,7 @@
   opacity:1;
 }
 .card:hover img{
-   /* transform:scale(1.25); */
+   transform:scale(1.25);
 }
 .card:hover .ul{
   transform:translate(0);
@@ -105,8 +107,13 @@
   padding:20px;
   padding-bottom:30px;
 }
+
+.card .con-text h2{
+  font-size:1.5rem;
+  
+}
 .card .con-text p{
-  font-size:.8rem;
+  font-size:1.5rem;
   opacity:0;
  margin-bottom:-170px;
   transition:all .25s ease;
@@ -117,7 +124,10 @@
 }
 
 .card .con-text p button{
-  padding:7px 17px;
+
+  width: 100%;
+  aspect-ratio: 1/0.25;
+  padding:8px 12px;
   border-radius:12px;
   background:transparent;
   border:2px solid #fff;
@@ -127,8 +137,9 @@
   cursor:pointer;
   transition:all .25s ease;
   font-family:poppins;
-  font-size:.75rem;
+  font-size: 1rem;
   outline:none;
+
 }
 .card .con-text p button:hover{
   background:#fff;
@@ -180,4 +191,94 @@ border-radius:6px;
 .ul li i {
  font-size:1.4rem;
   color:#000;
+}
+
+/*! -----PAGINATION----  */
+
+.main .pagination{
+  display: flex;
+  flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.main .pagination button {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+ .main .pagination button.active {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid #4caf50;
+}
+
+.main .pagination button:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.main .pagination button:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.main .pagination button:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+} 
+
+/*! -----PAGINATION----  */
+
+.main .sort{
+  display: flex;
+  margin-right: 1vw;
+  justify-content: flex-end;
+
+}
+
+.sort {
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+}
+
+.sort select {
+  background-color: #0563af;
+  color: white;
+  /* padding: 12px; */
+  width: 10vw;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.sort::before {
+  content: "\f13a";
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.sort:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sort select option {
+  padding: 30px;
 }

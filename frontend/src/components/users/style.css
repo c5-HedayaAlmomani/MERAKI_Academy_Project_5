@@ -2,8 +2,8 @@
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: auto;
-  /* margin-top: %; */
-  /* margin-bottom: 5vh; */
+  margin: 0px 20px 10px ;
+  
 }
 
 #usersT td,

@@ -80,33 +80,20 @@ const Getbrand = () => {
               <a class="btn" href="/">
                 Home
               </a>
-              {/* <div class="submenu">
-          <a href="#">User List</a>
-          <a href="#">Add User</a>
-          <a href="#">Delete User</a>
-        </div> */}
+             
             </li>
             <li class="item" id="mn2">
               <a class="btn" href="product">
                 All Product
               </a>
 
-              {/* <div class="submenu">
-          <a href="#">File List</a>
-          <a href="#">Add File</a>
-          <a href="#">Felete File</a>
-        </div> */}
             </li>
 
             <li class="item" id="mn3">
               <a class="btn" href="/order">
                 Orders
               </a>
-              {/* <div class="submenu">
-          <a href="#">File List</a>
-          <a href="#">Add File</a>
-          <a href="#">Felete File</a>
-        </div> */}
+             
             </li>
 
             <li class="item" id="mn4">
@@ -125,16 +112,7 @@ const Getbrand = () => {
               </div>
             </li>
 
-            <li class="item" id="mn2">
-              <a class="btn" href="#mn2">
-                Files
-              </a>
-              <div class="submenu">
-                <a href="#">File List</a>
-                <a href="#">Add File</a>
-                <a href="#">Felete File</a>
-              </div>
-            </li>
+           
           </ul>
 
          

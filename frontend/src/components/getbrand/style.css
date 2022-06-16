@@ -87,29 +87,27 @@
 
  */
 
-
-
 .filter_item {
   position: absolute;
+  top: 40px;
   z-index: 101;
   display: flex;
   justify-content: flex-start;
   min-height: 50vh;
-  
   overflow: hidden;
 }
 .filter_item a {
   text-decoration: none;
-  
+
   text-align: left;
   color: rgb(0, 0, 0);
-  margin :5px;
+  margin: 5px;
   font-size: 120%;
   font-weight: 900;
 }
 
 .filter_item .menu {
-  width: 18vw;
+  width: 15vw;
   height: auto;
   background: #2e424de0;
   border-radius: 8px;
@@ -118,21 +116,21 @@
 }
 
 .filter_item .menu .btn {
-    height: 0px;
-    display: flex;
-    
-    border-bottom: solid 1px #304750;
-    border-top: solid 1px #5B8291;
-    position: relative;
-    margin: 5px;
-    background-color: #dae2e6bd;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+  height: 0px;
+  display: flex;
+
+  border-bottom: solid 1px #304750;
+  border-top: solid 1px #5b8291;
+  position: relative;
+  margin: 5px;
+  background-color: #dae2e6bd;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .filter_item .menu .submenu {
-  background: #EAEBED;
+  background: #eaebed;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.8s ease-out;
@@ -140,7 +138,7 @@
 
 .filter_item .menu .submenu a {
   display: block;
-  padding: 5PX;
+  padding: 5px;
   position: relative;
 }
 
@@ -169,4 +167,26 @@
   max-height: 20rem;
 }
 
+@media (max-width: 400px) {
+  .filter_item .menu {
+    width: 30vw;
 
+    height: auto;
+    background: #2e424de0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  .menu {
+    z-index: 10000000;
+  }
+  .filter_item a {
+    text-decoration: none;
+
+    text-align: left;
+    color: rgb(0, 0, 0);
+    margin: 5px;
+    font-size: 10px;
+    font-weight: 900;
+  }
+}

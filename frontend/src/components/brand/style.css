@@ -143,14 +143,14 @@
   color: rgb(77, 77, 77);
   font-family: Arial;
   font-weight: 900;
-
 }
 .contenar_category_brands {
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 1px;
   background-color: rgb(248, 248, 248);
-  box-shadow: 0px 2px 2px 2px ;color: rgb(236, 236, 236);
+  box-shadow: 0px 2px 2px 2px;
+  color: rgb(236, 236, 236);
 }
 
 .all_brand-only {
@@ -162,8 +162,80 @@
 }
 
 .all_brand {
-
   font-family: Arial;
-
 }
 
+@media (max-width: 400px) {
+  .all_brand-only {
+    background-color: #e4e4e4;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 270px;
+    margin: 50px 0px;
+  }
+
+  .branddivv img {
+    width: 60px;
+    height: auto;
+    margin: 0px 20px;
+  }
+  .all_brand {
+    font-family: Arial;
+    font-size: 23px;
+  }
+
+  .all_category-only {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    /* margin: 60px 0px; */
+  }
+  .img_category_brands {
+    width: 60px;
+    height: auto;
+    /* margin: 20px 20px; */
+  }
+
+  .contenar_category_brands {
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 1px;
+    background-color: rgb(248, 248, 248);
+    box-shadow: 0px 2px 2px 2px;
+    color: rgb(236, 236, 236);
+    width: 90px;
+    height: 150px;
+  }
+  .img_brand_brands {
+    width: 10px;
+    height: auto;
+    position: relative;
+    bottom: 20px;
+  }
+  .contenar_namecategoryand_bands {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 8vh;
+  }
+
+  .contenar_namecategoryand_bands img {
+    width: 20px;
+    height: auto;
+    margin: auto;
+  }
+  .contenar_namecategoryand_bands p {
+    margin: auto;
+    color: rgb(77, 77, 77);
+    font-family: Arial;
+    font-weight: 900;
+    font-size: 10px;
+    margin-top: 10px;
+  }
+}

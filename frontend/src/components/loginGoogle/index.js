@@ -35,7 +35,7 @@ const LogGoogle = () => {
   };
 
   const responseGoogle = (response) => {
-    console.log(response.Ru);
+    console.log(response);
 
     axios
       .post("http://localhost:5000/loginGoogle", {

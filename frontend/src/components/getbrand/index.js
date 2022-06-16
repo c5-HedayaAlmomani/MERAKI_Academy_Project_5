@@ -68,57 +68,76 @@ const Getbrand = () => {
     getCategory();
     getBrand();
   }, []);
-  console.log(brands);
+  console.log("isAdmin", isAdmin);
 
   return (
     <div>
       {isAdmin && show && <SidebarAdmin />}
       {!isAdmin && show && (
         <div className="filter_item">
-          <Link className="All_Product" to="product">
-            All Product
-          </Link>
-          <Link className="All_Brand" to="/">
-            All Brand
-          </Link>
-          <Link className="All_Order" to="/order">
-            All Order
-          </Link>
-          <ul>
-            <li className="Filter">
-              <a>Filter</a>
+          <ul class="menu">
+            <li class="item" id="mn1">
+              <a class="btn" href="/">
+                Home
+              </a>
+              {/* <div class="submenu">
+          <a href="#">User List</a>
+          <a href="#">Add User</a>
+          <a href="#">Delete User</a>
+        </div> */}
             </li>
-            {brands.map((element, index) => {
-              return (
-                <div key={index}>
-                  <li
-                    onClick={() => {
-                      navigate(`/allCategory/${element.brand}`);
-                    }}
-                  >
-                    {element.brand}
-                  </li>
-                  {category.map((elementCat, index) => {
-                    if (elementCat.brand_id == element.id) {
-                      return (
-                        <div key={index}>
-                          <li
-                            onClick={() => {
-                              navigate(
-                                `allCategory/${element.brand}/PRO/${element.brand}/${elementCat.category}`
-                              );
-                            }}
-                          >
-                            {elementCat.category}
-                          </li>
-                        </div>
-                      );
-                    } else <></>;
-                  })}
-                </div>
-              );
-            })}
+            <li class="item" id="mn2">
+              <a class="btn" href="product">
+                All Product
+              </a>
+
+              {/* <div class="submenu">
+          <a href="#">File List</a>
+          <a href="#">Add File</a>
+          <a href="#">Felete File</a>
+        </div> */}
+            </li>
+
+            <li class="item" id="mn3">
+              <a class="btn" href="/order">
+                Orders
+              </a>
+              {/* <div class="submenu">
+          <a href="#">File List</a>
+          <a href="#">Add File</a>
+          <a href="#">Felete File</a>
+        </div> */}
+            </li>
+
+            <li class="item" id="mn4">
+              <a class="btn" href="#mn4">
+                Brands
+              </a>
+              <div class="submenu">
+                {brands.map((element, index) => {
+                  return (
+                    <>
+                      <a  href={`/allCategory/${element.brand}`}>{element.brand}</a>
+                      
+                    </>
+                  );
+                })}
+              </div>
+            </li>
+
+            <li class="item" id="mn2">
+              <a class="btn" href="#mn2">
+                Files
+              </a>
+              <div class="submenu">
+                <a href="#">File List</a>
+                <a href="#">Add File</a>
+                <a href="#">Felete File</a>
+              </div>
+            </li>
           </ul>
+
+         
         </div>
       )}
     </div>

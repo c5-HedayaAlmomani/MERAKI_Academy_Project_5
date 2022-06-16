@@ -92,3 +92,103 @@ background-color: #e4e4e4;
 }
 
 
+@media (max-width: 400px){
+  .product_main img {
+    width: 50px;
+    height: auto;
+    padding: 10px;
+  }
+  .mainn{
+    padding-top: 5px;
+    padding-bottom: 5px;
+  background-color: #e4e4e4;
+  height: auto;
+  }
+  .mainn p {
+    font-size: 10px;
+    /* margin-top: 5px;
+    margin-bottom: 5px; */
+    font-family: Arial;
+  }
+  .mainn h2 {
+    font-family: Arial;
+    font-size: 100%;
+  }
+  
+  .product_main {
+  
+    width: 100px;
+    display: flex;
+  height: auto;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+  
+    /* margin: 40px; */
+    border-radius: 10px;
+    transition: transform 0.8s;
+  }
+  .product_main:hover {
+    transform: scale(1.05);
+  }
+  
+  .pro_main {
+    background-color: #e4e4e4;
+    height: 220px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-left: 100px;
+    padding-right: 100px;
+    width: 50px;
+  }
+  .innfo {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2px;
+    padding-bottom: 0px;
+  }
+  
+  .innfo button {
+    border: none;
+    background-color: #0b724c;
+    color: rgb(255, 255, 255);
+    font-size: 9px;
+    font-weight: 900;
+    height: 30px;
+    margin-top: 12px;
+    font-family: Arial;
+    
+  }
+  .innfo p {
+    border: none;
+    font-size: larger;
+    color: rgb(100, 100, 100);
+    font-size: 9px;
+    font-weight: 900;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 6px;
+  }
+  .buttons button {
+    border: none;
+    width: 3vh;
+    height: 3vh;
+    color: rgb(245, 245, 245);
+    background-color: #0b724c;
+    border-radius: 0.5vh;
+   
+  }
+
+
+}

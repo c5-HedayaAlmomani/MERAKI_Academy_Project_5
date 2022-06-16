@@ -107,32 +107,7 @@ const ProductMain = () => {
   useEffect(getAllProductNoLimit, []);
 
   return (
-    <div className="main">
-      {/* <p>AllCategory</p>
-      <div>
-
-        {
-
-          category.length && category.map((element, index) => {
-            return (<div key={index} className="contenar_category_brands">
-              <img src={element.image} className="img_category_brands" onClick={() => {
-                navigate(
-                  `allCategory/${element.brand}/PRO/${element.brand}/${element.category}`
-                );
-              }} />
-
-
-              <div className="contenar_namecategoryand_bands">
-                <img src={element.image} className="img_brand_brands" />
-                <p className="p_category_brands">{element.category}</p>
-
-              </div>
-            </div>)
-          })
-
-        }
-
-      </div> */}
+    <div className="mainn">
 
       <p>NEW PRODUCTS</p>
 

@@ -13,7 +13,8 @@
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  height: 48vh;
+  /* height: 48vh; */
+  height: 65vh;
 }
 
 .slide span {

@@ -34,16 +34,11 @@ const LogGoogle = () => {
   };
 
   const responseGoogle = (response) => {
-
-    console.log("HHHHHHHHHHHHHHHHH");
-
-    console.log(response);
-
     axios
       .post("http://localhost:5000/loginGoogle", {
-        firstName: response.Ru.AY,
-        lastName: response.QW,
-        email: response.Ru.Iv,
+        firstName: response.profileObj.email,
+        lastName: response.profileObj.familyName,
+        email: response.profileObj.email,
       })
       .then((result) => {
         console.log("LOGINGoogle", result);

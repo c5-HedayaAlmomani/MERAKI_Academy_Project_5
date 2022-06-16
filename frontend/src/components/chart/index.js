@@ -15,14 +15,13 @@ import {
 export const Chart = () => {
   const data = [
     { name: "Users", users: 2000000000 },
-    { name: "Product", users: 1500000000 },
-    { name: "Orders", users: 1000000000 },
-    { name: "Brands", users: 500000000 },
+    { name: "Product", users: 1200000000 },
+    { name: "Orders", users: 1700000000 },
+    { name: "Brands", users: 600000000 },
   ];
 
   return (
     <div style={{ textAlign: "center" }}>
-      {/* <h1>Socail Media Users</h1> */}
       <div className="Apppp">
         <PieChart width={400} height={400}>
           <Pie
@@ -32,7 +31,7 @@ export const Chart = () => {
             cx={200}
             cy={200}
             outerRadius={80}
-            fill="#8884d8"
+            fill="rgb(20, 136, 88)"
             label
           />
           <Tooltip />
@@ -58,11 +57,13 @@ export const Chart = () => {
           <Tooltip />
           <Legend />
           <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="users" fill="#8884d8" background={{ fill: "#eee" }} />
+          <Bar
+            dataKey="users"
+            fill="rgb(20, 136, 88)"
+            background={{ fill: "#eee" }}
+          />
         </BarChart>
       </div>
     </div>
   );
 };
-
-// export default Chart;

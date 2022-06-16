@@ -1,45 +1,42 @@
 .App {
-	text-align: center;
-	/* display: grid; */
-	/* grid-template-columns: 20vw auto; */
-	/* grid-template-rows:10vh auto 5vh ; */
-	/* grid-template-areas: "hedaer hedaer " "sidebar main" "foter foter"  */
-  }
-  
-
-.navv{
-grid-area: hedaer;
+  text-align: center;
+  background-color: #ffffff;
 }
 
-.filter_item{
-grid-area: sidebar;
+.navv {
+  grid-area: hedaer;
 }
 
-
-.foter{
-grid-area: foter;
-} 
-.all_brand ,.cart_container,.all_category , .categoryContenar ,.loginDiv,.main ,.products,.register, .AddProductAdmin ,.cart_containerr{
-	grid-area:main;
-
+.filter_item {
+  grid-area: sidebar;
 }
 
-
-
-
-
+.foter {
+  grid-area: foter;
+}
+.all_brand,
+.cart_container,
+.all_category,
+.categoryContenar,
+.loginDiv,
+.main,
+.products,
+.register,
+.AddProductAdmin,
+.cart_containerr {
+  grid-area: main;
+}
 
 @media (prefers-color-scheme: light) {
-	body {
-		background-color: #f5f5f5;
-		color: #222;
-	}
+  body {
+    background-color: #f5f5f5;
+    color: #222;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-	body {
-		background-color: #222;
-		color: #fff;
-	}
+  body {
+    background-color: #222;
+    color: #fff;
+  }
 }
-

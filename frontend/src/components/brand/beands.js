@@ -104,6 +104,7 @@ const Brand = () => {
             })}
         </div>
         {<h1 className="all_brand">All_Category</h1>}
+        <div className="all_category-only">
         {categorys.length &&
           categorys.map((element, index) => {
             console.log("element---------------", element);
@@ -126,6 +127,7 @@ const Brand = () => {
               </div>
             );
           })}
+          </div>
         {
           <div className="buttons">
             {arrayofPage.map((element, index) => {

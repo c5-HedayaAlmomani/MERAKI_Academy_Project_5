@@ -38,8 +38,6 @@ const Brand = () => {
     axios
       .get("http://localhost:5000/category/")
       .then((result) => {
-        console.log({ all: result.data.result.length });
-        console.log(Math.ceil(result.data.result.length / 6));
         setNumberOfPage(Math.ceil(result.data.result.length / 6));
         setArrayofPage(Array(Math.ceil(result.data.result.length / 6)).fill(0));
       })
@@ -53,7 +51,6 @@ const Brand = () => {
       .get(`http://localhost:5000/brand`)
       .then((result) => {
         setBrand(result.data.result);
-        console.log(result.data);
         dispatch(setBrandsAction(result.data.result));
       })
       .catch((err) => {
@@ -66,7 +63,6 @@ const Brand = () => {
       .get(`http://localhost:5000/category/pagination/${page}`)
       .then((result) => {
         setCategorys(result.data.result);
-        console.log(result.data.result);
       })
       .catch((err) => {
         console.log(err);
@@ -111,7 +107,7 @@ const Brand = () => {
         <div className="all_category-only">
           {categorys.length &&
             categorys.map((element, index) => {
-              console.log("element---------------", element);
+              
               return (
                 <div key={index} className="contenar_category_brands">
                   <img
@@ -133,7 +129,23 @@ const Brand = () => {
             })}
         </div>
         {
-          <div className="buttons">
+          <div className="pagination">
+            {page != 1 ? (
+              <>
+                <button
+                  onClick={() => {
+                    setPage(index - 1);
+
+                    setIndex(index - 1);
+                    category();
+                  }}
+                >
+                  &laquo;
+                </button>
+              </>
+            ) : (
+              <></>
+            )}
             {arrayofPage.map((element, index) => {
               return (
                 <div key={index}>
@@ -150,22 +162,7 @@ const Brand = () => {
               );
             })}
 
-            {page != 1 ? (
-              <>
-                <button
-                  onClick={() => {
-                    setPage(index - 1);
-
-                    setIndex(index - 1);
-                    category();
-                  }}
-                >
-                  back
-                </button>
-              </>
-            ) : (
-              <></>
-            )}
+            
             {page != numberOfPage ? (
               <>
                 <button
@@ -176,7 +173,7 @@ const Brand = () => {
                     category();
                   }}
                 >
-                  next
+                  &raquo;
                 </button>
               </>
             ) : (

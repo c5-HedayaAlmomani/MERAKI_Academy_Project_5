@@ -28,6 +28,7 @@ const regGoogle = (req, res, next) => {
           const query = `INSERT INTO orders (user_email) VALUES (?)`;
           const data = [email];
           connection.query(query, data, (err, result) => {
+            console.log("result google log",result);
             if (err) {
               console.log(err);
               return res.status(409).json({

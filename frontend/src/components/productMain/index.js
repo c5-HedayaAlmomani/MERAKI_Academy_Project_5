@@ -152,7 +152,23 @@ const ProductMain = () => {
 
 
 
-      <div className="buttons">
+      <div className="pagination">
+      {page != 1 ? (
+          <>
+            <button
+              onClick={() => {
+                setPage(index - 1);
+
+                setIndex(index - 1);
+                gitAllProduct();
+              }}
+            >
+              &laquo;
+            </button>
+          </>
+        ) : (
+          <></>
+        )}
         {arrayofPage.map((element, index) => {
           return (
             <div key={index}>
@@ -169,22 +185,7 @@ const ProductMain = () => {
           );
         })}
 
-        {page != 1 ? (
-          <>
-            <button
-              onClick={() => {
-                setPage(index - 1);
-
-                setIndex(index - 1);
-                gitAllProduct();
-              }}
-            >
-              back
-            </button>
-          </>
-        ) : (
-          <></>
-        )}
+        
         {page != numberOfPage ? (
           <>
             <button
@@ -195,7 +196,7 @@ const ProductMain = () => {
                 gitAllProduct();
               }}
             >
-              next
+              &raquo;
             </button>
           </>
         ) : (

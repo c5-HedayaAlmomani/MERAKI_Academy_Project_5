@@ -27,7 +27,7 @@ const Login = () => {
 
   const getLiveOrder = () => {
     axios
-      .get(`http://localhost:5000/order/live/${email}`)
+      .get(`https://meraki-project-5-backend.herokuapp.com/order/live/${email}`)
       .then((result) => {
         dispatch(orderAction(result.data.order[0].id));
       })
@@ -37,7 +37,7 @@ const Login = () => {
   };
   const getRole = () => {
     axios
-      .post(`http://localhost:5000/admin/users`, { email: email })
+      .post(`https://meraki-project-5-backend.herokuapp.com/admin/users`, { email: email })
       .then((result) => {
         if (result.data.result[0].role == "ADMIN") {
         dispatch(setIsAdmainAction(true));
@@ -52,7 +52,7 @@ const Login = () => {
   };
   const login = () => {
     axios
-      .post("http://localhost:5000/login", { email, password })
+      .post("https://meraki-project-5-backend.herokuapp.com/login", { email, password })
       .then((result) => {
         setMessage("Login Successfuly");
         dispatch(loginAction(result.data.token));

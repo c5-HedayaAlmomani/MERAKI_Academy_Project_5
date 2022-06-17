@@ -32,7 +32,7 @@ const ProductAdmin = () => {
 
   const getAllProduct = () => {
     axios
-      .get(`http://localhost:5000/products`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/products`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -46,7 +46,7 @@ const ProductAdmin = () => {
 
   const deleteProduct = (id) => {
     axios
-      .delete(`http://localhost:5000/products/${id}`, {
+      .delete(`https://meraki-project-5-backend.herokuapp.com/products/${id}`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {

@@ -42,7 +42,7 @@ const UpdateProductAdmin = () => {
   const updateProduct = () => {
     axios
       .put(
-        `http://localhost:5000/products/${id}`,
+        `https://meraki-project-5-backend.herokuapp.com/products/${id}`,
         {
           title: title,
           description: description,

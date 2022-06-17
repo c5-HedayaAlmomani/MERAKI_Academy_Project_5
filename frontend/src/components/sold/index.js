@@ -17,7 +17,7 @@ const Sold = () => {
 
     const gitAllProduct = () => {
         axios
-            .get(`http://localhost:5000/products/pagination/${page}`)
+            .get(`https://meraki-project-5-backend.herokuapp.com/products/pagination/${page}`)
             .then((result) => {
                 setProducts(result.data.result);
             })

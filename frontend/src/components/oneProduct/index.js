@@ -40,7 +40,7 @@ const OneProduct = () => {
   const notifyEdit = () => toast("Added successfully");
   const oneProduct = () => {
     axios
-      .get(`http://localhost:5000/products/${id}`)
+      .get(`https://meraki-project-5-backend.herokuapp.com/products/${id}`)
       .then((result) => {
         console.log(result.data.result);
         setProduct(result.data.result);
@@ -53,7 +53,7 @@ const OneProduct = () => {
     if (!token) return alert("Please login to continue buying");
     await axios
       .post(
-        `http://localhost:5000/cart`,
+        `https://meraki-project-5-backend.herokuapp.com/cart`,
         {
           productId: id,
           quantity: 1,
@@ -71,7 +71,7 @@ const OneProduct = () => {
   };
   const getFeedback = (id) => {
     axios
-      .get(`http://localhost:5000/feedback/${id}`)
+      .get(`https://meraki-project-5-backend.herokuapp.com/feedback/${id}`)
       .then((result) => {
         console.log(result.data.result);
 
@@ -84,7 +84,7 @@ const OneProduct = () => {
   const addFeedback = (feedback) => {
     axios
       .post(
-        "http://localhost:5000/feedback",
+        "https://meraki-project-5-backend.herokuapp.com/feedback",
         { product_id: id, feedback },
         {
           headers: {
@@ -102,7 +102,7 @@ const OneProduct = () => {
   };
   const deleteFeedback = (feedback_id) => {
     axios
-      .delete(`http://localhost:5000/feedback/${feedback_id}`, {
+      .delete(`https://meraki-project-5-backend.herokuapp.com/feedback/${feedback_id}`, {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -119,7 +119,7 @@ const OneProduct = () => {
   };
   const getUserId = () => {
     axios
-      .get("http://localhost:5000/feedback/user/id", {
+      .get("https://meraki-project-5-backend.herokuapp.com/feedback/user/id", {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -135,7 +135,7 @@ const OneProduct = () => {
   const updateFeedback = (feedback, feedback_id) => {
     axios
       .put(
-        `http://localhost:5000/feedback/`,
+        `https://meraki-project-5-backend.herokuapp.com/feedback/`,
         {
           feedback,
           id: feedback_id,
@@ -158,7 +158,7 @@ const OneProduct = () => {
     setCurrentValue(index);
     axios
       .post(
-        "http://localhost:5000/rate",
+        "https://meraki-project-5-backend.herokuapp.com/rate",
         { product_id: id, rate: index, user_id: user_id },
         {
           headers: {
@@ -176,7 +176,7 @@ const OneProduct = () => {
   };
   const getAllRate = () => {
     axios
-      .get(`http://localhost:5000/rate/${id}`)
+      .get(`https://meraki-project-5-backend.herokuapp.com/rate/${id}`)
       .then((result) => {
         console.log({ getAllRate: result.data.result });
         setAllRate(result.data.result);

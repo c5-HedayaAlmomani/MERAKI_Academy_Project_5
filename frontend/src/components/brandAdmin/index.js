@@ -41,7 +41,7 @@ const BrandAdmin = () => {
 
   const getBrandAdmin = () => {
     axios
-      .get(`http://localhost:5000/brand`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/brand`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -55,7 +55,7 @@ const BrandAdmin = () => {
 
   const deleteBrandAdmin = (id) => {
     axios
-      .delete(`http://localhost:5000/brand/${id}`, {
+      .delete(`https://meraki-project-5-backend.herokuapp.com/brand/${id}`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -68,7 +68,7 @@ const BrandAdmin = () => {
   const addBrandAdmin = () => {
     axios
       .post(
-        `http://localhost:5000/brand`,
+        `https://meraki-project-5-backend.herokuapp.com/brand`,
         { brand: brandName, image: cloudinary },
         { headers: { authorization: `Bearer ${token}` } }
       )

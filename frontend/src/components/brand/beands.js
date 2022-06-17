@@ -36,7 +36,7 @@ const Brand = () => {
 
   const getAllProductNoLimit = () => {
     axios
-      .get("http://localhost:5000/category/")
+      .get("https://meraki-project-5-backend.herokuapp.com/category/")
       .then((result) => {
         setNumberOfPage(Math.ceil(result.data.result.length / 6));
         setArrayofPage(Array(Math.ceil(result.data.result.length / 6)).fill(0));
@@ -48,7 +48,7 @@ const Brand = () => {
 
   const brandD = () => {
     axios
-      .get(`http://localhost:5000/brand`)
+      .get(`https://meraki-project-5-backend.herokuapp.com/brand`)
       .then((result) => {
         setBrand(result.data.result);
         dispatch(setBrandsAction(result.data.result));
@@ -60,7 +60,7 @@ const Brand = () => {
 
   const category = () => {
     axios
-      .get(`http://localhost:5000/category/pagination/${page}`)
+      .get(`https://meraki-project-5-backend.herokuapp.com/category/pagination/${page}`)
       .then((result) => {
         setCategorys(result.data.result);
       })

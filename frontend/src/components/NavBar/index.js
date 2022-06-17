@@ -35,7 +35,7 @@ const Dashboard = () => {
       setCheck(false)
     } else {
       axios
-        .get(`http://localhost:5000/products`)
+        .get(`https://meraki-project-5-backend.herokuapp.com/products`)
         .then((result) => {
           console.log(result.data.result);
           const search1 = result.data.result.filter((element, index) => {

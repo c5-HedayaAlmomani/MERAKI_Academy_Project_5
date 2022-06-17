@@ -50,7 +50,7 @@ const AddProductAdmin = () => {
   const creatProduct = () => {
     axios
       .post(
-        `http://localhost:5000/products`,
+        `https://meraki-project-5-backend.herokuapp.com/products`,
         {
           title: title,
           description: description,
@@ -77,7 +77,7 @@ const AddProductAdmin = () => {
 
   const func = () => {
     axios
-      .get(`http://localhost:5000/filter/display/category/id/${brand_id}`)
+      .get(`https://meraki-project-5-backend.herokuapp.com/filter/display/category/id/${brand_id}`)
       .then((result) => {
         setCategoryFilter(result.data.result);
       })

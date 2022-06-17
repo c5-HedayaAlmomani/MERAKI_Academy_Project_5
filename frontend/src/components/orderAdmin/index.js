@@ -31,7 +31,7 @@ const AdminOrder = () => {
     console.log("in getOrders");
 
     axios
-      .get(`http://localhost:5000/order/orders/Admin`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/order/orders/Admin`, {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -56,7 +56,7 @@ const AdminOrder = () => {
     console.log("numOfOrder", numOfOrder);
 
     axios
-      .get(`http://localhost:5000/order/cart/id/${id}`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/order/cart/id/${id}`, {
         headers: {
           authorization: "Bearer " + token,
         },

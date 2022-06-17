@@ -30,7 +30,7 @@ const Order = () => {
   const getOrders = () => {
 
     axios
-      .get(`http://localhost:5000/order/product/cart`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/order/product/cart`, {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -52,7 +52,7 @@ const Order = () => {
     
 
     axios
-      .get(`http://localhost:5000/order/cart/id/${id}`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/order/cart/id/${id}`, {
         headers: {
           authorization: "Bearer " + token,
         },

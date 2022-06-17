@@ -12,7 +12,7 @@ const CatByBrand = () => {
 
   const func = () => {
     axios
-      .get(`http://localhost:5000/filter/display/category/${brand}`)
+      .get(`https://meraki-project-5-backend.herokuapp.com/filter/display/category/${brand}`)
       .then((result) => {
         console.log(result.data.result);
         setAllCat(result.data.result);

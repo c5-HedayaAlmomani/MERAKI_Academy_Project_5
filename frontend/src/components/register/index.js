@@ -25,7 +25,7 @@ const Register = () => {
 
   const register = () => {
     axios
-      .post("http://localhost:5000/register", {
+      .post("https://meraki-project-5-backend.herokuapp.com/register", {
         firstName,
         lastName,
         email,

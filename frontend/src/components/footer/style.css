@@ -45,10 +45,12 @@ section {
   color: #ffffff;
   font: normal 36px "Open Sans", cursive;
   margin: 0;
+  margin-left: 10px;
 }
 
 .footer-distributed h3 span {
-  color: lightseagreen;
+  color: rgb(77, 167, 241);
+  margin-left: 10px;
 }
 
 /* Footer links */
@@ -57,6 +59,7 @@ section {
   color: #ffffff;
   margin: 20px 0 12px;
   padding: 0;
+  /* margin-left: 20px; */
 }
 
 .footer-distributed .footer-links a {
@@ -66,6 +69,7 @@ section {
   font: normal 13px "Open Sans", cursive;
   text-decoration: none;
   color: inherit;
+  margin-left: 10px;
 }
 
 .footer-distributed .footer-company-name {
@@ -75,13 +79,14 @@ section {
   font: normal 13px "Open Sans", cursive;
   margin: 0;
   margin-left: 10%;
-
+  /* margin-left: 20px; */
 }
 
 /* Footer Center */
 
 .footer-distributed .footer-center {
   width: 35%;
+  margin-left: 10px;
 }
 
 .footer-distributed .footer-center i {
@@ -96,12 +101,14 @@ section {
   line-height: 42px;
   margin: 10px 15px;
   vertical-align: middle;
+  margin-left: 10px;
 }
 
 .footer-distributed .footer-center i.fa-envelope {
   font: normal 17px "Open Sans", cursive;
   font-size: 17px;
   line-height: 38px;
+  /* margin-left: 20px; */
 }
 
 .footer-distributed .footer-center p {
@@ -110,6 +117,7 @@ section {
   font-weight: 400;
   vertical-align: middle;
   margin: 0;
+  margin-left: 20px;
 }
 
 .footer-distributed .footer-center p span {
@@ -118,12 +126,14 @@ section {
   font-size: 14px;
   font: normal 14px "Open Sans", cursive;
   line-height: 2;
+  /* margin-left: 20px; */
 }
 
 .footer-distributed .footer-center p a {
-  color: rgb(27, 192, 184);
+  color: rgb(77, 167, 241);
   text-decoration: none;
   font: normal 20px "Open Sans", cursive;
+  /* margin-left: 20px; */
 }
 
 .footer-distributed .footer-links a:before {
@@ -135,6 +145,7 @@ section {
   color: #fff;
   display: inline-block;
   padding-right: 5px;
+  margin-left: 5px;
 }
 
 .footer-distributed .footer-links .link-1:before {
@@ -154,6 +165,7 @@ section {
   font: normal 13px "Open Sans", cursive;
   font-weight: normal;
   margin: 0;
+  /* margin-left: 20px; */
 }
 
 .footer-distributed .footer-company-about span {
@@ -187,6 +199,9 @@ section {
   margin-bottom: 5px;
 }
 
+.logoImgECMA{
+  margin-left: 20px;
+}
 /* If you don't want the footer to be responsive, remove these media queries */
 
 @media (max-width: 880px) {
@@ -212,7 +227,23 @@ section {
 .about {
   font: bolder 25px "Open Sans";
   color: rgb(25, 107, 173);
+  display: flex;
+  flex-direction: column
 }
 
-
-
+.about1{
+  font: bolder 29px "Open Sans";
+  color: rgb(0, 0, 0);
+}
+.aboutDiv{
+  
+  color: rgb(25, 107, 173);
+  display: flex;
+  flex-direction: column
+}
+.aboutimg{
+  
+  width: 20vw;
+  margin-left: 80vh;
+  
+}

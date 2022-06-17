@@ -24,7 +24,7 @@ const Footer = () => {
 
                 <div className="footer-left">
 
-                <h3>ECMA<span>logo</span></h3>
+                <h3>ECMA<span> shop online</span></h3>
 
                     <p className="footer-links">
                         <a href="/" className="link-1">Home</a>
@@ -41,7 +41,7 @@ const Footer = () => {
                     </p>
 
                     
-                    <img src="https://res.cloudinary.com/hudhud/image/upload/v1655027682/maxqgc69/jewjejpruuyddsyu4uis.png"/>
+                    <img className="logoImgECMA" src="https://res.cloudinary.com/hudhud/image/upload/v1655496474/maxqgc69/ECMA_vxqmns.jpg" alt="logo for ECMA"/>
 
                     <p className="footer-company-name"><mark>ECMA© 2022</mark></p>
                 </div>

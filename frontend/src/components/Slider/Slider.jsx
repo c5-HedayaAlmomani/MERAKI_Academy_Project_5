@@ -16,6 +16,10 @@ export default function Slider() {
 
     "https://res.cloudinary.com/hudhud/image/upload/v1655497966/maxqgc69/jehad6_ewmpn4.jpg",
     "https://res.cloudinary.com/hudhud/image/upload/v1655499393/maxqgc69/jehad10_yakvn3.jpg",
+    "https://res.cloudinary.com/hudhud/image/upload/v1655505184/maxqgc69/wwwwwwwwwwwwwww_lzjuao.jpg",
+    "https://res.cloudinary.com/hudhud/image/upload/v1655505197/maxqgc69/qqqqqqqqqqqqqq_jwhf1z.jpg",
+    "https://res.cloudinary.com/hudhud/image/upload/v1655505988/maxqgc69/jehad12_btinj7.jpg",
+    "https://res.cloudinary.com/hudhud/image/upload/v1655506213/maxqgc69/warda_assqpx.jpg",
     
   ];
 

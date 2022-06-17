@@ -8,7 +8,7 @@ const Privacy = () => {
 
 
     return (<div>
-        <p>privacy</p>
+        <p>privacy-policy</p>
         <br></br>
         <p className="privacyText">
             <span className="privacyText">

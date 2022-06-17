@@ -71,7 +71,7 @@ const Dashboard = () => {
         {/* //!logo */}
         <img
           className="logo_img"
-          src="https://res.cloudinary.com/hudhud/image/upload/v1655323955/maxqgc69/t0gxdcb18rb4qjek4pzh.gif"
+          src="https://res.cloudinary.com/hudhud/image/upload/v1655488098/maxqgc69/xsvbpadmjlznivb5asvv.png"
         />
 {/* //! search */}
   

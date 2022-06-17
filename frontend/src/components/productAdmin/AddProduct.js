@@ -47,6 +47,10 @@ const AddProductAdmin = () => {
 
   //! redux =========
   const notifyAdd = () => toast("Edited successfully");
+
+
+
+
   const creatProduct = () => {
     axios
       .post(
@@ -66,14 +70,48 @@ const AddProductAdmin = () => {
         }
       )
       .then((result) => {
+        console.log(result);
         dispatch(addProductAction(result));
-
         notifyAdd();
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
+
+
+
+
+
+  // const creatProduct = () => {
+  //   console.log("ggggggg");
+  //   axios
+  //     .post(
+  //       `https://meraki-project-5-backend.herokuapp.com/products`,
+  //       {
+  //         title: title,
+  //         description: description,
+  //         price: price,
+  //         image: cloudinary,
+  //         category_id: category_id,
+  //         sub_category_id: sub_category_id,
+  //         brand_id: brand_id,
+  //         AvailableQuantity: quantity,
+  //       },
+  //       {
+  //         headers: { authorization: `Bearer ${token}` },
+  //       }
+  //     )
+  //     .then((result) => {
+  //       dispatch(addProductAction(result));
+
+  //       notifyAdd();
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const func = () => {
     axios

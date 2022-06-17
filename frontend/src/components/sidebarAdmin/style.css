@@ -1,20 +1,23 @@
 .sidebar_admin {
   position: absolute;
-  z-index: 101;
+  z-index: 102;
   display: flex;
   justify-content: flex-start;
   min-height: 50vh;
-  
+  width: 14%;
   overflow: hidden;
+
+  top: 40px;
 }
 .sidebar_admin a {
   text-decoration: none;
-  
   text-align: left;
   color: rgb(0, 0, 0);
   margin :5px;
   font-size: 120%;
   font-weight: 900;
+
+
 }
 
 .sidebar_admin .menu {
@@ -24,12 +27,12 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
 }
 
 .sidebar_admin .menu .btn {
     height: 0px;
     display: flex;
-    
     border-bottom: solid 1px #304750;
     border-top: solid 1px #5B8291;
     position: relative;

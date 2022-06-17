@@ -45,7 +45,7 @@
 }
 
 .navbar {
-  background-color: rgb(25, 107, 173);
+  background-color: #023859;
   /* background-color: rgb(2, 83, 83); */
   width: 100%;
   display: grid;
@@ -183,10 +183,14 @@
 }
 .searchss {
   grid-area: e;
-  width: 40vw;
+  width: 30vw;
   border-radius: 5px;
   border: none;
   color: black;
+  margin: auto;
+  /* color: black; */
+  margin-right: 8vw;
+
 }
 
 .Serch_img {

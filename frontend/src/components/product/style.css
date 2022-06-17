@@ -124,7 +124,6 @@
 }
 
 .card .con-text p button{
-
   width: 100%;
   aspect-ratio: 1/0.25;
   padding:8px 12px;
@@ -233,24 +232,27 @@ border-radius:6px;
 
 .main .sort{
   display: flex;
-  margin-right: 1vw;
-  justify-content: flex-end;
+    /* margin-right: 1vw; */
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
 
 }
 
 
 
 .sort select {
-  background-color: #0563af;
-  color: white;
-  /* padding: 12px; */
-  width: 10vw;
-  border: none;
-  font-size: 20px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-  -webkit-appearance: button;
-  appearance: button;
-  outline: none;
+  background-color: #023859;
+    color: white;
+    /* padding: 12px; */
+    width: 30vw;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 5px 25px rgb(0 0 0 / 20%);
+    appearance: button;
+    outline: none;
+    margin-left: 2vw;
+    text-align: center;
 }
 
 

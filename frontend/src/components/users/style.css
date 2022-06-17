@@ -13,7 +13,7 @@
 }
 
 #usersT tr:nth-child(odd) {
-  background-color: #d4ffdd80;
+  background-color: #93e5ee86;
 }
 
 /* #usersT tr:hover {
@@ -24,7 +24,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #04aa6d;
+  background-color: #025E73;
   color: white;
   align-items: center;
 }

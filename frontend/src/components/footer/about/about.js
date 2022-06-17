@@ -3,9 +3,9 @@
 
 const About = () => {
 
-    return (<div>
+    return (<div className="aboutDiv">
         <p className="about">
-            <span>About the company</span><br></br>
+            <span>About the <span className="about1" >company</span> </span><br></br>
             An online store selling all kinds of electronic products in various shapes.. All high-quality products are specially designed to suit your needs at a competitive price that satisfies you. It is normal for high-quality products to have a different price than low-quality products - and we at ECMA.com provide you with high-quality products.<br></br>
 
             An overview of our site....<br></br>
@@ -21,7 +21,7 @@ const About = () => {
             Fifthly, the customer can return the goods in the event of any industrial error.<br></br>
         </p>
         <br></br>
-        <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0010/7588/brand.gif?itok=HKe8eImc"/>
+        <img className="aboutimg" src="https://res.cloudinary.com/hudhud/image/upload/v1655496474/maxqgc69/ECMA_vxqmns.jpg"  alt="logo for ECMA"/>
     </div>)
 
 

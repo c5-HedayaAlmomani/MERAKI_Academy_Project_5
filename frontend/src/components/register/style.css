@@ -15,17 +15,17 @@
   padding: 2%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   background: rgba(0, 0, 0, 0.8);
-  color: #c5ecfd;
+  color: rgb(25, 107, 173);
   width: 60%;
   margin: 1%;
   margin-left: 20%;
   border-radius: 7px,;
-  border-color: aqua;
+  border-color: rgb(25, 107, 173);
  
 
 }
 .register button {
-  background: #39b7dd;
+  background: rgb(25, 107, 173);
   text-align: center;
   padding: 15px;
   border-radius: 5px;
@@ -50,7 +50,7 @@
 
   border-radius: 5%;
  border-style: solid;
- border-color: aqua;
+ border-color: rgb(25, 107, 173);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   
 
@@ -62,21 +62,21 @@
 }
 
 .mss {
-  margin: 10px 0;
+  margin: 0 0;
   background: transparent;
   border: 0px;
-  border-bottom: 2px solid #c5ecfd;
+  border-bottom: 2px solid rgb(25, 107, 173);
   padding: 10px;
-  color: #c5ecfd;
+  color:rgb(25, 107, 173);
   width: 100%;
 }
 
 .mss:-webkit-any(h1) {
   /* IE 10+ */
-  color: #c5ecfd;
+  color: rgb(25, 107, 173);
 }
 
 ::-webkit-input-placeholder .input {
 
-  color: #000;
+  color: rgb(25, 107, 173);
 }

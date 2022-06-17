@@ -168,13 +168,15 @@ section {
 .footer-distributed .footer-icons {
   margin-top: 25px;
 }
-
+.footer-distributed .footer-icons a:hover {
+  color: rgb(64, 23, 175);
+}
 .footer-distributed .footer-icons a {
   display: inline-block;
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color: #33383b;
+  /* background-color: #33383b; */
   border-radius: 2px;
 
   font-size: 20px;

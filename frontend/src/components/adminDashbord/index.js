@@ -6,30 +6,7 @@ const AdminDashbord = () => {
   return (
     <div>
       <Chart />
-      <h1
-        className="Users"
-        onClick={() => {
-          navigate("/Admin/users");
-        }}
-      >
-        Users Table
-      </h1>
-      <h1
-        className="category"
-        onClick={() => {
-          navigate("/Admin/category");
-        }}
-      >
-        Category Table
-      </h1>
-      <h1
-        className="product"
-        onClick={() => {
-          navigate("/Admin/product");
-        }}
-      >
-        Products Table
-      </h1>
+     
     </div>
   );
 };

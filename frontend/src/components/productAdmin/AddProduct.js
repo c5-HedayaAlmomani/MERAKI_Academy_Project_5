@@ -94,7 +94,8 @@ const AddProductAdmin = () => {
           <Upload />
         </div>
         <div className="input_container">
-          <h5>Title</h5>
+          <div className="titleProduct">
+            <h5>Title</h5>
           <input
             placeholder="  Title"
             type="text"
@@ -103,6 +104,8 @@ const AddProductAdmin = () => {
               setTitle(e.target.value);
             }}
           />
+          </div>
+          <div className="descriptionProduct">
           <h5>Description</h5>
           <input
             placeholder="  Description"
@@ -112,6 +115,9 @@ const AddProductAdmin = () => {
               setDescription(e.target.value);
             }}
           />
+
+          </div>
+          <div className="priceProduct">
           <h5>Price</h5>
           <input
             placeholder="  Price"
@@ -121,6 +127,9 @@ const AddProductAdmin = () => {
               setPrice(e.target.value);
             }}
           />
+
+          </div>
+          <div className="QuantityProduct">
           <h5>Quantity</h5>
           <input
             placeholder="  Quantity"
@@ -130,6 +139,9 @@ const AddProductAdmin = () => {
               seQuantity(e.target.value);
             }}
           />
+
+          </div>
+          <div className="brandProduct">
           <h5>Brand</h5>
 
           <select
@@ -149,6 +161,9 @@ const AddProductAdmin = () => {
               })}
           </select>
 
+          </div>
+              <div className="CategoryProduct">
+
           <h5>Category</h5>
           <select
             onClick={(e) => {
@@ -165,6 +180,8 @@ const AddProductAdmin = () => {
                 );
               })}
           </select>
+              </div>
+<div className="subCategoryProduct">
 
           <h5>sub Category</h5>
           <input
@@ -174,6 +191,7 @@ const AddProductAdmin = () => {
               setSub_Category_id(e.target.value);
             }}
           />
+</div>
         </div>
         <button
           className="but_add_pro"

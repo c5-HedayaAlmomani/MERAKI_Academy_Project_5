@@ -110,6 +110,7 @@ const CategoryAdmin = () => {
     <div className="BrandAdmin">
       <div className="create_Brand">
         <div className="inputDiv">
+          
           <div className="brand_Name">
             <h3>🗄 Add Category</h3>
             <Upload />
@@ -150,7 +151,7 @@ const CategoryAdmin = () => {
       </div>
 
       <div className="category_contener">
-        <h2>🗄 Brand Table</h2>
+        <h2>🗄 Category Table</h2>
         <hr />
         <table id="adminT">
           <tr>

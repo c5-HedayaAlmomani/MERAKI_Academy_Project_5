@@ -39,7 +39,7 @@ const CategoryAdmin = () => {
   const addCategoryAdmin = (categoryName) => {
     axios
       .post(
-        `http://localhost:5000/category`,
+        `https://meraki-project-5-backend.herokuapp.com/category`,
         { category: categoryName, img: cloudinary, brand_id: brand },
         { headers: { authorization: `Bearer ${token}` } }
       )
@@ -64,7 +64,7 @@ const CategoryAdmin = () => {
   const addSubCategoryAdmin = (subCategory) => {
     axios
       .post(
-        `http://localhost:5000/category/sub`,
+        `https://meraki-project-5-backend.herokuapp.com/category/sub`,
         { sub_category: subCategory },
         { headers: { authorization: `Bearer ${token}` } }
       )
@@ -78,7 +78,7 @@ const CategoryAdmin = () => {
 
   const getCategoryAdmin = () => {
     axios
-      .get(`http://localhost:5000/category`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/category`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -91,7 +91,7 @@ const CategoryAdmin = () => {
 
   const deleteCategoryAdmin = (id) => {
     axios
-      .delete(`http://localhost:5000/category/${id}`, {
+      .delete(`https://meraki-project-5-backend.herokuapp.com/category/${id}`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {

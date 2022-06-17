@@ -39,7 +39,7 @@ const Getbrand = () => {
 
   const getCategory = () => {
     axios
-      .get(`http://localhost:5000/category`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/category`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -52,7 +52,7 @@ const Getbrand = () => {
 
   const getBrand = () => {
     axios
-      .get(`http://localhost:5000/brand`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/brand`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {

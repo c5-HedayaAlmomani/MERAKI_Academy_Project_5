@@ -29,7 +29,7 @@ const ProductMain = () => {
 
   const getAllProductNoLimit = () => {
     axios
-      .get("http://localhost:5000/products")
+      .get("https://meraki-project-5-backend.herokuapp.com/products")
       .then((result) => {
         console.log({ all: result.data.result.length });
         console.log(Math.ceil(result.data.result.length / 6));
@@ -43,7 +43,7 @@ const ProductMain = () => {
   const notifyCart = () => toast("added successufully");
   const gitAllProduct = () => {
     axios
-      .get(`http://localhost:5000/products/four/pagination/${page}`)
+      .get(`https://meraki-project-5-backend.herokuapp.com/products/four/pagination/${page}`)
       .then((result) => {
         setProducts(result.data.result);
       })
@@ -58,7 +58,7 @@ const ProductMain = () => {
 
     await axios
       .post(
-        `http://localhost:5000/cart`,
+        `https://meraki-project-5-backend.herokuapp.com/cart`,
         {
           productId: id,
           quantity: 1,
@@ -78,7 +78,7 @@ const ProductMain = () => {
 
   const gitAllCategory = () => {
     axios
-      .get(`http://localhost:5000/category/pagination/${page}`)
+      .get(`https://meraki-project-5-backend.herokuapp.com/category/pagination/${page}`)
       .then((result) => {
         setCategory(result.data.result);
       })

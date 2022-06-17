@@ -19,7 +19,7 @@ const ProCB = () => {
   const func = () => {
     
     axios
-      .post(`http://localhost:5000/filter/display/proCB`, {
+      .post(`https://meraki-project-5-backend.herokuapp.com/filter/display/proCB`, {
         brand,
         category,
       })
@@ -34,7 +34,7 @@ const ProCB = () => {
     if (!token) return alert("Please login to continue buying");
     await axios
       .post(
-        `http://localhost:5000/cart`,
+        `https://meraki-project-5-backend.herokuapp.com/cart`,
         {
           productId: id,
           quantity: 1,

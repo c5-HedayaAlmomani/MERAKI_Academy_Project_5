@@ -43,7 +43,7 @@ function Payment() {
   const emptyCart = async () => {
     await axios
       .delete(
-        "http://localhost:5000/cart/",
+        "https://meraki-project-5-backend.herokuapp.com/cart/",
 
         {
           headers: { authorization: `Bearer ${token}` },
@@ -62,7 +62,7 @@ function Payment() {
     console.log("orderId from localStorage",orderId);
     axios
       .put(
-        `http://localhost:5000/order/`,
+        `https://meraki-project-5-backend.herokuapp.com/order/`,
         {
           orderId: orderId,
         },
@@ -81,7 +81,7 @@ function Payment() {
   const createOrder = () => {
     axios
       .post(
-        `http://localhost:5000/order/`,
+        `https://meraki-project-5-backend.herokuapp.com/order/`,
         {},
         {
           headers: { authorization: `Bearer ${token}` },
@@ -98,7 +98,7 @@ function Payment() {
   };
 
   const updateProductSold=(product_id,sold,AvailableQuantity)=>{
-    axios.put(`http://localhost:5000/products/update/product`,{
+    axios.put(`https://meraki-project-5-backend.herokuapp.com/products/update/product`,{
       product_id:product_id,
       sold:sold,
       AvailableQuantity:AvailableQuantity
@@ -118,7 +118,7 @@ function Payment() {
 
   async function handleToken(token, addresses) {
     console.log(totalPrice);
-    const response = await axios.post("http://localhost:5000/checkout", {
+    const response = await axios.post("https://meraki-project-5-backend.herokuapp.com/checkout", {
       token,
       product,
     });

@@ -36,7 +36,7 @@ const UsersComponent = () => {
   const notifyEdit = () => toast("Edited successfully");
   const getAllUsers = () => {
     axios
-      .get(`http://localhost:5000/admin/users`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/admin/users`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -49,7 +49,7 @@ const UsersComponent = () => {
 
   const deleteUserAdmin = (id) => {
     axios
-      .delete(`http://localhost:5000/admin/users/${id}`, {
+      .delete(`https://meraki-project-5-backend.herokuapp.com/admin/users/${id}`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -62,7 +62,7 @@ const UsersComponent = () => {
 
   const updateUserAdmin = (id) => {
     axios
-      .put(`http://localhost:5000/admin/users/${id}`, {
+      .put(`https://meraki-project-5-backend.herokuapp.com/admin/users/${id}`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {

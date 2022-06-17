@@ -26,7 +26,7 @@ const LogGoogle = () => {
   
   const getRole = () => {
     axios
-      .post(`http://localhost:5000/admin/users`, { email: email })
+      .post(`https://meraki-project-5-backend.herokuapp.com/admin/users`, { email: email })
       .then((result) => {
         if (result.data.result[0].role == "ADMIN") {
         dispatch(setIsAdmainAction(true));
@@ -46,7 +46,7 @@ const LogGoogle = () => {
 
   const getLiveOrder = (email) => {
     axios
-      .get(`http://localhost:5000/order/live/${email}`)
+      .get(`https://meraki-project-5-backend.herokuapp.com/order/live/${email}`)
       .then((result) => {
         if(result.data.order.length===0){
           dispatch(orderAction(result.data.orderId))
@@ -64,7 +64,7 @@ const LogGoogle = () => {
   const responseGoogle = (response) => {
     console.log(response.profileObj.email);
     axios
-      .post("http://localhost:5000/loginGoogle", {
+      .post("https://meraki-project-5-backend.herokuapp.com/loginGoogle", {
         firstName: response.profileObj.email,
         lastName: response.profileObj.familyName,
         email: response.profileObj.email,

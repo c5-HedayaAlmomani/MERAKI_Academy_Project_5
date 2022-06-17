@@ -50,7 +50,7 @@ const Cart = () => {
 
   const getCartItems = async () => {
     await axios
-      .get(`http://localhost:5000/cart`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/cart`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -71,7 +71,7 @@ const Cart = () => {
   };
   const func = async () => {
     await axios
-      .get(`http://localhost:5000/cart`, {
+      .get(`https://meraki-project-5-backend.herokuapp.com/cart`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -87,7 +87,7 @@ const Cart = () => {
     console.log("add to cart orderid", orderId);
     axios
       .post(
-        `http://localhost:5000/cart`,
+        `https://meraki-project-5-backend.herokuapp.com/cart`,
         {
           productId: id,
           quantity: quantity,
@@ -108,7 +108,7 @@ const Cart = () => {
   const emptyCart = async () => {
     await axios
       .delete(
-        "http://localhost:5000/cart/",
+        "https://meraki-project-5-backend.herokuapp.com/cart/",
 
         {
           headers: { authorization: `Bearer ${token}` },
@@ -124,7 +124,7 @@ const Cart = () => {
 
   const deleteItemsFromCart = async (id) => {
     await axios
-      .delete(`http://localhost:5000/cart/${id}`, {
+      .delete(`https://meraki-project-5-backend.herokuapp.com/cart/${id}`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((result) => {

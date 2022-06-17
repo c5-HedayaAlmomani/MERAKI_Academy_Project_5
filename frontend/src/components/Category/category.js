@@ -10,7 +10,7 @@ const Category = () => {
 
     const clickbrand = () => {
 
-        axios.get(`http://localhost:5000/category`).then((result) => {
+        axios.get(`https://meraki-project-5-backend.herokuapp.com/category`).then((result) => {
             setAllcat(result.data.result)
             console.log(result.data.result);
             // console.log(result);

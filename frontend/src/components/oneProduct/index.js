@@ -211,7 +211,7 @@ const OneProduct = () => {
           return (
             <div key={i} className="oo">
               <div className="image_container">
-                <img src={`${e.image}`} />
+                <img className="img33" src={`${e.image}`} />
                 {/* //!rate========================== */}
                 <div className="Rate">
                   <p>Add Rate:</p>
@@ -380,7 +380,7 @@ const OneProduct = () => {
           })}
       </div>
 
-      <div>
+      <div className="all-see">
         <a
           className="see"
           onClick={() => {

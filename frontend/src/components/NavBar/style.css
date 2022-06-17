@@ -84,9 +84,12 @@
   font-size: 95%;
   color: rgb(146, 145, 145);
   text-decoration: none;
+  cursor: pointer;
 }
 .added a:hover {
   color: rgb(11, 39, 131);
+ 
+
 }
 .fa,
 .fas {
@@ -98,9 +101,9 @@
 
 .logo_img {
   grid-area: w;
-  height: 108px;
+  height: 100px;
   margin: auto;
-  margin-top: 3%;
+  margin-top: 4%;
   z-index: 102;
   margin-left: 160px;
   width: 140px;
@@ -148,12 +151,13 @@
 }
 
 .SERCHa {
+  margin-top: -2vh;
   display: flex;
   border-bottom: 1px solid;
   border-left: 1px solid;
   border-right: 1px solid;
   padding: 5px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   justify-self: center;
   align-items: center;
   height: 3vh;
@@ -179,18 +183,17 @@
 .navbarsearch {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 80%;
 }
 .searchss {
   grid-area: e;
-  width: 30vw;
+  width: 28.75vw;
   border-radius: 5px;
   border: none;
   color: black;
   margin: auto;
   /* color: black; */
   margin-right: 8vw;
-
 }
 
 .Serch_img {

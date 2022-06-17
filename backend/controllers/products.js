@@ -41,7 +41,7 @@ const CreateProduct = (req, res) => {
 };
 
 const getAllProduct = (req, res) => {
-  const query = `SELECT *,products.image,products.id FROM Products INNER JOIN brands ON Products.brand_id=brands.id INNER JOIN category ON Products.category_id=category.id WHERE Products.is_deleted=0 ;`;
+  const query = `SELECT *,products.id, products.image FROM Products INNER JOIN brands ON Products.brand_id=brands.id INNER JOIN category ON Products.category_id=category.id WHERE Products.is_deleted=0 ;`
   connection.query(query, (err, result) => {
     if (err) {
       return res.status(500).json({
@@ -53,7 +53,7 @@ const getAllProduct = (req, res) => {
     res.status(200).json({
       success: true,
       massage: "All the Product",
-      result: result,
+      resultuu: result,
     });
   });
 };

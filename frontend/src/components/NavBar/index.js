@@ -37,7 +37,7 @@ const Dashboard = () => {
       axios
         .get(`https://meraki-project-5-backend.herokuapp.com/products`)
         .then((result) => {
-          console.log(result.data.result);
+          console.log(result);
           const search1 = result.data.result.filter((element, index) => {
             return element.title.includes(searchInput);
           });
@@ -47,13 +47,15 @@ const Dashboard = () => {
             setCheck(true);
           }
           setsearchArray(search1);
+          
         })
         .catch((err) => {
           console.log(err);
         });
     }
-  };
 
+  };
+console.log(searchArray);
   return (
     <div className="navv">
       <div className="navbar">

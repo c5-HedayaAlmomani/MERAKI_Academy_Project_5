@@ -160,7 +160,8 @@
   /* border-radius: 5px; */
   justify-self: center;
   align-items: center;
-  height: 3vh;
+  /* height: 3.8vh; */
+  height: 26px;
   width: 70%;
 }
 
@@ -197,9 +198,11 @@
 }
 
 .Serch_img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  width: 23px;
+  height: 23px;
+  border-radius: px;
+  margin-top: 13px;
+
 }
 .Serch_title {
   width: 100%;

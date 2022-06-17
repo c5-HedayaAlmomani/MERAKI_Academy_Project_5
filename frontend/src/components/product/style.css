@@ -195,13 +195,13 @@ border-radius:6px;
 
 /*! -----PAGINATION----  */
 
-.main .pagination{
+.pagination{
   display: flex;
   flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
-.main .pagination button {
+.pagination button {
   color: black;
   padding: 8px 16px;
   text-decoration: none;
@@ -209,22 +209,22 @@ border-radius:6px;
   cursor: pointer;
 }
 
- .main .pagination button.active {
+.pagination button.active {
   background-color: #4caf50;
   color: white;
   border: 1px solid #4caf50;
 }
 
-.main .pagination button:hover:not(.active) {
+.pagination button:hover:not(.active) {
   background-color: #ddd;
 }
 
-.main .pagination button:first-child {
+.pagination button:first-child {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
-.main .pagination button:last-child {
+.pagination button:last-child {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 } 

@@ -48,9 +48,13 @@ const LogGoogle = () => {
     axios
       .get(`http://localhost:5000/order/live/${email}`)
       .then((result) => {
-
+        if(result.data.order.length===0){
+          dispatch(orderAction(result.data.orderId))
+        }else{
+          dispatch(orderAction(result.data.order[0].id));
+        }
         console.log(result);
-        dispatch(orderAction(result.data.order[0].id));
+        
       })
       .catch((err) => {
         console.log(err);
@@ -58,6 +62,7 @@ const LogGoogle = () => {
   };
 
   const responseGoogle = (response) => {
+    console.log(response.profileObj.email);
     axios
       .post("http://localhost:5000/loginGoogle", {
         firstName: response.profileObj.email,
@@ -65,8 +70,8 @@ const LogGoogle = () => {
         email: response.profileObj.email,
       })
       .then((result) => {
+        console.log("result-------",result);
         setEmail(response.profileObj.email)
-        console.log("LOGINGoogle", result);
         dispatch(loginAction(result.data.token));
         getLiveOrder(response.profileObj.email);
         

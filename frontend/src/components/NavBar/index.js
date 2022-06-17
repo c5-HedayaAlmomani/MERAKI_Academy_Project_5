@@ -12,7 +12,7 @@ import "./style.css";
 const Dashboard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [Check, setCheck] = useState(false)
+  const [Check, setCheck] = useState(false);
 
   const [searchArray, setsearchArray] = useState([]);
 
@@ -32,7 +32,7 @@ const Dashboard = () => {
   const searchFunction = (searchInput) => {
     if (searchInput.length === 0) {
       setsearchArray([]);
-      setCheck(false)
+      setCheck(false);
     } else {
       axios
         .get(`https://meraki-project-5-backend.herokuapp.com/products`)
@@ -42,10 +42,9 @@ const Dashboard = () => {
             return element.title.includes(searchInput);
           });
           if (search1.length === 0) {
-            setCheck(false)
-
+            setCheck(false);
           } else {
-            setCheck(true)
+            setCheck(true);
           }
           setsearchArray(search1);
         })
@@ -57,7 +56,6 @@ const Dashboard = () => {
 
   return (
     <div className="navv">
-
       <div className="navbar">
         {/* //!icon */}
         <i
@@ -71,62 +69,61 @@ const Dashboard = () => {
         {/* //!logo */}
         <img
           className="logo_img"
-          src="https://res.cloudinary.com/hudhud/image/upload/v1655488098/maxqgc69/xsvbpadmjlznivb5asvv.png"
+          src="https://res.cloudinary.com/hudhud/image/upload/v1655496474/maxqgc69/ECMA_vxqmns.jpg"
         />
-{/* //! search */}
-  
-        {<div className="navbarsearch">
-          <input
-          id="serxchinput"
-            placeholder="SEARCH"
-            className="searchss"
-            onChange={(e) => {
-              searchFunction(e.target.value);
-              
-            }}
-          />
-          {Check ? (<div className="navbar_section" >
-            {searchArray.length &&
-              searchArray.map((element, index) => {
-                if (searchArray.length !== 0) {
-                  return (
-                    <div
-                      className="SERCHa"
-                      onClick=
-                      {(e)=>{
-                        
-                        navigate(`/product/${element.id}`);
-                        setsearchArray([])
-                        setCheck(false)
-                        
-                      }}
-                    >
-                      <img
-                        className="Serch_img"
-                        src={element.image}
-                        alt="image product"
-                      />
-                      <p className="Serch_title">{element.title}</p>
-                      <p>{element.description}</p>
-                    </div>
-                  )
-                } else {
-                  return <></>
-                }
-              })}
-          </div>) : (<></>)}
+        {/* //! search */}
 
-        </div>}
-{/* //!all product  */}
+        {
+          <div className="navbarsearch">
+            <input
+              id="serxchinput"
+              placeholder="SEARCH"
+              className="searchss"
+              onChange={(e) => {
+                searchFunction(e.target.value);
+              }}
+            />
+            {Check ? (
+              <div className="navbar_section">
+                {searchArray.length &&
+                  searchArray.map((element, index) => {
+                    if (searchArray.length !== 0) {
+                      return (
+                        <div
+                          className="SERCHa"
+                          onClick={(e) => {
+                            navigate(`/product/${element.id}`);
+                            setsearchArray([]);
+                            setCheck(false);
+                          }}
+                        >
+                          <img
+                            className="Serch_img"
+                            src={element.image}
+                            alt="image product"
+                          />
+
+                          <p className="Serch_title">{element.title}</p>
+                        </div>
+                      );
+                    } else {
+                      return <></>;
+                    }
+                  })}
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
+        }
+        {/* //!all product  */}
         <Link className="All_Product_nav" to="product">
           All Product
         </Link>
-        
 
-{/* //! login & register & cart & logout */}
+        {/* //! login & register & cart & logout */}
         {isLoggedIn ? (
           <>
-          
             <a
               className="logout"
               onClick={() => {
@@ -142,7 +139,6 @@ const Dashboard = () => {
           </>
         ) : (
           <>
-
             <Link className="login_link" to="/login">
               Login
             </Link>
@@ -152,16 +148,12 @@ const Dashboard = () => {
           </>
         )}
       </div>
-<div className="added">
-  <a href="/">HOME</a>
-  <a href="/contact">CONTACT</a>
-  <a href="/privacy-policy">PRIVACY-POLICY</a>
-  <a href="/about">ABOUT</a>
-
-
-
-
-</div>
+      <div className="added">
+        <a href="/">HOME</a>
+        <a href="/contact">CONTACT</a>
+        <a href="/privacy-policy">PRIVACY-POLICY</a>
+        <a href="/about">ABOUT</a>
+      </div>
     </div>
   );
 };

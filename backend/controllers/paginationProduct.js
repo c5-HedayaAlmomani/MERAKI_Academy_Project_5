@@ -1,7 +1,7 @@
 const connection = require("../models/db");
 
 const getAllProductPagination = (req, res) => {
-  const limit = 6;
+  const limit = 12;
 
   const page = req.params.page;
 

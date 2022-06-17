@@ -252,7 +252,10 @@
   margin-right: 5%;
   
 }
-
+.fa-plus:before {
+  content: "\f067";
+  color: black;
+}
 .oo{
   display: flex;
   flex-direction: row;
@@ -260,20 +263,33 @@
       background: white;
     padding: 20px;
     margin: 20px;
-    border: double
+    border: double;
+    justify-content: space-evenly
 }
 .product_Page{
   margin-top: 5%; 
 }
-
+.all-see{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .image_container img {
   border-radius: 25px;
   max-height: 410px;
   max-width: 390px;
   width: 100%;
   cursor: zoom-in!important;
-  transition: opacity 0ms linear 0ms, visibility 150ms linear 0ms
+  transition: opacity 0ms linear 0ms, visibility 150ms linear 0ms;
+  justify-self: center;
+
 }
+
+.img33{
+  display: flex;
+  justify-self: center;
+}
+
+
 .div_rate{
 margin-left: 8%;
 }
@@ -548,9 +564,11 @@ width: 10px;
   margin-top: 30px;
   font-weight: 900;
   color: rgb(83, 83, 83);
+  cursor: pointer;
 }
 .see:hover {
-  color: rgb(255, 67, 208);
+  color: rgb(15, 13, 99);
+  cursor: pointer;
 }
 .feedback_div {
   width: 50%;

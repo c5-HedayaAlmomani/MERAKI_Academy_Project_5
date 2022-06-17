@@ -247,7 +247,11 @@
   margin: 24px auto 15px;
 } */
 
-
+.feedpact {
+  margin-top: 2.5%;
+  margin-right: 5%;
+  
+}
 
 .oo{
   display: flex;
@@ -373,22 +377,29 @@ margin-left: 8%;
 .imge_feedback {
   grid-area: aaa;
   margin-left: 10%;
-  margin-top: 5%;
+  margin-top: 25%;
   height: 50px;
 }
 
 .firstName_feedback {
   justify-self: start;
   grid-area: sss;
+  margin-top: 3%;
+  font-weight: 900;
+  font-size: larger;
+  color: rgb(133, 133, 133);
 }
 .feedpact {
   justify-self: start;
   grid-area: xxx;
 }
+
 .input_update_feedback {
+ 
+  width: 70%;
   grid-area: rrr;
   margin: 5px;
-  margin-left: 10px;
+  margin-left: 20%;
   border-radius: 20px;
   border: none;
   box-shadow: 0px 5px 15px 7px rgb(151, 151, 151);
@@ -396,13 +407,24 @@ margin-left: 8%;
 }
 .fa-trash:before {
   height: 10px;
+  color: rgb(163, 163, 163);
+  font-size: 70%;
+  margin: 0;
+}
+.fa-edit:before {
+  content: "\f044";
+  color: rgb(163, 163, 163);
+  font-size: 70%;
+  margin: 0;
 }
 .button_update_feedback {
   grid-area: uuu;
-  height: 20px;
+  /* height: 20px; */
   color: rgb(146, 145, 145);
+  /* margin: auto; */
+  /* padding: 0; */
   margin: auto;
-  padding: 0;
+  width: 10px;
   border: none;
   border-radius: 35px;
   background-color: rgb(248, 248, 248);
@@ -414,11 +436,11 @@ margin-left: 8%;
 .button_delete_feedback {
   background-color: rgb(248, 248, 248);
   grid-area: iii;
-  height: 20px;
+  /* height: 20px; */
   color: rgb(146, 145, 145);
 
   margin: auto;
-
+width: 10px;
   border: none;
   border-radius: 35px;
 
@@ -436,7 +458,7 @@ margin-left: 8%;
   align-items: center;
 }
 .new_feedback {
-  width: 60%;
+  width: 50%;
   margin-top: 3%;
   background-color: rgb(248, 248, 248);
   display: grid;
@@ -512,35 +534,45 @@ margin-left: 8%;
   -moz-transition: box-shadow 0.4s, text-shadow 0.5s;
   transition: box-shadow 0.4s, text-shadow 0.5s;
 }
-
+.all_see{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
 .see {
   margin: 20px;
   border: none;
   font-size: larger;
-  background-color: rgb(230, 230, 230);
   font-style: oblique;
+  background-color: none;
+  margin-top: 30px;
+  font-weight: 900;
+  color: rgb(83, 83, 83);
 }
 .see:hover {
   color: rgb(255, 67, 208);
 }
 .feedback_div {
-  width: 60%;
-  margin-top: 3%;
+  width: 50%;
+  /* margin-top: 3%; */
  
+ height: 95px;
   background-color: rgb(248, 248, 248);
   display: grid;
   border-radius: 25px;
-  grid-template-columns: 1% 10% 12.5% 12.5% 12.5% 27.5% 12.5% 12.5%;
+  grid-template-columns: 1% 10% 12.5% 12.5% 12.5% 40.5% 3.5% 6.5%;
   grid-template-rows: 30px 30px 35px;
   grid-template-areas: "aaa aaa sss sss sss sss sss sss" "aaa aaa xxx xxx xxx xxx xxx xxx" "eee rrr rrr rrr rrr rrr uuu iii";
   box-shadow: 0px 5px 15px 7px rgb(151, 151, 151);
 }
 
 .all_feedback{
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100px;
 }
 
 .add_to_cart{
@@ -549,11 +581,5 @@ margin-left: 8%;
     border: none; 
   
 }
-
-
-
-
-
-
 
 

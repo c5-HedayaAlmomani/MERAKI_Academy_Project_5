@@ -381,22 +381,22 @@ const OneProduct = () => {
       </div>
 
       <div>
-        <button
+        <a
           className="see"
           onClick={() => {
             setNumber(number + 3);
           }}
         >
           See More
-        </button>
-        <button
+        </a>
+        <a
           className="see"
           onClick={() => {
             setNumber(3);
           }}
         >
           See Less
-        </button>
+        </a>
       </div>
     </div>
   );

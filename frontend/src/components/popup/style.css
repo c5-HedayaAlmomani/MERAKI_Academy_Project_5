@@ -18,22 +18,43 @@ bottom: 100px;
     padding: 32px;
     width: 100%;
     max-width: 640px;
-    background-color: #025E73;
+    background-color: #d6d9d9d1;
+    border-radius: 5px;
   }
   .popup-inner .close-btn {
     position: absolute;
-    bottom: 5vh;
-    right:60vh;
+    bottom: 0vh;
+    right: 48.25vh;
     margin: auto;
     width: 50%;
-    background-color: red;
+    background-color: #00ff0a;
+    /* display: flex; */
+    /* flex-direction: row; */
+    height: 5vh;
+    color: white;
+    font-size: x-large;
+    cursor: pointer;
+    text-transform: uppercase
     
   }
   
   .popup-inner .close-btn2 {
-    width: 10vh;
     position: absolute;
-    bottom: 5vh;
+    bottom: 0vh;
+    right: 0vh;
     margin: auto;
+    width: 51%;
+    background-color: #ff0000;
+    /* display: flex; */
+    /* flex-direction: row; */
+    height: 5vh;
+    font-size: x-large;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase
+  }
+  .popup-inner h1 {
+    margin-bottom: 20px;
+
   }
   

@@ -127,7 +127,7 @@ const ProductMain = () => {
                   <h2>{e.title}</h2>
 
 
-                  <p>PRICE {e.price} JOD</p>
+                  <p>{e.price} JOD</p>
                   {e.AvailableQuantity > 0 ? (<>
                   <button className="addcart"
                     onClick={() => {

@@ -229,30 +229,111 @@ border-radius:6px;
 
 .main .sort{
   display: flex;
-    /* margin-right: 1vw; */
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: center;
+  /* margin-right: 1vw; */
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-left:20px
 
+}
+
+.main .sort h5{
+  color: #000000 ;
+  font-size: medium;
 }
 
 
 
 .sort select {
   background-color: #023859;
-    color: white;
-    /* padding: 12px; */
-    width: 30vw;
-    border: none;
-    font-size: 20px;
-    box-shadow: 0 5px 25px rgb(0 0 0 / 20%);
-    appearance: button;
-    outline: none;
-    margin-left: 2vw;
-    text-align: center;
+  color: white;
+  /* padding: 12px; */
+  width: 10vw;
+  border: none;
+  font-size: 14px;
+  box-shadow: 0 5px 25px rgb(0 0 0 / 20%);
+  appearance: button;
+  outline: none;
+  margin-left: 2vw;
+  text-align: center;
 }
 
 
 .sort select option {
   padding: 30px;
+}
+
+
+.oneProductALL{
+  display: flex;
+  flex-direction: column;
+  width: 15vw;
+  aspect-ratio: 1/1.3;
+  box-shadow: 0px 3px 3px 3px rgb(170, 171, 172);
+  margin:1px 2px 2px 3px ;
+  border-radius: 5px;
+  /* background-color: #ddd; */
+
+}
+.oneProductALL img {
+  padding-bottom: 10px;
+  width: 15vw;   
+  aspect-ratio: 1/1.1;
+}
+
+.All_product{
+  display: flex;
+  flex-direction: row;
+  gap: 5vw;
+  margin: 3vw 5vw 10vw 5vw;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.TitleAll{
+  height: 10%;
+  width: 100%;
+  padding-bottom: 8px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0px 5px;
+}
+.view{
+  width: 50%;
+    height: 5vh;
+    border-radius: none;
+    border: none;
+    background-color: #025e73;
+    color: white;
+  cursor: pointer;
+
+
+}
+
+.add_cart{
+  border-right: solid 1px black;
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  width: 50%;
+  height: 5vh;
+  /* border: none; */
+  background-color: rgb(185 185 185 / 62%);
+  color: black;
+  cursor: pointer;
+}
+
+.add_cart:hover{
+  background-color: #c7015d;
+}
+
+
+.oneProductALL p {
+  font-weight: 900;
+    font-size: large;
+    margin-bottom: 10px;
+    color: #c7015d;
 }

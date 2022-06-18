@@ -17,7 +17,7 @@ const ProCB = () => {
   const [allPCat, setPAllCat] = useState([]);
 
   const func = () => {
-    
+    console.log(`yyyyyyyyyyyyyyyyyyyyy${ brand}uuuuuuuuuuu${category}`);
     axios
       .post(`https://meraki-project-5-backend.herokuapp.com/filter/display/proCB`, {
         brand,
@@ -25,6 +25,7 @@ const ProCB = () => {
       })
       .then((result) => {
         setPAllCat(result.data.result);
+        console.log(result);
       })
       .catch((err) => {
         console.log(err);

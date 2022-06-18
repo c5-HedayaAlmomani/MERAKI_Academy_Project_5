@@ -80,3 +80,56 @@
 
   color: rgb(25, 107, 173);
 }
+
+@media (max-width: 500px) {
+
+
+
+  .register {
+    max-width: 210px;
+    max-height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 20px;
+  }
+  
+
+
+  .register input {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+
+    padding: 2%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.8);
+    color: rgb(25, 107, 173);
+    width: 80%;
+    margin: 1%;
+    /* margin-left: 20%; */
+    border-radius: 7px;
+    border-color: rgb(25, 107, 173);
+  
+  }
+
+  .register button {
+    background: rgb(25, 107, 173);
+    text-align: center;
+    padding: 7px;
+    border-radius: 5px;
+    margin: auto;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+   height: 40px;
+   padding-bottom: 10px;
+  }
+
+
+
+
+}

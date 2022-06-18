@@ -79,6 +79,7 @@ const getProCB = (req, res) => {
         err: err,
       });
     }
+   
     res.status(200).json({
       success: true,
       massage: "All the Product",

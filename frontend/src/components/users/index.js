@@ -74,6 +74,8 @@ const UsersComponent = () => {
       });
   };
 
+
+  
   return (
     <div className="UsersComponent">
       <h3>Users Table</h3>
@@ -127,8 +129,17 @@ const UsersComponent = () => {
                   
 
                     <button className="Delete"
-                      onClick={() => {
-                        setTest(true)
+                      onClick={ () => {
+                        // deleteUserAdmin(element.id);
+                        // console.log("in button" ,element.id);
+                         setTest(true)
+
+                          {/* //!=================== */}
+                          
+ 
+
+
+                        
                       }}
                     >
                       <FaTrash/>  Delete User
@@ -141,10 +152,11 @@ const UsersComponent = () => {
           <div className="popup-inner">
             <h1>Delete User</h1>
             <p>Are you sure to delete user</p>
-
+ 
             <button
               className="close-btn"
               onClick={() => {
+                console.log("in popup------",element.id);
                 deleteUserAdmin(element.id);
                 setTest(false);
                 
@@ -168,10 +180,6 @@ const UsersComponent = () => {
 
       {/* //!=================== */}
 
-
-
-
-
                   </td>
                 </tr>
               </>
@@ -181,5 +189,6 @@ const UsersComponent = () => {
     </div>
   );
 };
+
 
 export default UsersComponent;

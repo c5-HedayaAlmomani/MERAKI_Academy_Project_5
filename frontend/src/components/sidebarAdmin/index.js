@@ -26,6 +26,23 @@ const SidebarAdmin = () => {
             <a href="/Admin/brand">Add Brand </a>
           </div>
         </li>
+        
+
+        
+
+        <li class="item" id="mn6">
+          <a class="btn" href="#mn6">
+            Category
+          </a>
+          <div class="submenu">
+            <a href="/Admin/category">Category List</a>
+            <a href="/Admin/category">Add Category </a>
+          </div>
+        </li>
+
+
+
+
 
         <li class="item" id="mn3">
           <a class="btn" href="#mn3">

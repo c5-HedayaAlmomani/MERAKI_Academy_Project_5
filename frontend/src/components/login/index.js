@@ -40,9 +40,16 @@ const Login = () => {
       .post(`https://meraki-project-5-backend.herokuapp.com/admin/users`, { email: email })
       .then((result) => {
         if (result.data.result[0].role == "ADMIN") {
+
+          
         dispatch(setIsAdmainAction(true));
+
+        navigate("/admin");
         }else{
+
+
             dispatch(setIsAdmainAction(false));  
+            navigate("/")
         }
         
       })
@@ -58,18 +65,19 @@ const Login = () => {
         dispatch(loginAction(result.data.token));
         getLiveOrder();
 
-        if (result.data.token === 1) {
-          navigate("/");
-        } else {
-          navigate("/admin");
-        }
+    
+        getRole();
+
+
+
+
       })
       .catch((err) => {
         console.log(err);
 
         setMessage(err.response.data.message);
       });
-    getRole();
+    // getRole();
   };
 
   return (

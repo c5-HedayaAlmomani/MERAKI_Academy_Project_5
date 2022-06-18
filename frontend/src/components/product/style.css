@@ -337,3 +337,40 @@ border-radius:6px;
     margin-bottom: 10px;
     color: #c7015d;
 }
+
+@media (max-width: 500px) {
+
+
+  .All_product{
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+  
+.oneProductALL {
+ 
+  width: 100px;
+margin: 6px;
+
+
+}
+.oneProductALL img{
+ 
+ margin: auto;
+
+
+}
+
+
+
+
+
+}

@@ -167,7 +167,7 @@
   max-height: 20rem;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .filter_item .menu {
     width: 30vw;
 

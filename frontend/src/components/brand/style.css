@@ -177,6 +177,14 @@
 }
 
 @media (max-width: 500px) {
+
+  .brand_with_title {
+    margin-top: 0vh;
+    background-color: #e4e4e4;
+    padding-top: 10px;
+  }
+
+
   .all_brand-only {
     background-color: #e4e4e4;
     display: flex;
@@ -184,7 +192,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height: 220px;
+    height: 110px;
     margin: 0px 0px;
     padding: 0px;
   }
@@ -197,17 +205,24 @@
   .all_brand {
     font-family: Arial;
     font-size: 23px;
-    margin-top: 0vh;
+    margin-top: 5vh;
   }
 
   .all_category-only {
-    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* margin: 20px 20px; */
+   margin-bottom: 80px;
+   margin-top: 20px;
+    /* margin: 10px; */
+    /* background-color: rgb(255, 255, 255);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 50px; */
     /* margin: 60px 0px; */
   }
   .img_category_brands {
@@ -217,8 +232,9 @@
   }
 
   .contenar_category_brands {
-    margin-left: 0px;
-    margin-right: 0px;
+  margin: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     border-radius: 1px;
     background-color: rgb(248, 248, 248);
     box-shadow: 0px 2px 2px 2px;

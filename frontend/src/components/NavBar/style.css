@@ -88,8 +88,6 @@
 }
 .added a:hover {
   color: rgb(11, 39, 131);
- 
-
 }
 .fa,
 .fas {
@@ -162,7 +160,6 @@
 }
 .navbar_section {
   width: 27.5vw;
-
 }
 
 .SERCHa {
@@ -218,8 +215,8 @@
   width: 40px;
   height: 31px;
   border-radius: px;
-  margin-top: 7px;}
-
+  margin-top: 7px;
+}
 
 .Serch_title {
   width: 100%;
@@ -229,7 +226,7 @@
   flex-direction: column;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .added {
     background-color: aqua;
   }
@@ -273,6 +270,18 @@
   }
   .cart {
     grid-area: t;
+  }
+  .login_link {
+    grid-area: n;
+    font-size: small;
+
+    position: relative;
+    right: 30px;
+  }
+  .register_link {
+    grid-area: t;
+    font-size: smaller;
+    width: 100%;
   }
 
   .fa-cart-plus {

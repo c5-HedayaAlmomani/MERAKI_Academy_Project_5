@@ -39,7 +39,9 @@ const Product = () => {
   };
   const gitAllProduct = () => {
     axios
-      .get(`https://meraki-project-5-backend.herokuapp.com/products/pagination/${page}`)
+      .get(
+        `https://meraki-project-5-backend.herokuapp.com/products/pagination/${page}`
+      )
       .then((result) => {
         setProducts(result.data.result);
       })
@@ -86,6 +88,7 @@ const Product = () => {
   return (
     <div className="main">
       <div className="sort">
+        <h5>Sort By</h5>
         <select
           onClick={(e) => {
             sortFunction(e.target.value);
@@ -104,15 +107,50 @@ const Product = () => {
           <option>low Price</option>
         </select>
       </div>
+      <div className="All_product">
+        {products.length &&
+          products.map((e, i) => {
+            return (
+              <div className="oneProductALL">
+                <img src={e.image} alt="" />
+                <h4 className="TitleAll">{e.title}</h4>
+                <p>{e.price} JOD</p>
+                <div className="Add">
+                  {e.AvailableQuantity > 0 ? (
+                    <button
+                      className="add_cart"
+                      onClick={() => {
+                        addToCart(e.id);
+                        notifyCart();
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                  ) : (
+                    <p>SoldOut</p>
+                  )}
+                  <button
+                    className="view"
+                    onClick={() => {
+                      navigate(`/product/${e.id}`);
+                    }}
+                  >
+                    View Product
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+      </div>
 
-      <div className="products">
+      {/* <div className="products">
         {products.length &&
           products.map((e, i) => {
             return (
               <div className="card">
                 <ul className="ul">
                   <li>
-                    <i>{/* {e.price} $ */}</i>
+                    <i></i>
                   </li>
                   <li>
                     <i></i>
@@ -129,7 +167,7 @@ const Product = () => {
                   <h2>{e.title}</h2>
                   <p>{e.price} JOD</p>
                   <p>
-                    {/* {e.description} */}{" "}
+                    
                     {e.AvailableQuantity > 0 ? (
                       <button
                         className="add_to_cart"
@@ -155,7 +193,7 @@ const Product = () => {
               </div>
             );
           })}
-      </div>
+      </div> */}
       <div className="pagination">
         {page != 1 ? (
           <>

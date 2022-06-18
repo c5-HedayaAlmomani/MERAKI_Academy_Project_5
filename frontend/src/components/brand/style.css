@@ -125,7 +125,7 @@
 }
 .img_category_brands {
   width: 120px;
-  height: 170PX;
+  height: 170px;
   margin: 20px 20px;
 }
 .contenar_namecategoryand_bands {
@@ -144,14 +144,13 @@
   font-family: Arial;
   font-weight: 900;
 }
-.imgAndName :hover{
+.imgAndName :hover {
   cursor: pointer;
-  transform: scale(1.10);
-  
+  transform: scale(1.1);
 }
-.contenar_category_brands:hover{
+.contenar_category_brands:hover {
   cursor: pointer;
-  transform: scale(1.10);
+  transform: scale(1.1);
 }
 .contenar_category_brands {
   word-break: break-all;
@@ -161,6 +160,8 @@
   background-color: rgb(248, 248, 248);
   box-shadow: 0px 2px 2px 2px;
   color: rgb(236, 236, 236);
+
+  width: 31vh;
 }
 
 .all_brand-only {
@@ -177,13 +178,11 @@
 }
 
 @media (max-width: 500px) {
-
   .brand_with_title {
     margin-top: 0vh;
     background-color: #e4e4e4;
     padding-top: 10px;
   }
-
 
   .all_brand-only {
     background-color: #e4e4e4;
@@ -199,7 +198,7 @@
 
   .branddivv img {
     width: 35px;
-    height:70%;
+    height: 70%;
     /* margin: 0px 20px; */
   }
   .all_brand {
@@ -213,8 +212,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     /* margin: 20px 20px; */
-   margin-bottom: 80px;
-   margin-top: 20px;
+    margin-bottom: 80px;
+    margin-top: 20px;
     /* margin: 10px; */
     /* background-color: rgb(255, 255, 255);
     display: flex;
@@ -227,24 +226,24 @@
   }
   .img_category_brands {
     width: 60px;
-    height: auto;
+    /* height: auto; */
     /* margin: 20px 20px; */
   }
 
   .contenar_category_brands {
-  margin: 10px;
+    margin: 10px;
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 1px;
     background-color: rgb(248, 248, 248);
     box-shadow: 0px 2px 2px 2px;
     color: rgb(236, 236, 236);
-    width: 90px;
+    width: 100px;
     height: 150px;
   }
   .img_brand_brands {
     width: 10px;
-    height: auto;
+    /* height: auto; */
     position: relative;
     bottom: 20px;
   }
@@ -256,7 +255,7 @@
 
   .contenar_namecategoryand_bands img {
     width: 20px;
-    height: auto;
+    /* height: auto; */
     margin: auto;
   }
   .contenar_namecategoryand_bands p {

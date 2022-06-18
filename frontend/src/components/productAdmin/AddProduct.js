@@ -79,40 +79,6 @@ const AddProductAdmin = () => {
       });
   };
 
-
-
-
-
-
-  // const creatProduct = () => {
-  //   console.log("ggggggg");
-  //   axios
-  //     .post(
-  //       `https://meraki-project-5-backend.herokuapp.com/products`,
-  //       {
-  //         title: title,
-  //         description: description,
-  //         price: price,
-  //         image: cloudinary,
-  //         category_id: category_id,
-  //         sub_category_id: sub_category_id,
-  //         brand_id: brand_id,
-  //         AvailableQuantity: quantity,
-  //       },
-  //       {
-  //         headers: { authorization: `Bearer ${token}` },
-  //       }
-  //     )
-  //     .then((result) => {
-  //       dispatch(addProductAction(result));
-
-  //       notifyAdd();
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
   const func = () => {
     axios
       .get(`https://meraki-project-5-backend.herokuapp.com/filter/display/category/id/${brand_id}`)
@@ -128,12 +94,10 @@ const AddProductAdmin = () => {
   return (
     <div className="AddProductAdmin">
       <div className="UpdateProductAdmin">
-        <div className="image_container">
-          <Upload />
-        </div>
+        
         <div className="input_container">
-          <div className="titleProduct">
-            <h5>Title</h5>
+        
+            <h5 className="titleH5">Title</h5>
           <input
             placeholder="  Title"
             type="text"
@@ -142,10 +106,10 @@ const AddProductAdmin = () => {
               setTitle(e.target.value);
             }}
           />
-          </div>
-          <div className="descriptionProduct">
-          <h5>Description</h5>
-          <input
+          
+          
+          <h5 className="descriptionProduct">Description</h5>
+          <textarea
             placeholder="  Description"
             type="text"
             className="des_input"
@@ -154,36 +118,37 @@ const AddProductAdmin = () => {
             }}
           />
 
-          </div>
-          <div className="priceProduct">
-          <h5>Price</h5>
+          
+          
+          <h5 className="priceProduct">Price</h5>
           <input
             placeholder="  Price"
             type="number"
-            className="title"
+            className="Price"
             onChange={(e) => {
               setPrice(e.target.value);
             }}
           />
 
-          </div>
-          <div className="QuantityProduct">
-          <h5>Quantity</h5>
+          
+          
+          <h5 className="QuantityProduct">Quantity</h5>
           <input
             placeholder="  Quantity"
             type="number"
-            className="title"
+            className="Quantity"
             onChange={(e) => {
               seQuantity(e.target.value);
             }}
           />
 
-          </div>
-          <div className="brandProduct">
-          <h5>Brand</h5>
+         
+          
+          <h5 className="brandProduct">Brand</h5>
 
-          <select
+          <select className="productsss"
             onClick={(e) => {
+              
               setBrand_id(e.target.value);
               func();
             }}
@@ -199,11 +164,11 @@ const AddProductAdmin = () => {
               })}
           </select>
 
-          </div>
-              <div className="CategoryProduct">
+          
+             
 
-          <h5>Category</h5>
-          <select
+          <h5 className="CategoryProduct">Category</h5>
+          <select className="Category"
             onClick={(e) => {
               setCategory_id(e.target.value);
             }}
@@ -218,20 +183,23 @@ const AddProductAdmin = () => {
                 );
               })}
           </select>
-              </div>
-<div className="subCategoryProduct">
+              
 
-          <h5>sub Category</h5>
-          <input
+          <h5 className="subCategoryProduct">sub Category</h5>
+          <input className="subCat"
             type="number"
-            className="sub_category"
+            
             onChange={(e) => {
               setSub_Category_id(e.target.value);
             }}
           />
-</div>
+           
+
         </div>
-        <button
+       
+        <div className="image_container">
+          <Upload />
+          <button
           className="but_add_pro"
           onClick={() => {
             creatProduct();
@@ -239,6 +207,8 @@ const AddProductAdmin = () => {
         >
           Create Product
         </button>
+        </div>
+
       </div>
     </div>
   );

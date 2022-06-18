@@ -172,8 +172,7 @@ const Cart = () => {
                     <div>
                       <p className="product_titlee">
                         {element.title}
-                        <br></br>
-                        {element.description}
+                        
                       </p>
                     </div>
                   </div>

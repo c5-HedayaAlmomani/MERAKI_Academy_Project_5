@@ -66,12 +66,9 @@ const UpdateProductAdmin = () => {
 
   return (
     <div className="UpdateProductAdmin">
-      <div className="image_container">
-        <h5> add new Picture</h5>
-        <Upload />
-      </div>
-      <div className="input_container">
-        <h5>Title</h5>
+      
+      <div className="input_containerAA">
+        <h5 className="titleH5">Title</h5>
         <input
           type="text"
           className="title"
@@ -79,24 +76,27 @@ const UpdateProductAdmin = () => {
             setTitle(e.target.value);
           }}
         />
-        <h5>Description</h5>
+        <h5 className="descriptionProduct">Description</h5>
         <input
           type="text"
-          className="description"
+          className="Description"
           onChange={(e) => {
             setDescription(e.target.value);
           }}
         />
-        <h5>Price</h5>
+        <h5 className="priceProduct">Price</h5>
         <input
           type="number"
-          className="title"
+          className="Price"
           onChange={(e) => {
             setPrice(e.target.value);
           }}
         />
       </div>
-      <button
+      <div className="image_container">
+        <h5> add new Picture</h5>
+        <Upload />
+        <button
         className="but_add_pro"
         onClick={() => {
           setTest(true);
@@ -104,6 +104,10 @@ const UpdateProductAdmin = () => {
       >
         Edit Product
       </button>
+      </div>
+
+
+      
 
       {/* //!=================== */}
       {test ? (

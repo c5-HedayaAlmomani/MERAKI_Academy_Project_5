@@ -20,6 +20,7 @@ function Upload() {
     await axios
       .post(`https://api.cloudinary.com/v1_1/hudhud/image/upload`, data)
       .then((result) => {
+        console.log(result.data.secure_url);
         setImage(result.data.secure_url);
         dispatch(addToCloudinaryAction(result.data.secure_url));
         setLoading(true);

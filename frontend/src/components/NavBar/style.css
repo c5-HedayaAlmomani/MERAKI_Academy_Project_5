@@ -145,9 +145,24 @@
   background: rgb(255, 255, 255);
   position: absolute;
   top: 50px;
+  z-index: 102;
+}
+.navbar_section p {
+  margin-left: 49px;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  /* width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  /* height: 70px; */
+  /* overflow: hidden; */
 }
 .navbar_section {
-  width: 40vw;
+  width: 27.5vw;
+
 }
 
 .SERCHa {
@@ -156,13 +171,14 @@
   border-bottom: 1px solid;
   border-left: 1px solid;
   border-right: 1px solid;
-  padding: 5px;
+  padding: 8px 4px;
   /* border-radius: 5px; */
   justify-self: center;
   align-items: center;
   /* height: 3.8vh; */
-  height: 26px;
-  width: 70%;
+  height: -moz-fit-content;
+  height: 7vh;
+  width: 100%;
 }
 
 .navbar a {
@@ -198,12 +214,13 @@
 }
 
 .Serch_img {
-  width: 23px;
-  height: 23px;
+  margin-top: 2px;
+  width: 40px;
+  height: 31px;
   border-radius: px;
-  margin-top: 13px;
+  margin-top: 7px;}
 
-}
+
 .Serch_title {
   width: 100%;
 }

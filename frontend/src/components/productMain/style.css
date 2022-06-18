@@ -47,6 +47,7 @@
   padding-right: 100px;
 }
 .innfo {
+  
   justify-self: center;
   display: flex;
   flex-direction: column;
@@ -54,6 +55,12 @@
   padding: 10px;
   padding-bottom: 0px;
 }
+
+/* .innfo h2 {
+  text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+} */
 
 .innfo button {
   border: none;
@@ -64,6 +71,7 @@
   height: 53px;
   margin-top: 12px;
   font-family: Arial;
+  border-radius: 5px;
 }
 .innfo p {
   border: none;

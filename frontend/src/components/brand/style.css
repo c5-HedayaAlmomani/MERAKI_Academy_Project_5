@@ -144,7 +144,17 @@
   font-family: Arial;
   font-weight: 900;
 }
+.imgAndName :hover{
+  cursor: pointer;
+  transform: scale(1.10);
+  
+}
+.contenar_category_brands:hover{
+  cursor: pointer;
+  transform: scale(1.10);
+}
 .contenar_category_brands {
+  word-break: break-all;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 1px;
@@ -157,7 +167,7 @@
   background-color: #e4e4e4;
 }
 .brand_with_title {
-  margin-top: 13vh;
+  margin-top: 27vh;
   background-color: #e4e4e4;
   padding-top: 40px;
 }

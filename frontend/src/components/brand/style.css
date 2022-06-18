@@ -176,7 +176,7 @@
   font-family: Arial;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .all_brand-only {
     background-color: #e4e4e4;
     display: flex;
@@ -184,18 +184,20 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height: 270px;
-    margin: 50px 0px;
+    height: 220px;
+    margin: 0px 0px;
+    padding: 0px;
   }
 
   .branddivv img {
-    width: 60px;
-    height: auto;
-    margin: 0px 20px;
+    width: 35px;
+    height:70%;
+    /* margin: 0px 20px; */
   }
   .all_brand {
     font-family: Arial;
     font-size: 23px;
+    margin-top: 0vh;
   }
 
   .all_category-only {

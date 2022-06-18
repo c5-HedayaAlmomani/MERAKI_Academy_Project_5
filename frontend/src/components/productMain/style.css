@@ -100,7 +100,7 @@ white-space: nowrap;
 }
 /* //!====================== */
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .product_main img {
     width: 40px;
     height: auto;

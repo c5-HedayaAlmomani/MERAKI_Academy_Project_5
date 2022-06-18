@@ -48,12 +48,12 @@ const Footer = () => {
 
                 <div className="footer-center">
 
-                    <div>
+                    <div className="mediafooter">
                         <i className="fa fa-map-marker"></i>
                         <p><span>ECMA</span> zarka, jordan</p>
                     </div>
 
-                    <div>
+                    <div className="mediafooter">
                         <i className="fa fa-phone"></i>
                         <p>+9962788888888
                             <br></br>
@@ -61,7 +61,7 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <div>
+                    <div className="mediafooter">
                         <i className="fa fa-envelope"></i>
                         <p><a href="mailto:support@company.com">ECMA@company.com</a></p>
                     </div>

@@ -234,7 +234,7 @@ section {
 }
 
 .about1{
-  font: bolder 29px "Open Sans";
+  font-size: small;
   color: rgb(0, 0, 0);
 }
 .aboutDiv{
@@ -248,4 +248,48 @@ section {
   width: 20vw;
   margin-left: 80vh;
   
+}
+
+@media (max-width: 500px) {
+
+  .mediafooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin: auto;
+
+  }
+  .mediafooter p  {
+    position: relative;top: 17px;
+    left: 46px;
+  }
+
+  .mediafooter i {
+    position: relative;
+    left: 33px;
+  }
+
+
+
+
+}
+@media (max-width: 500px){
+
+
+  .about1{
+    color: #000;
+  }
+  .about {
+   font-family: Arial;
+   font-size: smaller;
+   text-align:start ;
+   margin-left: 20px;
+    color: rgb(25, 89, 141);
+    display: flex;
+    flex-direction: column
+  }
+
+
+
+
 }
